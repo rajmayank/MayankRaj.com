@@ -1,0 +1,28 @@
+
+@font-face {
+  font-family: "icons";
+  src: url("../icons/icons.eot");
+  src: url("../icons/icons.eot?#iefix") format("embedded-opentype"),
+  url("../icons/icons.woff") format("woff"),
+  url("../icons/icons.ttf") format("truetype"),
+  url("../icons/icons.svg#icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "icons";
+    src: url("../icons/icons.svg#icons") format("svg");
+  }
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before,
+[class^="icon-"]:after, [class*=" icon-"]:after {   
+  font-family: icons;
+  font-style: normal;
+}
+
+.icon-github:before { content: "\f100"; }
+.icon-linkedin:before { content: "\f101"; }
+.icon-mail:before { content: "\f102"; }

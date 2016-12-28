@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 
-	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		uglify: {
@@ -42,6 +41,12 @@ module.exports = function(grunt) {
 					src: ['**/*.{png,jpg,svg}'],
 					dest: 'dist/images/'
 				}],
+				files: [{
+					expand: true,
+					cwd: 'src/icons/',
+					src: ['**/*.{ttf,eot,svg,woff}'],
+					dest: 'dist/icons/'
+				}],
 			},
 		},
 		watch: {
@@ -78,6 +83,6 @@ module.exports = function(grunt) {
 
 	// grunt.registerTask('default', ['uglify', 'cssmin', 'htmlmin', 'copy']);
 	// grunt.registerTask('copy', ['uglify', 'cssmin', 'htmlmin', 'copy']);
-	grunt.registerTask('default', ['copy' , 'watch']);
+	grunt.registerTask('default', ['uglify', 'cssmin', 'htmlmin', 'copy' , 'watch']);
 
 };
