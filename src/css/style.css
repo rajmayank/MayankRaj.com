@@ -4,6 +4,8 @@ body{
 	font-family: 'Raleway', sans-serif;
 }
 
+a{ color: #e57373; }
+a:hover{ color: #c62828; }
 
 .title{
 	letter-spacing: -1px;
@@ -225,7 +227,7 @@ section .body{
 }
 
 .heart-icon svg{
-	fill: c;
+	fill: #e57373;
 	position: relative;
 	top: 5px;
 	left: -3px;
@@ -257,3 +259,58 @@ section .body{
 }
 
 
+/* -------Clients ---------- */
+
+.client-container {
+	margin-top: 50px;
+}
+.client-container .client-link{
+	text-align: center;
+}
+.client-container .client-link .link-overlay{
+	display: none;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	top: 30px;
+	font-size: 25px;
+	font-weight: 700;
+	
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-duration: .75s;
+	animation-duration: .75s;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+
+.client-container .client-link:hover .image{
+	opacity: 0.1;
+	cursor: pointer;
+}
+
+.client-container .client-link:hover .link-overlay{
+	display: block;
+}
+.client-container .image img{
+	width: 200px;
+	height: auto;
+}
+@-webkit-keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@-webkit-keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
