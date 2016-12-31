@@ -6,3 +6,4 @@
         $(this).attr('style', 'width : ' + width + '%');
     });
 })();
+
