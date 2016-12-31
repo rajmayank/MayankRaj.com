@@ -158,7 +158,7 @@ section .body{
 	position: relative;
 }
 .project .time .text{
-	padding-right: 10px;
+	padding-right: 20px;
 }
 .project .time .dot{
 	position: absolute;
