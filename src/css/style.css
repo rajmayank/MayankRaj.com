@@ -6,55 +6,53 @@ a:hover{ color: #c62828; }
 
 
 @media (max-width: 767px) {
-	.title .name{
+	.main-title .name{
 		font-size: 35px;
 	}
-	.title .work{
+	.main-title .work{
 		font-size: 20px;	
 	}
 }
 @media (min-width: 768px) and (max-width: 991px) {
-	.title .name{
+	.main-title .name{
 		font-size: 45px;
 	}
-	.title .work{
+	.main-title .work{
 		font-size: 25px;
 	}
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-	.title .name{
+	.main-title .name{
 		font-size: 60px;
 	}
-	.title .work{
+	.main-title .work{
 		font-size: 35px;	
 	}
 }
 @media (min-width: 1200px) {
-	.title .name{
+	.main-title .name{
 		font-size: 80px;
 	}
-	.title .work{
+	.main-title .work{
 		font-size: 40px;	
 	}
 }
 
-.title{
-	letter-spacing: -1px;
-	font-weight: 400;
-	font-size: 4.25em;
-	line-height: 1;
+.main-title{
 	position: absolute;
-	pointer-events: none;
-	
-	position: absolute;
-	top: 25vh;
-	left: 20vw;
-	color: #fff;
+    margin: 0;
+    padding: 0;
+    color: #f9f1e9;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
 }
-.title .name{
+.main-title .name{
 	padding-bottom: 10px;
 }
-.title .work{
+.main-title .work{
 	position: absolute;
 	left: 5px;
 }
