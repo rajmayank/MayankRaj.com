@@ -1,8 +1,8 @@
 (function() {
 
     var width, height, largeHeader, canvas, ctx, triangles, target, animateHeader = true;
-    var colors = ['239,154,154', '183,28,28'];
-    // var colors = ['239,154,154', '239,83,80', '211,47,47', '183,28,28', '224,33,48'];
+    // var colors = ['239,154,154', '183,28,28'];
+    var colors = ['62, 35, 255', '60, 255, 60', '255, 35, 98', '45, 175, 230', '255, 0, 255', '255, 128, 0'];
 
     initHeader();
     addListeners();
@@ -19,7 +19,7 @@
         largeHeader = document.getElementById('large-header');
         largeHeader.style.height = height + 'px';
 
-        canvas = document.getElementById('demo-canvas');
+        canvas = document.getElementById('canvas');
         canvas.width = width;
         canvas.height = height;
         ctx = canvas.getContext('2d');
@@ -136,8 +136,7 @@
 
 (function() {
 
-    var colors = new Array( [ 239 , 154 , 154] , [ 183,28,28 ], [255, 35, 98], [45, 175, 230], [255, 0, 255], [255, 128, 0] );
-    // var colors = new Array( [62, 35, 255], [60, 255, 60], [255, 35, 98], [45, 175, 230], [255, 0, 255], [255, 128, 0]);
+    var colors = new Array([62, 35, 255], [60, 255, 60], [255, 35, 98], [45, 175, 230], [255, 0, 255], [255, 128, 0]);
 
     var step = 0;
     var colorIndices = [0, 1, 2, 3];
@@ -170,20 +169,21 @@
         }).css({
             background: "-moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%)"
         });
+        $('.top-bar').css({
+            background: "-webkit-gradient(linear, left top, right bottom, from(" + color1 + "), to(" + color2 + "))"
+        }).css({
+            background: "-moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%)"
+        });
 
         step += gradientSpeed;
         if (step >= 1) {
             step %= 1;
             colorIndices[0] = colorIndices[1];
             colorIndices[2] = colorIndices[3];
-
-            //pick two new target color indices
-            //do not pick the same as the current one
             colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
             colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
 
         }
     }
-
-    setInterval(updateGradient, 10);
+    setInterval(updateGradient, 7);
 })();

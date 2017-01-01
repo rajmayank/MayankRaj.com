@@ -10,7 +10,8 @@ a:hover{ color: #c62828; }
 		font-size: 35px;
 	}
 	.main-title .work{
-		font-size: 20px;	
+		width: 100%;
+		font-size: 20px;
 	}
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -18,6 +19,7 @@ a:hover{ color: #c62828; }
 		font-size: 45px;
 	}
 	.main-title .work{
+		width: 100%;
 		font-size: 25px;
 	}
 }
@@ -43,9 +45,9 @@ a:hover{ color: #c62828; }
     margin: 0;
     padding: 0;
     color: #f9f1e9;
-    text-align: center;
     top: 50%;
     left: 50%;
+    text-align: center;
     -webkit-transform: translate3d(-50%,-50%,0);
     transform: translate3d(-50%,-50%,0);
 }
@@ -56,7 +58,17 @@ a:hover{ color: #c62828; }
 	position: absolute;
 	left: 5px;
 }
-
+.home_cover .main-title{
+	z-index: 3;
+}
+.top-bar{
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	width: 100%;
+	height: 5px;
+	background-color: #000;
+}
 
 section{
 	position: relative;
@@ -204,6 +216,7 @@ section .body{
 }
 .project .time .text{
 	padding-right: 20px;
+	font-size: 15px;
 }
 .project .time .dot{
 	position: absolute;
