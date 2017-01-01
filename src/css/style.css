@@ -3,7 +3,7 @@ body{ font-family: 'Raleway', sans-serif; overflow-x: hidden;}
 
 a{ color: #e57373; }
 a:hover{ color: #c62828; }
-
+.top-cointiner{ overflow: hidden; }
 
 @media (max-width: 767px) {
 	.main-title .name{
