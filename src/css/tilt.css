@@ -1,7 +1,0 @@
-.home_cover {
-	text-align: center;
-	height: 100vh;
-	overflow: hidden;
-	/*background: url(../images/home_cover.jpg) no-repeat center center;*/
-	background-size: auto 100vh;
-}
