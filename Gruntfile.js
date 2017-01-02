@@ -33,22 +33,14 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		copy: {
-			main: {
-				files: [{
-					expand: true,
-					cwd: 'src/images/',
-					src: ['**/*.{png,jpg,svg}'],
-					dest: 'dist/images/'
-				}],
-				files: [{
-					expand: true,
-					cwd: 'src/icons/',
-					src: ['**/*.{ttf,eot,svg,woff}'],
-					dest: 'dist/icons/'
-				}],
-			},
-		},
+		// copy: {
+		// 	html: {
+		// 		files: [{
+		// 			src: 'src/index.html',
+		// 			dest: 'build/'
+		// 		}]
+		// 	}
+		// },
 		watch: {
 			scripts: {
 				files: ['src/js/*.js'],
@@ -75,14 +67,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
-	grunt.loadNpmTasks('grunt-contrib-copy');
+	// grunt.loadNpmTasks('grunt-contrib-copy');
 
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 
 
-	// grunt.registerTask('default', ['uglify', 'cssmin', 'htmlmin', 'copy']);
-	// grunt.registerTask('copy', ['uglify', 'cssmin', 'htmlmin', 'copy']);
-	grunt.registerTask('default', ['uglify', 'cssmin', 'htmlmin', 'copy' , 'watch']);
+	// grunt.registerTask('copy', ['copy:html']);
+	// grunt.registerTask('default', ['uglify', 'cssmin', 'htmlmin', 'copy' , 'watch']);
+	grunt.registerTask('default', ['uglify', 'cssmin', 'htmlmin' , 'watch']);
 
 };
