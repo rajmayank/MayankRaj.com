@@ -4,56 +4,66 @@ var cleanCSS = require('gulp-clean-css');
 var imagemin = require('gulp-imagemin');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var watch = require('gulp-watch');
 
+gulp.task('default', ['watch']);
 
-gulp.task('default', function() {
-	
+gulp.task('watch', function() {
+	gulp.watch('src/**', ['build']);
+});
+
+gulp.task('build', function() {
+	console.log('--------------------------------');
+	console.log('new build');
+
 	gulp.src('src/images/*')
-		.pipe(gulp.dest('./dist/images/'));
+		.pipe(gulp.dest('./docs/images/'));
+	gulp.src('src/icons/*')
+		.pipe(gulp.dest('./docs/icons/'));
 	gulp.src('src/*.pdf')
-		.pipe(gulp.dest('./dist/'));
+		.pipe(gulp.dest('./docs/'));
 	gulp.src('src/*.ico')
-		.pipe(gulp.dest('./dist/'));
-	
+		.pipe(gulp.dest('./docs/'));
+
 	gulp.src('src/js/*')
 		.pipe(uglify())
 		.pipe(concat('script.min.js'))
-		.pipe(gulp.dest('./dist/js/'));
+		.pipe(gulp.dest('./docs/js/'));
 
 	gulp.src('src/css/*')
 		.pipe(cleanCSS())
 		.pipe(concat('style.min.css'))
-		.pipe(gulp.dest('./dist/css/'));
+		.pipe(gulp.dest('./docs/css/'));
 
 	// gulp.src('src/images/*')
 	// 	.pipe(imagemin())
-	// 	.pipe(gulp.dest('dist/images/'));
+	// 	.pipe(gulp.dest('docs/images/'));
 
 	gulp.src('src/index.html')
 		.pipe(htmlmin({
 			collapseWhitespace: true
 		}))
-		.pipe(gulp.dest('dist/'));
-	
+		.pipe(gulp.dest('docs/'));
+
 	return;
 });
 
 gulp.task('concat', function() {
 	return gulp.src('src/js/*')
 		.pipe(concat('script.min.js'))
-		.pipe(gulp.dest('./dist/js/'));
+		.pipe(gulp.dest('./docs/js/'));
 });
 
 gulp.task('minify-image', function() {
 	gulp.src('src/images/*')
 		.pipe(imagemin())
-		.pipe(gulp.dest('dist/images'));
+		.pipe(gulp.dest('docs/images'));
 });
 
 gulp.task('minify-js', function() {
 	return gulp.src('src/js/*')
 		.pipe(uglify())
-		.pipe(gulp.dest('dist/js'));
+		.pipe(gulp.dest('docs/js'));
 });
 
 gulp.task('minify-css', function() {
@@ -61,7 +71,7 @@ gulp.task('minify-css', function() {
 		.pipe(cleanCSS({
 			compatibility: 'ie8'
 		}))
-		.pipe(gulp.dest('dist/css'));
+		.pipe(gulp.dest('docs/css'));
 });
 
 gulp.task('minify-html', function() {
@@ -69,5 +79,5 @@ gulp.task('minify-html', function() {
 		.pipe(htmlmin({
 			collapseWhitespace: true
 		}))
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('docs'));
 });
