@@ -24,6 +24,8 @@ gulp.task('build', function() {
 		.pipe(gulp.dest('./docs/'));
 	gulp.src('src/*.ico')
 		.pipe(gulp.dest('./docs/'));
+	gulp.src('src/CNAME')
+		.pipe(gulp.dest('./docs/'));
 
 	gulp.src('src/js/*')
 		.pipe(uglify())
