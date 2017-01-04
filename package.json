@@ -5,7 +5,7 @@
   "description": "Personal Webisite",
   "main": "index.js",
   "scripts": {
-    "start": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp buid && gulp watch"
   },
   "license": "MIT",
   "devDependencies": {

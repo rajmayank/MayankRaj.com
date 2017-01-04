@@ -9,6 +9,7 @@ var watch = require('gulp-watch');
 gulp.task('default', ['watch']);
 
 gulp.task('watch', function() {
+	  gulp.task('caller', ['build']);
 	gulp.watch('src/**', ['build']);
 });
 
