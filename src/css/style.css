@@ -363,6 +363,11 @@ section .body{
 .client-container .client-link:hover .link-overlay{
 	display: block;
 }
+.client-container .client-link .link-overlay .link-img img{
+	position: relative;
+	top: 2px;
+	width: 16px;
+}
 .client-container .image img{
 	width: 200px;
 	height: auto;
