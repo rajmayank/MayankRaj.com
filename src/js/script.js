@@ -4,8 +4,11 @@
 		$(this).attr('style', 'width : ' + width + '%');
 	});
 })();
-// $('.skill-set').each(function(){
-// 	var elem = $(this).find('.bar').clone();
-// 	$(this).find('.bar').remove();
-// 	$(this).find('.progress-bar').append( elem );
-// });
+
+$('section.separated.white').find('.head .underline').dblclick(function() {
+	$('.skill-set').each(function() {
+		var elem = $(this).find('.bar').clone();
+		$(this).find('.bar').remove();
+		$(this).find('.progress-bar').append(elem);
+	});
+});
