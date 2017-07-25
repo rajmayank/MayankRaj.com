@@ -28,7 +28,7 @@ a:hover{ color: #c62828; }
 		font-size: 60px;
 	}
 	.main-title .work{
-		font-size: 35px;	
+		font-size: 35px;
 	}
 }
 @media (min-width: 1200px) {
@@ -36,7 +36,7 @@ a:hover{ color: #c62828; }
 		font-size: 80px;
 	}
 	.main-title .work{
-		font-size: 40px;	
+		font-size: 40px;
 	}
 }
 
@@ -101,10 +101,10 @@ section::after {
 .separated.red{
 	background: #ef5350;
 	color: #EEEEEE;
-} 
+}
 .separated.white{
 	background: #ffebee;
-} 
+}
 
 .separated::before,
 .separated::after {
@@ -275,7 +275,7 @@ section .body{
 }
 
 .icon-linkedin,
-.icon-github, 
+.icon-github,
 .icon-mail {
 	font-size: 40px;
 	color: #e57373;
@@ -283,7 +283,7 @@ section .body{
 	transition: all 0.4s;
 }
 .icon-linkedin:hover,
-.icon-github:hover, 
+.icon-github:hover,
 .icon-mail:hover {
 	color: #c62828;
 }
@@ -344,7 +344,7 @@ section .body{
 	top: 30px;
 	font-size: 25px;
 	font-weight: 700;
-	
+
 	-webkit-animation-duration: 1s;
 	animation-duration: 1s;
 	-webkit-animation-fill-mode: both;
@@ -401,6 +401,8 @@ section .body{
 	font-weight: 700;
 	-webkit-transition: all 0.4s;
 	transition: all 0.4s;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 .btn_cv:hover{
 	border-radius: 8px;
