@@ -5,7 +5,7 @@
   "description": "Personal Webisite",
   "main": "index.js",
   "scripts": {
-    "build": "gulp buid && gulp watch"
+    "build": "gulp build && gulp watch"
   },
   "license": "MIT",
   "devDependencies": {
