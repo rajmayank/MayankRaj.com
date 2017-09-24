@@ -1,1 +1,0 @@
-# Source code for [`mayankraj.com`](http://mayankraj.com)
