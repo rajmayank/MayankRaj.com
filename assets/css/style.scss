@@ -3,7 +3,7 @@
 
 @import 'jekyll-theme-cayman-blog';
 
-body{ font-family: 'Raleway', sans-serif; overflow-x: hidden;}
+body{font-family: 'Raleway', sans-serif; overflow-x: hidden;}
 
 a{ color: #e57373; }
 a:hover{ color: #c62828; }
@@ -50,9 +50,6 @@ a:hover{ color: #c62828; }
 	height: 50vh !important;
 }
 
-.first-section{
-	margin-top: 50vh;
-}
 
 .main-title{
 	position: absolute;
@@ -83,6 +80,27 @@ a:hover{ color: #c62828; }
 	height: 5px;
 }
 
+.top-nav{
+	position: fixed;
+	width: 100%;
+	padding: 7px 15px 5px;
+	background-color: #f9f1e9;
+	font-size: 25px;
+	text-align: center;
+	z-index: 1;
+}
+
+.top-nav a{
+	float: right;
+	font-weight: 800;
+}
+@media (max-width: 768px) {
+	.top-nav a{
+		float: none;
+		text-align: center;
+	}
+}
+
 section{
 	position: relative;
 	width: 100%;
@@ -93,6 +111,7 @@ section{
 }
 
 .first-section{
+	margin-top: 50vh;
 	background-color: #ffebee;
 }
 section::before,
@@ -269,6 +288,7 @@ section .body{
 .footer-section {
 	background-color: #ffcdd2;
 	border-top: 1px solid #e57373;
+	/*padding-bottom: 20px;*/
 }
 
 .reach-out{
@@ -280,7 +300,9 @@ section .body{
 	margin-top: 10px;
 	display: block;
 }
-
+.icon-container a{
+	text-decoration: none;
+}
 .icon-linkedin,
 .icon-github,
 .icon-mail {
@@ -314,10 +336,17 @@ section .body{
 	50% { transform: scale(1.09); }
 	100% { transform: scale(1); }
 }
+.heart-icon {
+	    padding-left: 5px;
+}
 
 .host-info,
 .heart-icon {
 	display: inline-block;
+}
+.powered-by-info{
+	display: block;
+	margin-bottom: 20px;
 }
 
 .source-info {
@@ -419,4 +448,46 @@ section .body{
 
 .post-article{
 	padding-bottom:50px;
+}
+
+.post_body {
+    font-family: 'tt-regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.post_body a{
+    text-decoration: underline;
+}
+
+.share_container {
+    margin-top: 80px;
+    /*margin-bottom: 25px;*/
+    padding: 20px 15px;
+    background-color: #f7f7f7;
+}
+.share_container .text {
+    font-weight: 800;
+}
+.post_navigation_links{
+	border-top: 2px solid #dcdcdc;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.post_navigation_links .prev,
+.post_navigation_links .next{
+    background-color: #f7f7f7;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.post_navigation_links .next{
+	text-align: right;
+}
+
+#disqus_thread{
+	margin-top: 150px;
+}
+
+.page-header{
+	padding: 10rem 10rem 2rem;
+}
+.page-header{
+	font-family: 'Raleway', sans-serif; overflow-x: hidden !important;
 }
