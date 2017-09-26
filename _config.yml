@@ -6,7 +6,8 @@ author: "Mayank Raj"
 permalink: "/:title/"
 baseurl: ""
 
-url_github_project: "asas https://github.com/rajmayank/personal-website"
+url : "http://mayankraj.com"
+url_github_project: "https://github.com/rajmayank/personal-website"
 url_github_profile: "https://github.com/rajmayank"
 url_linkedin: "https://github.com/rajmayank"
 url_facebook: "https://www.facebook.com/mayank9856"
@@ -15,6 +16,14 @@ email: "mayank9856@gmail.com"
 google_analytics: "UA-89686348-1"
 cayman-blog:
   date_format: "%b %-d, %Y"
+
+disqus_shortname: "maynkraj"
+
+sass:
+  compressed: true
+
+markdown: kramdown
+highlighter: rouge
 
 theme:
 

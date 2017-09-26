@@ -18,7 +18,7 @@ layout: base
         <span class="post-meta">
           {{ post.date | date: date_format }}
           &nbsp;
-          {% assign words = content | strip_html | number_of_words %}
+          {% assign words = post.content | strip_html | number_of_words %}
           {% if words < 360 %}
             • 1 min read
           {% else %}

@@ -15,27 +15,38 @@ layout: base
       {% endif %}</p>
   </header> -->
 
-  <div itemprop="articleBody">
+  <div>
+
+  </div>
+
+            {% if page.path %}
+            <a class="post-card-edit" href="//github.com/toddmotto/toddmotto.github.io/blob/master/{{ page.path }}">
+              Edit post
+            </a>
+            {% endif %}
+  <div itemprop="articleBody" class="post_body">
     {{ content }}
   </div>
+  {% include share_bar.html %}
+<div class="post_navigation_links">
+    <div class="row">
+        <div class="col-md-6 prev">
+          {% if page.previous.url %}
+            <a class="prev" href="{{page.previous.url | relative_url }}">&laquo; {{page.previous.title | escape| truncatewords: 5}}</a> {% endif %}
+          &nbsp;
+        </div>
+        <div class="col-md-6 next">
+          &nbsp;
+          {% if page.previous.url %}
+            <a class="prev" href="{{page.previous.url | relative_url }}">{{page.previous.title | escape| truncatewords: 5}} &raquo;</a> {% endif %}
+  <!--         {% if page.next.url %}
+              <a class="next" href="{{page.next.url | relative_url }}">{{page.next.title | escape| truncatewords: 5}} &raquo;</a> {% endif %} -->
+        </div>
+    </div>
+</div>
 
-  {% if site.disqus.shortname %}
+  {% if site.disqus_shortname %}
     {% include disqus_comments.html %}
   {% endif %}
-
-  <div>&nbsp;</div>
-  <div><hr></div>
-  <div class="row">
-    <div class="col-md-6">
-      {% if page.previous.url %}
-        <a class="prev" href="{{page.previous.url | relative_url }}">&laquo; {{page.previous.title | escape| truncatewords: 5}}</a>
-      {% endif %}
-    </div>
-    <div class="col-md-6">
-      {% if page.next.url %}
-        <a class="next" href="{{page.next.url | relative_url }}">{{page.next.title | escape| truncatewords: 5}} &raquo;</a>
-      {% endif %}
-    </div>
-  </div>
 
 </article>
