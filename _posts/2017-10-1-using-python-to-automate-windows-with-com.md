@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Manage MS-Office with python using COM"
+title: "Using python to automate windows with COM"
 intro: "COM is the interface to communicate with MS Applications. We can use python to automate several tasks"
 comments: true
 ---
