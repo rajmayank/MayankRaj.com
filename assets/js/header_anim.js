@@ -195,3 +195,20 @@
     }
     setInterval(updateGradient, 7);
 })();
+
+new WOW({ offset: 80 }).init();
+var windowHeight = $(window).height();
+var viewContentElement = $('.view-content');
+var topNavElement = $('.top-nav');
+var elementHeight = viewContentElement.height();
+var elementOffsetTop = viewContentElement.offset().top;
+var oldOffset = $(window).scrollTop();
+$(document).on("scroll", function() {
+    var windowScrollTop = $(window).scrollTop();
+    if ((elementOffsetTop <= windowScrollTop + windowHeight) && (elementOffsetTop + elementHeight >= windowScrollTop) || (windowScrollTop < oldOffset)) {
+        $(topNavElement).fadeIn();
+    } else {
+        $(topNavElement).fadeOut();
+    }
+    oldOffset = windowScrollTop;
+})
