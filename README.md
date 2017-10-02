@@ -25,6 +25,8 @@
 
 
 # **NOTE:**
-The code is open sourced, but all code and content remain copyright of Mayank Raj. It takes a great deal of effort to get them up. Please don't steal!
-Ask me, I'll be more than happy to help you out... 
+
+The project is open sourced, but all code and content remain copyright of Mayank Raj. It takes a great deal of effort to get them up. Please don't steal!
+
+Ask me, I'd be more than happy to help you out...
 
