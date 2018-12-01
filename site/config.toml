@@ -1,0 +1,38 @@
+baseurl = "/"
+languageCode = "en-us"
+languageLang = "en"
+title = "Mayank Raj"
+
+# googleAnalytics = ""
+# enableRobotsTXT = true
+
+# summarylength = 30
+
+#paginate = 5
+
+## Site Settings
+[params]
+    author = "Mayank Raj"
+    title = "Senior Software Engineer"
+    # description = ""
+    # authorimage = "/img/mayankraj.jpeg"
+    dateformat = "Jan 1, 2001"
+    highlightjs = true
+    highlightjsstyle = "github"
+    # please choose either GraphComment or Disqus or Utterances
+    #GraphCommentId = "..."
+    #UtterancesRepo = "..." # https://utteranc.es/
+    #UtterancesIssueTerm = "..." # pathname, url, title, og:title
+    #UtterancesTheme = "..." # github-light or github-dark
+
+## Main Menu
+[[menu.main]]
+    name = "Posts"
+    weight = 100
+    identifier = "posts"
+    url = "/posts/"
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 200
+    url = "/about/"
