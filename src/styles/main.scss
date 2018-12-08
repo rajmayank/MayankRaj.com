@@ -1,2 +1,177 @@
 @import './normalize';
 @import './variables';
+@import './mixins';
+@import './animations';
+@import url('https://fonts.googleapis.com/css?family=Marck+Script|Patua+One|Righteous');
+
+body {
+    background-color: $bg-body-color;
+    font-family: "Righteous", "Patua One", Helvetica, Arial, sans-serif;
+    // font-family: "Patua One",Helvetica,Arial,sans-serif;
+}
+
+
+header {
+
+    .design-container {
+        width: 100%;
+        position: relative;
+        background-color: $bg-header-layer-2;
+        overflow: hidden;
+        @include skew(0, 3);
+        @include transform-origin(bottom right);
+        animation: design-container 0.75s;
+        // animation-delay: 1.15s;
+
+        height: 75vw;
+
+        @include md {
+            height: 40vw;
+        }
+
+
+
+        .layer-1 {
+            position: absolute;
+            z-index: 200;
+            width: 100%;
+            height: 100%;
+            top: -50%;
+            @include skew(0, -30);
+            @include transform-origin(bottom left);
+            background-color: $bg-header-layer-1;
+            animation: header-layer-1 1.25s;
+        }
+
+        .layer-2 {
+            position: absolute;
+            z-index: 100;
+            top: 25%;
+            width: 100%;
+            height: 80%;
+            @include skew(0, 25);
+            @include transform-origin(bottom left);
+            background-color: $bg-header-layer-3;
+            animation: header-layer-2 .75s;
+        }
+
+        .layer-3 {
+            position: absolute;
+            opacity: 0.5;
+            z-index: 50;
+            top: 25%;
+            width: 100%;
+            height: 80%;
+            @include skew(0, 20);
+            @include transform-origin(bottom left);
+            background-color: $bg-header-layer-3;
+            animation: header-layer-2 1s;
+            // animation-delay: .15s;
+        }
+
+        // .layer-4 {}
+    }
+
+    .content-container {
+
+        position: absolute;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+
+        height: 75vw;
+
+        @include md {
+            height: 40vw;
+        }
+
+
+        .name-container {
+
+            .name-block {
+                width: 100%;
+
+                @include md {
+                    width: 50%;
+                }
+
+                svg {
+                    .text {
+                        // font-family: 'Courgette', cursive;
+                        font-family: 'Marck Script', cursive;
+                        font-size: 35px;
+                        // text-transform: uppercase;
+                        display: block;
+                    }
+
+                    .text-stroke {
+                        fill: none;
+                        stroke: #51256f;
+                        stroke-width: 5px;
+                        stroke-dashoffset: -900;
+                        stroke-dasharray: 900;
+                        stroke-linecap: butt;
+                        stroke-linejoin: round;
+                        animation: header-svg-stroke 3.5s ease-in-out forwards;
+                    }
+
+                    .text-stroke:nth-child(2) {
+                        animation-delay: .2s;
+                    }
+
+                    .text-stroke-2 {
+                        stroke: #f6bdfa;
+                        animation-delay: 0.75s;
+                    }
+
+                    .text-stroke:nth-child(5) {
+                        animation-delay: 1s;
+                    }
+                }
+            }
+
+
+        }
+
+        .description-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            // align-content: center;
+            align-items: center;
+            flex-direction: row;
+
+            margin-top: 10px;
+
+            @include md {
+                justify-content: flex-end;
+            }
+
+            span {
+                font-size: 18px;
+                padding: 0 7px;
+                opacity: 0;
+                fill: #D0C4DF;
+                color: #D0C4DF;
+
+                animation: focus-in 0.75s ease-in forwards;
+                @for $i from 1 to 4 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: 1.75+$i*0.25s;
+                    }
+                }
+
+                @include md {
+                    &:last-child {
+                        padding-right: 20px;
+                    }
+                }
+
+                &:hover {
+                    fill: #ABA1B7;
+                    color: #ABA1B7;
+                }
+            }
+        }
+    }
+}
