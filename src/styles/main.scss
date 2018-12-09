@@ -23,14 +23,11 @@ header {
         @include transform-origin(bottom right);
         animation: design-container 0.75s;
         // animation-delay: 1.15s;
-
         height: 78vw;
 
         @include md {
             height: 40vw;
         }
-
-
 
         .layer-1 {
             position: absolute;
