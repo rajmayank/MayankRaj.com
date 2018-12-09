@@ -11,6 +11,7 @@ body {
 }
 
 
+
 header {
 
     .design-container {
@@ -23,7 +24,7 @@ header {
         animation: design-container 0.75s;
         // animation-delay: 1.15s;
 
-        height: 75vw;
+        height: 78vw;
 
         @include md {
             height: 40vw;
@@ -135,43 +136,79 @@ header {
 
         .description-container {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            // align-content: center;
-            align-items: center;
-            flex-direction: row;
-
             margin-top: 10px;
 
-            @include md {
-                justify-content: flex-end;
-            }
-
-            span {
-                font-size: 18px;
-                padding: 0 7px;
-                opacity: 0;
-                fill: #D0C4DF;
-                color: #D0C4DF;
-
-                animation: focus-in 0.75s ease-in forwards;
-                @for $i from 1 to 4 {
-                    &:nth-child(#{$i}) {
-                        animation-delay: 1.75+$i*0.25s;
-                    }
-                }
+            .row {
+                display: flex;
+                justify-content: center;
+                // align-content: center;
+                align-items: center;
+                flex-direction: row;
 
                 @include md {
-                    &:last-child {
-                        padding-right: 20px;
-                    }
+                    justify-content: flex-end;
                 }
 
-                &:hover {
-                    fill: #ABA1B7;
-                    color: #ABA1B7;
+                .description-block {
+
+                    text-align: center;
+                    @include md {
+                        & {
+                            padding-right: 20px;
+                        }
+                    }
+
+                    span {
+                        font-size: 18px;
+                        opacity: 0;
+                        animation: focus-in 0.75s ease-in forwards;
+
+                        @for $i from 1 to 6 {
+                            &:nth-child(#{$i}) {
+                                animation-delay: 1.75+$i*0.25s;
+                            }
+                        }
+
+
+                        color: #D0C4DF;
+
+                        &:hover {
+                            color: #ABA1B7;
+                        }
+
+                        svg {
+                            fill: #D0C4DF;
+
+                            &:hover {
+                                fill: #ABA1B7;
+                            }
+                        }
+
+
+                        &.title {
+                            display: block;
+                            margin-bottom: 5px;
+                        }
+
+                        &.icon {
+                            font-size: 20px;
+
+                            svg {
+                                font-size: inherit;
+                                height: 1em;
+                                overflow: visible;
+                                vertical-align: -.125em;
+                            }
+                        }
+
+                        &.row-2 {
+                            padding: 3px;
+                        }
+                    }
                 }
             }
+
+
         }
     }
 }
