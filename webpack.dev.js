@@ -40,8 +40,8 @@ module.exports = merge(common, {
       proxy: 'http://localhost:8080/',
       files: ["dist/*"],
       baseDir: "dist",
-      reloadDelay: 1000,
-      startPath: "dist/"
+      startPath: "dist/",
+      // reloadDebounce: 1000
     })
   ]
 });

@@ -1,211 +1,281 @@
-@import './normalize';
-@import './variables';
-@import './mixins';
-@import './animations';
-@import url('https://fonts.googleapis.com/css?family=Marck+Script|Patua+One|Righteous');
+@import "./normalize";
+@import "./variables";
+@import "./mixins";
+@import "./animations";
 
-body {
+// =======================================================
+// General
+
+html {
+  @media (min-width: $breakpoint) {
+    font-size: 10px;
+  }
+  @media (max-width: $breakpoint) {
+    font-size: 9px;
+  }
+  @media (max-width: ($breakpoint / 2)) {
+    font-size: 7px;
+  }
+
+  body {
     background-color: $bg-body-color;
-    font-family: "Righteous", "Patua One", Helvetica, Arial, sans-serif;
-    // font-family: "Patua One",Helvetica,Arial,sans-serif;
+    animation: fade-in 0.6s;
+    color: $color-front;
+    background: $color-back;
+
+    .text {
+      font: 1.9rem /#{1.5} $font-primary;
+
+      &--small {
+        font-size: 1.65rem;
+        line-height: 1.5;
+      }
+      &--tiny {
+        font-size: 1.1rem;
+      }
+    }
+
+    .text-code {
+      font: 1.5rem/1.75 $font-code;
+      font-variant-ligatures: none;
+      text-shadow: none;
+      -webkit-font-smoothing: subpixel-antialiased;
+      -moz-osx-font-smoothing: auto;
+    }
+
+    .text-strong {
+      font-weight: bold;
+    }
+
+    .text-uppercase {
+      text-transform: uppercase;
+    }
+
+    .text-capital {
+      text-transform: capitalize;
+    }
+
+    .text-justify {
+      text-align: justify;
+    }
+
+    .text-disabled {
+      opacity: 0.5;
+    }
+
+    .text-spacers {
+      p {
+        margin-bottom: 5rem;
+      }
+    }
+  }
 }
 
-
+// =======================================================
+// Element specific
 
 header {
+  margin-bottom: 80px;
 
-    .design-container {
-        width: 100%;
-        position: relative;
-        background-color: $bg-header-layer-2;
-        overflow: hidden;
-        @include skew(0, 3);
-        @include transform-origin(bottom right);
-        animation: design-container 0.75s;
-        // animation-delay: 1.15s;
-        height: 78vw;
+  .design-container {
+    height: 78vw;
+    width: 100%;
 
-        @include md {
-            height: 40vw;
-        }
+    position: relative;
+    background-color: $bg-header-layer-2;
+    overflow: hidden;
+    @include skew(0, 3);
+    @include transform-origin(bottom right);
+    animation: design-container 0.75s;
+    // animation-delay: 1.15s;
 
-        .layer-1 {
-            position: absolute;
-            z-index: 200;
-            width: 100%;
-            height: 100%;
-            top: -50%;
-            @include skew(0, -30);
-            @include transform-origin(bottom left);
-            background-color: $bg-header-layer-1;
-            animation: header-layer-1 1.25s;
-        }
-
-        .layer-2 {
-            position: absolute;
-            z-index: 100;
-            top: 25%;
-            width: 100%;
-            height: 80%;
-            @include skew(0, 25);
-            @include transform-origin(bottom left);
-            background-color: $bg-header-layer-3;
-            animation: header-layer-2 .75s;
-        }
-
-        .layer-3 {
-            position: absolute;
-            opacity: 0.5;
-            z-index: 50;
-            top: 25%;
-            width: 100%;
-            height: 80%;
-            @include skew(0, 20);
-            @include transform-origin(bottom left);
-            background-color: $bg-header-layer-3;
-            animation: header-layer-2 1s;
-            // animation-delay: .15s;
-        }
-
-        // .layer-4 {}
+    @include md {
+      height: 40vw;
     }
 
-    .content-container {
+    .layer-1 {
+      position: absolute;
+      z-index: 200;
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      @include skew(0, -30);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-1;
+      animation: header-layer-1 1.25s;
+    }
 
-        position: absolute;
-        top: 0;
+    .layer-2 {
+      position: absolute;
+      z-index: 100;
+      top: 25%;
+      width: 100%;
+      height: 80%;
+      @include skew(0, 25);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-3;
+      animation: header-layer-2 0.75s;
+    }
+
+    .layer-3 {
+      position: absolute;
+      opacity: 0.5;
+      z-index: 50;
+      top: 25%;
+      width: 100%;
+      height: 80%;
+      @include skew(0, 20);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-3;
+      animation: header-layer-2 1s;
+      // animation-delay: .15s;
+    }
+  }
+
+  .content-container {
+    position: absolute;
+    top: 0;
+    height: 75vw;
+    width: 100%;
+    overflow: hidden;
+
+
+    @include md {
+      height: 40vw;
+    }
+
+    .name-container {
+      .name-block {
         width: 100%;
-        overflow: hidden;
-
-        height: 75vw;
 
         @include md {
-            height: 40vw;
+          width: 50%;
         }
 
+        svg {
+          .text {
+            font-family: "Courgette", cursive;
+            // font-family: 'Marck Script', cursive;
+            // font-family: 'Monoton', cursive;
+            // font-family: 'Kaushan Script', cursive;
+            // font-family: 'Merienda', cursive;
 
-        .name-container {
+            font-size: 35px;
+            // text-transform: uppercase;
+            display: block;
+          }
 
-            .name-block {
-                width: 100%;
+          .text-stroke {
+            fill: none;
+            stroke: #51256f;
+            stroke-width: 5px;
+            stroke-dashoffset: -900;
+            stroke-dasharray: 900;
+            stroke-linecap: butt;
+            stroke-linejoin: round;
+            animation: header-svg-stroke 3.5s ease-in-out forwards;
+          }
 
-                @include md {
-                    width: 50%;
-                }
+          .text-stroke:nth-child(2) {
+            animation-delay: 0.2s;
+          }
 
-                svg {
-                    .text {
-                        // font-family: 'Courgette', cursive;
-                        font-family: 'Marck Script', cursive;
-                        font-size: 35px;
-                        // text-transform: uppercase;
-                        display: block;
-                    }
+          .text-stroke-2 {
+            stroke: #f6bdfa;
+            animation-delay: 0.75s;
+          }
 
-                    .text-stroke {
-                        fill: none;
-                        stroke: #51256f;
-                        stroke-width: 5px;
-                        stroke-dashoffset: -900;
-                        stroke-dasharray: 900;
-                        stroke-linecap: butt;
-                        stroke-linejoin: round;
-                        animation: header-svg-stroke 3.5s ease-in-out forwards;
-                    }
-
-                    .text-stroke:nth-child(2) {
-                        animation-delay: .2s;
-                    }
-
-                    .text-stroke-2 {
-                        stroke: #f6bdfa;
-                        animation-delay: 0.75s;
-                    }
-
-                    .text-stroke:nth-child(5) {
-                        animation-delay: 1s;
-                    }
-                }
-            }
-
-
+          .text-stroke:nth-child(5) {
+            animation-delay: 1s;
+          }
         }
-
-        .description-container {
-            width: 100%;
-            margin-top: 10px;
-
-            .row {
-                display: flex;
-                justify-content: center;
-                // align-content: center;
-                align-items: center;
-                flex-direction: row;
-
-                @include md {
-                    justify-content: flex-end;
-                }
-
-                .description-block {
-
-                    text-align: center;
-                    @include md {
-                        & {
-                            padding-right: 20px;
-                        }
-                    }
-
-                    span {
-                        font-size: 18px;
-                        opacity: 0;
-                        animation: focus-in 0.75s ease-in forwards;
-
-                        @for $i from 1 to 6 {
-                            &:nth-child(#{$i}) {
-                                animation-delay: 1.75+$i*0.25s;
-                            }
-                        }
-
-
-                        color: #D0C4DF;
-
-                        &:hover {
-                            color: #ABA1B7;
-                        }
-
-                        svg {
-                            fill: #D0C4DF;
-
-                            &:hover {
-                                fill: #ABA1B7;
-                            }
-                        }
-
-
-                        &.title {
-                            display: block;
-                            margin-bottom: 5px;
-                        }
-
-                        &.icon {
-                            font-size: 20px;
-
-                            svg {
-                                font-size: inherit;
-                                height: 1em;
-                                overflow: visible;
-                                vertical-align: -.125em;
-                            }
-                        }
-
-                        &.row-2 {
-                            padding: 3px;
-                        }
-                    }
-                }
-            }
-
-
-        }
+      }
     }
+
+    .description-container {
+      width: 100%;
+      margin-top: 10px;
+
+      .row {
+        display: flex;
+        justify-content: center;
+        // align-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        @include md {
+          justify-content: flex-end;
+        }
+
+        .description-block {
+          // font: 1.9rem/1.5 Righteous, Helvetica, Arial, sans-serif;
+          font: 1.9rem/1.5 "Fredoka One", Helvetica, Arial, sans-serif;
+
+          text-align: center;
+
+          @include md {
+            & {
+              padding-right: 20px;
+            }
+          }
+
+          span {
+            color: #d0c4df;
+            opacity: 0;
+            animation: focus-in 0.75s ease-in forwards;
+
+            @for $i from 1 to 8 {
+              &:nth-child(#{$i}) {
+                animation-delay: 1.75 + $i * 0.25s;
+              }
+            }
+
+            &.title {
+              display: block;
+              margin-bottom: 5px;
+            }
+
+            &.icon {
+              svg {
+                font-size: inherit;
+                height: 1em;
+                overflow: visible;
+                vertical-align: -0.125em;
+              }
+            }
+
+            // TODO: Lighten to distingus from `row-1`
+            &.row-2 {
+              padding: 3px;
+
+              &:hover {
+                color: #aba1b7;
+              }
+
+              svg {
+                fill: #d0c4df;
+
+                &:hover {
+                  fill: #aba1b7;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
+.body-container {
+  .content-container {
+    max-width: 750px;
+    margin: 0 auto;
+
+    a {
+      @include underline(#ffffff, #f99);
+    }
+  }
+}
+
+// Others
