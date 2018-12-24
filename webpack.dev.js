@@ -14,17 +14,17 @@ module.exports = merge(common, {
     chunkFilename: "[id].css"
   },
 
-  // devServer: {
-  //   port: process.env.PORT || 3000,
-  //   contentBase: path.join(process.cwd(), "./dist"),
-  //   watchContentBase: true,
-  //   stats: "none",
-  //   quiet: false,
-  //   open: true,
-  //   historyApiFallback: {
-  //     rewrites: [{from: /./, to: "404.html"}]
-  //   }
-  // },
+  devServer: {
+    port: process.env.PORT || 3000,
+    contentBase: path.join(process.cwd(), "./dist"),
+    watchContentBase: true,
+    stats: "none",
+    quiet: false,
+    open: true,
+    historyApiFallback: {
+      rewrites: [{from: /./, to: "404.html"}]
+    }
+  },
 
   plugins: [
     new CleanWebpackPlugin(["dist/**/*.js", "dist/**/*.css", "site/content/webpack.json"]),
@@ -34,14 +34,14 @@ module.exports = merge(common, {
       chunkFilename: "[id].css"
     }),
 
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      port: 3000,
-      proxy: 'http://localhost:8080/',
-      files: ["dist/*"],
-      baseDir: "dist",
-      startPath: "dist/",
-      // reloadDebounce: 1000
-    })
+    // new BrowserSyncPlugin({
+    //   host: 'localhost',
+    //   port: 3000,
+    //   proxy: 'http://localhost:8080/',
+    //   files: ["dist/*"],
+    //   baseDir: "dist",
+    //   startPath: "dist/",
+    //   // reloadDebounce: 1000
+    // })
   ]
 });

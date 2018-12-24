@@ -3,36 +3,25 @@ languageCode = "en-us"
 languageLang = "en"
 title = "Mayank Raj"
 
-# googleAnalytics = ""
-# enableRobotsTXT = true
 
-# summarylength = 30
+googleAnalytics = "UA-89686348-1"
+enableRobotsTXT = true
 
-#paginate = 5
+[author]
+    name = "Mayank Raj"
 
-## Site Settings
-[params]
-    author = "Mayank Raj"
-    title = "Senior Software Engineer"
-    # description = ""
-    # authorimage = "/img/mayankraj.jpeg"
-    dateformat = "Jan 1, 2001"
-    highlightjs = true
-    highlightjsstyle = "github"
-    # please choose either GraphComment or Disqus or Utterances
-    #GraphCommentId = "..."
-    #UtterancesRepo = "..." # https://utteranc.es/
-    #UtterancesIssueTerm = "..." # pathname, url, title, og:title
-    #UtterancesTheme = "..." # github-light or github-dark
+# [params]
+#     author = "Mayank Raj"
+#     title = "Senior Software Engineer"
+#     dateformat = "Jan 1, 2001"
 
-## Main Menu
-[[menu.main]]
-    name = "Posts"
-    weight = 100
-    identifier = "posts"
-    url = "/posts/"
-[[menu.main]]
-    name = "About"
-    identifier = "about"
-    weight = 200
-    url = "/about/"
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
+[taxonomies]
+
+
+# TODO: look into 'generator' key in the feed
+[outputFormats]
+[outputFormats.RSS]
+mediatype = "application/rss"
+baseName = "feed"

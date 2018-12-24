@@ -10,6 +10,7 @@
     "start:hugo": "hugo -d ../dist -s site -vw",
     "start:webpack": "webpack-dev-server --config webpack.dev.js --progress --colors",
     "preview": "run-p preview:**",
+    "preview:clean": "rimraf dist",
     "preview:hugo": "npm run start:hugo -- -D -F",
     "preview:webpack": "npm run start:webpack",
     "prebuild": "rimraf dist",
@@ -65,5 +66,7 @@
   "resolutions": {
     "natives": "1.1.6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "highlight.js": "^9.13.1"
+  }
 }

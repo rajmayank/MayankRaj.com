@@ -1,5 +1,23 @@
+{{define "header"}}
+<header class="compact" style="background-image: url('{{.Params.bgimage | default `images/blog_covers/abstract_yellow.jpg`  }}'); --mood: {{.Params.basecolor}}">
+    {{ partial "header-compact" . }}
+</header>
+{{end}}
+
 {{ define "main" }} {{ $section := .Site.GetPage "section" .Section }}
-<article class="content">
-  <main>{{- .Content -}}</main>
-</article>
+<div class="post-list-container">
+    <div class="post-list-wrapper">
+        {{ range .Pages }}
+        <div class="post-list text">
+            <a href="{{.Permalink}}">
+                <span class="title text-strong text-uppercase">{{.Title}}</span>
+            </a>
+            {{if isset .Params "category"}}
+            <span class="category text-strong text-uppercase"> {{.Params.category}}, </span>
+            {{end}}
+            <span class="date"> {{.Date.Format "2006-01-02"}} </span>
+        </div>
+        {{ end }}
+    </div>
+</div>
 {{ end }}

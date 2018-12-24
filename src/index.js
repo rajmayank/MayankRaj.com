@@ -1,4 +1,15 @@
 import "./styles/main.scss";
+import 'highlight.js/styles/github.css'
+// import "highlight.js/styles/atelier-dune-light.css";
+
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+import python from 'highlight.js/lib/languages/python';
+// import python from 'highlight.js/lib/languages/python';
+
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('python', python);
+hljs.initHighlightingOnLoad();
 
 // $(window).scroll(function () {
 

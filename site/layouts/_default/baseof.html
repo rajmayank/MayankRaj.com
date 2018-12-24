@@ -4,13 +4,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  {{ partial "metatags" . }}
+
   <base href="{{ if getenv "CONTEXT" }}{{ cond (eq "production" (getenv "CONTEXT")) (getenv "URL") (getenv "DEPLOY_PRIME_URL") }}{{ else }}{{ $.Site.BaseURL }}{{ end }}">
   <title>{{ $.Site.Title }}</title>
 
   {{ $stylesheet := .Site.Data.webpack.main }}
   {{ with $stylesheet.css }}
-    <link href="{{ relURL . }}" rel="stylesheet">
+  <link href="{{ relURL . }}" rel="stylesheet">
   {{ end }}
+
+  {{- if not .Site.IsServer -}}
+  {{ template "_internal/google_analytics.html" . }}
+  {{- end -}}
+
 </head>
 </head>
 
@@ -23,9 +30,13 @@
   {{ block "footer" . }}{{ partial "footer" . }}{{end}}
 
   {{ $script := .Site.Data.webpack.main }}
+
+
   {{ with $script.js }}
-    <script src="{{ relURL . }}"></script>
+  <script src="{{ relURL . }}"></script>
   {{ end }}
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> -->
 </body>
 
 </html>
