@@ -4,6 +4,9 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AssetsPlugin = require("assets-webpack-plugin");
 
+
+// TODO: remove asset hash
+
 module.exports = {
   entry: {
     main: path.join(process.cwd(), "src/index.js")
