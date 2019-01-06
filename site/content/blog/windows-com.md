@@ -5,7 +5,7 @@ basecolor: "#fff"
 author: "Mayank Raj"
 enablecomments: false
 category: "Tutorial"
-bgimage: "images/blog_covers/windows_com.jpg"
+bgimage: "images/blog_covers/windows_com.jpeg"
 ---
 
 A few weeks ago I got a project wherein I had to get various statistical data about a document. One of the important parameters was to get a precise count of grammatical errors in the document. I tried to go the open source way and tested out [LanguageTool](https://www.languagetool.org/), [PorseLink](http://proselint.com/) among others. None of these were up to the mark of the good old MS-Word.
