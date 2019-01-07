@@ -1,0 +1,486 @@
+@import "./normalize";
+@import "./variables";
+@import "./mixins";
+@import "./animations";
+
+
+// =======================================================
+// TODO
+//  - style `code` tags
+//  - make use of `mood` color
+
+
+// =======================================================
+// General
+
+html {
+  @media (min-width: $breakpoint) {
+    font-size: 10px;
+  }
+
+  @media (max-width: $breakpoint) {
+    font-size: 9px;
+  }
+
+  @media (max-width: ($breakpoint / 2)) {
+    font-size: 7px;
+  }
+
+  body {
+    background-color: $bg-body-color;
+    animation: fade-in 0.6s;
+    color: $color-front;
+
+    .text {
+      font: 1.9rem /#{1.5} $font-primary;
+
+      &--small {
+        font-size: 1.65rem;
+        line-height: 1.5;
+      }
+
+      &--tiny {
+        font-size: 1.1rem;
+      }
+    }
+
+    .text-strong {
+      font-weight: bold;
+    }
+
+    .text-uppercase {
+      text-transform: uppercase;
+    }
+
+    .text-capital {
+      text-transform: capitalize;
+    }
+
+    .text-justify {
+      text-align: justify;
+    }
+
+    .text-disabled {
+      opacity: 0.5;
+    }
+
+    p,
+    .content-block {
+      margin-bottom: 5rem;
+
+      &.--reduced-margin-bottom {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .icon {
+      display: inline-block;
+
+      svg {
+        margin-right: 2rem;
+        font-size: inherit;
+        height: 1.3em;
+        overflow: visible;
+        vertical-align: -0.4rem;
+      }
+    }
+  }
+}
+
+// =======================================================
+// Element specific
+
+header {
+  margin-bottom: 80px;
+
+  .design-container {
+    height: 78vw;
+    width: 100%;
+
+    position: relative;
+    background-color: $bg-header-layer-2;
+    overflow: hidden;
+    @include skew(0, 3);
+    @include transform-origin(bottom right);
+    animation: design-container 0.75s;
+    // animation-delay: 1.15s;
+
+    @include md {
+      height: 40vw;
+    }
+
+    .layer-1 {
+      position: absolute;
+      z-index: 200;
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      @include skew(0, -30);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-1;
+      animation: header-layer-1 1.25s;
+    }
+
+    .layer-2 {
+      position: absolute;
+      z-index: 100;
+      top: 25%;
+      width: 100%;
+      height: 80%;
+      @include skew(0, 25);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-3;
+      animation: header-layer-2 0.75s;
+    }
+
+    .layer-3 {
+      position: absolute;
+      opacity: 0.5;
+      z-index: 50;
+      top: 25%;
+      width: 100%;
+      height: 80%;
+      @include skew(0, 20);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-3;
+      animation: header-layer-2 1s;
+      // animation-delay: .15s;
+    }
+  }
+
+  .content-container {
+    position: absolute;
+    top: 0;
+    height: 75vw;
+    width: 100%;
+    overflow: hidden;
+
+    @include md {
+      height: 40vw;
+    }
+
+    .name-container {
+      .name-block {
+        width: 100%;
+
+        @include md {
+          width: 50%;
+        }
+
+        svg {
+          .text {
+            font-family: "Courgette", cursive;
+            // font-family: 'Marck Script', cursive;
+            // font-family: 'Monoton', cursive;
+            // font-family: 'Kaushan Script', cursive;
+            // font-family: 'Merienda', cursive;
+
+            font-size: 35px;
+            // text-transform: uppercase;
+            display: block;
+          }
+
+          .text-stroke {
+            fill: none;
+            stroke: #51256f;
+            stroke-width: 5px;
+            stroke-dashoffset: -900;
+            stroke-dasharray: 900;
+            stroke-linecap: butt;
+            stroke-linejoin: round;
+            animation: header-svg-stroke 3.5s ease-in-out forwards;
+          }
+
+          .text-stroke:nth-child(2) {
+            animation-delay: 0.2s;
+          }
+
+          .text-stroke-2 {
+            stroke: #f6bdfa;
+            animation-delay: 0.75s;
+          }
+
+          .text-stroke:nth-child(5) {
+            animation-delay: 1s;
+          }
+        }
+      }
+    }
+
+    .description-container {
+      width: 100%;
+      margin-top: 10px;
+
+      .row {
+        display: flex;
+        justify-content: center;
+        // align-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        @include md {
+          justify-content: flex-end;
+        }
+
+        .description-block {
+          // font: 1.9rem/1.5 Righteous, Helvetica, Arial, sans-serif;
+          font: 1.9rem/1.5 "Fredoka One", Helvetica, Arial, sans-serif;
+
+          text-align: center;
+
+          @include md {
+            & {
+              padding-right: 20px;
+            }
+          }
+
+          span {
+            color: #d0c4df;
+            opacity: 0;
+            animation: focus-in 0.75s ease-in forwards;
+
+            @for $i from 1 to 8 {
+              &:nth-child(#{$i}) {
+                animation-delay: 1.75 + $i * 0.25s;
+              }
+            }
+
+            &.title {
+              display: block;
+              margin-bottom: 5px;
+            }
+
+            // TODO: Lighten to distingus from `row-1`
+            &.row-2 {
+              padding: 3px;
+
+              &:hover {
+                color: #aba1b7;
+              }
+
+              svg {
+                fill: #d0c4df;
+
+                &:hover {
+                  fill: #aba1b7;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.compact {
+    position: relative;
+    padding: 10vh 20px 25vh;
+    top: -10vh;
+    font-size: 25px;
+    background-position: center;
+    background-size: cover;
+    @include skew(0, 2);
+    @include transform-origin(bottom left);
+
+    .compact-header-container {
+      position: relative;
+      top: 10vh;
+      @include skew(0, -2);
+      @include transform-origin(bottom left);
+
+      // inspired by https://css-tricks.com/gooey-effect/
+      .text-container {
+        position: relative;
+
+        .merged-bg-container {
+          display: inline-block;
+          max-width: 70%;
+
+          span {
+            -webkit-filter: url(#goo);
+            filter: url(#goo);
+            background: #fff;
+            color: #111;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 7px 13px 5px;
+          }
+
+          &.title {
+            font: 5.4rem $font-secondary;
+            margin-right: 1.5rem;
+            text-transform: uppercase;
+
+            span {
+              line-height: 7.3rem;
+            }
+          }
+
+          &.meta-data {
+            margin-top: 2rem;
+            font: 1.6rem/2.5 "GT Pressura Mono", Consolas, "Andale Mono", Menlo, Monaco, Courier, monospace
+          }
+        }
+
+      }
+    }
+
+  }
+
+}
+
+.body-container {
+  .content-container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    a {
+      &:not(.icon) {
+        @include underline(#ffffff, #f99);
+      }
+    }
+
+    blockquote {
+      padding: 0 15px;
+      margin: 0;
+      color: #819198;
+      border-left: 0.3rem solid #dce6f0;
+    }
+  }
+}
+
+.post-list-container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.post-list-wrapper {
+  .post-list {
+    margin-bottom: 50px;
+
+    .title {
+      display: block;
+      font-size: 5rem;
+    }
+
+    .category {
+      display: inline-block;
+      // padding-left: 10px;
+    }
+
+    .date {
+      display: inline-block;
+    }
+  }
+
+  &.--compact {
+    .post-list {
+      .title {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+footer {
+  position: relative;
+  font: 1.6rem /1.35 Overpass, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  margin-top: 10rem;
+
+  .container {
+    position: inherit;
+    z-index: 250;
+
+    .wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-flow: row wrap;
+      padding: 5rem 7.5rem 3rem;
+
+      .text-block {
+        .row {
+          display: block;
+          margin-bottom: 1.2rem;
+
+          div {
+            display: inline-block;
+          }
+
+          .icon {
+            font-size: 1.3rem;
+            line-height: 1.35;
+
+            svg {
+              margin: 0;
+              // margin-left: 0.5rem;
+              // margin-right: 0.5rem;
+              vertical-align: -0.3rem;
+            }
+          }
+
+          >span {
+            margin-right: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  // TODO: try these with rem for consistency
+  .design-block {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 75px;
+    @include skew(0, 3);
+    @include transform-origin(bottom right);
+    opacity: 0.7;
+
+    .layer-1 {
+      position: absolute;
+      z-index: 200;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      @include skew(0, -6);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-1;
+    }
+
+    .layer-2 {
+      position: absolute;
+      z-index: 250;
+      top: -50%;
+      height: 150%;
+      width: 100%;
+      @include skew(0, 1);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-3;
+    }
+
+    .layer-3 {
+      position: absolute;
+      opacity: 0.5;
+      z-index: 50;
+      top: -50%;
+      height: 155%;
+      width: 200%;
+      @include skew(0, 2);
+      @include transform-origin(bottom left);
+      background-color: $bg-header-layer-3;
+    }
+  }
+
+  * {
+    // outline: 1px dashed black;
+  }
+}
+
+// Others
+// * { outline: 1px solid black; }

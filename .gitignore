@@ -1,2 +1,4 @@
-_site/
-_posts_sample/
+node_modules/
+site/data/webpack.json
+.vscode/
+.idea/

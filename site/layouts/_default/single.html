@@ -1,0 +1,15 @@
+{{define "header"}}
+<header class="compact" style="background-image: url('{{.Params.bgimage | default `images/blog_covers/abstract_yellow.jepg`  }}'); --mood: {{.Params.basecolor}}">
+  {{ partial "header-compact" . }}
+</header>
+{{end}}
+
+{{ define "main" }} {{ $section := .Site.GetPage "section" .Section }}
+<div class="body-container" style="--mood: #8E8EC5">
+  <div class="content-container">
+    <div class="text text-justify text-spacers">
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+{{ end }}
