@@ -4,10 +4,10 @@
   <div class="content-container">
     <div class="text text-justify text-spacers">
       <div>
-        <p>Hi, I'm Mayank Raj and I'm software engineer currently based in Mumbai, India. I have experience in
-          application architecture, cloud services and have recently been exploring projects that are in the data
+        <p>Hi, I'm Mayank Raj and I'm Solutions Architect currently based in Mumbai, India. I have experience in
+          system architecture, cloud services and have recently been exploring projects that are in the data
           science domain. </p>
-        <p> I'm 22 and currently work as a senior software engineer at <a href="https://www.cactusglobal.com/">Cactus
+        <p> I currently work as an Solutions Architect at <a href="https://www.cactusglobal.com/">Cactus
             Communications</a>. Previously I've done contract based jobs with industry leaders like
           <a href="https://www.directi.com/">Directi</a> while still in the second year of my undergraduate study.
           Prior
@@ -68,15 +68,36 @@
 
         <!-- TODO: extract this common template to a central place -->
         <div class="post-list-wrapper --compact">
-          {{ range .Pages }}
+          {{ range first 4 .Pages }}
           <div class="post-list text">
+
+            {{if isset .Params "external_link"}}
+            <a href="{{.Params.external_link}}" target="_blank">
+                <span class="title text-strong text-uppercase">
+                    <div>
+                        {{.Title}}
+                        <div class="icon">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="external-link-square-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-external-link-square-alt fa-w-14 fa-3x">
+                                <path fill="currentColor" d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-88 16H248.029c-21.313 0-32.08 25.861-16.971 40.971l31.984 31.987L67.515 364.485c-4.686 4.686-4.686 12.284 0 16.971l31.029 31.029c4.687 4.686 12.285 4.686 16.971 0l195.526-195.526 31.988 31.991C358.058 263.977 384 253.425 384 231.979V120c0-13.255-10.745-24-24-24z" class=""></path>
+                            </svg>
+                        </div>
+                    </div>
+                </span>
+            </a>
+            {{else}}
+
             <a href="{{.Permalink}}">
               <span class="title text-strong text-uppercase">{{.Title}}</span>
             </a>
-            {{if isset .Params "category"}}
-            <span>posted in</span> <span class="category text-strong text-uppercase"> {{.Params.category}}, </span>
             {{end}}
-            <span class="date"> {{.Date.Format "2006-01-02"}} </span>
+            {{if isset .Params "category"}}
+            <span>posted in</span> <span class="category text-strong text-uppercase"> {{.Params.category}} </span>
+            {{end}}
+            {{if isset .Params "external_site_name"}}
+            at <a href="{{.Params.external_site_link}}" target="_blank"> <span class="external_site text-strong"> {{.Params.external_site_name}}</span></a>
+            {{end}}
+            <br>
+            <span class="date">{{.Date.Format "2006-01-02"}} </span>
           </div>
           {{ end }}
         </div>
