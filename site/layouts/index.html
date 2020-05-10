@@ -72,7 +72,7 @@
           <div class="post-list text">
 
             {{if isset .Params "external_link"}}
-            <a href="{{.Params.external_link}}" target="_blank">
+            <a href="{{.Params.external_link}}" target="_blank" rel="noreferrer">
                 <span class="title text-strong text-uppercase">
                     <div>
                         {{.Title}}
@@ -93,7 +93,7 @@
             {{if isset .Params "category"}}
             <span>posted in</span> <span class="category text-strong text-uppercase"> {{.Params.category}}</span>
             {{end}}
-            {{if isset .Params "external_site_name"}} at <a href="{{.Params.external_site_link}}" target="_blank"> <span class="external_site text-strong"> {{.Params.external_site_name}}</span></a>
+            {{if isset .Params "external_site_name"}} at <a href="{{.Params.external_site_link}}" target="_blank" rel="noreferrer"> <span class="external_site text-strong"> {{.Params.external_site_name}}</span></a>
             {{end}}
             <br>
             <span class="date">{{.Date.Format "2006-01-02"}} </span>

@@ -23,11 +23,19 @@
 
 <body>
 
-  {{ block "header" . }}{{ partial "header" . }}{{end}}
+  <nav>
+    {{ block "header" . }}{{ partial "header" . }}{{end}}
+  </nav>
+  
 
-  {{ block "main" . }}{{end}}
+  <main>  
+    {{ block "main" . }}{{end}}
+  </main>
 
-  {{ block "footer" . }}{{ partial "footer" . }}{{end}}
+
+  <footer>
+    {{ block "footer" . }}{{ partial "footer" . }}{{end}}
+  </footer>
 
   {{ $script := .Site.Data.webpack.main }}
 

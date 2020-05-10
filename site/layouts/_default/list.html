@@ -9,7 +9,7 @@
         {{ range .Pages }}
         <div class="post-list text">
             {{if isset .Params "external_link"}}
-            <a href="{{.Params.external_link}}" target="_blank">
+            <a href="{{.Params.external_link}}" target="_blank" rel="noreferrer">
                 <span class="title text-strong text-uppercase">
                     <div>
                         {{.Title}}
