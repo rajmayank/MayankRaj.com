@@ -14,7 +14,8 @@
   <link href="{{ relURL . }}" rel="stylesheet">
   {{ end }}
 
-  {{- if not .Site.IsServer -}}
+
+  {{ if eq (getenv "ENV_HUGO") "prod" }}
     {{ template "_internal/google_analytics.html" . }}
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
