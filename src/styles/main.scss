@@ -153,7 +153,7 @@ header {
     top: 0;
     height: 75vw;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 
     @include md {
       height: 40vw;
@@ -211,6 +211,18 @@ header {
       width: 100%;
       margin-top: 10px;
 
+
+      .animate {
+          opacity: 0;
+          animation: focus-in 0.75s ease-in forwards;
+
+          @for $i from 1 to 8 {
+              &:nth-child(#{$i}) {
+                  animation-delay: 1.75 + $i * 0.25s;
+              }
+          }
+      }
+
       .row {
         display: flex;
         justify-content: center;
@@ -236,14 +248,6 @@ header {
 
           span {
             color: #d0c4df;
-            opacity: 0;
-            animation: focus-in 0.75s ease-in forwards;
-
-            @for $i from 1 to 8 {
-              &:nth-child(#{$i}) {
-                animation-delay: 1.75 + $i * 0.25s;
-              }
-            }
 
             &.title {
               display: block;
