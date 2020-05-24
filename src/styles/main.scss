@@ -66,7 +66,7 @@ html {
 
     p,
     .content-block {
-      margin-bottom: 5rem;
+      margin-bottom: 1rem;
 
       &.--reduced-margin-bottom {
         margin-bottom: 1rem;
@@ -84,6 +84,16 @@ html {
         vertical-align: -0.4rem;
       }
     }
+
+    .content-resume {
+      text-align: center;
+      font-size: 2.7rem;
+      margin-top: 3.5rem;
+    }
+  }
+
+  .section-top-margin {
+    margin-top: 10rem;
   }
 }
 
@@ -210,6 +220,13 @@ header {
     .description-container {
       width: 100%;
       margin-top: 10px;
+
+      .badges {
+        img {
+          width: 13rem;
+          height: auto;
+        }
+      }
 
 
       .animate {
@@ -430,9 +447,6 @@ footer {
 
       .text-block {
         .row {
-          display: block;
-          margin-bottom: 1.2rem;
-
           div {
             display: inline-block;
           }
@@ -454,6 +468,16 @@ footer {
           }
         }
       }
+
+      .row {
+        display: block;
+        margin-bottom: 1.2rem;  
+      }
+
+      .footer-resume-block {
+        text-align: center;
+      }
+
     }
   }
 
