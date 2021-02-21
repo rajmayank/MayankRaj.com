@@ -2,3 +2,5 @@ node_modules/
 site/data/webpack.json
 .vscode/
 .idea/
+
+.DS_Store
