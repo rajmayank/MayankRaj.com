@@ -34,10 +34,8 @@ jobs:
       - name: Build the App
         run: npm run build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
-          CLEAN: true 
+      - name: Deploy and Cleanup
+        run: | 
+          git add .
+          git commit -m "temp-commit-for-gh-pages"
+          git subtree push --prefix dist origin gh-pages
