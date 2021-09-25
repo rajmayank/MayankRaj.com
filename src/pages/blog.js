@@ -2,8 +2,6 @@ import React from "react";
 import {graphql} from "gatsby";
 import "../styles/main.scss";
 
-import Img from "gatsby-plugin-image";
-
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
 
 import CompactHeader from "../components/compact-header";

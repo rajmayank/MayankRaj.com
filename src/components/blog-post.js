@@ -2,15 +2,18 @@ import React from "react";
 import {graphql} from "gatsby";
 import CompactHeader from "./compact-header";
 import PageFooter from "./footer";
+import Seo from "./seo";
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
-    const siteTitle = this.props.data.site.siteMetadata.title;
-    const {previous, next} = this.props.pageContext;
+    // const siteTitle = this.props.data.site.siteMetadata.title;
+    // const {previous, next} = this.props.pageContext;
 
     return (
       <div>
+        <Seo title="Blog" />
+
         <CompactHeader title={post.frontmatter.title}
                        mood={post.frontmatter.mood ? post.frontmatter.mood : "#fdfdfd"}
                        bgUrl={post.frontmatter.bgimage ? post.frontmatter.bgimage : "/images/blog_covers/blog_index_cover.jpeg"}
