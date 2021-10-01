@@ -1,6 +1,6 @@
 node_modules/
 site/data/webpack.json
-.DS_Store
 .vscode/
 .idea/
-.cache/
+
+.DS_Store
