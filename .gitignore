@@ -4,3 +4,4 @@ site/data/webpack.json
 .vscode/
 .idea/
 .cache/
+public/
