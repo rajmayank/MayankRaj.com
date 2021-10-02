@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "gatsby";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEnvelopeOpen, faHeart, faRss} from "@fortawesome/free-solid-svg-icons";
+import {faEnvelopeOpen, faFileVideo, faHeart, faRss, faVideo} from "@fortawesome/free-solid-svg-icons";
 import {faFacebook, faGithub, faLinkedinIn, faReact, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {OutboundLink} from "gatsby-plugin-google-analytics";
 
@@ -66,6 +66,9 @@ const PageFooter = () => {
               </OutboundLink>
               <OutboundLink href="mailto:hello@mayankraj.com" class="icon" aria-label="Email">
                 <FontAwesomeIcon icon={faEnvelopeOpen}/>
+              </OutboundLink>
+              <OutboundLink href="https://calendly.com/mayank-raj/cathup" class="icon" aria-label="Schedule Call">
+                <FontAwesomeIcon icon={faVideo}/>
               </OutboundLink>
             </div>
             <div class="row footer-resume-block">
