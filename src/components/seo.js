@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import {graphql, useStaticQuery} from "gatsby";
 
 import ImgWebsiteBase from "../assets/images/base.png"
+import ImgWebsiteBaseTwitter from "../assets/images/base_2_1.png"
 
 function Seo({description, lang, meta, title}) {
   const {site} = useStaticQuery(
@@ -27,7 +28,7 @@ function Seo({description, lang, meta, title}) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={title.trimEnd() + " | Mayank Raj"}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
@@ -36,7 +37,7 @@ function Seo({description, lang, meta, title}) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: title.trimEnd() + " | Mayank Raj",
         },
         {
           property: `og:description`,
@@ -48,19 +49,29 @@ function Seo({description, lang, meta, title}) {
         },
         {
           name: "og:image",
-          content: ImgWebsiteBase
+          content: "https://mayankraj.com" + ImgWebsiteBase
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          // <meta name="image" property="og:image" content="[Image URL here]">
+          name: "image",
+          property: "og:image",
+          content: "https://mayankraj.com" + ImgWebsiteBase
+        },
+        {
+          name: "author",
+          content: "Mayank Raj | Solutions Architect",
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: "@mayank9856",
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: "Mayank Raj | Solutions Architect",
         },
         {
           name: `twitter:description`,
@@ -68,7 +79,7 @@ function Seo({description, lang, meta, title}) {
         },
         {
           name: `twitter:image`,
-          content: ImgWebsiteBase,
+          content: "https://mayankraj.com" + ImgWebsiteBaseTwitter,
         }
       ].concat(meta)}
     />

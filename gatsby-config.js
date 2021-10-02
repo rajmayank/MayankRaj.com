@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://mayankraj.com",
     title: "MayankRaj",
-    description: "Solutions architect lorem ipsum", // TODO: update this
+    description: "Solutions Architect with experience in building at scale in applied AI/ML, BigData, Serverless and more. AWS Certified Solutions Architect Professional.",
     author: "Mayank Raj"
   },
   plugins: [
