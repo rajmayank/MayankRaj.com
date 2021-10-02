@@ -180,7 +180,7 @@ const IndexBody = ({posts}) => {
             <br/>
             <span><FontAwesomeIcon icon={faVideo}/></span> &nbsp;
             <span>Sounds Interesting?
-              <OutboundLink href="https://calendly.com/mayank-raj/cathup"> Hop on a call with me </OutboundLink>
+              <OutboundLink href="https://calendly.com/mayank-raj/catch-up"> Hop on a call with me </OutboundLink>
             </span>
           </span>
 

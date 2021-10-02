@@ -67,7 +67,7 @@ const PageFooter = () => {
               <OutboundLink href="mailto:hello@mayankraj.com" class="icon" aria-label="Email">
                 <FontAwesomeIcon icon={faEnvelopeOpen}/>
               </OutboundLink>
-              <OutboundLink href="https://calendly.com/mayank-raj/cathup" class="icon" aria-label="Schedule Call">
+              <OutboundLink href="https://calendly.com/mayank-raj/catch-up" class="icon" aria-label="Schedule Call">
                 <FontAwesomeIcon icon={faVideo}/>
               </OutboundLink>
             </div>
