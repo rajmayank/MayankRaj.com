@@ -108,37 +108,38 @@ const IndexBody = ({posts}) => {
 
 
           <div className="section-top-margin">
-            <p>Hi, I'm Mayank Raj and I'm Solutions Architect currently based in Mumbai, India. I have experience in
-              high performant system architecture,
-              cloud
-              services and have recently been exploring projects that are in the data science domain. </p>
-            <p> I currently work as an Solutions Architect at <OutboundLink href="https://www.cactusglobal.com/">Cactus
-              Communications</OutboundLink>. I've
-              previously worked with
-              industry leader like <OutboundLink href="https://www.directi.com/">Directi</OutboundLink> while still in
-              the second year of my undergraduate
-              study. Prior to that I've
-              been involved with <OutboundLink href="https://frapp.in/">Frapp</OutboundLink>, <OutboundLink
-                href="http://workamp.co/">WorkAmp</OutboundLink> etc
-              at various stages. I've also served as
-              the
-              CTO for <OutboundLink href="https://aiesec.org/">AIESEC</OutboundLink> in Mumbai. </p>
+
+            <p>Hi, I'm Mayank Raj and I'm Solutions Architect. I have designed and built systems for all the three major
+              cloud providers - AWS, Azure and GCP. While I primarily work in the domain of machine learning/deep
+              learning infrastructure, Big Data and Web APIs. I have also dabbled with AR/VR, Voice etc. </p>
+
+            <p>My primary focus is in building high performant products powered by AI/ML & Big Data. I have designed
+              systems that work at scale and are yet cost effective to maintain, both in terms of humans and machines. I
+              have designed orchestration systems that manage more than 250Tb of data. I have also designed serverless
+              systems that scale to handle ~100K long-running jobs while maintaining sub-millisecond latency at the
+              interfaces. When existing tools fail, I have designed modules from scratch - I have built a graph database
+              engine to work with more than billions of nodes and edges.</p>
+
+            <p> I currently work with the amazing team at
+              <OutboundLink href="https://www.cactusglobal.com/">Cactus Communications</OutboundLink>. I've previously
+              worked with industry leaders like
+              <OutboundLink href="https://www.directi.com/">Directi</OutboundLink> while still in the second year of my
+              undergraduate study. Before that I've been involved with
+              <OutboundLink href="https://frapp.in/">Frapp</OutboundLink>,
+              <OutboundLink href="http://workamp.co/">WorkAmp</OutboundLink> etc at various stages. I've also served as
+              the CTO for <OutboundLink href="https://aiesec.org/">AIESEC</OutboundLink> in Mumbai. </p>
+
             <p>Having had started as a web designer & developer, I have helped startups set up their online presence.
-              From designing the web portals to
-              developing, hosting and maintaining them. These initial few years exposed me to JavaScript and the amazing
-              community around it. The language
-              still
-              manages to throw new things at me after all these years. (shoutout to Kyle Simpson for the <OutboundLink
-                href="https://github.com/getify/You-Dont-Know-JS">YDKJS</OutboundLink> series). I have had the
-              opportunity to architect projects that process
-              upwards of
-              100K events per day. This gave me exposure to cloud services.</p>
-            <p>I'm also a core contributor to many open source projects that I use regularly like <OutboundLink
-              href="https://bugzilla.mozilla.org/user_profile?user_id=614754">Firefox</OutboundLink>. Recently I have
-              been working in the domain of Artificial
-              Intelligence
-              and watching the development of <OutboundLink
-                href="https://js.tensorflow.org/">TFJS</OutboundLink> closely. </p>
+              From designing the web portals to developing, hosting and maintaining them. These initial few years
+              exposed me to JavaScript and the amazing community around it. The language still manages to throw new
+              things at me after all these years. (shoutout to Kyle Simpson for the
+              <OutboundLink href="https://github.com/getify/You-Dont-Know-JS">YDKJS</OutboundLink> series)</p>
+
+            <p>I'm also a core contributor to many open source projects that I use regularly like
+              <OutboundLink href="https://bugzilla.mozilla.org/user_profile?user_id=614754">Firefox</OutboundLink>.
+              Recently I have been working in the domain of Artificial Intelligence and watching the development of
+              <OutboundLink href="https://js.tensorflow.org/">TFJS</OutboundLink> closely. </p>
+
           </div>
 
           <div className="content-block">
