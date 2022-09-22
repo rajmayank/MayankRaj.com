@@ -5,12 +5,10 @@
 @import "./mixins";
 @import "./animations";
 
-
 // =======================================================
 // TODO
 //  - style `code` tags
 //  - make use of `mood` color
-
 
 // =======================================================
 // General
@@ -240,7 +238,6 @@ header {
         }
       }
 
-
       .animate {
         opacity: 0;
         animation: focus-in 0.75s ease-in forwards;
@@ -351,15 +348,13 @@ header {
 
           &.meta-data {
             margin-top: 2rem;
-            font: 1.6rem/2.5 "GT Pressura Mono", Consolas, "Andale Mono", Menlo, Monaco, Courier, monospace
+            font: 1.6rem/2.5 "GT Pressura Mono", Consolas, "Andale Mono", Menlo,
+              Monaco, Courier, monospace;
           }
         }
-
       }
     }
-
   }
-
 }
 
 .body-container {
@@ -370,6 +365,7 @@ header {
     padding-right: 10px;
 
     a {
+      margin-left: 5px;
       &:not(.icon) {
         @include underline(#ffffff, #f99);
       }
@@ -435,7 +431,6 @@ header {
           font-size: 1rem;
           margin: 1px 5px;
         }
-
       }
 
       .external_site {
@@ -494,7 +489,6 @@ footer {
       .footer-resume-block {
         text-align: center;
       }
-
     }
   }
 

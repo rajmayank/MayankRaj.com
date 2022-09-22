@@ -16,6 +16,7 @@
     "deploy": "gatsby build && gh-pages -d public"
   },
   "dependencies": {
+    "source-map": "^0.8.0-beta.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
@@ -46,5 +47,8 @@
   },
   "devDependencies": {
     "gh-pages": "^3.2.3"
+  },
+  "resolutions": {
+    "source-map": "^0.8.0-beta.0"
   }
 }
