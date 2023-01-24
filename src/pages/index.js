@@ -16,6 +16,7 @@ import "../styles/main.scss";
 
 import ImgBadgeSAA from "../assets/images/badges/aws-certified-solutions-architect-associate.png";
 import ImgBadgeSAP from "../assets/images/badges/aws-certified-solutions-architect-professional.png";
+import ImgBadgeCKA from "../assets/images/badges/cka-certified-kubernetes-administrator.png";
 import Seo from "../components/seo";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
@@ -94,7 +95,7 @@ const IndexHeader = () => {
           <div className="row">
             <div className="description-block">
               <span className="row-1 title animate">
-                SaaS Founder & Associate Director of Engineering
+                Lead Engineer, Security @ Salesforce
               </span>
             </div>
           </div>
@@ -119,6 +120,17 @@ const IndexHeader = () => {
                 src={ImgBadgeSAP}
                 alt="AWS Certified Solutions Architect – Professional"
                 className="animate professional"
+              />
+            </OutboundLink>
+            <OutboundLink
+              href="https://www.credly.com/badges/1d2d51a2-4c93-44d2-869a-d75e367d3845/public_url"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={ImgBadgeCKA}
+                alt="CKA - Certified Kubernetes Administrator"
+                className="animate size-bg"
               />
             </OutboundLink>
           </div>

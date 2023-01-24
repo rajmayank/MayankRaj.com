@@ -18,8 +18,15 @@
 
 - Run the local server
 ```bash
-    yarn preview
+    yarn start
 ```
+
+# Available Commands
+* `start` : Start a local server
+* `serve` : Serve a production build
+* `build` : Build production package
+* `clean` : Refresh local build cache
+* `deploy` : Deploy to Github Pages
 
 
 
