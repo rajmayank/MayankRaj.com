@@ -3,6 +3,8 @@ import {graphql} from "gatsby";
 import CompactHeader from "./compact-header";
 import PageFooter from "./footer";
 import Seo from "./seo";
+import "../styles/main.scss";
+
 
 class BlogPostTemplate extends React.Component {
   render() {
