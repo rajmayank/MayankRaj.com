@@ -3,10 +3,12 @@ import {Link} from "gatsby";
 import "../styles/main.scss";
 
 const BlogListing = ({posts, is_compact = false}) => {
+  const postsCount = posts.length;
+  posts = (is_compact) ? posts.slice(0, 4) : posts;
   return (
     <div className="section-top-margin">
 
-      {(is_compact) ? (<h3 className="--reduced-margin-bottom"> Recent articles from <Link to="/blog"> blog </Link></h3>) : ""}
+      {(is_compact) ? (<h3 className="--reduced-margin-bottom"> Recent articles from <Link to="/blog">blog</Link></h3>) : ""}
 
       <div className={`post-list-wrapper ${is_compact ? "--compact": ""}`}>
 
@@ -60,6 +62,8 @@ const BlogListing = ({posts, is_compact = false}) => {
           );
         })}
       </div>
+
+      {(is_compact) ? (<h4 className="--reduced-margin-bottom"> ...read {postsCount} more posts in <Link to="/blog">blog</Link></h4>) : ""}
     </div>
 
   );

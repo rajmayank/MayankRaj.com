@@ -8,12 +8,13 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public"
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider gatsby build",
+    "serve": "NODE_OPTIONS=--openssl-legacy-provider gatsby serve",
+    "clean": "NODE_OPTIONS=--openssl-legacy-provider gatsby clean",
+    "deploy": "NODE_OPTIONS=--openssl-legacy-provider gatsby build && gh-pages -d public"
   },
   "dependencies": {
     "source-map": "^0.8.0-beta.0",
