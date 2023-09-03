@@ -167,71 +167,69 @@ const IndexBody = ({ posts }) => {
 
           <div className="section-top-margin">
             <p>
-              Hi, I'm Mayank Raj and I'm Solutions Architect. I have designed
-              and built systems for all the three major cloud providers - AWS,
-              Azure and GCP. While I primarily work in the domain of machine
-              learning/deep learning infrastructure, Big Data and Web APIs. I
-              have also dabbled with AR/VR, Voice etc.
+              Greetings, I am Mayank Raj, a Lead Engineer at{" "}
+              <OutboundLink href="https://www.salesforce.com/">
+                Salesforce
+              </OutboundLink>{" "}
+              , specializing in crafting large scale, resilient and
+              fault-tolerant infrastructure. My expertise encompasses machine
+              learning, deep learning infrastructure, Big Data, Web APIs, and
+              innovative realms like AR/VR and Voice technology.
             </p>
-
+            <p></p>
             <p>
-              My primary focus is in building high performant products powered
-              by AI/ML & Big Data. I have designed systems that work at scale
-              and are yet cost effective to maintain, both in terms of humans
-              and machines. I have designed orchestration systems that manage
-              more than 250Tb of data. I have also designed serverless systems
-              that scale to handle ~100K long-running jobs while maintaining
-              sub-millisecond latency at the interfaces. When existing tools
-              fail, I have designed modules from scratch - I have built a graph
-              database engine to work with more than billions of nodes and
-              edges.
+              Currently, I work on enhancing the security of the Salesforce
+              ecosystem, providing cryptography capabilities across{" "}
+              <OutboundLink href="https://www.salesforce.com/">
+                Salesforce
+              </OutboundLink>{" "}
+              , <OutboundLink href="https://slack.com/">Slack</OutboundLink> ,
+              <OutboundLink href="https://www.tableau.com/">
+                Tableau
+              </OutboundLink>{" "}
+              and more. My passion lies in developing high-performing products
+              fueled by AI/ML and Big Data. I'm adept at designing scalable,
+              cost-effective systems, such as orchestrating over 250TB of data
+              and handling 100,000 long-running jobs with sub-millisecond
+              latency.
             </p>
-
             <p>
-              I currently work with the amazing team at
-              <OutboundLink href="https://www.cactusglobal.com/">
+              From my roots as a web designer & developer, I've nurtured
+              startups' digital existence, designing portals and ensuring their
+              seamless operation. This journey introduced me to the captivating
+              world of JavaScript and its vibrant community. Notably, I
+              contribute extensively to open-source endeavors, shaping tools
+              like Firefox, and recently, immersing myself in the realm of
+              Artificial Intelligence, closely tracking TFJS.
+            </p>
+            <p>
+              Beyond my Salesforce journey, I've thrived at{" "}
+              <OutboundLink href="https://cactusglobal.com/">
                 Cactus Communications
               </OutboundLink>
-              . I've previously worked with industry leaders like
-              <OutboundLink href="https://www.directi.com/">
-                Directi
-              </OutboundLink>
-              , while still in the second year of my undergraduate study. Before
-              that I've been involved with
-              <OutboundLink href="https://frapp.in/">Frapp</OutboundLink>,
-              <OutboundLink href="http://workamp.co/">WorkAmp</OutboundLink> etc
-              at various stages. I've also served as the CTO for
-              <OutboundLink href="https://aiesec.org/">AIESEC</OutboundLink> in
-              Mumbai.
-            </p>
-
-            <p>
-              Having had started as a web designer & developer, I have helped
-              startups set up their online presence. From designing the web
-              portals to developing, hosting and maintaining them. These initial
-              few years exposed me to JavaScript and the amazing community
-              around it. The language still manages to throw new things at me
-              after all these years. (shoutout to Kyle Simpson for the
-              <OutboundLink href="https://github.com/getify/You-Dont-Know-JS">
-                YDKJS
+              , steering tech as an Associate Director, architecting Big Data
+              platforms, scaling AI/ML-powered systems, and bridging the
+              business-tech chasm. My tenure as a Solutions Architect showcased
+              benchmark-defying feats in graph database engines, infrastructure
+              orchestration, and shaping Cloud best practices. As
+              <OutboundLink href="https://apptale.io/">
+                Apptale.io
               </OutboundLink>{" "}
-              series)
+              Founder & CTO, I designed and sculpted a SaaS marvel, monitoring
+              services across AWS's global footprint. It operates out of over
+              50+ AWS availability zone for a truly highly available monitoring
+              system.
             </p>
-
+            <p></p>
             <p>
-              I'm also a core contributor to many open source projects that I
-              use regularly like
-              <OutboundLink href="https://bugzilla.mozilla.org/user_profile?user_id=614754">
-                Firefox
-              </OutboundLink>
-              . Recently I have been working in the domain of Artificial
-              Intelligence and watching the development of
-              <OutboundLink href="https://js.tensorflow.org/">
-                TFJS
-              </OutboundLink>{" "}
-              closely.
+              Over the years, I've designed worked on designing graph engines,
+              crafting highly available systems, and nurturing a team's growth
+              from 1 to 20+. I've worked on building efficient clickstream
+              applications to sculpting real-time web socket services, all
+              underscored by efficient data management.
             </p>
           </div>
+          <br />
 
           <div className="content-block">
             {/*<p class="--reduced-margin-bottom">I work with following technologies</p>*/}
@@ -377,8 +375,8 @@ const IndexBody = ({ posts }) => {
 // TODO: Convert the blog into actual blogs
 class IndexPage extends React.Component {
   render() {
-    // const {data} = this.props;
-    // const siteTitle = data.site.siteMetadata.title;
+    const { data } = this.props;
+    const siteTitle = data.site.siteMetadata.title;
     const posts = this.props.data.allMarkdownRemark.edges;
 
     return (

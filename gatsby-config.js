@@ -1,4 +1,10 @@
 module.exports = {
+  flags: {
+    // "FAST_DEV": false,
+    // "PRESERVE_FILE_DOWNLOAD_CACHE": false,
+    // "PARALLEL_SOURCING": false,
+    // "LMDB_STORE": false
+  },
   siteMetadata: {
     siteUrl: "https://mayankraj.com",
     title: "MayankRaj",
