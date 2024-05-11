@@ -24,7 +24,7 @@
     @apply justify-start;
     @apply [&>*]:w-1/4;
   }
-  @media (screen(lg)) {
+  @media (screen(2xl)) {
     @apply justify-start;
     @apply [&>*]:w-1/2;
   }

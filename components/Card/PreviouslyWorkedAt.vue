@@ -24,7 +24,7 @@
     @apply justify-start;
     @apply [&>*]:w-4/5;
   }
-  @media (screen(lg)) {
+  @media (screen(2xl)) {
     @apply flex-col;
     @apply justify-start;
     @apply [&>*]:w-3/4;
