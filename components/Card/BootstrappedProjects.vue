@@ -1,15 +1,12 @@
 <template>
   <CardContentGroupWithHeader>
     <template #header>
-      <span>
-        Bootstrapped <br />
-        SaaS
-      </span>
+      <span> Bootstrapped SaaS </span>
     </template>
     <template #content>
-      <span class="mt-3 flex w-full gap-10 sm:flex-col lg:flex-row">
-        <LogoApptale class="w-full" />
-        <LogoThePostRoster class="w-full" />
+      <span class="icons">
+        <LogoApptale class="w-1/2" />
+        <LogoThePostRoster class="w-1/2 rounded-lg" />
       </span>
     </template>
   </CardContentGroupWithHeader>
@@ -17,4 +14,19 @@
 
 <script lang="ts" setup></script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.icons {
+  @apply flex flex-row justify-center gap-10 lg:flex-row;
+  @apply mt-3 w-full;
+  @apply [&>*]:w-1/3;
+
+  @media (screen(md)) {
+    @apply justify-start;
+    @apply [&>*]:w-1/4;
+  }
+  @media (screen(lg)) {
+    @apply justify-start;
+    @apply [&>*]:w-1/2;
+  }
+}
+</style>

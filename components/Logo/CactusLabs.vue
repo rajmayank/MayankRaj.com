@@ -1,10 +1,5 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="195"
-    height="40"
-    viewBox="0 0 210 40"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 186 40">
     <g transform="translate(-139 -83)">
       <path
         id="Path_32478"

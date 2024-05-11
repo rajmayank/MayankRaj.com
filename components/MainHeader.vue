@@ -1,30 +1,38 @@
 <template>
   <div>
-    <div class="grid gap-3 sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-5">
+    <div class="grid">
       <!-- Text: Mayank Raj -->
-      <Card class="place-content-end lg:col-span-2">
+      <Card class="[grid-area:name] md:place-content-end">
         <span
-          class="flex text-right text-6xl font-bold sm:text-8xl md:text-9xl xl:leading-tight"
+          class="flex text-center text-6xl font-bold md:text-left md:text-8xl lg:text-9xl xl:leading-tight 2xl:text-right"
         >
           <h1>
-            Mayank <br />
+            Mayank <br class="hidden 2xl:visible" />
             Raj
           </h1>
         </span>
       </Card>
 
       <!-- Text: Lead Engineer callout -->
-      <Card class="place-content-end">
+      <Card
+        class="place-content-end [grid-area:leadengineer] md:place-content-start lg:place-content-end"
+      >
         <div
-          class="font-display relative flex text-xl font-bold tracking-tight text-slate-900 sm:text-2xl md:text-5xl xl:leading-tight"
+          class="font-display relative flex items-center justify-between text-xl font-bold tracking-tight text-slate-900 sm:text-2xl md:text-5xl xl:leading-tight"
         >
-          <h2 class="mr-4">Lead <br />Engineer</h2>
-          <LogoSalesforce class="absolute right-2 top-2 text-5xl" />
+          <h2 class="mr-4">
+            Lead
+            <br class="hidden 2xl:visible" />
+            Engineer
+          </h2>
+          <LogoSalesforce
+            class="right-0 text-4xl md:right-2 md:top-2 md:text-5xl lg:absolute lg:text-5xl"
+          />
         </div>
       </Card>
 
       <!-- Image: Mayank -->
-      <Card class="col-span-2">
+      <Card class="[grid-area:photo]">
         <img
           class="aspect-auto h-full w-full rounded-md object-cover"
           src="~/assets/images/others/mayank-3.jpeg"
@@ -33,7 +41,7 @@
       </Card>
 
       <!-- Text: About Me -->
-      <Card class="col-span-5 row-span-3" extendClass="h-full">
+      <Card class="[grid-area:about]" extendClass="h-full">
         <CardContentGroupWithHeader>
           <template #header>About</template>
           <template #content>
@@ -53,23 +61,23 @@
 
       <!-- Scrolling Text -->
 
-      <Card class="col-span-5"> <PersonaMarquee /> </Card>
+      <Card class="[grid-area:prefixes]"> <PersonaMarquee /> </Card>
 
       <!-- Image: Certifications -->
-      <Card class="col-span-3 row-span-2"> <CardCertifications /> </Card>
+      <Card class="[grid-area:certificates]"> <CardCertifications /> </Card>
 
       <!-- Image: Bootstraped Projcts -->
-      <Card class="col-span-1">
+      <Card class="[grid-area:projects]">
         <CardBootstrappedProjects />
       </Card>
 
       <!-- Image: Previously worked at -->
-      <Card class="col-span-1">
+      <Card class="[grid-area:companies]">
         <CardPreviouslyWorkedAt />
       </Card>
 
       <!-- Text: Details, Salesforce -->
-      <!-- <Card class="col-span-3 col-start-3">
+      <!-- <Card col-start-3">
           <CardContentGroupWithHeader>
             <template #header>Salesforce</template>
             <template #content>
@@ -81,7 +89,7 @@
         </Card> -->
 
       <!-- Text: Details, Apptale.io -->
-      <!-- <Card class="col-span-3 col-start-3">
+      <!-- <Card col-start-3">
           <CardContentGroupWithHeader>
             <template #header>Apptale.io</template>
             <template #content>
@@ -95,7 +103,7 @@
         </Card> -->
 
       <!-- Text: Details, ThePostRoster -->
-      <!-- <Card class="col-span-3 col-start-3">
+      <!-- <Card col-start-3">
           <CardContentGroupWithHeader>
             <template #header>ThePostRoster</template>
             <template #content>
@@ -113,4 +121,38 @@
 
 <script lang="ts" setup></script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.grid {
+  @apply gap-3;
+  @apply grid-cols-1;
+  grid-template-areas:
+    "name "
+    "leadengineer"
+    "photo"
+    "about"
+    "prefixes"
+    "certificates"
+    "projects"
+    "companies";
+
+  @media (screen(md)) {
+    @apply grid-cols-2 gap-3;
+    grid-template-areas:
+      "name photo"
+      "leadengineer photo"
+      "about about"
+      "prefixes prefixes "
+      "certificates projects "
+      " companies .";
+  }
+
+  @media (screen(2xl)) {
+    @apply grid-cols-5 gap-3;
+    grid-template-areas:
+      "name name leadengineer photo photo"
+      "about about about about about"
+      "prefixes prefixes prefixes prefixes prefixes"
+      "certificates certificates certificates projects companies";
+  }
+}
+</style>
