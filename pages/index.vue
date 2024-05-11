@@ -1,94 +1,38 @@
 <template>
-  <div
-    class="conatiner h-screen bg-neutral-800 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-purple-600 via-pink-600 to-blue-600"
-  >
-    <div
-      class="grid grid-flow-row-dense auto-rows-fr grid-cols-7 gap-2.5 px-4 py-2"
-    >
-      <!-- Empty Area -->
-      <Card class="col-span-4 row-span-3 bg-transparent" isHidden="true" />
+  <!-- Control Vertical Height -->
 
-      <!-- Picture -->
-      <Card class="relative col-span-3 row-span-4">
-        <img
-          class="aspect-auto h-full w-full rounded-md object-cover"
-          src="~/assets/images/others/mayank-2.jpeg"
-          alt=""
-        />
-      </Card>
-      <!-- Certifications -->
+  <!-- relative z-10 mx-auto max-w-7xl px-6 pb-40 pt-60 lg:px-12 xl:px-6 2xl:px-0 -->
 
-      <Card class="col-start-1">
-        <span class="">
-          <img
-            class="aspect-auto h-full"
-            src="~/assets/images/badges/aws-certified-solutions-architect-associate.png"
-            alt="Certified Kubernetes Administrator Certification"
-          />
-        </span>
-      </Card>
-      <Card>
-        <span>
-          <img
-            class="aspect-auto h-full"
-            src="~/assets/images/badges/aws-certified-solutions-architect-professional.png"
-            alt="Certified Kubernetes Administrator Certification"
-          />
-        </span>
-      </Card>
-      <Card>
-        <span>
-          <img
-            class="aspect-auto h-full"
-            src="~/assets/images/badges/cka-certified-kubernetes-administrator.png"
-            alt="Certified Kubernetes Administrator Certification"
-          />
-        </span>
-      </Card>
-      <Card>
-        <span>
-          <img
-            class="aspect-auto h-full"
-            src="~/assets/images/badges/aws-community-builder.png"
-            alt="Certified Kubernetes Administrator Certification"
-          />
-        </span>
-      </Card>
+  <div class="h-full bg-red-100 py-20 sm:pb-20 sm:pt-10">
+    <div class="z-10 mx-auto max-w-7xl px-6 pb-40 lg:px-12 xl:px-6 2xl:px-0">
+      <MainHeader></MainHeader>
 
-      <!-- Name & Bio -->
-      <Card class="col-span-4 row-span-2 flex items-center justify-center">
-        <p
-          class="text-9xl font-extrabold capitalize leading-tight tracking-wider"
+      <div>
+        <div
+          class="grid gap-3 [grid-template-areas:'name_name_detail_detail_detail''name_name_image_image_recording''name_name_image_image_link'] sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-5"
         >
-          Mayank Raj
-        </p>
-      </Card>
-      <Card class="col-span-2 flex items-center justify-center">
-        <span class="text-4xl font-bold tracking-wider">
-          Lead Engineer, Cryptography</span
+          <Card class="[grid-area:name]" useFullHeight>GIDS CONFERENCE</Card>
+          <Card class="[grid-area:detail]">Title & Absract</Card>
+          <Card class="[grid-area:image]" useFullHeight>Image</Card>
+          <Card class="[grid-area:recording]">Recording</Card>
+          <Card class="[grid-area:link]">Link</Card>
+        </div>
+      </div>
+      <div class="mt-10">
+        <div
+          class="grid gap-3 [grid-template-areas:'detail_detail_detail_name_name''recording_image_image_name_name''link_image_image_name_name'] sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-5"
         >
-      </Card>
-      <Card class="col-span-1 flex items-center justify-center">
-        <LogoSalesforce class="h-full w-full" />
-      </Card>
-
-      <Card class="col-span-3 flex items-center justify-center">
-        <span class="flex w-full justify-between gap-2 px-[15%] text-4xl">
-          <LogoLinkedin />
-          <LogoEmail />
-          <LogoGithub />
-          <LogoVideoCall />
-        </span>
-      </Card>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+          <Card class="[grid-area:name]" useFullHeight>GIDS CONFERENCE</Card>
+          <Card class="[grid-area:detail]">Title & Absract</Card>
+          <Card class="[grid-area:image]" useFullHeight>Image</Card>
+          <Card class="[grid-area:recording]">Recording</Card>
+          <Card class="[grid-area:link]">Link</Card>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup></script>
 
-<style lang="scss"></style>
+<style></style>
