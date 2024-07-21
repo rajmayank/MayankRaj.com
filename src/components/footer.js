@@ -1,12 +1,24 @@
 import React from "react";
-import {Link} from "gatsby";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEnvelopeOpen, faFileVideo, faHeart, faRss, faVideo} from "@fortawesome/free-solid-svg-icons";
-import {faFacebook, faGithub, faLinkedinIn, faReact, faTwitter} from "@fortawesome/free-brands-svg-icons";
-import {OutboundLink} from "gatsby-plugin-google-analytics";
+import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelopeOpen,
+  faFileVideo,
+  faHeart,
+  faRss,
+  faVideo,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faGithub,
+  faLinkedinIn,
+  faReact,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const PageFooter = () => {
-
   return (
     <footer>
       <div class="design-block">
@@ -22,13 +34,19 @@ const PageFooter = () => {
         <div class="wrapper">
           <div class="text-block">
             <div class="row">
-              <span> Built with &nbsp;
-                <a href="https://www.gatsbyjs.com/" name="gatsbyjs">Gatsby</a>,
+              <span>
+                {" "}
+                Built with &nbsp;
+                <a href="https://www.gatsbyjs.com/" name="gatsbyjs">
+                  Gatsby
+                </a>
+                ,
                 <div class="loop-icons">
                   <div class="icon">
                     &nbsp;
-                    <FontAwesomeIcon icon={faReact} title="React"/> &amp; &nbsp;
-                    <FontAwesomeIcon icon={faHeart}/> &nbsp;.
+                    <FontAwesomeIcon icon={faReact} title="React" /> &amp;
+                    &nbsp;
+                    <FontAwesomeIcon icon={faHeart} /> &nbsp;.
                   </div>
                 </div>
               </span>
@@ -36,45 +54,107 @@ const PageFooter = () => {
             </div>
             <div className="row">
               <span>© 2016 - {new Date().getFullYear()}</span>
-              <span> <Link to="/" aria-label="Home | MayankRaj.com"> Home </Link> </span>
-              <span> <Link to="/blog" aria-label="Blog | MayankRaj.com"> Blog </Link> </span>
-              <span> <OutboundLink href="https://github.com/rajmayank/mayankraj.com"
-                                   aria-label="Source | MayankRaj.com"
-                                   target="_blank"
-                                   rel="noreferrer"> Source </OutboundLink>
+              <span>
+                {" "}
+                <Link to="/" aria-label="Home | MayankRaj.com">
+                  {" "}
+                  Home{" "}
+                </Link>{" "}
               </span>
               <span>
-                <OutboundLink href="/rss.xml" className="icon" aria-label="RSS Feed">
-                  <FontAwesomeIcon icon={faRss}/>
+                {" "}
+                <Link to="/blog" aria-label="Blog | MayankRaj.com">
+                  {" "}
+                  Blog{" "}
+                </Link>{" "}
+              </span>
+              <span>
+                {" "}
+                <OutboundLink
+                  href="https://github.com/rajmayank/mayankraj.com"
+                  aria-label="Source | MayankRaj.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {" "}
+                  Source{" "}
+                </OutboundLink>
+              </span>
+              <span>
+                <OutboundLink
+                  href="/rss.xml"
+                  className="icon"
+                  aria-label="RSS Feed"
+                >
+                  <FontAwesomeIcon icon={faRss} />
                 </OutboundLink>
               </span>
             </div>
           </div>
           <div className={"icons-block"}>
             <div className={"row"}>
-              <OutboundLink href="https://twitter.com/Mayank9856" target="_blank" className="icon" aria-label="Twitter">
-                <FontAwesomeIcon icon={faTwitter} size="lg"/>
+              <OutboundLink
+                href="https://twitter.com/Mayank9856"
+                target="_blank"
+                className="icon"
+                aria-label="Twitter"
+              >
+                <FontAwesomeIcon icon={faTwitter} size="lg" />
               </OutboundLink>
-              <OutboundLink href="https://www.linkedin.com/in/mayank9856/" class="icon" aria-label="LinkedIn">
-                <FontAwesomeIcon icon={faLinkedinIn}/>
+              <OutboundLink
+                href="https://www.instagram.com/mayank9856/"
+                target="_blank"
+                className="icon"
+                aria-label="Instagram"
+              >
+                <FontAwesomeIcon icon={faInstagram} size="lg" />
               </OutboundLink>
-              <OutboundLink href="https://www.facebook.com/mayank9856" class="icon" aria-label="Facebook">
-                <FontAwesomeIcon icon={faFacebook}/>
+              <OutboundLink
+                href="https://www.linkedin.com/in/mayank9856/"
+                class="icon"
+                aria-label="LinkedIn"
+              >
+                <FontAwesomeIcon icon={faLinkedinIn} />
               </OutboundLink>
-              <OutboundLink href="https://github.com/rajmayank" class="icon" aria-label="GitHub">
-                <FontAwesomeIcon icon={faGithub}/>
+              <OutboundLink
+                href="https://www.facebook.com/mayank9856"
+                class="icon"
+                aria-label="Facebook"
+              >
+                <FontAwesomeIcon icon={faFacebook} />
               </OutboundLink>
-              <OutboundLink href="mailto:hello@mayankraj.com" class="icon" aria-label="Email">
-                <FontAwesomeIcon icon={faEnvelopeOpen}/>
+              <OutboundLink
+                href="https://github.com/rajmayank"
+                class="icon"
+                aria-label="GitHub"
+              >
+                <FontAwesomeIcon icon={faGithub} />
               </OutboundLink>
-              <OutboundLink href="https://calendly.com/mayank-raj/catch-up" class="icon" aria-label="Schedule Call">
-                <FontAwesomeIcon icon={faVideo}/>
+              <OutboundLink
+                href="mailto:hello@mayankraj.com"
+                class="icon"
+                aria-label="Email"
+              >
+                <FontAwesomeIcon icon={faEnvelopeOpen} />
+              </OutboundLink>
+              <OutboundLink
+                href="https://calendly.com/mayank-raj/catch-up"
+                class="icon"
+                aria-label="Schedule Call"
+              >
+                <FontAwesomeIcon icon={faVideo} />
               </OutboundLink>
             </div>
             <div class="row footer-resume-block">
-
               {/*TODO: Update this to track it*/}
-              <Link to="/Mayank_Raj_Resume.pdf" target="_blank" rel="noreferrer"> <span>View Resume</span> </Link>
+              <Link
+                to="/Mayank_Raj_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {" "}
+                <span>View Resume</span>{" "}
+              </Link>
               {/*<a href="/resume?src=footer" target="_blank" rel="noreferrer"> <span>View Resume</span> </a>*/}
             </div>
           </div>
@@ -82,7 +162,5 @@ const PageFooter = () => {
       </div>
     </footer>
   );
-
 };
 export default PageFooter;
-
