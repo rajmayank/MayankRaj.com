@@ -98,6 +98,10 @@ html {
 
   .section-top-margin {
     margin-top: 10rem;
+
+    &.--tight {
+      margin-top: 4rem;
+    }
   }
 }
 
@@ -551,3 +555,8 @@ footer {
     }
   }
 }
+
+////
+///
+///
+///

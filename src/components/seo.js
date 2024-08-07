@@ -3,128 +3,128 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
-import ImgWebsiteBase from "../assets/images/base.png";
-import ImgWebsiteBaseTwitter from "../assets/images/base_2_1.png";
+import ImgWebsiteBase from "../assets/images/base.png"; // Replace with your actual image path
 
-const Seo = ({ description, lang, meta, title, pathname }) => {
-  const { site } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-          author
-          siteUrl
-          social {
-            twitter
-            linkedin
-            github
+const Seo = ({
+  description = ``,
+  lang = `en`,
+  meta = [],
+  title,
+  pathname = ``,
+  image,
+  article = false,
+  datePublished,
+}) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+            siteUrl
+            social {
+              twitter
+            }
           }
         }
       }
-    }
-  `);
+    `
+  );
 
   const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = "Mayank Raj | Solutions Architect";
+  const defaultTitle = site.siteMetadata.title;
   const canonicalUrl = pathname
     ? `${site.siteMetadata.siteUrl}${pathname}`
     : site.siteMetadata.siteUrl;
+  const ogImage = `${site.siteMetadata.siteUrl}${image || ImgWebsiteBase}`;
+  const twitterImage = `${site.siteMetadata.siteUrl}${image || ImgWebsiteBase}`;
+
+  // Create schema.org JSONLD
+  const schemaOrgJSONLD = [
+    {
+      "@context": "https://schema.org",
+      "@type": article ? "BlogPosting" : "Website", // Use BlogPosting if article is true
+      headline: title || defaultTitle,
+      image: ogImage,
+      author: {
+        "@type": "Person",
+        name: site.siteMetadata.author,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: site.siteMetadata.author,
+        logo: {
+          "@type": "ImageObject",
+          url: ogImage,
+        },
+      },
+      url: canonicalUrl,
+      description: metaDescription,
+      datePublished, // Add datePublished if provided
+    },
+  ];
 
   return (
     <Helmet
       htmlAttributes={{ lang }}
       title={title}
-      titleTemplate={"%s | ${site.siteMetadata.title}"}
-      link={[
-        {
-          rel: "canonical",
-          href: canonicalUrl,
-        },
-      ]}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={[{ rel: "canonical", href: canonicalUrl }]}
       meta={[
         {
-          "http-equiv": "Content-Language",
-          content: lang,
-        },
-        {
-          name: "description",
+          name: `description`,
           content: metaDescription,
         },
         {
-          property: "og:title",
+          property: `og:title`,
           content: title || defaultTitle,
         },
         {
-          property: "og:description",
+          property: `og:description`,
           content: metaDescription,
         },
         {
-          property: "og:type",
-          content: "website",
+          property: `og:type`,
+          content: `website`,
         },
         {
-          name: "og:url",
+          property: `og:url`,
           content: canonicalUrl,
         },
         {
-          name: "og:image",
-          content: `https://mayankraj.com${ImgWebsiteBase}`,
+          property: `og:image`,
+          content: ogImage,
         },
         {
-          property: "og:image:width",
-          content: "1200",
+          name: `twitter:card`,
+          content: `summary_large_image`,
         },
         {
-          property: "og:image:height",
-          content: "630",
-        },
-        {
-          name: "twitter:card",
-          content: "summary_large_image",
-        },
-        {
-          name: "twitter:creator",
+          name: `twitter:creator`,
           content: site.siteMetadata.social.twitter,
         },
         {
-          name: "twitter:title",
+          name: `twitter:title`,
           content: title || defaultTitle,
         },
         {
-          name: "twitter:description",
+          name: `twitter:description`,
           content: metaDescription,
         },
         {
-          name: "twitter:image",
-          content: "https://mayankraj.com${ImgWebsiteBaseTwitter}",
+          name: `twitter:image`,
+          content: twitterImage,
         },
       ].concat(meta)}
     >
-      <script type="application/ld+json">{`
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Mayank Raj",
-          "jobTitle": "Solutions Architect",
-          "url": "${site.siteMetadata.siteUrl}",
-          "image": "${site.siteMetadata.siteUrl}/static/profile-pic-square-250-50b026f8783002259b57b024497687c7.jpg",
-          "sameAs": [
-            "${site.siteMetadata.social.twitter}",
-            "${site.siteMetadata.social.linkedin}",
-            "${site.siteMetadata.social.github}"
-          ]
-        }
-      `}</script>
+      {/* Add the schema.org JSONLD */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
     </Helmet>
   );
-};
-
-Seo.defaultProps = {
-  lang: "en",
-  meta: [],
-  description: "",
-  pathname: "",
 };
 
 Seo.propTypes = {
@@ -133,6 +133,9 @@ Seo.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   pathname: PropTypes.string,
+  image: PropTypes.string,
+  article: PropTypes.bool,
+  datePublished: PropTypes.string,
 };
 
 export default Seo;

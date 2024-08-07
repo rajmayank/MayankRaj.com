@@ -9,7 +9,6 @@ import "../styles/main.scss";
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark;
-  const site = data.site;
 
   return (
     <div>
@@ -17,6 +16,9 @@ const BlogPostTemplate = ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.excerpt || post.excerpt}
         pathname={post.frontmatter.page_slug}
+        image={post.frontmatter.bgimage}
+        article={true}
+        datePublished={post.frontmatter.date}
       />
       <CompactHeader
         title={post.frontmatter.title}
@@ -32,7 +34,12 @@ const BlogPostTemplate = ({ data }) => {
         <div className="content-container">
           <div className="text text-justify text-spacers">
             <article>
-              {" "}
+              {post.frontmatter.author && (
+                <div className="author-section">
+                  <p>By: {post.frontmatter.author}</p>
+                </div>
+              )}
+
               <section dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
           </div>
