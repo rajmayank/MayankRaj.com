@@ -3,21 +3,8 @@
 import React from "react";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelopeOpen,
-  faFileVideo,
-  faHeart,
-  faRss,
-  faVideo,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebook,
-  faGithub,
-  faLinkedinIn,
-  faReact,
-  faTwitter,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import { faHeart, faRss } from "@fortawesome/free-solid-svg-icons";
+import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const PageFooter = () => {

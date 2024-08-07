@@ -339,10 +339,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 20
-    ) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 20) {
       edges {
         node {
           excerpt
