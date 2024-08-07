@@ -9,10 +9,15 @@ import "../styles/main.scss";
 
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark;
+  const site = data.site;
 
   return (
     <div>
-      <Seo title={post.frontmatter.title} />
+      <Seo
+        title={post.frontmatter.title}
+        description={post.frontmatter.excerpt || post.excerpt}
+        pathname={post.frontmatter.page_slug}
+      />
       <CompactHeader
         title={post.frontmatter.title}
         mood={post.frontmatter.mood || "#fdfdfd"}

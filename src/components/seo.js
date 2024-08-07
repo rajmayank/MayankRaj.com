@@ -1,5 +1,3 @@
-// File: seo.js
-
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
@@ -8,7 +6,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import ImgWebsiteBase from "../assets/images/base.png";
 import ImgWebsiteBaseTwitter from "../assets/images/base_2_1.png";
 
-const Seo = ({ description, lang, meta, title }) => {
+const Seo = ({ description, lang, meta, title, pathname }) => {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -16,76 +14,125 @@ const Seo = ({ description, lang, meta, title }) => {
           title
           description
           author
+          siteUrl
+          social {
+            twitter
+            linkedin
+            github
+          }
         }
       }
     }
   `);
 
   const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = "Mayank Raj | Solutions Architect"; // Define a default title
+  const defaultTitle = "Mayank Raj | Solutions Architect";
+  const canonicalUrl = pathname
+    ? `${site.siteMetadata.siteUrl}${pathname}`
+    : site.siteMetadata.siteUrl;
 
   return (
     <Helmet
       htmlAttributes={{ lang }}
-      title={title} // Use the provided title directly
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={title}
+      titleTemplate={"%s | ${site.siteMetadata.title}"}
+      link={[
+        {
+          rel: "canonical",
+          href: canonicalUrl,
+        },
+      ]}
       meta={[
         {
-          name: `description`,
+          "http-equiv": "Content-Language",
+          content: lang,
+        },
+        {
+          name: "description",
           content: metaDescription,
         },
         {
-          property: `og:title`,
-          content: title || defaultTitle, // Use provided title or default
+          property: "og:title",
+          content: title || defaultTitle,
         },
         {
-          property: `og:description`,
+          property: "og:description",
           content: metaDescription,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: "og:type",
+          content: "website",
         },
         {
-          name: `og:image`, // Use consistent naming for Open Graph image
+          name: "og:url",
+          content: canonicalUrl,
+        },
+        {
+          name: "og:image",
           content: `https://mayankraj.com${ImgWebsiteBase}`,
         },
         {
-          name: `twitter:card`,
-          content: `summary_large_image`,
+          property: "og:image:width",
+          content: "1200",
         },
         {
-          name: `twitter:creator`,
-          content: `@mayank9856`,
+          property: "og:image:height",
+          content: "630",
         },
         {
-          name: `twitter:title`,
-          content: title || defaultTitle, // Use provided title or default
+          name: "twitter:card",
+          content: "summary_large_image",
         },
         {
-          name: `twitter:description`,
+          name: "twitter:creator",
+          content: site.siteMetadata.social.twitter,
+        },
+        {
+          name: "twitter:title",
+          content: title || defaultTitle,
+        },
+        {
+          name: "twitter:description",
           content: metaDescription,
         },
         {
-          name: `twitter:image`,
-          content: `https://mayankraj.com${ImgWebsiteBaseTwitter}`,
+          name: "twitter:image",
+          content: "https://mayankraj.com${ImgWebsiteBaseTwitter}",
         },
       ].concat(meta)}
-    />
+    >
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Mayank Raj",
+          "jobTitle": "Solutions Architect",
+          "url": "${site.siteMetadata.siteUrl}",
+          "image": "${site.siteMetadata.siteUrl}/static/profile-pic-square-250-50b026f8783002259b57b024497687c7.jpg",
+          "sameAs": [
+            "${site.siteMetadata.social.twitter}",
+            "${site.siteMetadata.social.linkedin}",
+            "${site.siteMetadata.social.github}"
+          ]
+        }
+      `}</script>
+    </Helmet>
   );
 };
 
 Seo.defaultProps = {
-  lang: `en`,
+  lang: "en",
   meta: [],
-  description: ``,
+  description: "",
+  pathname: "",
 };
 
 Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired, // Title is now required
+  title: PropTypes.string.isRequired,
+  pathname: PropTypes.string,
 };
 
 export default Seo;

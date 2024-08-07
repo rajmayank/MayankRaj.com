@@ -53,3 +53,9 @@ I'm a big fan of open-source collaboration, so if you find anything interesting 
 ## ❤️ Attribution is Key
 
 While I'm happy to share this project, please remember that all code and content are my copyright. If you're inspired to use any elements, please give credit where credit is due. Let's create a more open and collaborative web, one line of code (and maybe a pun or two) at a time. Happy coding!
+
+---
+
+## TODOs
+
+[] Update SEO attributes for the blog pages, to not use the default
