@@ -5,7 +5,7 @@ basecolor: "#fff"
 author: "Mayank Raj"
 enablecomments: false
 category: "Zero Day Series"
-bgimage: "/images/blog_covers/zero-day-introduction.jpeg"
+bgimage: "/images/blog_covers/zero-day-introduction.jpg"
 page_slug: "/blog/zero-day-vulnerabilities-and-you-introduction"
 ---
 

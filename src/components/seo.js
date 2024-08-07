@@ -1,34 +1,33 @@
+// File: seo.js
+
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import {graphql, useStaticQuery} from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
-import ImgWebsiteBase from "../assets/images/base.png"
-import ImgWebsiteBaseTwitter from "../assets/images/base_2_1.png"
+import ImgWebsiteBase from "../assets/images/base.png";
+import ImgWebsiteBaseTwitter from "../assets/images/base_2_1.png";
 
-function Seo({description, lang, meta, title}) {
-  const {site} = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+const Seo = ({ description, lang, meta, title }) => {
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `
-  );
+    }
+  `);
 
   const metaDescription = description || site.siteMetadata.description;
+  const defaultTitle = "Mayank Raj | Solutions Architect"; // Define a default title
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title.trimEnd() + " | Mayank Raj"}
+      htmlAttributes={{ lang }}
+      title={title} // Use the provided title directly
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
@@ -37,7 +36,7 @@ function Seo({description, lang, meta, title}) {
         },
         {
           property: `og:title`,
-          content: title.trimEnd() + " | Mayank Raj",
+          content: title || defaultTitle, // Use provided title or default
         },
         {
           property: `og:description`,
@@ -48,30 +47,20 @@ function Seo({description, lang, meta, title}) {
           content: `website`,
         },
         {
-          name: "og:image",
-          content: "https://mayankraj.com" + ImgWebsiteBase
+          name: `og:image`, // Use consistent naming for Open Graph image
+          content: `https://mayankraj.com${ImgWebsiteBase}`,
         },
         {
-          // <meta name="image" property="og:image" content="[Image URL here]">
-          name: "image",
-          property: "og:image",
-          content: "https://mayankraj.com" + ImgWebsiteBase
-        },
-        {
-          name: "author",
-          content: "Mayank Raj | Solutions Architect",
-        },
-        {
-          name: "twitter:card",
-          content: "summary_large_image",
+          name: `twitter:card`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
-          content: "@mayank9856",
+          content: `@mayank9856`,
         },
         {
           name: `twitter:title`,
-          content: "Mayank Raj | Solutions Architect",
+          content: title || defaultTitle, // Use provided title or default
         },
         {
           name: `twitter:description`,
@@ -79,12 +68,12 @@ function Seo({description, lang, meta, title}) {
         },
         {
           name: `twitter:image`,
-          content: "https://mayankraj.com" + ImgWebsiteBaseTwitter,
-        }
+          content: `https://mayankraj.com${ImgWebsiteBaseTwitter}`,
+        },
       ].concat(meta)}
     />
   );
-}
+};
 
 Seo.defaultProps = {
   lang: `en`,
@@ -96,7 +85,7 @@ Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired, // Title is now required
 };
 
 export default Seo;
