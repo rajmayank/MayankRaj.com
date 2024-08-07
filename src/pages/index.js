@@ -142,8 +142,7 @@ const IndexHeader = () => (
 
 const IndexBody = ({ posts }) => (
   <div>
-    <div className="section-top-margin">
-      {" "}
+    <div>
       <Showcase />{" "}
     </div>
 
@@ -220,14 +219,14 @@ const IndexBody = ({ posts }) => (
             </p>
             <p>But here's where it gets really interesting:</p>
             <ul>
-              <li class="text-hidden">
+              <li className="text-hidden">
                 I've been known to pull rabbits out of hats – or rather, pull
                 42% performance improvements out of existing systems. At
                 Salesforce, I engineered benchmarking tools and caching layers
                 that not only boosted system throughput but also slashed costs
                 by 71%. Who says you can't have your cake and eat it too?
               </li>
-              <li class="text-hidden">
+              <li className="text-hidden">
                 I'm a firm believer in the "five nines" philosophy. I led
                 efforts to improve service availability from 99.99% to 99.999%
                 at Salesforce. It's like turning a reliable watch into an atomic
