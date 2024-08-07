@@ -1,5 +1,7 @@
+// File: blog.js
+
 import React from "react";
-import {graphql} from "gatsby";
+import { graphql } from "gatsby";
 import "../styles/main.scss";
 
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
@@ -7,6 +9,7 @@ import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
 import CompactHeader from "../components/compact-header";
 import BlogListing from "../components/blog-post-listing";
 import PageFooter from "../components/footer";
+import Seo from "../components/seo"; // Added SEO component
 
 class BlogListPage extends React.Component {
   render() {
@@ -14,23 +17,24 @@ class BlogListPage extends React.Component {
 
     return (
       <div>
-        <CompactHeader title="Blog Articles" mood="#fdfdfd" bgUrl={BlogIndexCover}> </CompactHeader>
-
+        <Seo title="Blog" /> {/* Added SEO component for blog page */}
+        <CompactHeader
+          title="Blog Articles"
+          mood="#fdfdfd"
+          bgUrl={BlogIndexCover}
+        />
         <main>
           <div className="post-list-container">
-            <BlogListing posts={posts}> </BlogListing>
+            <BlogListing posts={posts} />
           </div>
         </main>
-        <PageFooter> </PageFooter>
-
+        <PageFooter />
       </div>
     );
-
   }
 }
 
 export default BlogListPage;
-
 
 export const pageQuery = graphql`
   query {
@@ -39,7 +43,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 20) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 20
+    ) {
       edges {
         node {
           excerpt

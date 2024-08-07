@@ -11,12 +11,10 @@
 //  - make use of `mood` color
 
 // =======================================================
-// General
+// General Styles
 
 html {
-  @media (min-width: $breakpoint) {
-    font-size: 10px;
-  }
+  font-size: 10px; // Default font size for larger screens
 
   @media (max-width: $breakpoint) {
     font-size: 9px;
@@ -31,12 +29,13 @@ html {
     animation: fade-in 0.6s;
     color: $color-front;
 
+    // Text Styles
     .muted-font {
       color: $color-front-muted;
     }
 
     .text {
-      font: 1.9rem /#{1.5} $font-primary;
+      font: 1.9rem / 1.5 $font-primary; // Simplified line-height
 
       &--small {
         font-size: 1.65rem;
@@ -51,32 +50,33 @@ html {
     .text-strong {
       font-weight: bold;
     }
-
     .text-uppercase {
       text-transform: uppercase;
     }
-
     .text-capital {
       text-transform: capitalize;
     }
-
     .text-justify {
       text-align: justify;
     }
-
     .text-disabled {
       opacity: 0.5;
     }
+    .text-hidden {
+      display: none;
+    }
 
+    // Paragraph and Content Block Styles
     p,
     .content-block {
       margin-bottom: 1rem;
 
       &.--reduced-margin-bottom {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem; // Consider if this should be different
       }
     }
 
+    // Icon Styles
     .icon {
       display: inline-block;
 
@@ -102,22 +102,20 @@ html {
 }
 
 // =======================================================
-// Element specific
+// Header Styles
 
 header {
-  // margin-bottom: 100px;
+  // Removed commented-out code
 
   .design-container {
     height: 78vw;
     width: 100%;
-
     position: absolute;
     background-color: $bg-header-layer-2;
     overflow: hidden;
     @include skew(0, 3);
     @include transform-origin(bottom right);
     animation: design-container 0.75s;
-    // animation-delay: 1.15s;
 
     @include md {
       height: 40vw;
@@ -135,30 +133,30 @@ header {
       animation: header-layer-1 1.25s;
     }
 
-    .layer-2 {
-      position: absolute;
-      z-index: 100;
-      top: 25%;
-      width: 100%;
-      height: 80%;
-      @include skew(0, 25);
-      @include transform-origin(bottom left);
-      background-color: $bg-header-layer-3;
-      animation: header-layer-2 0.75s;
-    }
-
+    .layer-2,
     .layer-3 {
+      // Combined similar styles
       position: absolute;
-      opacity: 0.5;
-      z-index: 50;
       top: 25%;
       width: 100%;
       height: 80%;
-      @include skew(0, 20);
       @include transform-origin(bottom left);
       background-color: $bg-header-layer-3;
-      animation: header-layer-2 1s;
-      // animation-delay: .15s;
+
+      &.--layer-2 {
+        // Specific styles for layer-2
+        z-index: 100;
+        @include skew(0, 25);
+        animation: header-layer-2 0.75s;
+      }
+
+      &.--layer-3 {
+        // Specific styles for layer-3
+        z-index: 50;
+        opacity: 0.5;
+        @include skew(0, 20);
+        animation: header-layer-2 1s;
+      }
     }
   }
 
@@ -166,7 +164,6 @@ header {
     position: relative;
     top: 0;
     width: 100%;
-    /*overflow: hidden;*/
 
     .name-container {
       .name-block {
@@ -179,13 +176,7 @@ header {
         svg {
           .text {
             font-family: "Courgette", "cursive", "Tahoma", "Courier New";
-            // font-family: 'Marck Script', cursive;
-            // font-family: 'Monoton', cursive;
-            // font-family: 'Kaushan Script', cursive;
-            // font-family: 'Merienda', cursive;
-
             font-size: 35px;
-            // text-transform: uppercase;
             display: block;
           }
 
@@ -198,19 +189,19 @@ header {
             stroke-linecap: butt;
             stroke-linejoin: round;
             animation: header-svg-stroke 3.5s ease-in-out forwards;
-          }
 
-          .text-stroke:nth-child(2) {
-            animation-delay: 0.2s;
-          }
+            &:nth-child(2) {
+              animation-delay: 0.2s;
+            }
 
-          .text-stroke-2 {
-            stroke: #f6bdfa;
-            animation-delay: 0.75s;
-          }
+            &.--stroke-2 {
+              stroke: #f6bdfa;
+              animation-delay: 0.75s;
+            }
 
-          .text-stroke:nth-child(5) {
-            animation-delay: 1s;
+            &:nth-child(5) {
+              animation-delay: 1s;
+            }
           }
         }
       }
@@ -222,8 +213,8 @@ header {
 
       .badges {
         margin-left: 25px;
-
         text-align: center;
+
         @include md {
           text-align: left;
         }
@@ -238,7 +229,6 @@ header {
             &.professional {
               width: 18rem;
             }
-
             &.size-bg {
               width: 20rem;
             }
@@ -260,7 +250,6 @@ header {
       .row {
         display: flex;
         justify-content: center;
-        // align-content: center;
         align-items: center;
         flex-direction: row;
 
@@ -269,15 +258,11 @@ header {
         }
 
         .description-block {
-          // font: 1.9rem/1.5 Righteous, Helvetica, Arial, sans-serif;
           font: 1.9rem/1.5 "Fredoka One", Helvetica, Arial, sans-serif;
-
           text-align: center;
 
           @include md {
-            & {
-              padding-right: 20px;
-            }
+            padding-right: 20px;
           }
 
           span {
@@ -288,7 +273,6 @@ header {
               margin-bottom: 5px;
             }
 
-            // TODO: Lighten to distingus from `row-1`
             &.row-2 {
               padding: 3px;
 
@@ -310,6 +294,7 @@ header {
     }
   }
 
+  // Compact Header Styles
   &.compact {
     position: relative;
     padding: 10vh 20px 25vh;
@@ -326,7 +311,6 @@ header {
       @include skew(0, -2);
       @include transform-origin(bottom left);
 
-      // inspired by https://css-tricks.com/gooey-effect/
       .text-container {
         position: relative;
 
@@ -365,12 +349,12 @@ header {
   }
 }
 
+// Body Container Styles
 .body-container {
   .content-container {
     max-width: 750px;
     margin: 0 auto;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px; // Simplified padding
 
     a {
       margin-left: 5px;
@@ -388,33 +372,31 @@ header {
   }
 }
 
+// Post List Container Styles
 .post-list-container {
   max-width: 100%;
   margin: 0 auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px; // Simplified padding
 
+  // Responsive Design using Media Queries
   @media (min-width: 576px) {
     max-width: 540px;
   }
-
   @media (min-width: 768px) {
     max-width: 720px;
   }
-
   @media (min-width: 992px) {
     max-width: 960px;
   }
-
   @media (min-width: 1200px) {
     max-width: 1140px;
   }
-
   @media (min-width: 1400px) {
     max-width: 1320px;
   }
 }
 
+// Post List Wrapper Styles
 .post-list-wrapper {
   .post-list {
     margin-bottom: 50px;
@@ -439,14 +421,10 @@ header {
       }
     }
 
-    .category {
-      display: inline-block;
-    }
-
+    .category,
     .date {
       display: inline-block;
-      // font-size: 0.875rem; // Ensure date text is readable
-    }
+    } // Combined similar styles
 
     .external_site {
       color: $color-accent;
@@ -457,6 +435,7 @@ header {
   &.--compact {
     .post-list {
       margin-bottom: 0;
+
       .title {
         font-size: 3.5rem;
 
@@ -473,9 +452,11 @@ header {
   }
 }
 
+// Footer Styles
+
 footer {
   position: relative;
-  font: 1.6rem /1.35 Overpass, Helvetica, Arial, sans-serif;
+  font: 1.6rem / 1.35 Overpass, Helvetica, Arial, sans-serif;
   overflow: hidden;
   margin-top: 10rem;
 
@@ -502,8 +483,6 @@ footer {
 
             svg {
               margin: 0;
-              // margin-left: 0.5rem;
-              // margin-right: 0.5rem;
               vertical-align: -0.3rem;
             }
           }
@@ -525,7 +504,6 @@ footer {
     }
   }
 
-  // TODO: try these with rem for consistency
   .design-block {
     position: absolute;
     z-index: 200;
@@ -546,34 +524,30 @@ footer {
       background-color: $bg-header-layer-1;
     }
 
-    .layer-2 {
-      position: absolute;
-      z-index: 250;
-      top: -50%;
-      height: 150%;
-      width: 100%;
-      @include skew(0, 1);
-      @include transform-origin(bottom left);
-      background-color: $bg-header-layer-3;
-    }
-
+    .layer-2,
     .layer-3 {
+      // Combined similar styles
       position: absolute;
-      opacity: 0.5;
-      z-index: 50;
       top: -50%;
-      height: 155%;
-      width: 200%;
-      @include skew(0, 2);
+      width: 100%;
       @include transform-origin(bottom left);
       background-color: $bg-header-layer-3;
-    }
-  }
 
-  * {
-    // outline: 1px dashed black;
+      &.--layer-2 {
+        // Specific styles for layer-2
+        z-index: 250;
+        height: 150%;
+        @include skew(0, 1);
+      }
+
+      &.--layer-3 {
+        // Specific styles for layer-3
+        z-index: 50;
+        opacity: 0.5;
+        height: 155%;
+        width: 200%;
+        @include skew(0, 2);
+      }
+    }
   }
 }
-
-// Others
-// * { outline: 1px solid black; }

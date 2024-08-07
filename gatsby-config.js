@@ -1,15 +1,19 @@
 module.exports = {
   flags: {
-    // "FAST_DEV": false,
-    // "PRESERVE_FILE_DOWNLOAD_CACHE": false,
-    // "PARALLEL_SOURCING": false,
-    // "LMDB_STORE": false
+    FAST_DEV: true,
+    PARALLEL_SOURCING: true,
   },
   siteMetadata: {
     siteUrl: "https://mayankraj.com",
-    title: "MayankRaj",
-    description: "Solutions Architect with experience in building at scale in applied AI/ML, BigData, Serverless and more. AWS Certified Solutions Architect Professional.",
-    author: "Mayank Raj"
+    title: "Mayank Raj",
+    description:
+      "Solutions Architect with experience in building at scale in applied AI/ML, Big Data, Serverless and more. AWS Certified Solutions Architect Professional.",
+    author: "Mayank Raj",
+    social: {
+      twitter: "@mayank9856",
+      linkedin: "https://www.linkedin.com/in/mayank9856/",
+      github: "https://github.com/rajmayank",
+    },
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -18,10 +22,8 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
-    "gatsby-plugin-feed",
     "gatsby-transformer-sharp",
     "gatsby-transformer-remark",
-
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -33,29 +35,21 @@ module.exports = {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/assets/images/favicon.png",
+        name: "Mayank Raj",
+        short_name: "MayankRaj",
+        start_url: "/",
+        background_color: "#ffffff",
+        theme_color: "#663399",
+        display: "minimal-ui",
       },
     },
-    // "gatsby-plugin-mdx",
-
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        // icon: "src/assets/images/favicon.png",
-        // Defaults used for gatsbyImageData and StaticImage
         defaults: {},
-        // Set to false to allow builds to continue on image errors
         failOnError: true,
       },
     },
-
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     name: "images",
-    //     path: "./src/images/",
-    //   },
-    //   __key: "images",
-    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -71,13 +65,6 @@ module.exports = {
         name: `blog`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/content/assets`,
-    //     name: `assets`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -95,14 +82,16 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({query: {site, allMarkdownRemark}}) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.page_slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.page_slug,
-                  custom_elements: [{"content:encoded": edge.node.html}],
+                  url:
+                    site.siteMetadata.siteUrl + edge.node.frontmatter.page_slug,
+                  guid:
+                    site.siteMetadata.siteUrl + edge.node.frontmatter.page_slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }], // Fixed typo in key
                 });
               });
             },
@@ -127,10 +116,12 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Rss | Mayank Raj",
+            title: "RSS Feed | Mayank Raj",
           },
         ],
-      }
-    }
+      },
+    },
+    "gatsby-plugin-robots-txt",
+    "gatsby-plugin-schema-snapshot",
   ],
 };
