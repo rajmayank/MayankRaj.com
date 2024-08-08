@@ -17,12 +17,12 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-sass",
-    "gatsby-plugin-image",
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     "gatsby-transformer-remark",
     {
       resolve: "gatsby-plugin-google-analytics",
@@ -63,6 +63,24 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+      __key: "blogs",
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/src/assets/`,
+      },
+      __key: "assets",
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Marck+Script|Patua+One|Righteous|Overpass|Fredoka+One|Courgette|Monoton|Cabin+Sketch|Playball`,
+        ],
+        display: "swap",
       },
     },
     {
