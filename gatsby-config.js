@@ -16,10 +16,11 @@ module.exports = {
     },
   },
   plugins: [
+    // "gatsby-plugin-preact",
     "gatsby-plugin-sass",
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-transformer-remark",
@@ -43,7 +44,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: "gatsby-plugin-sharp",
       options: {
         defaults: {},
         failOnError: true,
@@ -58,32 +59,32 @@ module.exports = {
       __key: "pages",
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
+        name: "blog",
       },
       __key: "blogs",
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `assets`,
+        name: "assets",
         path: `${__dirname}/src/assets/`,
       },
       __key: "assets",
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "gatsby-plugin-google-fonts",
       options: {
         fonts: [
-          `Marck+Script|Patua+One|Righteous|Overpass|Fredoka+One|Courgette|Monoton|Cabin+Sketch|Playball`,
+          "Marck+Script|Patua+One|Righteous|Overpass|Fredoka+One|Courgette|Monoton|Cabin+Sketch|Playball",
         ],
         display: "swap",
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: "gatsby-plugin-feed",
       options: {
         query: `
           {
@@ -138,6 +139,7 @@ module.exports = {
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-schema-snapshot",
     "gatsby-plugin-preload-fonts",
+    // "gatsby-plugin-perf-budgets",
     "gatsby-plugin-webpack-bundle-analyser-v2",
   ],
 };
