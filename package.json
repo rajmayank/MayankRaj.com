@@ -2,7 +2,7 @@
   "name": "mayankraj.com",
   "version": "1.0.0",
   "private": true,
-  "description": "Personal website of Mayank Raj, a Solutions Architect",
+  "description": "Personal website of Mayank Raj",
   "author": "Mayank Raj",
   "keywords": [
     "gatsby",
@@ -20,11 +20,14 @@
     "deploy": "gatsby build && gh-pages -d public"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/joy": "^5.0.0-beta.48",
     "gatsby": "^5.13.7",
     "gatsby-plugin-feed": "^5.13.1",
     "gatsby-plugin-fontawesome-css": "^1.2.0",
@@ -43,6 +46,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-fast-marquee": "^1.6.5",
     "react-helmet": "^6.1.0",
     "sass": "^1.77.8"
   },
