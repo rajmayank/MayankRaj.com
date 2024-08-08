@@ -78,9 +78,7 @@ module.exports = {
       // resolve: "gatsby-plugin-google-fonts-v2",
       resolve: "gatsby-plugin-google-fonts-with-attributes",
       options: {
-        fonts: [
-          "Marck+Script|Patua+One|Righteous|Overpass|Fredoka+One|Courgette|Monoton|Cabin+Sketch|Playball",
-        ],
+        fonts: ["Overpass|Fredoka+One|Courgette"],
         display: "swap",
         attributes: {
           rel: "stylesheet preload prefetch",

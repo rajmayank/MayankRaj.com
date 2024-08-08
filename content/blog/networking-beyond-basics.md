@@ -5,7 +5,8 @@ basecolor: "#EF6262"
 author: "Mayank Raj"
 enablecomments: false
 category: "Cloud Storage"
-bgimage: "/images/blog_covers/data-archival.png"
+# bgimage: "/images/blog_covers/data-archival.png"
+bgimage: "/images/blog_covers/ephemeral-ports.jpeg"
 page_slug: "/blog/data-archival"
 ---
 
