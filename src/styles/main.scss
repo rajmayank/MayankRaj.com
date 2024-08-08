@@ -216,6 +216,8 @@ header {
       margin-top: 10px;
 
       .badges {
+        display: flex;
+        align-items: center;
         margin-left: 25px;
         text-align: center;
 
@@ -229,13 +231,14 @@ header {
           img {
             width: 15rem;
             height: auto;
+          }
 
-            &.professional {
-              width: 18rem;
-            }
-            &.size-bg {
-              width: 20rem;
-            }
+          &.professional img {
+            width: 18rem;
+          }
+
+          &.size-bg img {
+            width: 20rem;
           }
         }
       }

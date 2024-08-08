@@ -17,9 +17,7 @@ import { faVideo } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/main.scss";
 
-import ImgBadgeSAA from "../assets/images/badges/aws-certified-solutions-architect-associate.png";
-import ImgBadgeSAP from "../assets/images/badges/aws-certified-solutions-architect-professional.png";
-import ImgBadgeCKA from "../assets/images/badges/cka-certified-kubernetes-administrator.png";
+import { StaticImage } from "gatsby-plugin-image";
 
 const IndexHeader = () => (
   <header>
@@ -106,8 +104,8 @@ const IndexHeader = () => (
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              src={ImgBadgeSAA}
+            <StaticImage
+              src="../assets/images/badges/aws-certified-solutions-architect-associate.png"
               alt="AWS Certified Solutions Architect – Professional"
               className="animate"
             />
@@ -117,8 +115,8 @@ const IndexHeader = () => (
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              src={ImgBadgeSAP}
+            <StaticImage
+              src="../assets/images/badges/aws-certified-solutions-architect-professional.png"
               alt="AWS Certified Solutions Architect – Professional"
               className="animate professional"
             />
@@ -128,8 +126,8 @@ const IndexHeader = () => (
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              src={ImgBadgeCKA}
+            <StaticImage
+              src="../assets/images/badges/cka-certified-kubernetes-administrator.png"
               alt="CKA - Certified Kubernetes Administrator"
               className="animate size-bg"
             />
@@ -143,7 +141,7 @@ const IndexHeader = () => (
 const IndexBody = ({ posts }) => (
   <div>
     <div>
-      <Showcase />{" "}
+      <Showcase />
     </div>
 
     <div className="body-container">
