@@ -1,9 +1,8 @@
-// file: blog-post-listing.js
-
 import React from "react";
 import { Link } from "gatsby";
 import "../styles/main.scss";
 import { OutboundLink } from "gatsby-plugin-google-analytics"; // Import for external links
+import Icon from "./Icon";
 
 const BlogListing = ({ posts, is_compact = false }) => {
   const postsCount = posts.length;
@@ -18,77 +17,63 @@ const BlogListing = ({ posts, is_compact = false }) => {
       )}
 
       <div className={`post-list-wrapper ${is_compact ? "--compact" : ""}`}>
-        {posts.map(
-          (
-            { node: post },
-            index // Added index for key prop
-          ) => (
-            <div className="post-list text" key={index}>
-              {" "}
-              {/* Added key prop */}
-              <div>
-                {post.frontmatter.external_link ? (
+        {posts.map(({ node: post }, index) => (
+          <div className="post-list text" key={index}>
+            <div>
+              {post.frontmatter.external_link ? (
+                <OutboundLink // Use OutboundLink for external links
+                  href={post.frontmatter.external_link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="title text-strong text-uppercase">
+                    <div>
+                      {post.frontmatter.title}
+                      <div className="icon">
+                        <Icon name="outboundLink" />
+                      </div>
+                    </div>
+                  </span>
+                </OutboundLink>
+              ) : (
+                <Link to={post.frontmatter.page_slug}>
+                  <span className="title text-strong text-uppercase">
+                    {post.frontmatter.title}
+                  </span>
+                </Link>
+              )}
+
+              {post.frontmatter.category && (
+                <span className="space-left muted-font">
+                  <span>posted in</span> 
+                  <span className="category text-strong text-uppercase muted-font">
+                    {post.frontmatter.category}
+                  </span>
+                </span>
+              )}
+
+              {post.frontmatter.external_site_name && (
+                <span className="muted-font">
+                  at
                   <OutboundLink // Use OutboundLink for external links
-                    href={post.frontmatter.external_link}
+                    href={post.frontmatter.external_site_link}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <span className="title text-strong text-uppercase">
-                      <div>
-                        {post.frontmatter.title}
-                        <div className="icon">
-                          <svg
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512"
-                          >
-                            {/* SVG content remains the same */}
-                          </svg>
-                        </div>
-                      </div>
+                    <span className="external_site text-strong">
+                      {post.frontmatter.external_site_name}
                     </span>
                   </OutboundLink>
-                ) : (
-                  <Link to={post.frontmatter.page_slug}>
-                    <span className="title text-strong text-uppercase">
-                      {post.frontmatter.title}
-                    </span>
-                  </Link>
-                )}
-
-                {post.frontmatter.category && (
-                  <span className="space-left muted-font">
-                    <span>posted in</span> 
-                    <span className="category text-strong text-uppercase muted-font">
-                      {post.frontmatter.category}
-                    </span>
-                  </span>
-                )}
-
-                {post.frontmatter.external_site_name && (
-                  <span className="muted-font">
-                    {" "}
-                    at{" "}
-                    <OutboundLink // Use OutboundLink for external links
-                      href={post.frontmatter.external_site_link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="external_site text-strong">
-                        {post.frontmatter.external_site_name}
-                      </span>
-                    </OutboundLink>
-                  </span>
-                )}
-
-                <br />
-                <span className="date space-left muted-font">
-                  {post.frontmatter.date}
                 </span>
-              </div>
+              )}
+
+              <br />
+              <span className="date space-left muted-font">
+                {post.frontmatter.date}
+              </span>
             </div>
-          )
-        )}
+          </div>
+        ))}
       </div>
 
       {is_compact && (

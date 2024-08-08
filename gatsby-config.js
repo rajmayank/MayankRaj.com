@@ -20,7 +20,6 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-transformer-remark",
@@ -138,5 +137,7 @@ module.exports = {
     },
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-schema-snapshot",
+    "gatsby-plugin-preload-fonts",
+    "gatsby-plugin-webpack-bundle-analyser-v2",
   ],
 };

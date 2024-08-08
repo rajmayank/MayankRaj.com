@@ -12,29 +12,23 @@
     "aws"
   ],
   "scripts": {
+    "preload-fonts": "gatsby-preload-fonts",
     "dev": "gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@fortawesome/free-brands-svg-icons": "^6.6.0",
-    "@fortawesome/free-regular-svg-icons": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
-    "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/joy": "^5.0.0-beta.48",
     "gatsby": "^5.13.7",
     "gatsby-plugin-feed": "^5.13.1",
-    "gatsby-plugin-fontawesome-css": "^1.2.0",
     "gatsby-plugin-google-analytics": "^5.13.1",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-plugin-preload-fonts": "^4.13.1",
     "gatsby-plugin-react-helmet": "^6.13.1",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sass": "^6.13.1",
@@ -44,14 +38,17 @@
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "hugeicons-react": "^0.3.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",
     "react-helmet": "^6.1.0",
+    "react-player": "^2.16.0",
     "sass": "^1.77.8"
   },
+  "packageManager": "yarn@4.4.0",
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32"
   }
 }

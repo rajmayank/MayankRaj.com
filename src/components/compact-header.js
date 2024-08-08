@@ -27,6 +27,7 @@ export default function CompactHeader({
       style={{ backgroundImage: `url(${bgUrl})`, "--mood": mood }} // Corrected backgroundImage property
     >
       <div className="compact-header-container">
+        {/* This SVG is used for goo-iy effect, it's not an icon */}
         <svg
           style={{ visibility: "hidden", position: "absolute" }}
           width="0"

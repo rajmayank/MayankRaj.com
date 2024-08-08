@@ -1,11 +1,7 @@
-// File: footer.js
-
 import React from "react";
 import { Link } from "gatsby";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faRss } from "@fortawesome/free-solid-svg-icons";
-import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import Icon from "./Icon";
 
 const PageFooter = () => {
   return (
@@ -23,17 +19,17 @@ const PageFooter = () => {
           <div className="text-block">
             <div className="row">
               <span>
-                {" "}
-                Built with  
+                Built with
                 <OutboundLink href="https://www.gatsbyjs.com/" name="gatsbyjs">
                   Gatsby
                 </OutboundLink>
                 ,
                 <div className="loop-icons">
                   <div className="icon">
-                     
-                    <FontAwesomeIcon icon={faReact} title="React" /> &  
-                    <FontAwesomeIcon icon={faHeart} />  .
+                    &nbsp;
+                    <Icon name="react" />
+                    &nbsp; &amp; &nbsp;
+                    <Icon name="heart" />
                   </div>
                 </div>
               </span>
@@ -42,29 +38,23 @@ const PageFooter = () => {
             <div className="row">
               <span>© 2016 - {new Date().getFullYear()}</span>
               <span>
-                {" "}
                 <Link to="/" aria-label="Home | MayankRaj.com">
-                  {" "}
-                  Home{" "}
-                </Link>{" "}
+                  Home
+                </Link>
               </span>
               <span>
-                {" "}
                 <Link to="/blog" aria-label="Blog | MayankRaj.com">
-                  {" "}
-                  Blog{" "}
-                </Link>{" "}
+                  Blog
+                </Link>
               </span>
               <span>
-                {" "}
                 <OutboundLink
                   href="https://github.com/rajmayank/mayankraj.com"
                   aria-label="Source | MayankRaj.com"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {" "}
-                  Source{" "}
+                  Source
                 </OutboundLink>
               </span>
               <span>
@@ -73,7 +63,7 @@ const PageFooter = () => {
                   className="icon"
                   aria-label="RSS Feed"
                 >
-                  <FontAwesomeIcon icon={faRss} />
+                  <Icon name="rss" />
                 </OutboundLink>
               </span>
             </div>
@@ -88,8 +78,7 @@ const PageFooter = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                {" "}
-                <span>View Resume</span>{" "}
+                <span>View Resume</span>
               </Link>
             </div>
           </div>

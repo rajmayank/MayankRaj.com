@@ -1,5 +1,3 @@
-// File: blog.js
-
 import React from "react";
 import { graphql } from "gatsby";
 import "../styles/main.scss";

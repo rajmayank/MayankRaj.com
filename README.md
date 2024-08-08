@@ -25,7 +25,11 @@ Want to peek under the hood or set up the project locally? It's a piece of cake 
 3. **Install dependencies:** Head over to the project directory and run:
 
    ```bash
-   npm install # or yarn install
+   npm install
+      # or yarn install
+   corepack enable
+   yarn set version stable
+   yarn install
    ```
 
 4. **Start the local server:** Fire it up with:
@@ -44,7 +48,6 @@ Here's a handy list of commands to navigate your development journey:
 - **`serve`:** Serve a production build of your website for testing or deployment.
 - **`build`:** Build a production-ready package of your website.
 - **`clean`:** Refresh the local build cache.
-- **`deploy`:** Deploy your website to GitHub Pages (or your preferred hosting platform).
 
 ## 🤝 Let's Code Together!
 
