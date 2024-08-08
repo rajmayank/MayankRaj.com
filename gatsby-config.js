@@ -1,7 +1,7 @@
 module.exports = {
   flags: {
-    FAST_DEV: true,
-    PARALLEL_SOURCING: true,
+    // FAST_DEV: true,
+    // PARALLEL_SOURCING: true,
   },
   siteMetadata: {
     siteUrl: "https://mayankraj.com",
@@ -16,7 +16,7 @@ module.exports = {
     },
   },
   plugins: [
-    // "gatsby-plugin-preact",
+    "gatsby-plugin-preact",
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
