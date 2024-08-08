@@ -3,7 +3,6 @@ import Marquee from "react-fast-marquee";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
@@ -12,6 +11,10 @@ import Typography from "@mui/joy/Typography";
 
 import OSI_2023_Timelapse from "../assets/showcase/360p/OSI_2023_Timelapse.webm";
 import GIDS_2024_Timelapse from "../assets/showcase/360p/GIDS_2024_Timelapse.webm";
+
+// TODO:
+// Video poster is missing
+// Add to the animation loop
 
 const showcaseData = [
   {
@@ -132,12 +135,7 @@ const Showcase = memo(() => {
                   <div>{item.heading}</div>
                 )
               ) : (
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  poster={`../assets/showcase/360p/${item.link}.png`}
-                >
+                <video autoPlay loop muted>
                   <source src={item.video} type="video/webm" />
                 </video>
               )}

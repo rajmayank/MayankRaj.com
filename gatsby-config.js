@@ -75,12 +75,16 @@ module.exports = {
       __key: "assets",
     },
     {
-      resolve: "gatsby-plugin-google-fonts",
+      // resolve: "gatsby-plugin-google-fonts-v2",
+      resolve: "gatsby-plugin-google-fonts-with-attributes",
       options: {
         fonts: [
           "Marck+Script|Patua+One|Righteous|Overpass|Fredoka+One|Courgette|Monoton|Cabin+Sketch|Playball",
         ],
         display: "swap",
+        attributes: {
+          rel: "stylesheet preload prefetch",
+        },
       },
     },
     {
