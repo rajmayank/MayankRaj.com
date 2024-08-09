@@ -5,10 +5,9 @@ basecolor: "#7dc5c7"
 author: "Mayank Raj"
 enablecomments: false
 category: "Journey Through the Silicon"
-bgimage: "/images/blog_covers/ephemeral-ports.jpeg"
+bgimage: "ephemeral-ports"
 page_slug: "/blog/ephemeral-ports"
 ---
-
 
 Do you ever stop to think about the tiny marvels of technology that make our digital world go 'round? We're diving into the building blocks of the tech universe, unraveling the mysteries behind what enables you to read this very article. We're talking DNS, ephemeral ports, proxies, tunnels, and more—these are the unsung heroes ensuring data flows seamlessly from one device to another on your network.
 

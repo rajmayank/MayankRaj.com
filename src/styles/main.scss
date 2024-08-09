@@ -304,11 +304,12 @@ header {
   // Compact Header Styles
   &.compact {
     position: relative;
-    padding: 10vh 20px 25vh;
+    padding: 10vh 20px 20vh;
     top: -10vh;
     font-size: 25px;
     background-position: center;
     background-size: cover;
+    margin-bottom: -5vh;
     @include skew(0, 2);
     @include transform-origin(bottom left);
 
@@ -322,7 +323,7 @@ header {
         position: relative;
 
         .merged-bg-container {
-          display: inline-block;
+          display: block;
           max-width: 70%;
 
           span {

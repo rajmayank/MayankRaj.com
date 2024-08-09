@@ -5,7 +5,7 @@ basecolor: "#fff"
 author: "Mayank Raj"
 enablecomments: false
 category: "Zero Day Series"
-bgimage: "/images/blog_covers/zero-day-introduction.jpg"
+bgimage: "zero-day-introduction"
 page_slug: "/blog/zero-day-vulnerabilities-and-you-introduction"
 ---
 
@@ -19,4 +19,4 @@ In this series, I will attempt to tear apart a few such attacks. We will look at
 
 ---
 
-## But first, What is a Zero Day Vulnerability ?
+<!-- ## But first, What is a Zero Day Vulnerability ? -->

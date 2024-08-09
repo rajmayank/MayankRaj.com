@@ -5,7 +5,7 @@ basecolor: "#EF6262"
 author: "Mayank Raj"
 enablecomments: false
 category: "Database"
-bgimage: "/images/blog_covers/dynamodb-quirks.png"
+bgimage: "dynamodb-quirks"
 page_slug: "/blog/dynamodb-quirks"
 ---
 

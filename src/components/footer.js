@@ -19,7 +19,7 @@ const PageFooter = () => {
           <div className="text-block">
             <div className="row">
               <span>
-                Built with
+                Built with &nbsp;
                 <OutboundLink href="https://www.gatsbyjs.com/" name="gatsbyjs">
                   Gatsby
                 </OutboundLink>

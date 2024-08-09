@@ -22,11 +22,8 @@ const BlogPostTemplate = ({ data }) => {
       />
       <CompactHeader
         title={post.frontmatter.title}
-        mood={post.frontmatter.mood || "#fdfdfd"}
-        bgUrl={
-          post.frontmatter.bgimage ||
-          "/images/blog_covers/blog_index_cover.jpeg"
-        }
+        mood={post.frontmatter.mood}
+        bgImageName={post.frontmatter.bgimage}
         category={post.frontmatter.category}
         date={post.frontmatter.date}
       />
@@ -34,12 +31,6 @@ const BlogPostTemplate = ({ data }) => {
         <div className="content-container">
           <div className="text text-justify text-spacers">
             <article>
-              {post.frontmatter.author && (
-                <div className="author-section">
-                  <p>By: {post.frontmatter.author}</p>
-                </div>
-              )}
-
               <section dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
           </div>
