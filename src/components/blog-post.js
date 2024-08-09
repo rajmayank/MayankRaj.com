@@ -1,14 +1,15 @@
 // File: blog-post.js
 
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import CompactHeader from "./compact-header";
 import PageFooter from "./footer";
 import Seo from "./seo";
 import "../styles/main.scss";
 
-const BlogPostTemplate = ({ data }) => {
+const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark;
+  const { previous, next } = pageContext;
 
   return (
     <div>
@@ -33,6 +34,25 @@ const BlogPostTemplate = ({ data }) => {
             <article>
               <section dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
+            <div className="blogEndNav">
+              <hr
+                className="page-theme-hr"
+                style={{
+                  border: null,
+                  borderTop: "1px solid #ccc",
+                  marginTop: "5rem",
+                }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Link to="/blog">Back to Blogs</Link>
+                <Link to="/">Home</Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

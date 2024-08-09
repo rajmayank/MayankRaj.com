@@ -360,9 +360,23 @@ header {
 // Body Container Styles
 .body-container {
   .content-container {
-    max-width: 750px;
     margin: 0 auto;
-    padding: 0 10px; // Simplified padding
+    padding: 0 10px;
+
+    max-width: 800px;
+
+    @media (min-width: 576px) {
+      max-width: 540px;
+    }
+    @media (min-width: 768px) {
+      max-width: 680px;
+    }
+    @media (min-width: 992px) {
+      max-width: 760px;
+    }
+    @media (min-width: 1200px) {
+      max-width: 800px;
+    }
 
     a {
       margin-left: 5px;
@@ -384,7 +398,7 @@ header {
 .post-list-container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 10px; // Simplified padding
+  padding: 0 10px;
 
   // Responsive Design using Media Queries
   @media (min-width: 576px) {
