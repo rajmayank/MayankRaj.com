@@ -1,64 +1,149 @@
-# 👋 Welcome to the Code Behind MayankRaj.com!
+# Mayank Raj's Personal Website
 
-This repository is the backstage pass to my personal website, [MayankRaj.com](https://mayankraj.com/). It's where the digital magic happens, showcasing my journey as a solutions architect, a tech enthusiast with a penchant for puns, and a lifelong learner.
+This repository contains the source code for [mayankraj.com](https://mayankraj.com), the personal website and blog of Mayank Raj, a multifaceted technologist with a passion for innovation and problem-solving.
 
-## 🧑‍💻 Who Am I?
+## 👨‍💻 About Mayank Raj
 
-I'm Mayank Raj, a violinist who codes (strings attached, of course!), a trekker who builds AI systems (reaching new heights in innovation), and a drone enthusiast who secures the digital world (always looking for a bird's-eye view). I'm passionate about bridging the gap between complex tech and real-world applications, making technology work smarter, not harder.
+Hello, I'm Mayank Raj - a violinist who codes, a trekker who builds AI systems, and a drone enthusiast who secures the digital world. My tech odyssey has taken me through various roles and exciting challenges:
 
-## 🚀 What's Under the Hood?
+- 🔐 Currently, I'm a Lead Engineer at Salesforce, where I'm the digital locksmith fortifying the Salesforce ecosystem with unbreakable cryptography.
 
-This project is fueled by the dynamic trio of Gatsby, React, and SCSS, creating a website that's both fast and visually appealing. Think of it as a well-orchestrated symphony of code, where each component plays its part in delivering a seamless user experience.
+- 🎪 At Cactus Communications, I led a team of 15+ engineers, orchestrating big data and machine learning projects. We built a data platform processing 1.5TB of data weekly, generating insights at lightning speed.
 
-Here's a sneak peek at the highlights:
+- 🚀 As the founder of Apptale.io, I created a cost-effective monitoring service covering all 51 AWS availability zones, providing a digital guardian angel for apps at 1/15th the cost of competitors.
 
-- **A design that's easy on the eyes:** Crafted with a touch of whimsy and a focus on clean aesthetics, the website reflects my personality and provides a delightful browsing experience.
-- **Performance that's faster than a cheetah on a caffeine rush:** Built with speed in mind, the website leverages Gatsby's optimization superpowers to ensure lightning-fast load times.
-- **Codebase so organized, Marie Kondo would approve:** Well-structured and maintainable code using modern JavaScript and SCSS best practices. It's a developer's dream come true!
+- 🦊 I'm proud to have contributed to open-source projects like Firefox, leaving my mark on widely-used software.
 
-## 🧰 Get Your Dev On!
+- 📊 I've architected a graph database engine querying ~8Tb of raw data for under $30 per query, with an average query time of just 8 minutes.
 
-Want to peek under the hood or set up the project locally? It's a piece of cake (or should I say, a slice of pie chart?)
+- 🤖 I built an AR bot assisted by LLMs for Salesforce conferences, used by over 450+ unique users across 4 conferences.
 
-1. **Fork the repository:** Hit that "Fork" button like you're clicking "Add to Cart" on a Black Friday deal.
-2. **Make sure you have Node.js and npm installed:** You can grab them from [https://nodejs.org/](https://nodejs.org/).
-3. **Install dependencies:** Head over to the project directory and run:
+When I'm not immersed in code, you might find me scaling mountains, coaxing melodies from my violin, or tinkering with drones. I believe in the power of diverse experiences to fuel creativity and innovation in tech.
 
-   ```bash
-   npm install
-      # or yarn install
-   corepack enable
-   yarn set version stable
+I'm passionate about bridging the gap between complex technology and real-world applications, always striving to make tech work smarter, not harder. Whether it's designing systems that process terabytes of data or crafting APIs that handle thousands of requests with sub-second latency, I'm all about pushing the boundaries of what's possible.
+
+## 🚀 Key Features of This Website
+
+- 📝 Blog with RSS feed
+- 📊 Project showcase
+- 📄 Resume/CV
+- 🎨 Custom design with responsive layout
+- 🚀 Performance optimized (91/100 lighthouse score)
+- 🔍 SEO friendly
+
+## 🛠️ Technologies
+
+- [Gatsby](https://www.gatsbyjs.com/) - React-based static site generator
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [Sass](https://sass-lang.com/) - CSS extension language
+- [GraphQL](https://graphql.org/) - Query language for APIs
+- [Material-UI (Joy)](https://mui.com/joy-ui/getting-started/) - React component library
+
+## 📦 Notable Packages
+
+- `gatsby-plugin-image` and `gatsby-plugin-sharp` for optimized image loading
+- `gatsby-plugin-feed` for RSS feed generation
+- `gatsby-plugin-google-analytics` for website analytics
+- `react-player` for media playback
+- `react-fast-marquee` for dynamic content display
+
+## 🧶 Yarn 2 with Plug'n'Play
+
+This project uses Yarn 2 with Plug'n'Play (PnP) for dependency management. PnP offers faster installation times, improved security, and better offline support. The `.pnp.cjs` file in the root directory manages dependencies without the need for a `node_modules` folder.
+
+## 🏗️ Project Structure
+
+```
+.
+├── content/
+│   └── blog/         # Markdown files for blog posts
+├── src/
+│   ├── assets/       # Static assets (images, fonts, etc.)
+│   ├── components/   # React components
+│   ├── pages/        # Page components
+│   └── styles/       # SCSS stylesheets
+├── static/           # Static files (copied to public as-is)
+├── gatsby-config.js  # Gatsby configuration
+├── .pnp.cjs          # Yarn 2 PnP runtime
+└── package.json      # Project dependencies and scripts
+```
+
+## 🚀 Getting Started
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/yourusername/mayankraj.com.git
+   cd mayankraj.com
+   ```
+
+2. Install dependencies:
+
+   ```
    yarn install
    ```
 
-4. **Start the local server:** Fire it up with:
+3. Start the development server:
 
-   ```bash
-   yarn start
+   ```
+   yarn dev
    ```
 
-Now you're all set to explore the code and witness the magic unfold!
+4. Open `http://localhost:8000` in your browser
 
-## ⌨️ Command Central
+## 📜 Available Commands
 
-Here's a handy list of commands to navigate your development journey:
+- `yarn preload-fonts`: Preload fonts for improved performance
+- `yarn dev`: Start the development server
+- `yarn devm`: Start the development server on local network
+- `yarn build`: Create a production-ready build
+- `yarn serve`: Serve the production build locally
+- `yarn clean`: Clear the Gatsby cache
 
-- **`start`:** Start a local development server to preview your changes in real-time.
-- **`serve`:** Serve a production build of your website for testing or deployment.
-- **`build`:** Build a production-ready package of your website.
-- **`clean`:** Refresh the local build cache.
+## 🏗️ Building for Production
 
-## 🤝 Let's Code Together!
+To create a production-ready build:
 
-I'm a big fan of open-source collaboration, so if you find anything interesting or want to contribute, feel free to submit pull requests, open issues, or just ping me for a chat. Let's build something awesome together!
+```
+yarn build
+```
 
-## ❤️ Attribution is Key
+The output will be in the `public/` directory.
 
-While I'm happy to share this project, please remember that all code and content are my copyright. If you're inspired to use any elements, please give credit where credit is due. Let's create a more open and collaborative web, one line of code (and maybe a pun or two) at a time. Happy coding!
+## 🚢 Deployment
+
+This project is set up for continuous deployment using GitHub Actions. Any push to the main branch will trigger a build and deploy process.
+
+## 📄 License and Attribution
+
+This project is open source and available under the [MIT License](LICENSE).
+
+When using or building upon this project, please provide attribution to Mayank Raj and link back to the original repository. For example:
+
+```
+This project is based on the personal website of Mayank Raj (https://github.com/yourusername/mayankraj.com).
+```
+
+Mayank appreciates acknowledgment of his work and encourages sharing and building upon it in the spirit of open source collaboration.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/mayankraj.com/issues).
+
+When contributing:
+
+1. Fork the repository
+2. Create a new branch for your feature or bug fix
+3. Make your changes and commit them with clear, descriptive messages
+4. Push your changes to your fork
+5. Create a pull request with a clear description of your changes
+
+Please ensure your code follows the existing style and structure of the project.
+
+## 📞 Contact
+
+Mayank Raj - [@mayank9856](https://twitter.com/mayank9856)
 
 ---
 
-## TODOs
-
-[] Update SEO attributes for the blog pages, to not use the default
+Remember, in the world of tech, as in music, it's not just about playing the right notes – it's about making them dance together in perfect harmony. And sometimes, it's about knowing when to improvise a killer solo.

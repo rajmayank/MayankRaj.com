@@ -88,9 +88,9 @@ const IndexBody = ({ posts }) => (
       <div className="content-container">
         <div className="text text-justify text-spacers">
           <div className="content-resume section-top-margin --tight">
-            <divz className="icon">
+            <div className="icon">
               <Icon name="resume" />
-            </divz>
+            </div>
             <Link to="/Mayank_Raj_Resume.pdf" target="_blank" rel="noreferrer">
               <span>Resume</span>
             </Link>

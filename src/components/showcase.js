@@ -9,12 +9,12 @@ import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
 import Typography from "@mui/joy/Typography";
 
+// Import video posters
+import OSI_2023_Timelapse_Poster from "../assets/showcase/360p/OSI_2023_Timelapse.png"; // Assuming you have a poster image
+import GIDS_2024_Timelapse_Poster from "../assets/showcase/360p/GIDS_2024_Timelapse.png"; // Assuming you have a poster image
+
 import OSI_2023_Timelapse from "../assets/showcase/360p/OSI_2023_Timelapse.webm";
 import GIDS_2024_Timelapse from "../assets/showcase/360p/GIDS_2024_Timelapse.webm";
-
-// TODO:
-// Video poster is missing
-// Add to the animation loop
 
 const showcaseData = [
   {
@@ -31,6 +31,7 @@ const showcaseData = [
     subheading: "GitOps Mastery",
     banner: "Conference",
     video: OSI_2023_Timelapse,
+    poster: OSI_2023_Timelapse_Poster, // Added poster property
   },
   {
     type: "video",
@@ -39,6 +40,7 @@ const showcaseData = [
     subheading: "Resilient Cybersecurity Strategies",
     banner: "Summit",
     video: GIDS_2024_Timelapse,
+    poster: GIDS_2024_Timelapse_Poster, // Added poster property
   },
   {
     type: "image",
@@ -97,7 +99,6 @@ const Showcase = memo(() => {
       <Marquee
         autoFill={true}
         speed={275}
-        // speed={2}
         pauseOnHover={true}
         gradient={true}
         gradientWidth={50}
@@ -129,13 +130,15 @@ const Showcase = memo(() => {
                     image={images[item.link]}
                     alt={item.heading}
                     style={{ width: "100%", height: "100%" }}
-                    imgStyle={{ objectFit: "cover" }}
+                    imgStyle={{ objectFit: "cover", objectPosition: "top" }}
                   />
                 ) : (
                   <div>{item.heading}</div>
                 )
               ) : (
-                <video autoPlay loop muted>
+                <video autoPlay loop muted poster={item.poster}>
+                  {" "}
+                  {/* Added poster attribute */}
                   <source src={item.video} type="video/webm" />
                 </video>
               )}

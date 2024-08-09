@@ -1,5 +1,3 @@
-// File: blog-post.js
-
 import React from "react";
 import { graphql, Link } from "gatsby";
 import CompactHeader from "./compact-header";
@@ -7,9 +5,8 @@ import PageFooter from "./footer";
 import Seo from "./seo";
 import "../styles/main.scss";
 
-const BlogPostTemplate = ({ data, pageContext }) => {
+const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark;
-  const { previous, next } = pageContext;
 
   return (
     <div>

@@ -14,9 +14,11 @@
   "scripts": {
     "preload-fonts": "gatsby-preload-fonts",
     "dev": "gatsby develop",
+    "devm": "gatsby develop --host $(ifconfig | awk '/inet 192.168.[0-9]+.[0-9]+/{print $2}') --port 8000",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "project:structure": "find . -type d ( -path './node_modules' -o -path './public' -o -path './dist' -o -path './build' -o -path './.yarn' -o -path './.git' -o -path './.cache' ) -prune -o -print | sed -e 's|[^/]*/|- |g' -e 's|/| |g'"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
