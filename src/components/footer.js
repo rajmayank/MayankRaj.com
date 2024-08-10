@@ -73,11 +73,7 @@ const PageFooter = () => {
               {/* Social media icons remain the same */}
             </div>
             <div className="row footer-resume-block">
-              <Link
-                to="/Mayank_Raj_Resume.pdf"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link to="/resume" target="_blank" rel="noreferrer">
                 <span>View Resume</span>
               </Link>
             </div>

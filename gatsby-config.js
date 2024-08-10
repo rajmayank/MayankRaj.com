@@ -18,12 +18,28 @@ module.exports = {
   plugins: [
     // "gatsby-plugin-preact",
     "gatsby-plugin-sass",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
+
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 50,
+          breakpoints: [100, 150, 200, 250, 750, 1080, 1366, 1920],
+          backgroundColor: `transparent`,
+          blurredOptions: {},
+          jpgOptions: {},
+          pngOptions: {},
+          webpOptions: {},
+          avifOptions: {},
+        },
+      },
+    },
     "gatsby-transformer-sharp",
+    "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    "gatsby-transformer-remark",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -141,7 +157,34 @@ module.exports = {
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-schema-snapshot",
     "gatsby-plugin-preload-fonts",
-    // "gatsby-plugin-perf-budgets",
+    "gatsby-plugin-perf-budgets",
     "gatsby-plugin-webpack-bundle-analyser-v2",
+    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
+      },
+    },
   ],
 };

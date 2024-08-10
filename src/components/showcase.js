@@ -71,7 +71,7 @@ const Showcase = memo(() => {
       allFile(filter: { relativePath: { regex: "/showcase/360p/.*.png$/" } }) {
         nodes {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            gatsbyImageData(layout: CONSTRAINED, width: 500)
           }
           name
         }
@@ -131,6 +131,7 @@ const Showcase = memo(() => {
                     alt={item.heading}
                     style={{ width: "100%", height: "100%" }}
                     imgStyle={{ objectFit: "cover", objectPosition: "top" }}
+                    loading="eager"
                   />
                 ) : (
                   <div>{item.heading}</div>
