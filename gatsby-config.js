@@ -18,7 +18,6 @@ module.exports = {
   plugins: [
     // "gatsby-plugin-preact",
     "gatsby-plugin-sass",
-
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -98,6 +97,7 @@ module.exports = {
         display: "swap",
         attributes: {
           rel: "stylesheet preload prefetch",
+          as: "style",
         },
       },
     },
@@ -156,8 +156,8 @@ module.exports = {
     },
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-schema-snapshot",
-    "gatsby-plugin-preload-fonts",
-    "gatsby-plugin-perf-budgets",
+    // "gatsby-plugin-preload-fonts",
+    // "gatsby-plugin-perf-budgets",
     "gatsby-plugin-webpack-bundle-analyser-v2",
     "gatsby-transformer-remark",
     {
