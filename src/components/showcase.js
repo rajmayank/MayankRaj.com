@@ -129,8 +129,16 @@ const Showcase = memo(() => {
                   <GatsbyImage
                     image={images[item.link]}
                     alt={item.heading}
-                    style={{ width: "100%", height: "100%" }}
-                    imgStyle={{ objectFit: "cover", objectPosition: "top" }}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      verticalAlign: "unset",
+                      position: "unset",
+                    }}
+                    imgStyle={{
+                      objectFit: "cover",
+                      objectPosition: "bottom",
+                    }}
                     loading="eager"
                   />
                 ) : (
