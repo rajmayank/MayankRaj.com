@@ -2,6 +2,8 @@
 
 This repository contains the source code for [mayankraj.com](https://mayankraj.com), the personal website and blog of Mayank Raj, a multifaceted technologist with a passion for innovation and problem-solving.
 
+[![Build and release](https://github.com/rajmayank/mayankraj.com/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/rajmayank/mayankraj.com/actions/workflows/build-and-deploy.yml)
+
 ## 👨‍💻 About Mayank Raj
 
 Hello, I'm Mayank Raj - a violinist who codes, a trekker who builds AI systems, and a drone enthusiast who secures the digital world. My tech odyssey has taken me through various roles and exciting challenges:
