@@ -15,6 +15,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               page_slug
+              draft
             }
           }
         }
@@ -30,6 +31,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allMarkdownRemark.edges;
 
   posts.forEach(({ node }, index) => {
+    if (process.env.NODE_ENV === "production" && node.frontmatter.draft) {
+      console.log(
+        `==== ==== ==== ====> Skipping draft blog: ${node.frontmatter.page_slug}`
+      );
+      return;
+    }
+
+    node.frontmatter.draft;
     createPage({
       path: node.frontmatter.page_slug,
       component: blogPostTemplate,

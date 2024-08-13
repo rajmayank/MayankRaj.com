@@ -4406,6 +4406,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"adverb-where@npm:^0.2.2":
+  version: 0.2.6
+  resolution: "adverb-where@npm:0.2.6"
+  checksum: 10c0/1d360e0ac96605ec6586a805de1e8d2c9e887121fd04acc6f0c27b2dc3e44099146f22243f425e1bdd11792ba238eca665952285ff7798e29376f6764ed9a23f
+  languageName: node
+  linkType: hard
+
 "agent-base@npm:5":
   version: 5.1.1
   resolution: "agent-base@npm:5.1.1"
@@ -6003,7 +6010,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.18.0, commander@npm:^2.20.0":
+"commander@npm:^2.18.0, commander@npm:^2.19.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: 10c0/74c781a5248c2402a0a3e966a0a2bba3c054aad144f5c023364be83265e796b20565aa9feff624132ff629aa64e16999fa40a743c10c12f7c61e96a794b99288
@@ -7045,6 +7052,13 @@ __metadata:
   version: 0.1.2
   resolution: "duplexer@npm:0.1.2"
   checksum: 10c0/c57bcd4bdf7e623abab2df43a7b5b23d18152154529d166c1e0da6bee341d84c432d157d7e97b32fecb1bf3a8b8857dd85ed81a915789f550637ed25b8e64fc2
+  languageName: node
+  linkType: hard
+
+"e-prime@npm:^0.10.4":
+  version: 0.10.4
+  resolution: "e-prime@npm:0.10.4"
+  checksum: 10c0/54a9aabc674008efc2a7a10fc55099f8514b3ce12726edf0bd632a40f927fda0ac2412b0018fcac0bd1c33b00bae70699ffdf930eda4c140c8b7bcaab9bacb04
   languageName: node
   linkType: hard
 
@@ -11794,6 +11808,7 @@ __metadata:
     react-player: "npm:^2.16.0"
     sass: "npm:^1.77.8"
     styled-components: "npm:^6.1.12"
+    write-good: "npm:^1.0.8"
   languageName: unknown
   linkType: soft
 
@@ -12634,6 +12649,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"no-cliches@npm:^0.3.0":
+  version: 0.3.6
+  resolution: "no-cliches@npm:0.3.6"
+  checksum: 10c0/0120130a7231a9197e1f9392c794237ec20febbdce272cf58e84ab0f74dbcab862e01a453c7b67874ddd33f0c8b6710d09394169b56a1fcb0ff5e1dbcf971359
+  languageName: node
+  linkType: hard
+
 "node-abi@npm:^3.3.0":
   version: 3.65.0
   resolution: "node-abi@npm:3.65.0"
@@ -13350,6 +13372,13 @@ __metadata:
     no-case: "npm:^3.0.4"
     tslib: "npm:^2.0.3"
   checksum: 10c0/05ff7c344809fd272fc5030ae0ee3da8e4e63f36d47a1e0a4855ca59736254192c5a27b5822ed4bae96e54048eec5f6907713cfcfff7cdf7a464eaf7490786d8
+  languageName: node
+  linkType: hard
+
+"passive-voice@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "passive-voice@npm:0.1.0"
+  checksum: 10c0/471e384ee3616fd02ea9f7cc46f8485b4b9fee28d2022d93f8f8564c3305e6a997cf003f3af1159b53546c83af55da18f15107969b5a089aab15ef8781779c4a
   languageName: node
   linkType: hard
 
@@ -16512,6 +16541,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"too-wordy@npm:^0.3.1":
+  version: 0.3.6
+  resolution: "too-wordy@npm:0.3.6"
+  checksum: 10c0/2d26ae86648ebb0d224029bbdcacef83989604c6eb5713f6386dcd2105444a5142f100bbd77342ab477b998a02a82b5800434d52bc2def006ebc919c9407bc5f
+  languageName: node
+  linkType: hard
+
 "totalist@npm:^3.0.0":
   version: 3.0.1
   resolution: "totalist@npm:3.0.1"
@@ -17269,6 +17305,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"weasel-words@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "weasel-words@npm:0.1.1"
+  checksum: 10c0/c31b1e298a834609166e96b63138cde542c9166649d8ac1a56132c01ac713f6c73390a86de2a45d64a044ce54378e586ce540fcc9b755b091fd4e80c4ce91153
+  languageName: node
+  linkType: hard
+
 "web-namespaces@npm:^1.0.0":
   version: 1.1.4
   resolution: "web-namespaces@npm:1.1.4"
@@ -17610,6 +17653,24 @@ __metadata:
     signal-exit: "npm:^3.0.2"
     typedarray-to-buffer: "npm:^3.1.5"
   checksum: 10c0/7fb67affd811c7a1221bed0c905c26e28f0041e138fb19ccf02db57a0ef93ea69220959af3906b920f9b0411d1914474cdd90b93a96e5cd9e8368d9777caac0e
+  languageName: node
+  linkType: hard
+
+"write-good@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "write-good@npm:1.0.8"
+  dependencies:
+    adverb-where: "npm:^0.2.2"
+    commander: "npm:^2.19.0"
+    e-prime: "npm:^0.10.4"
+    no-cliches: "npm:^0.3.0"
+    passive-voice: "npm:^0.1.0"
+    too-wordy: "npm:^0.3.1"
+    weasel-words: "npm:^0.1.1"
+  bin:
+    write-good: bin/write-good.js
+    writegood: bin/write-good.js
+  checksum: 10c0/38a5fa3e13390ebcb0ba88902cc45008851bbfce4644c38e02ee6b388e6ed9ca3d3b115b2dff369511e1285932ba20150c210fe3029b40c5607ace7c724dd3af
   languageName: node
   linkType: hard
 

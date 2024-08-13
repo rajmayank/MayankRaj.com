@@ -159,7 +159,6 @@ module.exports = {
     // "gatsby-plugin-preload-fonts",
     // "gatsby-plugin-perf-budgets",
     "gatsby-plugin-webpack-bundle-analyser-v2",
-    "gatsby-transformer-remark",
     {
       resolve: "gatsby-transformer-remark",
       options: {

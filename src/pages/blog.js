@@ -41,7 +41,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 20) {
+    allMarkdownRemark(
+      filter: { frontmatter: { draft: { ne: true } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 20
+    ) {
       edges {
         node {
           excerpt
@@ -61,7 +65,11 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 20) {
+    allMarkdownRemark(
+      filter: { frontmatter: { draft: { ne: true } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 20
+    ) {
       edges {
         node {
           excerpt

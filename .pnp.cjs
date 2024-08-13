@@ -65,7 +65,8 @@ const RAW_RUNTIME_STATE =
           ["react-helmet", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:6.1.0"],\
           ["react-player", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:2.16.0"],\
           ["sass", "npm:1.77.8"],\
-          ["styled-components", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:6.1.12"]\
+          ["styled-components", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:6.1.12"],\
+          ["write-good", "npm:1.0.8"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -8560,6 +8561,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["adverb-where", [\
+      ["npm:0.2.6", {\
+        "packageLocation": "../../../.yarn/berry/cache/adverb-where-npm-0.2.6-232fef0345-10c0.zip/node_modules/adverb-where/",\
+        "packageDependencies": [\
+          ["adverb-where", "npm:0.2.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["agent-base", [\
       ["npm:5.1.1", {\
         "packageLocation": "../../../.yarn/berry/cache/agent-base-npm-5.1.1-d451a4ad62-10c0.zip/node_modules/agent-base/",\
@@ -11798,6 +11808,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/duplexer-npm-0.1.2-952c810235-10c0.zip/node_modules/duplexer/",\
         "packageDependencies": [\
           ["duplexer", "npm:0.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["e-prime", [\
+      ["npm:0.10.4", {\
+        "packageLocation": "../../../.yarn/berry/cache/e-prime-npm-0.10.4-30f4beb5d1-10c0.zip/node_modules/e-prime/",\
+        "packageDependencies": [\
+          ["e-prime", "npm:0.10.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -17754,7 +17773,8 @@ const RAW_RUNTIME_STATE =
           ["react-helmet", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:6.1.0"],\
           ["react-player", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:2.16.0"],\
           ["sass", "npm:1.77.8"],\
-          ["styled-components", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:6.1.12"]\
+          ["styled-components", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:6.1.12"],\
+          ["write-good", "npm:1.0.8"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -18682,6 +18702,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["no-cliches", [\
+      ["npm:0.3.6", {\
+        "packageLocation": "../../../.yarn/berry/cache/no-cliches-npm-0.3.6-0f0d46491d-10c0.zip/node_modules/no-cliches/",\
+        "packageDependencies": [\
+          ["no-cliches", "npm:0.3.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["node-abi", [\
       ["npm:3.65.0", {\
         "packageLocation": "../../../.yarn/berry/cache/node-abi-npm-3.65.0-d35ff0f835-10c0.zip/node_modules/node-abi/",\
@@ -19478,6 +19507,15 @@ const RAW_RUNTIME_STATE =
           ["pascal-case", "npm:3.1.2"],\
           ["no-case", "npm:3.0.4"],\
           ["tslib", "npm:2.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["passive-voice", [\
+      ["npm:0.1.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/passive-voice-npm-0.1.0-3e05f8a874-10c0.zip/node_modules/passive-voice/",\
+        "packageDependencies": [\
+          ["passive-voice", "npm:0.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -23514,6 +23552,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["too-wordy", [\
+      ["npm:0.3.6", {\
+        "packageLocation": "../../../.yarn/berry/cache/too-wordy-npm-0.3.6-ac118e33dd-10c0.zip/node_modules/too-wordy/",\
+        "packageDependencies": [\
+          ["too-wordy", "npm:0.3.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["totalist", [\
       ["npm:3.0.1", {\
         "packageLocation": "../../../.yarn/berry/cache/totalist-npm-3.0.1-91e71f3baa-10c0.zip/node_modules/totalist/",\
@@ -24439,6 +24486,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["weasel-words", [\
+      ["npm:0.1.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/weasel-words-npm-0.1.1-2ad2f69400-10c0.zip/node_modules/weasel-words/",\
+        "packageDependencies": [\
+          ["weasel-words", "npm:0.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["web-namespaces", [\
       ["npm:1.1.4", {\
         "packageLocation": "../../../.yarn/berry/cache/web-namespaces-npm-1.1.4-a6dfacb865-10c0.zip/node_modules/web-namespaces/",\
@@ -24823,6 +24879,22 @@ const RAW_RUNTIME_STATE =
           ["is-typedarray", "npm:1.0.0"],\
           ["signal-exit", "npm:3.0.7"],\
           ["typedarray-to-buffer", "npm:3.1.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["write-good", [\
+      ["npm:1.0.8", {\
+        "packageLocation": "../../../.yarn/berry/cache/write-good-npm-1.0.8-a8d6459437-10c0.zip/node_modules/write-good/",\
+        "packageDependencies": [\
+          ["write-good", "npm:1.0.8"],\
+          ["adverb-where", "npm:0.2.6"],\
+          ["commander", "npm:2.20.3"],\
+          ["e-prime", "npm:0.10.4"],\
+          ["no-cliches", "npm:0.3.6"],\
+          ["passive-voice", "npm:0.1.0"],\
+          ["too-wordy", "npm:0.3.6"],\
+          ["weasel-words", "npm:0.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\

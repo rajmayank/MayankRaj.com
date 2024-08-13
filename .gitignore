@@ -13,3 +13,5 @@ public/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+value-linter-styles/

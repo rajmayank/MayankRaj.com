@@ -15,10 +15,11 @@
     "preload-fonts": "gatsby-preload-fonts",
     "dev": "gatsby develop",
     "devm": "gatsby develop --host $(ifconfig | awk '/inet 192.168.[0-9]+.[0-9]+/{print $2}') --port 8000",
-    "build": "gatsby build",
+    "build": "NODE_ENV=production gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "project:structure": "find . -type d ( -path './node_modules' -o -path './public' -o -path './dist' -o -path './build' -o -path './.yarn' -o -path './.git' -o -path './.cache' ) -prune -o -print | sed -e 's|[^/]*/|- |g' -e 's|/| |g'"
+    "project:structure": "find . -type d ( -path './node_modules' -o -path './public' -o -path './dist' -o -path './build' -o -path './.yarn' -o -path './.git' -o -path './.cache' ) -prune -o -print | sed -e 's|[^/]*/|- |g' -e 's|/| |g'",
+    "write-good": "write-good"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -58,7 +59,8 @@
     "react-helmet": "^6.1.0",
     "react-player": "^2.16.0",
     "sass": "^1.77.8",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "write-good": "^1.0.8"
   },
   "packageManager": "yarn@4.4.0",
   "devDependencies": {

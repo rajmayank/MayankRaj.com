@@ -16,6 +16,17 @@ import "../styles/main.scss";
 import { StaticImage } from "gatsby-plugin-image";
 import Icon from "../components/Icon";
 
+// Interesting Ideas:
+//  - https://ui.aceternity.com/components/floating-navbar
+//  -  - Floating Navbar
+//  -  - Glowing Stars
+//  -  - Card stack
+//  -  - Layout Grid
+//  -  - Link Preview
+//  -  - Sticky scroll reveal
+//  -  - Tracing Bean
+//  -  -
+
 const IndexHeader = () => (
   <header>
     <Seo title="Home" />
@@ -315,7 +326,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 20) {
+    allMarkdownRemark(
+      filter: { frontmatter: { draft: { ne: true } } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 20
+    ) {
       edges {
         node {
           excerpt

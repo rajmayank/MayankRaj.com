@@ -45,10 +45,10 @@ const BlogListing = ({ posts, is_compact = false }) => {
 
               {post.frontmatter.category && (
                 <span className="space-left muted-font">
-                  <span>posted in</span> 
+                  <span>posted in</span> {" "}
                   <span className="category text-strong text-uppercase muted-font">
                     {post.frontmatter.category}
-                  </span>
+                  </span>{" "}
                 </span>
               )}
 
