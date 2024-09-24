@@ -1,0 +1,27 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Global styles */
+html {
+  font-family: system-ui, sans-serif;
+  background-color: #F6F6F6;
+}
+
+body {
+  @apply bg-gray-100 text-gray-900;
+}
+
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+// Example SCSS usage
+.custom-class {
+  color: $primary-color;
+  background-color: color.scale($primary-color, $lightness: 80%);
+}
