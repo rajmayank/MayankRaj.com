@@ -74,3 +74,4 @@ cypress/screenshots
 .continue*
 .claude.dev*
 .aider*
+.config*

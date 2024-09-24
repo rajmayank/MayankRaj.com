@@ -1,6 +1,3 @@
-@use 'sass:color';
-@use 'variables' as *;
-
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -18,10 +15,4 @@ body {
 code {
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-// Example SCSS usage
-.custom-class {
-  color: $primary-color;
-  background-color: color.scale($primary-color, $lightness: 80%);
 }

@@ -1,9 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import Bio from '../components/Bio.astro';
+import RecentBlogPosts from '../components/RecentBlogPosts.astro';
+import Footer from '../components/Footer.astro';
+import ThemeSwitch from '../components/ThemeSwitch.astro';
 ---
 
-<Layout title="MayankRaj">
-  <div class="flex items-center justify-center h-screen">
-    <h1 class="text-6xl font-bold text-accent-1">MayankRaj</h1>
-  </div>
+<Layout title="Mayank Raj - Full-Stack Software Architect">
+  <main class="container mx-auto px-4">
+    <Hero />
+    <Projects />
+    <Bio />
+    <RecentBlogPosts />
+  </main>
+  <Footer />
+  <ThemeSwitch />
 </Layout>

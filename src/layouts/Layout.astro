@@ -17,7 +17,31 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
 		<slot />
+		<script is:inline>
+			function setTheme(theme) {
+				if (theme === 'dark') {
+					document.documentElement.classList.add('dark');
+					localStorage.setItem('theme', 'dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+					localStorage.setItem('theme', 'light');
+				}
+			}
+
+			const storedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			setTheme(storedTheme);
+
+			window.addEventListener('DOMContentLoaded', () => {
+				const themeToggle = document.getElementById('theme-toggle');
+				if (themeToggle) {
+					themeToggle.addEventListener('click', () => {
+						const currentTheme = localStorage.getItem('theme');
+						setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+					});
+				}
+			});
+		</script>
 	</body>
 </html>
