@@ -1,14 +1,9 @@
 ---
 import './Hero.scss';
+import HeroParallax from './ui/HeroParallax';
+import { showcases } from '../utils/showcases';
 ---
 
-<section class="hero-section">
-  <div class="hero-content">
-    <h1 class="hero-title">Welcome to My Portfolio</h1>
-    <p class="hero-subtitle">I'm a Full-Stack Software Architect passionate about creating innovative solutions.</p>
-    <a href="#contact" class="hero-cta">Get in Touch</a>
-  </div>
-  <div class="hero-image">
-    <!-- Add your hero image here -->
-  </div>
+<section class="hero-section p-0 w-screen">
+  <HeroParallax client:load showcases={showcases} />
 </section>

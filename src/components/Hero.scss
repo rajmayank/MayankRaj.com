@@ -1,12 +1,11 @@
-@use 'sass:color';
-@use '../styles/variables' as *;
+@use "sass:color";
+@use "../styles/variables" as *;
 
 .hero-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem;
   background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
   color: #ffffff;
 
