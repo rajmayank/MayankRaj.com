@@ -16,3 +16,55 @@ code {
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
+
+/* Certification Badges styles */
+.certification-badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.badge-link {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.badge-image {
+  width: 150px;
+  height: auto;
+}
+
+/* Hero content styles */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  z-index: 10;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Certification Badges styles */
+.certification-badges {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}

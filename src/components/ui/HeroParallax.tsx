@@ -8,7 +8,10 @@ import {
   useTransform,
   useSpring,
   MotionValue,
+  AnimatePresence,
 } from "framer-motion";
+import CertificationBadges from "../CertificationBadges";
+import { badges } from "../../utils/badges";
 
 // Seeded random number generator
 const seededRandom = (seed: number) => {
@@ -79,7 +82,7 @@ const HeroParallax = ({
           translateY: animatedStyles.translateY,
           opacity: animatedStyles.opacity,
         }}
-        className=""
+        className="z-0"
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((showcase) => (
@@ -115,14 +118,33 @@ const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="w-full relative py-20 md:py-40 px-4 left-0 top-10">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-2xl md:text-7xl font-bold text-black dark:text-white">
-          Mayank Raj <br />
-        </h1>
-        <p className="max-w-2xl text-base md:text-xl mt-8 text-gray-800 dark:text-gray-200">
-          Solutions Architect
-        </p>
+    <div className="w-full relative py-20 md:py-40 px-4 left-0 top-10 z-10">
+      <div className="max-w-7xl mx-auto space-y-12">
+        <AnimatePresence>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-9xl font-bold text-black dark:text-white"
+          >
+            Mayank Raj
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="max-w-3xl text-2xl md:text-4xl text-gray-800 dark:text-gray-200"
+          >
+            Engineering the future of secure systems
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <CertificationBadges client:load badges={badges} />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
