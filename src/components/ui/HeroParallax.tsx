@@ -1,6 +1,6 @@
 // Thanks to https://ui.aceternity.com/
 
-import React from "react";
+import React, { useMemo } from "react";
 import { cn } from "@/utils";
 import {
   motion,
@@ -9,6 +9,12 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
+
+// Seeded random number generator
+const seededRandom = (seed: number) => {
+  const x = Math.sin(seed++) * 10000;
+  return x - Math.floor(x);
+};
 
 const HeroParallax = ({
   showcases,
@@ -19,40 +25,46 @@ const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
-  const firstRow = showcases.slice(0, 5);
-  const secondRow = showcases.slice(5, 10);
-  const thirdRow = showcases.slice(10, 15);
+  const getRow = (rowLength: number, seed: number) => {
+    const row = [];
+    const indices = [...Array(showcases.length)].map((_, i) => i);
+    for (let i = 0; i < rowLength; i++) {
+      const randomIndex = Math.floor(seededRandom(seed + i) * indices.length);
+      row.push(showcases[indices[randomIndex]]);
+      indices.splice(randomIndex, 1);
+    }
+    return row;
+  };
+
+  const firstRow = useMemo(() => getRow(5, 1), [showcases]);
+  const secondRow = useMemo(() => getRow(5, 2), [showcases]);
+  const thirdRow = useMemo(() => getRow(5, 3), [showcases]);
+
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
-    springConfig
+  const translateX = useSpring(scrollYProgress, springConfig);
+  const translateXReverse = useSpring(scrollYProgress, springConfig);
+  const rotateX = useSpring(scrollYProgress, springConfig);
+  const opacity = useSpring(scrollYProgress, springConfig);
+  const rotateZ = useSpring(scrollYProgress, springConfig);
+  const translateY = useSpring(scrollYProgress, springConfig);
+
+  const animatedStyles = useMemo(
+    () => ({
+      translateX: useTransform(translateX, [0, 1], [0, 1000]),
+      translateXReverse: useTransform(translateXReverse, [0, 1], [0, -1000]),
+      rotateX: useTransform(rotateX, [0, 0.2], [15, 0]),
+      opacity: useTransform(opacity, [0, 0.2], [0.2, 1]),
+      rotateZ: useTransform(rotateZ, [0, 0.2], [20, 0]),
+      translateY: useTransform(translateY, [0, 0.2], [-700, 500]),
+    }),
+    [translateX, translateXReverse, rotateX, opacity, rotateZ, translateY]
   );
   return (
     <div
@@ -62,10 +74,10 @@ const HeroParallax = ({
       <Header />
       <motion.div
         style={{
-          rotateX,
-          rotateZ,
-          translateY,
-          opacity,
+          rotateX: animatedStyles.rotateX,
+          rotateZ: animatedStyles.rotateZ,
+          translateY: animatedStyles.translateY,
+          opacity: animatedStyles.opacity,
         }}
         className=""
       >
@@ -73,7 +85,7 @@ const HeroParallax = ({
           {firstRow.map((showcase) => (
             <ShowcaseCard
               showcase={showcase}
-              translate={translateX}
+              translate={animatedStyles.translateX}
               key={showcase.title}
             />
           ))}
@@ -82,7 +94,7 @@ const HeroParallax = ({
           {secondRow.map((showcase) => (
             <ShowcaseCard
               showcase={showcase}
-              translate={translateXReverse}
+              translate={animatedStyles.translateXReverse}
               key={showcase.title}
             />
           ))}
@@ -91,7 +103,7 @@ const HeroParallax = ({
           {thirdRow.map((showcase) => (
             <ShowcaseCard
               showcase={showcase}
-              translate={translateX}
+              translate={animatedStyles.translateX}
               key={showcase.title}
             />
           ))}
@@ -103,21 +115,13 @@ const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="w-full relative py-20 md:py-40 px-4 left-0 top-0">
+    <div className="w-full relative py-20 md:py-40 px-4 left-0 top-10">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+        <h1 className="text-2xl md:text-7xl font-bold text-black dark:text-white">
           Mayank Raj <br />
         </h1>
-        <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-          Hello, I'm Mayank Raj. Picture this: a violinist who codes, a trekker
-          who builds AI systems, and a drone enthusiast who secures the digital
-          world. That's me in a nutshell, but let's dive a bit deeper, shall we?
-        </p>
-        <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-          By day, I'm a Lead Engineer at Salesforce , where I wear the cape of a
-          digital locksmith. My mission? To fortify the Salesforce ecosystem with
-          unbreakable cryptography. It's like being a secret agent, but instead of
-          shaken martinis, I deal with stirred algorithms.
+        <p className="max-w-2xl text-base md:text-xl mt-8 text-gray-800 dark:text-gray-200">
+          Solutions Architect
         </p>
       </div>
     </div>
@@ -148,16 +152,16 @@ const ShowcaseCard = ({
     >
       <a
         href={showcase.link}
-        className={cn("block group-hover/showcase:shadow-2xl")}
+        className={cn("block group-hover/showcase:shadow-2xl h-full w-full")}
       >
         <img
           src={showcase.thumbnail}
-          className="object-cover object-left-top absolute h-full w-full inset-0"
           alt={showcase.title}
+          className="h-full w-full object-cover object-left-top"
         />
       </a>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/showcase:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/showcase:opacity-100 text-white">
+      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/showcase:opacity-100 text-white dark:text-white">
         {showcase.title}
       </h2>
     </motion.div>

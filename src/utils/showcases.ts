@@ -1,92 +1,50 @@
 export const showcases = [
   {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+    type: "image",
+    link: "",
+    thumbnail: "/showcase/360p/CactusTech_Interview2.png",
+    title: "Interview @ CactusTech",
+    subtitle: "An Associate Director talks opportunities",
+    banner: "Media Publication",
   },
   {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+    type: "video",
+    link: "",
+    thumbnail: "/showcase/360p/OSI_2023_Timelapse.png",
+    title: "Open Source India",
+    subtitle: "GitOps Mastery",
+    banner: "Conference",
   },
   {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+    type: "video",
+    link: "",
+    thumbnail: "/showcase/360p/GIDS_2024_Timelapse.png",
+    title: "Developers Summit",
+    subtitle: "Resilient Cybersecurity Strategies",
+    banner: "Summit",
   },
   {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+    type: "image",
+    link: "",
+    thumbnail: "/showcase/360p/AuthO_Jenkins.png",
+    title: "AuthO by Okta",
+    subtitle: "CI pipelines",
+    banner: "Guest post",
   },
   {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+    type: "image",
+    link: "",
+    thumbnail: "/showcase/360p/DigitalOcean_RXJS.png",
+    title: "DigitalOcean",
+    subtitle: "Search Bar with RxJS",
+    banner: "Guest post",
   },
   {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
-  },
-  {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
-  },
-  {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
-  },
-  {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
-  },
-  {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
-  },
-  {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
-  },
-  {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
-  },
-  {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
-  },
-  {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
-  },
-  {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+    type: "image",
+    link: "",
+    thumbnail: "/showcase/360p/OSFY_Interview.png",
+    title: "Open Source For You",
+    subtitle: "Open Source Ecosystem",
+    banner: "Media Publications",
   },
 ];
