@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "preload-fonts": "gatsby-preload-fonts",
-    "dev": "gatsby develop",
+    "dev": "GATSBY_GTAG_DEBUG=true gatsby develop",
     "devm": "gatsby develop --host $(ifconfig | awk '/inet 192.168.[0-9]+.[0-9]+/{print $2}') --port 8000",
     "build": "NODE_ENV=production gatsby build",
     "serve": "gatsby serve",
@@ -22,17 +22,20 @@
     "write-good": "write-good"
   },
   "dependencies": {
+    "@babel/core": "^7.23.9",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@gatsbyjs/webpack-hot-middleware": "^2.25.3",
     "@mui/joy": "5.0.0-beta.48",
     "@prefresh/babel-plugin": "^0.5.1",
     "@prefresh/core": "^1.5.2",
-    "gatsby": "^5.13.7",
-    "gatsby-plugin-feed": "^5.13.1",
+    "core-js": "^3.38.0",
+    "gatsby": "^5.11.0",
+    "gatsby-plugin-feed": "^5.11.0",
     "gatsby-plugin-google-analytics": "^5.13.1",
     "gatsby-plugin-google-fonts-v2": "^1.0.1",
     "gatsby-plugin-google-fonts-with-attributes": "^1.0.8",
+    "gatsby-plugin-google-gtag": "^5.14.0",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-perf-budgets": "^0.0.18",
@@ -51,10 +54,10 @@
     "gatsby-transformer-sharp": "^5.13.1",
     "hugeicons-react": "^0.3.0",
     "preact": "^10.23.1",
-    "preact-render-to-string": "^6.5.7",
+    "preact-render-to-string": "^5.2.6",
     "prop-types": "^15.8.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-fast-marquee": "^1.6.5",
     "react-helmet": "^6.1.0",
     "react-player": "^2.16.0",
@@ -62,7 +65,7 @@
     "styled-components": "^6.1.12",
     "write-good": "^1.0.8"
   },
-  "packageManager": "yarn@4.4.0",
+  "packageManager": "yarn@4.6.0",
   "devDependencies": {
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32"
   }
