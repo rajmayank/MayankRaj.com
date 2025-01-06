@@ -66,13 +66,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-sharp",
-      options: {
-        defaults: {},
-        failOnError: true,
-      },
-    },
-    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
@@ -97,7 +90,6 @@ module.exports = {
       __key: "assets",
     },
     {
-      // resolve: "gatsby-plugin-google-fonts-v2",
       resolve: "gatsby-plugin-google-fonts-with-attributes",
       options: {
         fonts: ["Overpass|Fredoka+One|Courgette"],

@@ -33,7 +33,6 @@
     "gatsby": "^5.11.0",
     "gatsby-plugin-feed": "^5.11.0",
     "gatsby-plugin-google-analytics": "^5.13.1",
-    "gatsby-plugin-google-fonts-v2": "^1.0.1",
     "gatsby-plugin-google-fonts-with-attributes": "^1.0.8",
     "gatsby-plugin-google-gtag": "^5.14.0",
     "gatsby-plugin-image": "^3.13.1",
@@ -64,6 +63,11 @@
     "sass": "^1.77.8",
     "styled-components": "^6.1.12",
     "write-good": "^1.0.8"
+  },
+  "overrides": {
+    "react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825": {
+      "react": "^18.0.0"
+    }
   },
   "packageManager": "yarn@4.6.0",
   "devDependencies": {
