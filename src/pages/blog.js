@@ -44,7 +44,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       filter: { frontmatter: { draft: { ne: true } } }
       sort: { frontmatter: { date: DESC } }
-      limit: 20
+      limit: 200
     ) {
       edges {
         node {
@@ -68,7 +68,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       filter: { frontmatter: { draft: { ne: true } } }
       sort: { frontmatter: { date: DESC } }
-      limit: 20
+      limit: 200
     ) {
       edges {
         node {
