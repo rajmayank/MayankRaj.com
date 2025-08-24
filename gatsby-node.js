@@ -61,3 +61,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
   }
 };
+
+exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  if (stage === "develop" || stage === "build-javascript") {
+    actions.setWebpackConfig({
+      cache: {
+        type: "filesystem",
+        buildDependencies: {
+          config: [__filename],
+        },
+        cacheDirectory: path.resolve(__dirname, ".cache/webpack"),
+        // Handle serialization issues with CSS loaders
+        managedPaths: [],
+        profile: false,
+        maxMemoryGenerations: 1,
+      },
+      infrastructureLogging: {
+        level: "error",
+      },
+    });
+  }
+};

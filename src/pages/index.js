@@ -5,12 +5,11 @@ import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import { graphql, Link } from "gatsby";
 
-import { BlogPostListing, Footer, Seo, Showcase } from "../components";
+import { BlogPostListing, Footer, Showcase, Seo } from "../components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 import "../styles/main.scss";
 
-import { StaticImage } from "gatsby-plugin-image";
 import { Icon } from "../components";
 
 // Interesting Ideas:
@@ -26,12 +25,7 @@ import { Icon } from "../components";
 
 import { Header } from "../components";
 
-const IndexHeader = () => (
-  <>
-    <Seo title="Home" />
-    <Header />
-  </>
-);
+const IndexHeader = () => <Header />;
 
 const IndexBody = ({ posts }) => (
   <div>
@@ -252,6 +246,8 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage;
+
+export const Head = () => <Seo title="Home" />;
 
 export const pageQuery = graphql`
   query {

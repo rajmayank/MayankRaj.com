@@ -2,7 +2,6 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import CompactHeader from "../layout/CompactHeader";
 import Footer from "../layout/Footer";
-import Seo from "../common/Seo";
 
 /**
  * Blog post template component
@@ -13,14 +12,6 @@ const BlogPost = ({ data }) => {
 
   return (
     <div>
-      <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.excerpt || post.excerpt}
-        pathname={post.frontmatter.page_slug}
-        image={post.frontmatter.bgimage}
-        article={true}
-        datePublished={post.frontmatter.date}
-      />
       <CompactHeader
         title={post.frontmatter.title}
         mood={post.frontmatter.mood}
@@ -62,6 +53,21 @@ const BlogPost = ({ data }) => {
 };
 
 export default BlogPost;
+
+export const Head = ({ data }) => {
+  const Seo = require("../common/Seo").default;
+  const post = data.markdownRemark;
+  return (
+    <Seo
+      title={post.frontmatter.title}
+      description={post.frontmatter.excerpt || post.excerpt}
+      pathname={post.frontmatter.page_slug}
+      image={post.frontmatter.bgimage}
+      article={true}
+      datePublished={post.frontmatter.date}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

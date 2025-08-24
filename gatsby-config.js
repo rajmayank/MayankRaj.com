@@ -37,7 +37,7 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
+
     "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-google-gtag`,

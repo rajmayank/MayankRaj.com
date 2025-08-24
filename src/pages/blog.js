@@ -4,7 +4,7 @@ import "../styles/main.scss";
 
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
 
-import { CompactHeader, BlogPostListing, Footer, Seo } from "../components";
+import { CompactHeader, BlogPostListing, Footer } from "../components";
 
 class BlogListPage extends React.Component {
   render() {
@@ -12,7 +12,6 @@ class BlogListPage extends React.Component {
 
     return (
       <div>
-        <Seo title="Blog" /> {/* Added SEO component for blog page */}
         <CompactHeader
           title="Blog Articles"
           mood="#fdfdfd"
@@ -30,6 +29,17 @@ class BlogListPage extends React.Component {
 }
 
 export default BlogListPage;
+
+export const Head = () => {
+  const { Seo } = require("../components");
+  return (
+    <Seo
+      title="Blog"
+      description="Insights on technology, security, and software development"
+      pathname="/blog"
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query {

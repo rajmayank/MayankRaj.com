@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
 import ImgWebsiteBase from "../../assets/images/base.png";
 
 /**
- * SEO component for managing document head
+ * SEO component for managing document head using Gatsby Head API
  * Handles meta tags, Open Graph, Twitter Cards, and structured data
  */
 const Seo = ({
@@ -18,6 +17,7 @@ const Seo = ({
   image,
   article = false,
   datePublished,
+  children,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -70,63 +70,37 @@ const Seo = ({
     },
   ];
 
+  const seoTitle = title
+    ? `${title} | ${site.siteMetadata.title}`
+    : defaultTitle;
+
   return (
-    <Helmet
-      htmlAttributes={{ lang }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={[{ rel: "canonical", href: canonicalUrl }]}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title || defaultTitle,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:url`,
-          content: canonicalUrl,
-        },
-        {
-          property: `og:image`,
-          content: ogImage,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary_large_image`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
-        },
-        {
-          name: `twitter:title`,
-          content: title || defaultTitle,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `twitter:image`,
-          content: twitterImage,
-        },
-      ].concat(meta)}
-    >
+    <>
+      <html lang={lang} />
+      <title>{seoTitle}</title>
+      <meta name="description" content={metaDescription} />
+      <meta property="og:title" content={title || defaultTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={ogImage} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:creator"
+        content={site.siteMetadata.social?.twitter || ""}
+      />
+      <meta name="twitter:title" content={title || defaultTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={twitterImage} />
+      <link rel="canonical" href={canonicalUrl} />
+      {meta.map((item, index) => (
+        <meta key={index} {...item} />
+      ))}
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
-    </Helmet>
+      {children}
+    </>
   );
 };
 
@@ -139,6 +113,7 @@ Seo.propTypes = {
   image: PropTypes.string,
   article: PropTypes.bool,
   datePublished: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Seo;
