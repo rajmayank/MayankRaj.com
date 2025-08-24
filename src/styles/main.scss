@@ -1,16 +1,14 @@
 @use "sass:math";
+@use "./variables";
+@use "./mixins";
+@use "./animations";
+@use "./base";
+@use "./layout";
+@use "./components";
+@use "./utilities";
 
 // Import foundation styles
-@import "./normalize.css";
-@import "./variables";
-@import "./mixins";
-@import "./animations";
-
-// Import modular styles
-@import "./base";
-@import "./layout";
-@import "./components";
-@import "./utilities";
+@import "./normalize.css"; // CSS imports stay as @import
 
 // =======================================================
 // TODO

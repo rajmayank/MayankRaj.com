@@ -17,7 +17,12 @@ module.exports = {
   },
   plugins: [
     // "gatsby-plugin-preact",
-    "gatsby-plugin-sass",
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        implementation: require("sass"),
+      },
+    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -92,7 +97,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-fonts-with-attributes",
       options: {
-        fonts: ["Overpass|Fredoka+One|Courgette"],
+        fonts: ["Overpass:300,400,600,700|Fredoka+One:400|Courgette:400"],
         display: "swap",
         attributes: {
           rel: "stylesheet preload prefetch",
@@ -163,22 +168,15 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-copy-linked-files",
-            options: {
-              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
-            },
-          },
-        ],
-      },
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 590,
+            },
+          },
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
             },
           },
         ],

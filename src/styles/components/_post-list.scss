@@ -1,7 +1,7 @@
 // =======================================================
 // Post List Styles
 
-@import "../variables";
+@use "../variables" as vars;
 
 .post-list-wrapper {
   .post-list {
@@ -23,7 +23,7 @@
         font-size: 1.5rem;
         position: absolute;
         margin: 10px;
-        color: $color-accent;
+        color: vars.$color-accent;
       }
     }
 
@@ -33,7 +33,7 @@
     }
 
     .external_site {
-      color: $color-accent;
+      color: vars.$color-accent;
       text-decoration: underline;
     }
   }

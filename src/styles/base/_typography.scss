@@ -2,23 +2,23 @@
 // Typography Styles
 
 @use "sass:math";
-@import "../variables";
+@use "../variables" as vars;
 
 html {
   font-size: 10px; // Default font size for larger screens
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: vars.$breakpoint) {
     font-size: 9px;
   }
 
-  @media (max-width: (math.div($breakpoint, 2))) {
+  @media (max-width: (math.div(vars.$breakpoint, 2))) {
     font-size: 7px;
   }
 }
 
 // Text Styles
 .text {
-  font: 1.9rem / 1.5 $font-primary;
+  font: 1.9rem / 1.5 vars.$font-primary;
 
   &--small {
     font-size: 1.65rem;
@@ -55,5 +55,5 @@ html {
 }
 
 .muted-font {
-  color: $color-front-muted;
+  color: vars.$color-front-muted;
 }

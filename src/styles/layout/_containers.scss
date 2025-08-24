@@ -1,8 +1,8 @@
 // =======================================================
 // Container Styles
 
-@import "../variables";
-@import "../mixins";
+@use "../variables" as vars;
+@use "../mixins" as mixins;
 
 .body-container {
   .content-container {
@@ -26,7 +26,7 @@
     a {
       margin-left: 5px;
       &:not(.icon) {
-        @include underline(#ffffff, #f99);
+        @include mixins.underline(#ffffff, #f99);
       }
     }
 

@@ -72,29 +72,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      filter: { frontmatter: { draft: { ne: true } } }
-      sort: { frontmatter: { date: DESC } }
-      limit: 200
-    ) {
-      edges {
-        node {
-          excerpt
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            basecolor
-            author
-            enablecomments
-            category
-            bgimage
-            external_link
-            external_site_name
-            external_site_link
-            page_slug
-          }
-        }
-      }
-    }
   }
 `;

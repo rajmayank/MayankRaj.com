@@ -1,21 +1,21 @@
 // =======================================================
 // Header Styles
 
-@import "../variables";
-@import "../mixins";
+@use "../variables" as vars;
+@use "../mixins" as mixins;
 
 header {
   .design-container {
     height: 78vw;
     width: 100%;
     position: absolute;
-    background-color: $bg-header-layer-2;
+    background-color: vars.$bg-header-layer-2;
     overflow: hidden;
-    @include skew(0, 3);
-    @include transform-origin(bottom right);
+    @include mixins.skew(0, 3);
+    @include mixins.transform-origin(bottom right);
     animation: design-container 0.75s;
 
-    @include md {
+    @include mixins.md {
       height: 40vw;
     }
 
@@ -25,9 +25,9 @@ header {
       width: 100%;
       height: 100%;
       top: -50%;
-      @include skew(0, -30);
-      @include transform-origin(bottom left);
-      background-color: $bg-header-layer-1;
+      @include mixins.skew(0, -30);
+      @include mixins.transform-origin(bottom left);
+      background-color: vars.$bg-header-layer-1;
       animation: header-layer-1 1.25s;
     }
 
@@ -37,19 +37,19 @@ header {
       top: 25%;
       width: 100%;
       height: 80%;
-      @include transform-origin(bottom left);
-      background-color: $bg-header-layer-3;
+      @include mixins.transform-origin(bottom left);
+      background-color: vars.$bg-header-layer-3;
 
       &.--layer-2 {
         z-index: 100;
-        @include skew(0, 25);
+        @include mixins.skew(0, 25);
         animation: header-layer-2 0.75s;
       }
 
       &.--layer-3 {
         z-index: 50;
         opacity: 0.5;
-        @include skew(0, 20);
+        @include mixins.skew(0, 20);
         animation: header-layer-2 1s;
       }
     }
@@ -64,7 +64,7 @@ header {
       .name-block {
         width: 100%;
 
-        @include md {
+        @include mixins.md {
           width: 50%;
         }
 
@@ -112,7 +112,7 @@ header {
         margin-left: 25px;
         text-align: center;
 
-        @include md {
+        @include mixins.md {
           text-align: left;
         }
 
@@ -151,7 +151,7 @@ header {
         align-items: center;
         flex-direction: row;
 
-        @include md {
+        @include mixins.md {
           justify-content: flex-end;
         }
 
@@ -159,7 +159,7 @@ header {
           font: 1.9rem/1.5 "Fredoka One", Helvetica, Arial, sans-serif;
           text-align: center;
 
-          @include md {
+          @include mixins.md {
             padding-right: 20px;
           }
 
@@ -201,14 +201,14 @@ header {
     background-position: center;
     background-size: cover;
     margin-bottom: -5vh;
-    @include skew(0, 2);
-    @include transform-origin(bottom left);
+    @include mixins.skew(0, 2);
+    @include mixins.transform-origin(bottom left);
 
     .compact-header-container {
       position: relative;
       top: 10vh;
-      @include skew(0, -2);
-      @include transform-origin(bottom left);
+      @include mixins.skew(0, -2);
+      @include mixins.transform-origin(bottom left);
 
       .text-container {
         position: relative;
@@ -228,7 +228,7 @@ header {
           }
 
           &.title {
-            font: 5.4rem $font-secondary;
+            font: 5.4rem vars.$font-secondary;
             margin-right: 1.5rem;
             text-transform: uppercase;
 

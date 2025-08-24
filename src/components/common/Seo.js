@@ -77,7 +77,7 @@ const Seo = ({
   return (
     <>
       <html lang={lang} />
-      <title>{seoTitle}</title>
+      <title key="title">{seoTitle}</title>
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={title || defaultTitle} />
       <meta property="og:description" content={metaDescription} />
@@ -94,7 +94,7 @@ const Seo = ({
       <meta name="twitter:image" content={twitterImage} />
       <link rel="canonical" href={canonicalUrl} />
       {meta.map((item, index) => (
-        <meta key={index} {...item} />
+        <meta key={`meta-${index}`} {...item} />
       ))}
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
