@@ -3,8 +3,12 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
-import ImgWebsiteBase from "../assets/images/base.png"; // Replace with your actual image path
+import ImgWebsiteBase from "../../assets/images/base.png";
 
+/**
+ * SEO component for managing document head
+ * Handles meta tags, Open Graph, Twitter Cards, and structured data
+ */
 const Seo = ({
   description = ``,
   lang = `en`,
@@ -45,7 +49,7 @@ const Seo = ({
   const schemaOrgJSONLD = [
     {
       "@context": "https://schema.org",
-      "@type": article ? "BlogPosting" : "Website", // Use BlogPosting if article is true
+      "@type": article ? "BlogPosting" : "Website",
       headline: title || defaultTitle,
       image: ogImage,
       author: {
@@ -62,7 +66,7 @@ const Seo = ({
       },
       url: canonicalUrl,
       description: metaDescription,
-      datePublished, // Add datePublished if provided
+      datePublished,
     },
   ];
 
@@ -119,7 +123,6 @@ const Seo = ({
         },
       ].concat(meta)}
     >
-      {/* Add the schema.org JSONLD */}
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>

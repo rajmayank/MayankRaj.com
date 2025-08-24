@@ -1,11 +1,14 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import CompactHeader from "./compact-header";
-import PageFooter from "./footer";
-import Seo from "./seo";
-import "../styles/main.scss";
+import CompactHeader from "../layout/CompactHeader";
+import Footer from "../layout/Footer";
+import Seo from "../common/Seo";
 
-const BlogPostTemplate = ({ data }) => {
+/**
+ * Blog post template component
+ * Renders individual blog post pages with header, content, and footer
+ */
+const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
 
   return (
@@ -53,12 +56,12 @@ const BlogPostTemplate = ({ data }) => {
           </div>
         </div>
       </div>
-      <PageFooter />
+      <Footer />
     </div>
   );
 };
 
-export default BlogPostTemplate;
+export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

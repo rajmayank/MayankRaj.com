@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "gatsby";
-import "../styles/main.scss";
-import { OutboundLink } from "gatsby-plugin-google-analytics"; // Import for external links
-import Icon from "./Icon";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
+import Icon from "../common/Icon";
 
-const BlogListing = ({ posts, is_compact = false }) => {
+/**
+ * Blog post listing component
+ * Displays a list of blog posts with external link support
+ * @param {Array} posts - Array of blog post objects
+ * @param {boolean} is_compact - Whether to show compact version (limited posts)
+ */
+const BlogPostListing = ({ posts, is_compact = false }) => {
   const postsCount = posts.length;
   posts = is_compact ? posts.slice(0, 4) : posts;
 
@@ -21,7 +26,7 @@ const BlogListing = ({ posts, is_compact = false }) => {
           <div className="post-list text" key={index}>
             <div>
               {post.frontmatter.external_link ? (
-                <OutboundLink // Use OutboundLink for external links
+                <OutboundLink
                   href={post.frontmatter.external_link}
                   target="_blank"
                   rel="noreferrer"
@@ -45,7 +50,7 @@ const BlogListing = ({ posts, is_compact = false }) => {
 
               {post.frontmatter.category && (
                 <span className="space-left muted-font">
-                  <span>posted in</span> {" "}
+                  <span>posted in</span>{" "}
                   <span className="category text-strong text-uppercase muted-font">
                     {post.frontmatter.category}
                   </span>{" "}
@@ -55,7 +60,7 @@ const BlogListing = ({ posts, is_compact = false }) => {
               {post.frontmatter.external_site_name && (
                 <span className="muted-font">
                   at
-                  <OutboundLink // Use OutboundLink for external links
+                  <OutboundLink
                     href={post.frontmatter.external_site_link}
                     target="_blank"
                     rel="noreferrer"
@@ -85,4 +90,4 @@ const BlogListing = ({ posts, is_compact = false }) => {
   );
 };
 
-export default BlogListing;
+export default BlogPostListing;

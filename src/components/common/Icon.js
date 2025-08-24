@@ -163,13 +163,18 @@ const icons = {
   ),
 };
 
-// TODO: Use svg as react component
+/**
+ * Icon component for rendering SVG icons
+ * @param {string} name - The name of the icon to render
+ * @param {object} style - Additional styles to apply
+ * @param {object} props - Additional props to pass to the SVG element
+ */
 const Icon = ({ name, style = {}, ...props }) => {
   const SvgIcon = icons[name];
 
   if (!SvgIcon) {
     console.error(`Icon "${name}" does not exist.`);
-    return;
+    return null;
   }
 
   return React.cloneElement(SvgIcon, {

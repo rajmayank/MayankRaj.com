@@ -1,16 +1,20 @@
 import React from "react";
 import { Link } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
-import Icon from "./Icon";
+import Icon from "../common/Icon";
 
-const PageFooter = () => {
+/**
+ * Page footer component with design layers and navigation links
+ * Features social links, copyright info, and decorative background layers
+ */
+const Footer = () => {
   return (
     <footer>
       <div className="design-block">
         <div className="wrapper">
           <div className="layer-1"></div>
-          <div className="layer-2 --layer-2"></div> {/* Added BEM-like class */}
-          <div className="layer-3 --layer-3"></div> {/* Added BEM-like class */}
+          <div className="layer-2 --layer-2"></div>
+          <div className="layer-3 --layer-3"></div>
         </div>
       </div>
 
@@ -70,7 +74,7 @@ const PageFooter = () => {
           </div>
           <div className="icons-block">
             <div className="row">
-              {/* Social media icons remain the same */}
+              {/* Social media icons can be added here */}
             </div>
             <div className="row footer-resume-block">
               <Link to="/resume" target="_blank" rel="noreferrer">
@@ -84,4 +88,4 @@ const PageFooter = () => {
   );
 };
 
-export default PageFooter;
+export default Footer;

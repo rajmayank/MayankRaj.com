@@ -1,0 +1,59 @@
+// =======================================================
+// Typography Styles
+
+@use "sass:math";
+@import "../variables";
+
+html {
+  font-size: 10px; // Default font size for larger screens
+
+  @media (max-width: $breakpoint) {
+    font-size: 9px;
+  }
+
+  @media (max-width: (math.div($breakpoint, 2))) {
+    font-size: 7px;
+  }
+}
+
+// Text Styles
+.text {
+  font: 1.9rem / 1.5 $font-primary;
+
+  &--small {
+    font-size: 1.65rem;
+    line-height: 1.5;
+  }
+
+  &--tiny {
+    font-size: 1.1rem;
+  }
+}
+
+.text-strong {
+  font-weight: bold;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capital {
+  text-transform: capitalize;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-disabled {
+  opacity: 0.5;
+}
+
+.text-hidden {
+  display: none;
+}
+
+.muted-font {
+  color: $color-front-muted;
+}

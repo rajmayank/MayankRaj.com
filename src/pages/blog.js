@@ -4,10 +4,7 @@ import "../styles/main.scss";
 
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
 
-import CompactHeader from "../components/compact-header";
-import BlogListing from "../components/blog-post-listing";
-import PageFooter from "../components/footer";
-import Seo from "../components/seo"; // Added SEO component
+import { CompactHeader, BlogPostListing, Footer, Seo } from "../components";
 
 class BlogListPage extends React.Component {
   render() {
@@ -23,10 +20,10 @@ class BlogListPage extends React.Component {
         />
         <main>
           <div className="post-list-container">
-            <BlogListing posts={posts} />
+            <BlogPostListing posts={posts} />
           </div>
         </main>
-        <PageFooter />
+        <Footer />
       </div>
     );
   }

@@ -4,7 +4,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPostTemplate = path.resolve(`./src/components/blog-post.js`);
+  const blogPostTemplate = path.resolve(`./src/components/blog/BlogPost.js`);
   const result = await graphql(`
     {
       allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
