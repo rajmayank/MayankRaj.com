@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql } from "gatsby";
 
+/**
+ * SVG filter for the goo effect used in compact header
+ */
 const GooFilter = () => (
   <svg
     style={{ visibility: "hidden", position: "absolute" }}
@@ -26,6 +29,10 @@ const GooFilter = () => (
   </svg>
 );
 
+/**
+ * Compact header component for blog posts and other pages
+ * Features background image and overlay text with goo effect
+ */
 const CompactHeader = ({
   title,
   category,

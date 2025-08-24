@@ -4,7 +4,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPostTemplate = path.resolve(`./src/components/blog-post.js`);
+  const blogPostTemplate = path.resolve(`./src/components/blog/BlogPost.js`);
   const result = await graphql(`
     {
       allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
@@ -58,6 +58,27 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       node,
       value: slug,
+    });
+  }
+};
+
+exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  if (stage === "develop" || stage === "build-javascript") {
+    actions.setWebpackConfig({
+      cache: {
+        type: "filesystem",
+        buildDependencies: {
+          config: [__filename],
+        },
+        cacheDirectory: path.resolve(__dirname, ".cache/webpack"),
+        // Handle serialization issues with CSS loaders
+        managedPaths: [],
+        profile: false,
+        maxMemoryGenerations: 1,
+      },
+      infrastructureLogging: {
+        level: "error",
+      },
     });
   }
 };

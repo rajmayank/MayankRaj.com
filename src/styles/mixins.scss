@@ -1,3 +1,5 @@
+@use "variables" as vars;
+
 @mixin transform($transforms) {
   -moz-transform: $transforms;
   -o-transform: $transforms;
@@ -31,33 +33,40 @@
 }
 
 @mixin sm {
-  @media (min-width: #{$screen-sm-min}) {
+  @media (min-width: #{vars.$screen-sm-min}) {
     @content;
   }
 }
 
 @mixin md {
-  @media (min-width: #{$screen-md-min}) {
+  @media (min-width: #{vars.$screen-md-min}) {
     @content;
   }
 }
 
 @mixin lg {
-  @media (min-width: #{$screen-lg-min}) {
+  @media (min-width: #{vars.$screen-lg-min}) {
     @content;
   }
 }
 
 @mixin xl {
-  @media (min-width: #{$screen-xl-min}) {
+  @media (min-width: #{vars.$screen-xl-min}) {
     @content;
   }
 }
 
 // inspired from https://codepen.io/pirrera/pen/dbHvD
 
-@mixin underline($bg: $color-back, $color: currentColor, $position: -0.16em, $size: 2px) {
-  box-shadow: inset 0 calc( #{$position} + #{$size} ) 0 0 $bg, inset 0 $position 0 0 $color !important;
+@mixin underline(
+  $bg: vars.$color-back,
+  $color: currentColor,
+  $position: -0.16em,
+  $size: 2px
+) {
+  box-shadow: inset 0 calc(#{$position} + #{$size}) 0 0 $bg,
+    inset 0 $position 0 0 $color !important;
   text-decoration: none !important;
-  text-shadow: 1px 1px $bg, 2px 1px $bg, -1px 1px $bg, -2px 1px $bg, 2px -1px $bg, -2px 0 $bg !important;
+  text-shadow: 1px 1px $bg, 2px 1px $bg, -1px 1px $bg, -2px 1px $bg,
+    2px -1px $bg, -2px 0 $bg !important;
 }

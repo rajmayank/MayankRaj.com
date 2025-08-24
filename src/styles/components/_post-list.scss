@@ -1,0 +1,59 @@
+// =======================================================
+// Post List Styles
+
+@use "../variables" as vars;
+
+.post-list-wrapper {
+  .post-list {
+    margin-bottom: 50px;
+
+    > div {
+      margin-bottom: 25px;
+    }
+
+    .space-left {
+      margin-left: 20px;
+    }
+
+    .title {
+      display: block;
+      font-size: 3.5rem;
+
+      .icon {
+        font-size: 1.5rem;
+        position: absolute;
+        margin: 10px;
+        color: vars.$color-accent;
+      }
+    }
+
+    .category,
+    .date {
+      display: inline-block;
+    }
+
+    .external_site {
+      color: vars.$color-accent;
+      text-decoration: underline;
+    }
+  }
+
+  &.--compact {
+    .post-list {
+      margin-bottom: 0;
+
+      .title {
+        font-size: 3.5rem;
+
+        .icon {
+          font-size: 1.5rem;
+          margin: 1px 5px;
+        }
+      }
+
+      .external_site {
+        text-decoration: none;
+      }
+    }
+  }
+}

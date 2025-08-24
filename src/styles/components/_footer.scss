@@ -1,0 +1,100 @@
+// =======================================================
+// Footer Styles
+
+@use "../variables" as vars;
+@use "../mixins" as mixins;
+
+footer {
+  position: relative;
+  font: 1.6rem / 1.35 Overpass, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  margin-top: 10rem;
+
+  .container {
+    position: inherit;
+    z-index: 250;
+
+    .wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-flow: row wrap;
+      padding: 5rem 7.5rem 3rem;
+
+      .text-block {
+        .row {
+          div {
+            display: inline-block;
+          }
+
+          .icon {
+            font-size: 1.3rem;
+            line-height: 1.35;
+
+            svg {
+              margin: 0;
+              vertical-align: -0.3rem;
+            }
+          }
+
+          > span {
+            margin-right: 2rem;
+          }
+        }
+      }
+
+      .row {
+        display: block;
+        margin-bottom: 1.2rem;
+      }
+
+      .footer-resume-block {
+        text-align: center;
+      }
+    }
+  }
+
+  .design-block {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 75px;
+    @include mixins.skew(0, 3);
+    @include mixins.transform-origin(bottom right);
+    opacity: 0.7;
+
+    .layer-1 {
+      position: absolute;
+      z-index: 200;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      @include mixins.skew(0, -6);
+      @include mixins.transform-origin(bottom left);
+      background-color: vars.$bg-header-layer-1;
+    }
+
+    .layer-2,
+    .layer-3 {
+      position: absolute;
+      top: -50%;
+      width: 100%;
+      @include mixins.transform-origin(bottom left);
+      background-color: vars.$bg-header-layer-3;
+
+      &.--layer-2 {
+        z-index: 250;
+        height: 150%;
+        @include mixins.skew(0, 1);
+      }
+
+      &.--layer-3 {
+        z-index: 50;
+        opacity: 0.5;
+        height: 155%;
+        width: 200%;
+        @include mixins.skew(0, 2);
+      }
+    }
+  }
+}

@@ -1,0 +1,249 @@
+// =======================================================
+// Header Styles
+
+@use "../variables" as vars;
+@use "../mixins" as mixins;
+
+header {
+  .design-container {
+    height: 78vw;
+    width: 100%;
+    position: absolute;
+    background-color: vars.$bg-header-layer-2;
+    overflow: hidden;
+    @include mixins.skew(0, 3);
+    @include mixins.transform-origin(bottom right);
+    animation: design-container 0.75s;
+
+    @include mixins.md {
+      height: 40vw;
+    }
+
+    .layer-1 {
+      position: absolute;
+      z-index: 200;
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      @include mixins.skew(0, -30);
+      @include mixins.transform-origin(bottom left);
+      background-color: vars.$bg-header-layer-1;
+      animation: header-layer-1 1.25s;
+    }
+
+    .layer-2,
+    .layer-3 {
+      position: absolute;
+      top: 25%;
+      width: 100%;
+      height: 80%;
+      @include mixins.transform-origin(bottom left);
+      background-color: vars.$bg-header-layer-3;
+
+      &.--layer-2 {
+        z-index: 100;
+        @include mixins.skew(0, 25);
+        animation: header-layer-2 0.75s;
+      }
+
+      &.--layer-3 {
+        z-index: 50;
+        opacity: 0.5;
+        @include mixins.skew(0, 20);
+        animation: header-layer-2 1s;
+      }
+    }
+  }
+
+  .content-container {
+    position: relative;
+    top: 0;
+    width: 100%;
+
+    .name-container {
+      .name-block {
+        width: 100%;
+
+        @include mixins.md {
+          width: 50%;
+        }
+
+        svg {
+          .text {
+            font-family: "Courgette", "cursive", "Tahoma", "Courier New";
+            font-size: 35px;
+            display: block;
+          }
+
+          .text-stroke {
+            fill: none;
+            stroke: #51256f;
+            stroke-width: 5px;
+            stroke-dashoffset: -900;
+            stroke-dasharray: 900;
+            stroke-linecap: butt;
+            stroke-linejoin: round;
+            animation: header-svg-stroke 3.5s ease-in-out forwards;
+
+            &:nth-child(2) {
+              animation-delay: 0.2s;
+            }
+
+            &.--stroke-2 {
+              stroke: #f6bdfa;
+              animation-delay: 0.75s;
+            }
+
+            &:nth-child(5) {
+              animation-delay: 1s;
+            }
+          }
+        }
+      }
+    }
+
+    .description-container {
+      width: 100%;
+      margin-top: 10px;
+
+      .badges {
+        display: flex;
+        align-items: center;
+        margin-left: 25px;
+        text-align: center;
+
+        @include mixins.md {
+          text-align: left;
+        }
+
+        a {
+          vertical-align: middle;
+
+          img {
+            width: 15rem;
+            height: auto;
+          }
+
+          &.professional img {
+            width: 18rem;
+          }
+
+          &.size-bg img {
+            width: 20rem;
+          }
+        }
+      }
+
+      .animate {
+        opacity: 0;
+        animation: focus-in 0.75s ease-in forwards;
+
+        @for $i from 1 to 8 {
+          &:nth-child(#{$i}) {
+            animation-delay: 1.75 + $i * 0.25s;
+          }
+        }
+      }
+
+      .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+
+        @include mixins.md {
+          justify-content: flex-end;
+        }
+
+        .description-block {
+          font: 1.9rem/1.5 "Fredoka One", Helvetica, Arial, sans-serif;
+          text-align: center;
+
+          @include mixins.md {
+            padding-right: 20px;
+          }
+
+          span {
+            color: #d0c4df;
+
+            &.title {
+              display: block;
+              margin-bottom: 5px;
+            }
+
+            &.row-2 {
+              padding: 3px;
+
+              &:hover {
+                color: #aba1b7;
+              }
+
+              svg {
+                fill: #d0c4df;
+
+                &:hover {
+                  fill: #aba1b7;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Compact Header Styles
+  &.compact {
+    position: relative;
+    padding: 10vh 20px 20vh;
+    top: -10vh;
+    font-size: 25px;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: -5vh;
+    @include mixins.skew(0, 2);
+    @include mixins.transform-origin(bottom left);
+
+    .compact-header-container {
+      position: relative;
+      top: 10vh;
+      @include mixins.skew(0, -2);
+      @include mixins.transform-origin(bottom left);
+
+      .text-container {
+        position: relative;
+
+        .merged-bg-container {
+          display: block;
+          max-width: 70%;
+
+          span {
+            -webkit-filter: url(#goo);
+            filter: url(#goo);
+            background: #fff;
+            color: #111;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 7px 13px 5px;
+          }
+
+          &.title {
+            font: 5.4rem vars.$font-secondary;
+            margin-right: 1.5rem;
+            text-transform: uppercase;
+
+            span {
+              line-height: 7.3rem;
+            }
+          }
+
+          &.meta-data {
+            margin-top: 2rem;
+            font: 1.6rem/2.5 "GT Pressura Mono", Consolas, "Andale Mono", Menlo,
+              Monaco, Courier, monospace;
+          }
+        }
+      }
+    }
+  }
+}

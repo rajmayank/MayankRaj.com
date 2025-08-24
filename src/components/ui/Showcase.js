@@ -10,11 +10,11 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import Typography from "@mui/joy/Typography";
 
 // Import video posters
-import OSI_2023_Timelapse_Poster from "../assets/showcase/360p/OSI_2023_Timelapse.png"; // Assuming you have a poster image
-import GIDS_2024_Timelapse_Poster from "../assets/showcase/360p/GIDS_2024_Timelapse.png"; // Assuming you have a poster image
+import OSI_2023_Timelapse_Poster from "../../assets/showcase/360p/OSI_2023_Timelapse.png";
+import GIDS_2024_Timelapse_Poster from "../../assets/showcase/360p/GIDS_2024_Timelapse.png";
 
-import OSI_2023_Timelapse from "../assets/showcase/360p/OSI_2023_Timelapse.webm";
-import GIDS_2024_Timelapse from "../assets/showcase/360p/GIDS_2024_Timelapse.webm";
+import OSI_2023_Timelapse from "../../assets/showcase/360p/OSI_2023_Timelapse.webm";
+import GIDS_2024_Timelapse from "../../assets/showcase/360p/GIDS_2024_Timelapse.webm";
 
 const showcaseData = [
   {
@@ -31,7 +31,7 @@ const showcaseData = [
     subheading: "GitOps Mastery",
     banner: "Conference",
     video: OSI_2023_Timelapse,
-    poster: OSI_2023_Timelapse_Poster, // Added poster property
+    poster: OSI_2023_Timelapse_Poster,
   },
   {
     type: "video",
@@ -40,7 +40,7 @@ const showcaseData = [
     subheading: "Resilient Cybersecurity Strategies",
     banner: "Summit",
     video: GIDS_2024_Timelapse,
-    poster: GIDS_2024_Timelapse_Poster, // Added poster property
+    poster: GIDS_2024_Timelapse_Poster,
   },
   {
     type: "image",
@@ -65,6 +65,10 @@ const showcaseData = [
   },
 ];
 
+/**
+ * Showcase component displaying portfolio items in a scrolling marquee
+ * Features both image and video content with overlay text
+ */
 const Showcase = memo(() => {
   const data = useStaticQuery(graphql`
     query {
@@ -146,8 +150,6 @@ const Showcase = memo(() => {
                 )
               ) : (
                 <video autoPlay loop muted poster={item.poster}>
-                  {" "}
-                  {/* Added poster attribute */}
                   <source src={item.video} type="video/webm" />
                 </video>
               )}

@@ -4,10 +4,7 @@ import "../styles/main.scss";
 
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
 
-import CompactHeader from "../components/compact-header";
-import BlogListing from "../components/blog-post-listing";
-import PageFooter from "../components/footer";
-import Seo from "../components/seo"; // Added SEO component
+import { CompactHeader, BlogPostListing, Footer } from "../components";
 
 class BlogListPage extends React.Component {
   render() {
@@ -15,7 +12,6 @@ class BlogListPage extends React.Component {
 
     return (
       <div>
-        <Seo title="Blog" /> {/* Added SEO component for blog page */}
         <CompactHeader
           title="Blog Articles"
           mood="#fdfdfd"
@@ -23,10 +19,10 @@ class BlogListPage extends React.Component {
         />
         <main>
           <div className="post-list-container">
-            <BlogListing posts={posts} />
+            <BlogPostListing posts={posts} />
           </div>
         </main>
-        <PageFooter />
+        <Footer />
       </div>
     );
   }
@@ -34,35 +30,22 @@ class BlogListPage extends React.Component {
 
 export default BlogListPage;
 
+export const Head = () => {
+  const { Seo } = require("../components");
+  return (
+    <Seo
+      title="Blog"
+      description="Insights on technology, security, and software development"
+      pathname="/blog"
+    />
+  );
+};
+
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(
-      filter: { frontmatter: { draft: { ne: true } } }
-      sort: { frontmatter: { date: DESC } }
-      limit: 200
-    ) {
-      edges {
-        node {
-          excerpt
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            basecolor
-            author
-            enablecomments
-            category
-            bgimage
-            external_link
-            external_site_name
-            external_site_link
-            page_slug
-          }
-        }
       }
     }
     allMarkdownRemark(

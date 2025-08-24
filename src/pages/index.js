@@ -5,16 +5,12 @@ import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import { graphql, Link } from "gatsby";
 
-import BlogListing from "../components/blog-post-listing";
-import PageFooter from "../components/footer";
-import Seo from "../components/seo";
-import Showcase from "../components/showcase";
+import { BlogPostListing, Footer, Showcase, Seo } from "../components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 import "../styles/main.scss";
 
-import { StaticImage } from "gatsby-plugin-image";
-import Icon from "../components/Icon";
+import { Icon } from "../components";
 
 // Interesting Ideas:
 //  - https://ui.aceternity.com/components/floating-navbar
@@ -27,77 +23,9 @@ import Icon from "../components/Icon";
 //  -  - Tracing Bean
 //  -  -
 
-const IndexHeader = () => (
-  <header>
-    <Seo title="Home" />
+import { Header } from "../components";
 
-    <div className="design-container">
-      <div className="layer-1"></div>
-      <div className="layer-2 --layer-2"></div>
-      <div className="layer-3 --layer-3"></div>
-    </div>
-
-    <div className="content-container">
-      <div className="name-container">
-        <div className="name-block">
-          <Icon name="headerName" />
-        </div>
-      </div>
-
-      <div className="description-container">
-        <div className="row">
-          <div className="description-block">
-            <span className="row-1 title animate">
-              Lead Engineer, Security @ Salesforce
-            </span>
-          </div>
-        </div>
-
-        <div className="badges">
-          <OutboundLink
-            href="https://www.credly.com/badges/3b0f1aaa-7afd-4fb5-bb83-a1601f642bb2/public_url"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <StaticImage
-              src="../assets/images/badges/aws-certified-solutions-architect-associate.png"
-              alt="AWS Certified Solutions Architect – Associate"
-              className="animate"
-              width={150}
-              placeholder="blurred"
-            />
-          </OutboundLink>
-          <OutboundLink
-            href="https://www.credly.com/badges/8a486510-a537-48f1-a29e-2643aa626be0/public_url"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <StaticImage
-              src="../assets/images/badges/aws-certified-solutions-architect-professional.png"
-              alt="AWS Certified Solutions Architect – Professional"
-              className="animate professional"
-              width={150}
-              placeholder="blurred"
-            />
-          </OutboundLink>
-          <OutboundLink
-            href="https://www.credly.com/badges/1d2d51a2-4c93-44d2-869a-d75e367d3845/public_url"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <StaticImage
-              src="../assets/images/badges/cka-certified-kubernetes-administrator.png"
-              alt="CKA - Certified Kubernetes Administrator"
-              className="animate size-bg"
-              width={150}
-              placeholder="blurred"
-            />
-          </OutboundLink>
-        </div>
-      </div>
-    </div>
-  </header>
-);
+const IndexHeader = () => <Header />;
 
 const IndexBody = ({ posts }) => (
   <div>
@@ -295,7 +223,7 @@ const IndexBody = ({ posts }) => (
             </span>
           </span>
 
-          <BlogListing posts={posts} is_compact={true} show_bl />
+          <BlogPostListing posts={posts} is_compact={true} show_bl />
         </div>
       </div>
     </div>
@@ -311,13 +239,15 @@ class IndexPage extends React.Component {
       <section>
         <IndexHeader />
         <IndexBody posts={posts} />
-        <PageFooter />
+        <Footer />
       </section>
     );
   }
 }
 
 export default IndexPage;
+
+export const Head = () => <Seo title="Home" />;
 
 export const pageQuery = graphql`
   query {

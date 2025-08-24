@@ -1,23 +1,17 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import CompactHeader from "./compact-header";
-import PageFooter from "./footer";
-import Seo from "./seo";
-import "../styles/main.scss";
+import CompactHeader from "../layout/CompactHeader";
+import Footer from "../layout/Footer";
 
-const BlogPostTemplate = ({ data }) => {
+/**
+ * Blog post template component
+ * Renders individual blog post pages with header, content, and footer
+ */
+const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
 
   return (
     <div>
-      <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.excerpt || post.excerpt}
-        pathname={post.frontmatter.page_slug}
-        image={post.frontmatter.bgimage}
-        article={true}
-        datePublished={post.frontmatter.date}
-      />
       <CompactHeader
         title={post.frontmatter.title}
         mood={post.frontmatter.mood}
@@ -53,12 +47,27 @@ const BlogPostTemplate = ({ data }) => {
           </div>
         </div>
       </div>
-      <PageFooter />
+      <Footer />
     </div>
   );
 };
 
-export default BlogPostTemplate;
+export default BlogPost;
+
+export const Head = ({ data }) => {
+  const Seo = require("../common/Seo").default;
+  const post = data.markdownRemark;
+  return (
+    <Seo
+      title={post.frontmatter.title}
+      description={post.frontmatter.excerpt || post.excerpt}
+      pathname={post.frontmatter.page_slug}
+      image={post.frontmatter.bgimage}
+      article={true}
+      datePublished={post.frontmatter.date}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
