@@ -15,6 +15,9 @@ public/
 !.yarn/versions
 
 .vscode/
+.kiro/
 *.cache.v3
 *.chat*.md
 REFACTORING_SUMMARY.md
+
+performance-reports/

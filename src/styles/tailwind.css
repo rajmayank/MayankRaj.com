@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import custom Tailwind container utilities */
+@import "./utilities/tailwind-containers.css";

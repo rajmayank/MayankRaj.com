@@ -1,3 +1,8 @@
+// =======================================================
+// Complex animations preserved in SCSS
+// These animations involve complex transforms, strokes, or multi-property changes
+// that are better maintained in SCSS rather than Tailwind utilities
+
 @keyframes design-container {
   0% {
     opacity: 0.75;
@@ -42,6 +47,10 @@
   }
 }
 
+// =======================================================
+// Simple animations that have Tailwind alternatives
+// These are preserved in SCSS for existing usage but also available as Tailwind utilities
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -51,3 +60,6 @@
     opacity: 1;
   }
 }
+
+// Tailwind alternative: animate-fade-in
+// Usage: <div class="animate-fade-in">...</div>

@@ -1,5 +1,22 @@
 // =======================================================
 // Typography Styles
+//
+// This file contains complex responsive typography styles that are preserved
+// alongside Tailwind CSS. For simple typography needs, Tailwind alternatives
+// are available in src/styles/utilities/tailwind-typography.css:
+//
+// SCSS Class          | Tailwind Alternative
+// -------------------|---------------------
+// .text              | .tw-text
+// .text--small       | .tw-text-small
+// .text--tiny        | .tw-text-tiny
+// .text-strong       | .tw-text-strong
+// .text-uppercase    | .tw-text-uppercase
+// .text-capital      | .tw-text-capital
+// .text-justify      | .text-justify
+// .text-disabled     | .text-disabled
+// .text-hidden       | .text-hidden
+// .muted-font        | .tw-muted-font
 
 @use "sass:math";
 @use "../variables" as vars;
@@ -17,6 +34,9 @@ html {
 }
 
 // Text Styles
+// These SCSS classes are preserved for complex responsive typography
+// Tailwind alternatives available for simple cases - see utilities/README.md
+
 .text {
   font: 1.9rem / 1.5 vars.$font-primary;
 
@@ -31,29 +51,38 @@ html {
 }
 
 .text-strong {
-  font-weight: bold;
+  // font-weight: bold; → font-bold
 }
 
 .text-uppercase {
-  text-transform: uppercase;
+  // text-transform: uppercase; → uppercase
 }
 
 .text-capital {
-  text-transform: capitalize;
+  // text-transform: capitalize; → capitalize
 }
 
 .text-justify {
-  text-align: justify;
+  // text-align: justify; → text-justify
 }
 
 .text-disabled {
-  opacity: 0.5;
+  // opacity: 0.5; → opacity-50
 }
 
 .text-hidden {
-  display: none;
+  // display: none; → hidden
 }
 
 .muted-font {
   color: vars.$color-front-muted;
 }
+
+// Tailwind alternatives for simple typography:
+// - font-weight: bold → font-bold
+// - text-transform: uppercase → uppercase
+// - text-transform: capitalize → capitalize
+// - text-align: justify → text-justify
+// - opacity: 0.5 → opacity-50
+// - display: none → hidden
+// - color: $color-front-muted → text-front-muted

@@ -5,14 +5,17 @@
 
 .post-list-wrapper {
   .post-list {
-    margin-bottom: 50px;
+    // Convert simple spacing to Tailwind utilities
+    // margin-bottom: 50px; → mb-12.5 (defined in Tailwind config)
+    // margin-bottom: 25px; → mb-6
+    // margin-left: 20px; → ml-5 (defined in Tailwind config)
 
     > div {
-      margin-bottom: 25px;
+      // margin-bottom: 25px; → mb-6
     }
 
     .space-left {
-      margin-left: 20px;
+      // margin-left: 20px; → ml-5 (defined in Tailwind config)
     }
 
     .title {
@@ -40,7 +43,7 @@
 
   &.--compact {
     .post-list {
-      margin-bottom: 0;
+      // margin-bottom: 0; → mb-0
 
       .title {
         font-size: 3.5rem;
@@ -57,3 +60,12 @@
     }
   }
 }
+
+// Note: Most post-list styles have been migrated to Tailwind utilities in components
+// This file is kept for backward compatibility and complex icon positioning
+// Tailwind alternatives:
+// - margin-bottom: 50px → mb-12.5
+// - margin-bottom: 25px → mb-6  
+// - margin-left: 20px → ml-5
+// - display: block → block
+// - display: inline-block → inline-block

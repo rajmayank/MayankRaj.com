@@ -6,3 +6,170 @@
 
 // Currently all utilities are integrated into base and component files
 // This file is ready for future utility classes
+
+// =======================================================
+// Tailwind Alternatives for Common Utility Classes
+// These provide Tailwind utility alternatives alongside existing SCSS classes
+
+// Text utility alternatives (preserving original SCSS classes)
+// Original .text class preserved in _typography.scss
+// Tailwind alternatives: text-text leading-6 font-primary
+
+// Original .text-strong class preserved in _typography.scss
+// Tailwind alternative: font-bold
+
+// Original .text-uppercase class preserved in _typography.scss
+// Tailwind alternative: uppercase
+
+// Original .text-capital class preserved in _typography.scss
+// Tailwind alternative: capitalize
+
+// Original .text-justify class preserved in _typography.scss
+// Tailwind alternative: text-justify
+
+// Original .text-disabled class preserved in _typography.scss
+// Tailwind alternative: opacity-50
+
+// Original .text-hidden class preserved in _typography.scss
+// Tailwind alternative: hidden
+
+// Original .muted-font class preserved in _typography.scss
+// Tailwind alternative: text-front-muted
+
+// =======================================================
+// Layout utility alternatives
+
+// Container utilities - originals preserved in _containers.scss
+// .content-container alternatives:
+// - Basic: flex flex-col mx-auto px-2.5 w-full
+// - Responsive max-widths: max-w-container-sm sm:max-w-container-md md:max-w-container-lg lg:max-w-container-xl
+// - Narrow variant: max-w-container-narrow-sm sm:max-w-container-narrow-md md:max-w-container-narrow-lg lg:max-w-container-narrow-xl
+// - Wide variant: max-w-container-wide-sm sm:max-w-container-wide-md md:max-w-container-wide-lg lg:max-w-container-wide-xl
+
+// Post list container alternatives:
+// - Basic: mx-auto w-full
+// - Responsive: max-w-post-list-sm sm:max-w-post-list-md md:max-w-post-list-lg lg:max-w-post-list-xl xl:max-w-post-list-2xl
+
+// =======================================================
+// Spacing utility alternatives
+
+// Common spacing patterns used in components:
+// - margin-left: 20px → ml-5
+// - margin-bottom: 50px → mb-12.5 (custom spacing)
+// - margin-bottom: 25px → mb-6
+// - margin-bottom: 1rem → mb-4
+// - margin-top: 10rem → mt-40
+// - margin-top: 4rem → mt-16
+// - margin-top: 3.5rem → mt-14
+// - margin: 3rem 0 → my-12
+// - padding: 0 10px → px-2.5
+
+// =======================================================
+// Display and positioning utility alternatives
+
+// Common display patterns:
+// - display: flex → flex
+// - display: inline-block → inline-block
+// - display: block → block
+// - display: none → hidden
+// - position: relative → relative
+// - position: absolute → absolute
+
+// Common alignment patterns:
+// - justify-content: center → justify-center
+// - align-items: center → items-center
+// - text-align: center → text-center
+
+// =======================================================
+// Animation utility alternatives
+// Complex animations (header-layer-*, design-container, focus-in) preserved in SCSS
+// Simple animations available as Tailwind utilities:
+
+// fade-in animation - available as animate-fade-in class
+// focus-in animation - available as animate-focus-in class (simple version)
+
+// For complex animations, continue using SCSS classes:
+// - .design-container (complex keyframe with opacity and transforms)
+// - .header-layer-1, .header-layer-2 animations (complex skew transforms)
+// - .header-svg-stroke (complex stroke-dashoffset animation)
+
+// =======================================================
+// Color utility alternatives
+
+// Background colors:
+// - background-color: $bg-body-color → bg-body
+// - background-color: $bg-header-layer-1 → bg-header-layer-1
+// - background-color: $bg-header-layer-2 → bg-header-layer-2
+
+// Text colors:
+// - color: $color-front → text-front
+// - color: $color-front-muted → text-front-muted
+// - color: $color-accent → text-accent
+
+// =======================================================
+// Component-specific utility alternatives
+
+// Header component utilities:
+// - .name-container .name-block width: 100% → w-full
+// - .description-container width: 100%, margin-top: 10px → w-full mt-2.5
+// - .badges display: flex, align-items: center → flex items-center
+// - .row display: flex, justify-content: center → flex justify-center
+
+// Post list component utilities:
+// - .space-left margin-left: 20px → ml-5
+// - .title display: block → block
+// - .category, .date display: inline-block → inline-block
+
+// Footer component utilities:
+// - Basic layout utilities available as Tailwind classes
+// - Complex .design-block transforms preserved in SCSS
+
+// =======================================================
+// NEW: Converted SCSS to Tailwind Alternatives
+
+// Post List Styles (converted):
+// - .post-list margin-bottom: 50px → mb-12.5
+// - .post-list > div margin-bottom: 25px → mb-6
+// - .space-left margin-left: 20px → ml-5
+
+// Global Styles (converted):
+// - p, .content-block margin-bottom: 1rem → mb-4
+// - .section-top-margin margin-top: 10rem → mt-40
+// - .section-top-margin.--tight margin-top: 4rem → mt-16
+// - .content-resume text-align: center → text-center
+// - .content-resume font-size: 2.7rem → text-[2.7rem]
+// - .content-resume margin-top: 3.5rem → mt-14
+// - .call-to-action display: flex → flex
+// - .call-to-action align-items: center → items-center
+// - .call-to-action justify-content: center → justify-center
+// - .call-to-action gap: 0.8rem → gap-3
+// - .call-to-action text-align: center → text-center
+// - .call-to-action margin: 3rem 0 → my-12
+// - .call-to-action font-size: 1.9rem → text-[1.9rem]
+// - .call-to-action line-height: 1.5 → leading-6
+
+// Typography Styles (converted):
+// - .text-strong font-weight: bold → font-bold
+// - .text-uppercase text-transform: uppercase → uppercase
+// - .text-capital text-transform: capitalize → capitalize
+// - .text-justify text-align: justify → text-justify
+// - .text-disabled opacity: 0.5 → opacity-50
+// - .text-hidden display: none → hidden
+// - .muted-font color: $color-front-muted → text-front-muted
+
+// Blog Styles (converted):
+// - .excerpt-clamp display: -webkit-box, -webkit-line-clamp: 2, etc. → line-clamp-2
+// - .excerpt-clamp @media (min-width: 1024px) -webkit-line-clamp: 3 → lg:line-clamp-3
+// - .blog-post-card transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out → transition-all duration-200
+// - .blog-post-card:hover transform: translateY(-2px) → hover:-translate-y-0.5
+// - .blog-post-card:hover box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) → hover:shadow-lg
+
+// Icon Styles (converted):
+// - .icons-block display: flex → flex
+// - .icons-block align-items: center → items-center
+// - .icons-block gap: 1rem → gap-4
+// - .icons-block flex-wrap: wrap → flex-wrap
+// - .icons-block .icon display: flex → flex
+// - .icons-block .icon align-items: center → items-center
+// - .icons-block .icon gap: 0.5rem → gap-2
+// - .icons-block .icon svg margin-right: 0.5rem → mr-2

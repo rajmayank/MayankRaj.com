@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import CompactHeader from "../layout/CompactHeader";
 import Footer from "../layout/Footer";
@@ -7,6 +8,7 @@ import Seo from "../common/Seo";
 /**
  * Blog post template component
  * Renders individual blog post pages with header, content, and footer
+ * Uses Tailwind utilities for simple layout alongside SCSS for complex styling
  */
 const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
@@ -22,27 +24,24 @@ const BlogPost = ({ data }) => {
       />
       <div className="body-container">
         <div className="content-container">
-          <div className="text text-justify text-spacers">
+          <div className="text text-justify text-spacers prose prose-lg max-w-none">
             <article>
               <section dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
-            <div className="blogEndNav">
-              <hr
-                className="page-theme-hr"
-                style={{
-                  border: null,
-                  borderTop: "1px solid #ccc",
-                  marginTop: "5rem",
-                }}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Link to="/blog">Back to Blogs</Link>
-                <Link to="/">Home</Link>
+            <div className="blogEndNav mt-20 pt-8 border-t border-gray-300">
+              <div className="flex justify-between items-center flex-wrap gap-4">
+                <Link
+                  to="/blog"
+                  className="text-accent underline hover:no-underline font-medium"
+                >
+                  Back to Blogs
+                </Link>
+                <Link
+                  to="/"
+                  className="text-accent underline hover:no-underline font-medium"
+                >
+                  Home
+                </Link>
               </div>
             </div>
           </div>
@@ -51,6 +50,10 @@ const BlogPost = ({ data }) => {
       <Footer />
     </div>
   );
+};
+
+BlogPost.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default BlogPost;
