@@ -27,6 +27,24 @@ footer {
             display: inline-block;
           }
 
+          .loop-icons {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .icon {
+              display: inline-flex;
+              align-items: center;
+              font-size: 1.3rem;
+              line-height: 1.35;
+
+              svg {
+                margin: 0;
+                vertical-align: -0.3rem;
+              }
+            }
+          }
+
           .icon {
             font-size: 1.3rem;
             line-height: 1.35;

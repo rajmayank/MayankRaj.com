@@ -12,3 +12,21 @@
     vertical-align: -0.4rem;
   }
 }
+
+// Icons block for horizontal layout
+.icons-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    svg {
+      margin-right: 0.5rem;
+    }
+  }
+}

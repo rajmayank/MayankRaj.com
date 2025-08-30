@@ -29,10 +29,12 @@ const Footer = () => {
                 </OutboundLink>
                 ,
                 <div className="loop-icons">
+                  &nbsp;
                   <div className="icon">
-                    &nbsp;
                     <Icon name="react" />
-                    &nbsp; &amp; &nbsp;
+                  </div>
+                  &nbsp; &amp; &nbsp;
+                  <div className="icon">
                     <Icon name="heart" />
                   </div>
                 </div>

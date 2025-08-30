@@ -8,6 +8,7 @@ import { graphql, Link } from "gatsby";
 import { BlogPostListing, Footer, Showcase, Seo } from "../components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
+import "../styles/tailwind.css";
 import "../styles/main.scss";
 
 import { Icon } from "../components";
@@ -191,9 +192,17 @@ const IndexBody = ({ posts }) => (
             <div className="icons-block">
               <div className="icon">
                 <Icon name="javascript" />
+              </div>
+              <div className="icon">
                 <Icon name="python" />
+              </div>
+              <div className="icon">
                 <Icon name="aws" />
+              </div>
+              <div className="icon">
                 <Icon name="docker" />
+              </div>
+              <div className="icon">
                 <Icon name="drone" />
               </div>
               <div className="icon" title="and a few more...">
@@ -202,26 +211,17 @@ const IndexBody = ({ posts }) => (
             </div>
           </div>
 
-          <span style={{ textAlign: "center", display: "block" }}>
-            <br />
+          <div className="call-to-action">
+            <div className="icon">
+              <Icon name="videocall" />
+            </div>
             <span>
-              <Icon
-                name="videocall"
-                style={{
-                  height: "1em",
-                  overflow: "hidden",
-                  verticalAlign: "-0.125em",
-                }}
-              />
-            </span>
-            &nbsp;
-            <span>
-              Sounds Interesting?
+              Sounds Interesting?{" "}
               <OutboundLink href="https://calendly.com/mayank-raj/catch-up">
                 Hop on a call with me
               </OutboundLink>
             </span>
-          </span>
+          </div>
 
           <BlogPostListing posts={posts} is_compact={true} show_bl />
         </div>

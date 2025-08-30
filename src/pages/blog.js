@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import "../styles/tailwind.css";
 import "../styles/main.scss";
 
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
