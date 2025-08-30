@@ -1,23 +1,92 @@
-// Blog component styles
 // Provides custom utilities for blog post listings
+// and ensures proper list styling in blog content
 
-.excerpt-clamp {
+// Blog post content list styles - now working with Tailwind Typography plugin
+// The typography plugin handles most list styling, but we keep these as fallbacks
+.prose {
+  // Override any conflicting styles from the typography plugin if needed
+  ul {
+    list-style: disc !important;
+    padding-left: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  ol {
+    list-style: decimal !important;
+    padding-left: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  li {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+// Alternative approach for when prose class might not be working
+.text-spacers {
+  ul {
+    list-style: disc !important;
+    padding-left: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  ol {
+    list-style: decimal !important;
+    padding-left: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  li {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+// Blog-specific utilities
+// display: -webkit-box; → line-clamp-2 (Tailwind v3.3+)
+// -webkit-line-clamp: 2; → line-clamp-2
+// -webkit-box-orient: vertical; → line-clamp-2
+// overflow: hidden; → line-clamp-2
+
+// For larger screens, allow more lines
+// -webkit-line-clamp: 3; → lg:line-clamp-3
+
+// Additional blog-specific utilities
+.blog-excerpt {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
-  @media (min-width: 1024px) {
+  
+  @media (min-width: 992px) {
     -webkit-line-clamp: 3;
   }
 }
 
-// Additional blog-specific utilities
-.blog-post-card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+// Original blog excerpt clamp utility
+.excerpt-clamp {
+  // display: -webkit-box; → line-clamp-2 (Tailwind v3.3+)
+  // -webkit-line-clamp: 2; → line-clamp-2
+  // -webkit-box-orient: vertical; → line-clamp-2
+  // overflow: hidden; → line-clamp-2
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  @media (min-width: 1024px) {
+    // -webkit-line-clamp: 3; → lg:line-clamp-3
   }
 }
+
+// Blog post card styles
+.blog-post-card {
+  // transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; → transition-all duration-200
+
+  &:hover {
+    // transform: translateY(-2px); → hover:-translate-y-0.5
+    // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); → hover:shadow-lg
+  }
+}
+
+// Tailwind alternatives for blog utilities:
+// - display: -webkit-box, -webkit-line-clamp: 2, -webkit-box-orient: vertical, overflow: hidden → line-clamp-2
+// - -webkit-line-clamp: 3 → lg:line-clamp-3
+// - transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out → transition-all duration-200
+// - transform: translateY(-2px) → hover:-translate-y-0.5
+// - box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) → hover:shadow-lg

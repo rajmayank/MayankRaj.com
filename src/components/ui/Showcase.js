@@ -94,7 +94,7 @@ const Showcase = memo(() => {
   );
 
   return (
-    <div className="section-top-margin min-h-[300px] transition-all duration-300">
+    <div className="mt-40 min-h-[300px] transition-all duration-300">
       <Marquee
         autoFill={true}
         speed={275}

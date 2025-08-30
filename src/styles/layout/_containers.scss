@@ -82,10 +82,26 @@
       max-width: 100%;
     }
 
-    a {
+    // Link styles - more specific to avoid conflicts with Gatsby Link
+    a:not([class*="gatsby"]):not(.muted-font) {
       margin-left: 5px;
       &:not(.icon) {
-        @include mixins.underline(#ffffff, #f99);
+        @include mixins.underline(#ffffff, #b15757);
+      }
+      
+      &.call-to-action-link {
+        @include mixins.underline(#ffffff, #b15757);
+        font-weight: bold;
+      }
+    }
+
+    // Specific styling for muted-font links (like the blog link)
+    a.muted-font {
+      color: vars.$color-front-muted;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
       }
     }
 

@@ -28,6 +28,7 @@
     "@mui/joy": "5.0.0-dev.240424162023-9968b4889d",
     "@prefresh/babel-plugin": "^0.5.2",
     "@prefresh/core": "^1.5.7",
+    "@tailwindcss/typography": "^0.5.16",
     "core-js": "^3.45.1",
     "gatsby": "^5.14.6",
     "gatsby-plugin-feed": "^5.14.0",

@@ -138,9 +138,39 @@ module.exports = {
           },
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            // Customize typography to match your design system
+            color: '#111',
+            fontFamily: 'Overpass, Helvetica, Arial, sans-serif',
+            fontSize: '1.9rem',
+            lineHeight: '1.5',
+            
+            // Ensure lists have proper styling
+            'ul > li': {
+              listStyleType: 'disc',
+              paddingLeft: '0.5rem',
+            },
+            'ol > li': {
+              listStyleType: 'decimal',
+              paddingLeft: '0.5rem',
+            },
+            'ul, ol': {
+              paddingLeft: '2rem',
+              marginBottom: '1rem',
+            },
+            'li': {
+              marginBottom: '0.5rem',
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 
   // Production optimizations
   ...(process.env.NODE_ENV === "production" && {

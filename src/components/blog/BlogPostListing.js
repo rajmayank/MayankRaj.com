@@ -28,9 +28,9 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
 
       {/* Post list using existing design system */}
       <div className="post-list-wrapper">
-        <div className="post-list">
+        <div className="post-list mb-12.5">
           {displayPosts.map(({ node: post }, index) => (
-            <div key={index} className="content-block">
+            <div key={index} className="content-block mb-6">
               <div>
                 {post.frontmatter.external_link ? (
                   <OutboundLink
@@ -39,7 +39,7 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
                     rel="noreferrer"
                   >
                     <span className="title">
-                      <div className="space-left">
+                      <div className="space-left ml-5">
                         {post.frontmatter.title}
                         <div className="icon">
                           <Icon name="outboundLink" />
@@ -56,16 +56,16 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
                 )}
 
                 {post.frontmatter.category && (
-                  <span className="category space-left">
+                  <span className="category space-left ml-5">
                     <span>posted in</span>{" "}
-                    <span className="text-strong text-uppercase">
+                    <span className="text-strong text-uppercase font-bold uppercase">
                       {post.frontmatter.category}
                     </span>{" "}
                   </span>
                 )}
 
                 {post.frontmatter.external_site_name && (
-                  <span className="external_site space-left">
+                  <span className="external_site space-left ml-5">
                     at{" "}
                     <OutboundLink
                       href={post.frontmatter.external_site_link}
@@ -78,7 +78,7 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
                 )}
 
                 <br />
-                <span className="date space-left">
+                <span className="date space-left ml-5">
                   {post.frontmatter.date}
                 </span>
               </div>
@@ -89,8 +89,8 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
 
       {is_compact && postsCount > 4 && (
         <div className="content-block">
-          <div className="call-to-action">
-            <span>
+          <div className="call-to-action flex items-center justify-center gap-3 text-center my-12 text-[1.9rem] leading-6">
+            <span className="flex items-center flex-wrap gap-1.5 leading-6">
               ...read {postsCount} more posts in{" "}
               <Link to="/blog" className="muted-font">
                 blog

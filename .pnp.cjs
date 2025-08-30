@@ -34,6 +34,7 @@ const RAW_RUNTIME_STATE =
           ["@mui/joy", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:5.0.0-dev.240424162023-9968b4889d"],\
           ["@prefresh/babel-plugin", "npm:0.5.2"],\
           ["@prefresh/core", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:1.5.7"],\
+          ["@tailwindcss/typography", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:0.5.16"],\
           ["autoprefixer", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:10.4.21"],\
           ["core-js", "npm:3.45.1"],\
           ["gatsby", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:5.14.6"],\
@@ -5196,6 +5197,32 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@szmarczak/http-timer", "npm:5.0.1"],\
           ["defer-to-connect", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tailwindcss/typography", [\
+      ["npm:0.5.16", {\
+        "packageLocation": "../../../.yarn/berry/cache/@tailwindcss-typography-npm-0.5.16-675125d30f-10c0.zip/node_modules/@tailwindcss/typography/",\
+        "packageDependencies": [\
+          ["@tailwindcss/typography", "npm:0.5.16"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:0.5.16", {\
+        "packageLocation": "./.yarn/__virtual__/@tailwindcss-typography-virtual-dec48a2f18/4/.yarn/berry/cache/@tailwindcss-typography-npm-0.5.16-675125d30f-10c0.zip/node_modules/@tailwindcss/typography/",\
+        "packageDependencies": [\
+          ["@tailwindcss/typography", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:0.5.16"],\
+          ["@types/tailwindcss", null],\
+          ["lodash.castarray", "npm:4.4.0"],\
+          ["lodash.isplainobject", "npm:4.0.6"],\
+          ["lodash.merge", "npm:4.6.2"],\
+          ["postcss-selector-parser", "npm:6.0.10"],\
+          ["tailwindcss", "npm:3.4.17"]\
+        ],\
+        "packagePeers": [\
+          "@types/tailwindcss",\
+          "tailwindcss"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14446,6 +14473,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["lodash.castarray", [\
+      ["npm:4.4.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/lodash.castarray-npm-4.4.0-f3706198e9-10c0.zip/node_modules/lodash.castarray/",\
+        "packageDependencies": [\
+          ["lodash.castarray", "npm:4.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["lodash.clonedeep", [\
       ["npm:4.5.0", {\
         "packageLocation": "../../../.yarn/berry/cache/lodash.clonedeep-npm-4.5.0-fbc3cda4e5-10c0.zip/node_modules/lodash.clonedeep/",\
@@ -14496,6 +14532,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/lodash.foreach-npm-4.5.0-ca8531894e-10c0.zip/node_modules/lodash.foreach/",\
         "packageDependencies": [\
           ["lodash.foreach", "npm:4.5.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lodash.isplainobject", [\
+      ["npm:4.0.6", {\
+        "packageLocation": "../../../.yarn/berry/cache/lodash.isplainobject-npm-4.0.6-d73937742f-10c0.zip/node_modules/lodash.isplainobject/",\
+        "packageDependencies": [\
+          ["lodash.isplainobject", "npm:4.0.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14739,6 +14784,7 @@ const RAW_RUNTIME_STATE =
           ["@mui/joy", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:5.0.0-dev.240424162023-9968b4889d"],\
           ["@prefresh/babel-plugin", "npm:0.5.2"],\
           ["@prefresh/core", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:1.5.7"],\
+          ["@tailwindcss/typography", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:0.5.16"],\
           ["autoprefixer", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:10.4.21"],\
           ["core-js", "npm:3.45.1"],\
           ["gatsby", "virtual:c862af9a525a7942cb5904d3b172211990e905f8f68acc542176197ed4aa09309bcd082c6a3ded215dbf31864177f76a13120ad8432f9b6243ba410c2f88b24d#npm:5.14.6"],\
@@ -17593,6 +17639,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["postcss-selector-parser", [\
+      ["npm:6.0.10", {\
+        "packageLocation": "../../../.yarn/berry/cache/postcss-selector-parser-npm-6.0.10-a4d7aaa270-10c0.zip/node_modules/postcss-selector-parser/",\
+        "packageDependencies": [\
+          ["postcss-selector-parser", "npm:6.0.10"],\
+          ["cssesc", "npm:3.0.0"],\
+          ["util-deprecate", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:6.1.2", {\
         "packageLocation": "../../../.yarn/berry/cache/postcss-selector-parser-npm-6.1.2-46a8e03b00-10c0.zip/node_modules/postcss-selector-parser/",\
         "packageDependencies": [\

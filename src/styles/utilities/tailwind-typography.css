@@ -56,6 +56,23 @@
   color: #434343;
 }
 
+/* List styling utilities - Tailwind alternatives to restored SCSS list styles */
+.tw-list-disc {
+  list-style: disc;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tw-list-decimal {
+  list-style: decimal;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tw-list-item {
+  margin-bottom: 0.5rem;
+}
+
 /* Additional Tailwind typography utilities for common use cases */
 .tw-text-primary {
   color: #111;
