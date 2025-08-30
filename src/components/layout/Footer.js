@@ -9,7 +9,8 @@ import Icon from "../common/Icon";
  */
 const Footer = () => {
   return (
-    <footer>
+    <footer className="relative font-primary text-footer overflow-hidden mt-40">
+      {/* Keep complex skewed design elements in SCSS */}
       <div className="design-block">
         <div className="wrapper">
           <div className="layer-1"></div>
@@ -18,42 +19,48 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="wrapper">
+      {/* Add Tailwind alternatives for container layout - matching original CSS */}
+      <div className="container relative z-[250] mx-auto">
+        <div className="wrapper flex items-start justify-between flex-wrap pt-20 pb-12 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-30">
+          {/* Add Tailwind typography utilities as alternatives */}
           <div className="text-block">
-            <div className="row">
-              <span>
+            <div className="row block mb-3">
+              <span className="mr-4 sm:mr-8 inline-block">
                 Built with &nbsp;
                 <OutboundLink href="https://www.gatsbyjs.com/" name="gatsbyjs">
                   Gatsby
                 </OutboundLink>
                 ,
-                <div className="loop-icons">
+                <div className="loop-icons inline-flex items-center gap-2">
                   &nbsp;
-                  <div className="icon">
+                  <div className="icon inline-flex items-center text-footer-icon">
                     <Icon name="react" />
                   </div>
                   &nbsp; &amp; &nbsp;
-                  <div className="icon">
+                  <div className="icon inline-flex items-center text-footer-icon">
                     <Icon name="heart" />
                   </div>
                 </div>
               </span>
-              <span>Hosted on Github</span>
+              <span className="mr-4 sm:mr-8 inline-block">
+                Hosted on Github
+              </span>
             </div>
-            <div className="row">
-              <span>© 2016 - {new Date().getFullYear()}</span>
-              <span>
+            <div className="row block">
+              <span className="mr-4 sm:mr-8 inline-block">
+                © 2016 - {new Date().getFullYear()}
+              </span>
+              <span className="mr-4 sm:mr-8 inline-block">
                 <Link to="/" aria-label="Home | MayankRaj.com">
                   Home
                 </Link>
               </span>
-              <span>
+              <span className="mr-4 sm:mr-8 inline-block">
                 <Link to="/blog" aria-label="Blog | MayankRaj.com">
                   Blog
                 </Link>
               </span>
-              <span>
+              <span className="mr-4 sm:mr-8 inline-block">
                 <OutboundLink
                   href="https://github.com/rajmayank/mayankraj.com"
                   aria-label="Source | MayankRaj.com"
@@ -63,10 +70,10 @@ const Footer = () => {
                   Source
                 </OutboundLink>
               </span>
-              <span>
+              <span className="mr-4 sm:mr-8 inline-block">
                 <OutboundLink
                   href="/rss.xml"
-                  className="icon"
+                  className="icon text-footer-icon"
                   aria-label="RSS Feed"
                 >
                   <Icon name="rss" />
@@ -74,11 +81,10 @@ const Footer = () => {
               </span>
             </div>
           </div>
+
+          {/* View Resume - positioned on the right via flexbox justify-between */}
           <div className="icons-block">
-            <div className="row">
-              {/* Social media icons can be added here */}
-            </div>
-            <div className="row footer-resume-block">
+            <div className="row footer-resume-block text-center">
               <Link to="/resume" target="_blank" rel="noreferrer">
                 <span>View Resume</span>
               </Link>

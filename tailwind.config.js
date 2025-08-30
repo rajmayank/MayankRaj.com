@@ -28,6 +28,14 @@ module.exports = {
         secondary: ["Fredoka One", "Helvetica", "Arial", "sans-serif"],
         code: ["Fredoka One", "Helvetica", "Arial", "sans-serif"],
       },
+      fontSize: {
+        // Custom font sizes to match SCSS typography system
+        footer: ["1.6rem", "1.35"], // Original footer font size with line-height
+        "footer-icon": ["1.3rem", "1.35"], // Original footer icon size with line-height
+        text: "1.9rem", // Base text size from SCSS
+        "text-small": "1.65rem", // Small text size from SCSS
+        "text-tiny": "1.1rem", // Tiny text size from SCSS
+      },
       screens: {
         sm: "576px",
         md: "768px",

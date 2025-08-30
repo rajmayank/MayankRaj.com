@@ -1,77 +1,11 @@
 // =======================================================
-// Footer Styles
+// Footer Styles - Complex SCSS preserved, simple styles moved to Tailwind
 
 @use "../variables" as vars;
 @use "../mixins" as mixins;
 
 footer {
-  position: relative;
-  font: 1.6rem / 1.35 Overpass, Helvetica, Arial, sans-serif;
-  overflow: hidden;
-  margin-top: 10rem;
-
-  .container {
-    position: inherit;
-    z-index: 250;
-
-    .wrapper {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      flex-flow: row wrap;
-      padding: 5rem 7.5rem 3rem;
-
-      .text-block {
-        .row {
-          div {
-            display: inline-block;
-          }
-
-          .loop-icons {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-
-            .icon {
-              display: inline-flex;
-              align-items: center;
-              font-size: 1.3rem;
-              line-height: 1.35;
-
-              svg {
-                margin: 0;
-                vertical-align: -0.3rem;
-              }
-            }
-          }
-
-          .icon {
-            font-size: 1.3rem;
-            line-height: 1.35;
-
-            svg {
-              margin: 0;
-              vertical-align: -0.3rem;
-            }
-          }
-
-          > span {
-            margin-right: 2rem;
-          }
-        }
-      }
-
-      .row {
-        display: block;
-        margin-bottom: 1.2rem;
-      }
-
-      .footer-resume-block {
-        text-align: center;
-      }
-    }
-  }
-
+  // Complex skewed design elements preserved in SCSS due to complex transforms
   .design-block {
     position: absolute;
     z-index: 200;
@@ -114,5 +48,12 @@ footer {
         @include mixins.skew(0, 2);
       }
     }
+  }
+
+  // Icon-specific styles that need precise vertical alignment
+  .loop-icons .icon svg,
+  .icon svg {
+    margin: 0;
+    vertical-align: -0.3rem;
   }
 }
