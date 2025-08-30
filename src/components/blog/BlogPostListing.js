@@ -21,9 +21,10 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
         </h3>
       )}
 
-      <div className={`post-list-wrapper ${is_compact ? "--compact" : ""}`}>
+      {/* Replace post-list-wrapper with Tailwind classes */}
+      <div className={`${is_compact ? "mb-0" : "mb-12"}`}>
         {posts.map(({ node: post }, index) => (
-          <div className="post-list text" key={index}>
+          <div className="mb-6 text-text" key={index}>
             <div>
               {post.frontmatter.external_link ? (
                 <OutboundLink
@@ -31,10 +32,10 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className="title text-strong text-uppercase">
+                  <span className="block text-5xl text-strong text-uppercase">
                     <div>
                       {post.frontmatter.title}
-                      <div className="icon">
+                      <div className="inline-block ml-2">
                         <Icon name="outboundLink" />
                       </div>
                     </div>
@@ -42,16 +43,16 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
                 </OutboundLink>
               ) : (
                 <Link to={post.frontmatter.page_slug}>
-                  <span className="title text-strong text-uppercase">
+                  <span className="block text-5xl text-strong text-uppercase">
                     {post.frontmatter.title}
                   </span>
                 </Link>
               )}
 
               {post.frontmatter.category && (
-                <span className="space-left muted-font">
+                <span className="ml-5 muted-font">
                   <span>posted in</span>{" "}
-                  <span className="category text-strong text-uppercase muted-font">
+                  <span className="inline-block text-strong text-uppercase muted-font">
                     {post.frontmatter.category}
                   </span>{" "}
                 </span>
@@ -65,7 +66,7 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <span className="external_site text-strong">
+                    <span className="text-accent underline text-strong">
                       {post.frontmatter.external_site_name}
                     </span>
                   </OutboundLink>
@@ -73,7 +74,7 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
               )}
 
               <br />
-              <span className="date space-left muted-font">
+              <span className="inline-block ml-5 muted-font">
                 {post.frontmatter.date}
               </span>
             </div>

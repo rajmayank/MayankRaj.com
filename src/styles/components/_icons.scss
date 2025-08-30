@@ -1,5 +1,5 @@
 // =======================================================
-// Icon Styles
+// Icon Styles - Keep only complex positioning that's hard to replicate with Tailwind
 
 .icon {
   display: inline-block;
@@ -13,7 +13,8 @@
   }
 }
 
-// Icons block for horizontal layout
+// Icons block for horizontal layout - migrated to Tailwind in components
+// Use: flex items-center gap-4 flex-wrap
 .icons-block {
   display: flex;
   align-items: center;

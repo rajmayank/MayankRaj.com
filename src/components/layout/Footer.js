@@ -31,13 +31,13 @@ const Footer = () => {
                   Gatsby
                 </OutboundLink>
                 ,
-                <div className="loop-icons inline-flex items-center gap-2">
+                <div className="inline-flex items-center gap-2 flex-wrap">
                   &nbsp;
-                  <div className="icon inline-flex items-center text-footer-icon">
+                  <div className="inline-flex items-center text-footer-icon">
                     <Icon name="react" />
                   </div>
                   &nbsp; &amp; &nbsp;
-                  <div className="icon inline-flex items-center text-footer-icon">
+                  <div className="inline-flex items-center text-footer-icon">
                     <Icon name="heart" />
                   </div>
                 </div>
@@ -73,7 +73,7 @@ const Footer = () => {
               <span className="mr-4 sm:mr-8 inline-block">
                 <OutboundLink
                   href="/rss.xml"
-                  className="icon text-footer-icon"
+                  className="inline-block text-footer-icon"
                   aria-label="RSS Feed"
                 >
                   <Icon name="rss" />
@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
 
           {/* View Resume - positioned on the right via flexbox justify-between */}
-          <div className="icons-block">
+          <div className="flex items-center gap-4 flex-wrap">
             <div className="row footer-resume-block text-center">
               <Link to="/resume" target="_blank" rel="noreferrer">
                 <span>View Resume</span>
