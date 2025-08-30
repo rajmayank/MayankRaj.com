@@ -34,9 +34,14 @@ const IndexBody = ({ posts }) => (
     <div className="body-container">
       <div className="content-container">
         <div className="text text-justify text-spacers">
-          <div className="text-center text-[2.7rem] mt-16">
-            <div className="icon">
-              <Icon name="resume" />
+          <div className="content-resume section-top-margin --tight">
+            <div className="flex items-center justify-center gap-3">
+              <div className="icon">
+                <Icon name="resume" />
+              </div>
+              <Link to="/resume" target="_blank" rel="noreferrer">
+                <span>Resume</span>
+              </Link>
             </div>
           </div>
 
@@ -48,10 +53,8 @@ const IndexBody = ({ posts }) => (
               deeper, shall we?
             </p>
             <p>
-              By day, I'm a Lead Engineer at{" "}
-              <OutboundLink href="https://www.salesforce.com/">
-                Salesforce
-              </OutboundLink>{" "}
+              By day, I'm a Lead Engineer at
+              {""}<OutboundLink href="https://www.salesforce.com/">Salesforce</OutboundLink>{""}
               , where I wear the cape of a digital locksmith. My mission? To
               fortify the Salesforce ecosystem with unbreakable cryptography.
               It's like being a secret agent, but instead of shaken martinis, I
@@ -63,11 +66,7 @@ const IndexBody = ({ posts }) => (
             </p>
             <ul>
               <li>
-                At{" "}
-                <OutboundLink href="https://cactusglobal.com/brands/cactus-labs/">
-                  Cactus Labs
-                </OutboundLink>{" "}
-                , I was the ringmaster of a 15+ engineer circus, juggling big
+                At <OutboundLink href="https://cactusglobal.com/brands/cactus-labs/">Cactus Labs</OutboundLink>, I was the ringmaster of a 15+ engineer circus, juggling big
                 data and machine learning acts. We built a data platform that
                 could swallow 1.5TB of data per week and spit out insights
                 faster than you can say "algorithm."

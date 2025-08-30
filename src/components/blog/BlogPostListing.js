@@ -19,7 +19,7 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
         <div className="content-block">
           <h3 className="text text-strong">
             Recent articles from{" "}
-            <Link to="/blog" className="muted-font">
+            <Link to="/blog" className="call-to-action-link">
               blog
             </Link>
           </h3>
@@ -91,8 +91,7 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
         <div className="content-block">
           <div className="call-to-action flex items-center justify-center gap-3 text-center my-12 text-[1.9rem] leading-6">
             <span className="flex items-center flex-wrap gap-1.5 leading-6">
-              ...read {postsCount} more posts in{" "}
-              <Link to="/blog" className="muted-font">
+              ...read {postsCount} more posts in<Link to="/blog" className="call-to-action-link">
                 blog
               </Link>
             </span>
