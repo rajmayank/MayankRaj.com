@@ -68,6 +68,7 @@ const showcaseData = [
 /**
  * Showcase component displaying portfolio items in a scrolling marquee
  * Features both image and video content with overlay text
+ * Uses Tailwind utilities for simple layout alongside SCSS for complex styling
  */
 const Showcase = memo(() => {
   const data = useStaticQuery(graphql`
@@ -93,13 +94,7 @@ const Showcase = memo(() => {
   );
 
   return (
-    <div
-      className="section-top-margin"
-      style={{
-        minHeight: "300px",
-        transition: "height 0.3s ease-in-out",
-      }}
-    >
+    <div className="section-top-margin min-h-[300px] transition-all duration-300">
       <Marquee
         autoFill={true}
         speed={275}

@@ -6,3 +6,115 @@
 
 // Currently all utilities are integrated into base and component files
 // This file is ready for future utility classes
+
+// =======================================================
+// Tailwind Alternatives for Common Utility Classes
+// These provide Tailwind utility alternatives alongside existing SCSS classes
+
+// Text utility alternatives (preserving original SCSS classes)
+// Original .text class preserved in _typography.scss
+// Tailwind alternatives: text-text leading-6 font-primary
+
+// Original .text-strong class preserved in _typography.scss
+// Tailwind alternative: font-bold
+
+// Original .text-uppercase class preserved in _typography.scss
+// Tailwind alternative: uppercase
+
+// Original .text-capital class preserved in _typography.scss
+// Tailwind alternative: capitalize
+
+// Original .text-justify class preserved in _typography.scss
+// Tailwind alternative: text-justify
+
+// Original .text-disabled class preserved in _typography.scss
+// Tailwind alternative: opacity-50
+
+// Original .text-hidden class preserved in _typography.scss
+// Tailwind alternative: hidden
+
+// Original .muted-font class preserved in _typography.scss
+// Tailwind alternative: text-front-muted
+
+// =======================================================
+// Layout utility alternatives
+
+// Container utilities - originals preserved in _containers.scss
+// .content-container alternatives:
+// - Basic: flex flex-col mx-auto px-2.5 w-full
+// - Responsive max-widths: max-w-container-sm sm:max-w-container-md md:max-w-container-lg lg:max-w-container-xl
+// - Narrow variant: max-w-container-narrow-sm sm:max-w-container-narrow-md md:max-w-container-narrow-lg lg:max-w-container-narrow-xl
+// - Wide variant: max-w-container-wide-sm sm:max-w-container-wide-md md:max-w-container-wide-lg lg:max-w-container-wide-xl
+
+// Post list container alternatives:
+// - Basic: mx-auto w-full
+// - Responsive: max-w-post-list-sm sm:max-w-post-list-md md:max-w-post-list-lg lg:max-w-post-list-xl xl:max-w-post-list-2xl
+
+// =======================================================
+// Spacing utility alternatives
+
+// Common spacing patterns used in components:
+// - margin-left: 20px → ml-5
+// - margin-bottom: 50px → mb-12.5 (custom spacing)
+// - margin-top: 10px → mt-2.5
+// - padding: 0 10px → px-2.5
+
+// =======================================================
+// Display and positioning utility alternatives
+
+// Common display patterns:
+// - display: flex → flex
+// - display: inline-block → inline-block
+// - display: block → block
+// - display: none → hidden
+// - position: relative → relative
+// - position: absolute → absolute
+
+// Common alignment patterns:
+// - justify-content: center → justify-center
+// - align-items: center → items-center
+// - text-align: center → text-center
+
+// =======================================================
+// Animation utility alternatives
+// Complex animations (header-layer-*, design-container, focus-in) preserved in SCSS
+// Simple animations available as Tailwind utilities:
+
+// fade-in animation - available as animate-fade-in class
+// focus-in animation - available as animate-focus-in class (simple version)
+
+// For complex animations, continue using SCSS classes:
+// - .design-container (complex keyframe with opacity and transforms)
+// - .header-layer-1, .header-layer-2 animations (complex skew transforms)
+// - .header-svg-stroke (complex stroke-dashoffset animation)
+
+// =======================================================
+// Color utility alternatives
+
+// Background colors:
+// - background-color: $bg-body-color → bg-body
+// - background-color: $bg-header-layer-1 → bg-header-layer-1
+// - background-color: $bg-header-layer-2 → bg-header-layer-2
+
+// Text colors:
+// - color: $color-front → text-front
+// - color: $color-front-muted → text-front-muted
+// - color: $color-accent → text-accent
+
+// =======================================================
+// Component-specific utility alternatives
+
+// Header component utilities:
+// - .name-container .name-block width: 100% → w-full
+// - .description-container width: 100%, margin-top: 10px → w-full mt-2.5
+// - .badges display: flex, align-items: center → flex items-center
+// - .row display: flex, justify-content: center → flex justify-center
+
+// Post list component utilities:
+// - .space-left margin-left: 20px → ml-5
+// - .title display: block → block
+// - .category, .date display: inline-block → inline-block
+
+// Footer component utilities:
+// - Basic layout utilities available as Tailwind classes
+// - Complex .design-block transforms preserved in SCSS

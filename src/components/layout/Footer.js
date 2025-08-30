@@ -19,10 +19,10 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Add Tailwind alternatives for container layout - matching original CSS */}
+      {/* Container - restore original SCSS structure */}
       <div className="container relative z-[250] mx-auto">
         <div className="wrapper flex items-start justify-between flex-wrap pt-20 pb-12 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-30">
-          {/* Add Tailwind typography utilities as alternatives */}
+          {/* Text block - restore original SCSS classes */}
           <div className="text-block">
             <div className="row block mb-3">
               <span className="mr-4 sm:mr-8 inline-block">
@@ -34,11 +34,15 @@ const Footer = () => {
                 <div className="inline-flex items-center gap-2 flex-wrap">
                   &nbsp;
                   <div className="inline-flex items-center text-footer-icon">
-                    <Icon name="react" />
+                    <div className="icon">
+                      <Icon name="react" />
+                    </div>
                   </div>
                   &nbsp; &amp; &nbsp;
                   <div className="inline-flex items-center text-footer-icon">
-                    <Icon name="heart" />
+                    <div className="icon">
+                      <Icon name="heart" />
+                    </div>
                   </div>
                 </div>
               </span>
@@ -76,13 +80,15 @@ const Footer = () => {
                   className="inline-block text-footer-icon"
                   aria-label="RSS Feed"
                 >
-                  <Icon name="rss" />
+                  <div className="icon">
+                    <Icon name="rss" />
+                  </div>
                 </OutboundLink>
               </span>
             </div>
           </div>
 
-          {/* View Resume - positioned on the right via flexbox justify-between */}
+          {/* View Resume - restore original structure with minimal Tailwind */}
           <div className="flex items-center gap-4 flex-wrap">
             <div className="row footer-resume-block text-center">
               <Link to="/resume" target="_blank" rel="noreferrer">

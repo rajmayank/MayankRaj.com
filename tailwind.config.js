@@ -71,11 +71,14 @@ module.exports = {
       },
       spacing: {
         2.5: "10px", // matches padding: 0 10px in SCSS
+        5: "20px", // matches margin-left: 20px in post-list
+        12.5: "50px", // matches margin-bottom: 50px in post-list
       },
       animation: {
         // Simple animations that can be used as Tailwind alternatives
-        "fade-in": "fade-in 0.75s ease-in forwards",
+        "fade-in": "fade-in 0.6s ease-in forwards", // matches body animation
         "focus-in": "focus-in 0.75s ease-in forwards",
+        // Complex animations (design-container, header-layer-*, header-svg-stroke) remain in SCSS
       },
       keyframes: {
         "fade-in": {

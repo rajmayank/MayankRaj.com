@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const icons = {
   headerName: (
@@ -165,11 +166,9 @@ const icons = {
 
 /**
  * Icon component for rendering SVG icons
- * @param {string} name - The name of the icon to render
- * @param {object} style - Additional styles to apply
- * @param {object} props - Additional props to pass to the SVG element
+ * Uses Tailwind utilities for sizing when appropriate
  */
-const Icon = ({ name, style = {}, ...props }) => {
+const Icon = ({ name, className = "", style = {}, ...props }) => {
   const SvgIcon = icons[name];
 
   if (!SvgIcon) {
@@ -179,11 +178,18 @@ const Icon = ({ name, style = {}, ...props }) => {
 
   return React.cloneElement(SvgIcon, {
     ...props,
+    className: className,
     style: {
       ...SvgIcon.props.style,
       ...style,
     },
   });
+};
+
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default Icon;

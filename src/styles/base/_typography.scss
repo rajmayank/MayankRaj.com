@@ -34,6 +34,9 @@ html {
 }
 
 // Text Styles
+// These SCSS classes are preserved for complex responsive typography
+// Tailwind alternatives available for simple cases - see utilities/README.md
+
 .text {
   font: 1.9rem / 1.5 vars.$font-primary;
 
@@ -49,28 +52,35 @@ html {
 
 .text-strong {
   font-weight: bold;
+  // Tailwind alternative: font-bold
 }
 
 .text-uppercase {
   text-transform: uppercase;
+  // Tailwind alternative: uppercase
 }
 
 .text-capital {
   text-transform: capitalize;
+  // Tailwind alternative: capitalize
 }
 
 .text-justify {
   text-align: justify;
+  // Tailwind alternative: text-justify
 }
 
 .text-disabled {
   opacity: 0.5;
+  // Tailwind alternative: opacity-50
 }
 
 .text-hidden {
   display: none;
+  // Tailwind alternative: hidden
 }
 
 .muted-font {
   color: vars.$color-front-muted;
+  // Tailwind alternative: text-front-muted
 }
