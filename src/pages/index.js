@@ -220,7 +220,7 @@ const IndexBody = ({ posts }) => (
             </span>
           </div>
 
-          <BlogPostListing posts={posts} is_compact={true} show_bl />
+          <BlogPostListing posts={posts} is_compact={true} />
         </div>
       </div>
     </div>
