@@ -8,8 +8,6 @@ import { graphql, Link } from "gatsby";
 import { BlogPostListing, Footer, Showcase, Seo } from "../components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
-import "../styles/main.scss";
-
 import { Icon } from "../components";
 
 // Interesting Ideas:
@@ -36,7 +34,7 @@ const IndexBody = ({ posts }) => (
     <div className="body-container">
       <div className="content-container">
         <div className="text text-justify text-spacers">
-          <div className="content-resume section-top-margin --tight">
+          <div className="text-center text-[2.7rem] mt-16">
             <div className="icon">
               <Icon name="resume" />
             </div>
@@ -45,7 +43,7 @@ const IndexBody = ({ posts }) => (
             </Link>
           </div>
 
-          <div className="section-top-margin --tight">
+          <div className="mt-16">
             <p>
               Hello, I'm Mayank Raj. Picture this: a violinist who codes, a
               trekker who builds AI systems, and a drone enthusiast who secures
@@ -191,9 +189,17 @@ const IndexBody = ({ posts }) => (
             <div className="icons-block">
               <div className="icon">
                 <Icon name="javascript" />
+              </div>
+              <div className="icon">
                 <Icon name="python" />
+              </div>
+              <div className="icon">
                 <Icon name="aws" />
+              </div>
+              <div className="icon">
                 <Icon name="docker" />
+              </div>
+              <div className="icon">
                 <Icon name="drone" />
               </div>
               <div className="icon" title="and a few more...">
@@ -202,28 +208,23 @@ const IndexBody = ({ posts }) => (
             </div>
           </div>
 
-          <span style={{ textAlign: "center", display: "block" }}>
-            <br />
-            <span>
-              <Icon
-                name="videocall"
-                style={{
-                  height: "1em",
-                  overflow: "hidden",
-                  verticalAlign: "-0.125em",
-                }}
-              />
-            </span>
-            &nbsp;
-            <span>
-              Sounds Interesting?
-              <OutboundLink href="https://calendly.com/mayank-raj/catch-up">
+          <div className="flex items-center justify-center gap-3 text-center my-12 text-[1.9rem] leading-6">
+            <div className="flex items-center flex-shrink-0">
+              <Icon name="videocall" className="h-[1.4em] w-[1.4em] overflow-visible align-baseline" />
+            </div>
+            <span className="">
+              Sounds Interesting?{" "}
+              <OutboundLink href="https://calendly.com/mayank-raj/catch-up" className="whitespace-nowrap call-to-action-link">
                 Hop on a call with me
               </OutboundLink>
             </span>
-          </span>
+          </div>
 
-          <BlogPostListing posts={posts} is_compact={true} show_bl />
+<div className="mt-40">
+<BlogPostListing posts={posts} is_compact={true} />
+  
+</div>
+
         </div>
       </div>
     </div>

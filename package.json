@@ -18,8 +18,7 @@
     "build": "NODE_ENV=production gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "project:structure": "find . -type d ( -path './node_modules' -o -path './public' -o -path './dist' -o -path './build' -o -path './.yarn' -o -path './.git' -o -path './.cache' ) -prune -o -print | sed -e 's|[^/]*/|- |g' -e 's|/| |g'",
-    "write-good": "write-good"
+    "project:structure": "find . -type d ( -path './node_modules' -o -path './public' -o -path './dist' -o -path './build' -o -path './.yarn' -o -path './.git' -o -path './.cache' ) -prune -o -print | sed -e 's|[^/]*/|- |g' -e 's|/| |g'"
   },
   "dependencies": {
     "@babel/core": "^7.28.3",
@@ -29,6 +28,7 @@
     "@mui/joy": "5.0.0-dev.240424162023-9968b4889d",
     "@prefresh/babel-plugin": "^0.5.2",
     "@prefresh/core": "^1.5.7",
+    "@tailwindcss/typography": "^0.5.16",
     "core-js": "^3.45.1",
     "gatsby": "^5.14.6",
     "gatsby-plugin-feed": "^5.14.0",
@@ -69,6 +69,10 @@
   },
   "packageManager": "yarn@4.6.0",
   "devDependencies": {
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32"
+    "autoprefixer": "^10.4.21",
+    "gatsby-plugin-postcss": "^6.15.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.0"
   }
 }

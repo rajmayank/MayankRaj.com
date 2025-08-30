@@ -17,6 +17,7 @@ module.exports = {
   },
   plugins: [
     // "gatsby-plugin-preact",
+    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-sass",
       options: {

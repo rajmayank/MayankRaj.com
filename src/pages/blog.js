@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import "../styles/main.scss";
 
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
 
@@ -18,8 +17,12 @@ class BlogListPage extends React.Component {
           bgUrl={BlogIndexCover}
         />
         <main>
-          <div className="post-list-container">
-            <BlogPostListing posts={posts} />
+          <div className="body-container">
+            <div className="content-container">
+              <div className="text text-justify text-spacers">
+                <BlogPostListing posts={posts} />
+              </div>
+            </div>
           </div>
         </main>
         <Footer />

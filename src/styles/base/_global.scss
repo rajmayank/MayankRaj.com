@@ -9,28 +9,131 @@ body {
   color: vars.$color-front;
 }
 
+// Restore list styles that are reset by Tailwind's base layer
+// These are fallbacks for content outside of prose classes
+ul, ol {
+  list-style: disc;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+// Additional specificity for content areas that don't use prose
+.text ul, .text ol,
+.content-container ul, .content-container ol {
+  list-style: disc;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.text ol, .content-container ol {
+  list-style: decimal;
+}
+
+.text li, .content-container li {
+  margin-bottom: 0.5rem;
+}
+
+// Global link styles to prevent browser spell-check underlines
+a {
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Specific styling for muted-font links
+a.muted-font {
+  color: vars.$color-front-muted;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 // Paragraph and Content Block Styles
 p,
 .content-block {
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem; → mb-4
 
   &.--reduced-margin-bottom {
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem; → mb-4
   }
 }
 
 // Section spacing
 .section-top-margin {
-  margin-top: 10rem;
+  // margin-top: 10rem; → mt-40
 
   &.--tight {
-    margin-top: 4rem;
+    // margin-top: 4rem; → mt-16
   }
 }
 
 // Resume content
-.content-resume {
-  text-align: center;
-  font-size: 2.7rem;
-  margin-top: 3.5rem;
+
+// Call to action section
+.call-to-action {
+  // display: flex; → flex
+  // align-items: center; → items-center
+  // justify-content: center; → justify-center
+  // gap: 0.8rem; → gap-3
+  // text-align: center; → text-center
+  // margin: 3rem 0; → my-12
+  // font-size: 1.9rem; → text-[1.9rem]
+  // line-height: 1.5; → leading-6
+
+  .icon {
+    // display: flex; → flex
+    // align-items: center; → items-center
+    // flex-shrink: 0; → flex-shrink-0
+
+    svg {
+      height: 1.4em;
+      width: 1.4em;
+      overflow: visible;
+      vertical-align: baseline;
+    }
+  }
+
+  span {
+    // line-height: 1.5; → leading-6
+    // display: flex; → flex
+    // align-items: center; → items-center
+    // flex-wrap: wrap; → flex-wrap
+    // gap: 0.4rem; → gap-1.5
+  }
+
+  a {
+    // white-space: nowrap; → whitespace-nowrap
+  }
 }
+
+// Tailwind alternatives for simple styles:
+// - margin-bottom: 1rem → mb-4
+// - margin-top: 10rem → mt-40
+// - margin-top: 4rem → mt-16
+// - margin-top: 3.5rem → mt-14
+// - margin: 3rem 0 → my-12
+// - text-align: center → text-center
+// - font-size: 2.7rem → text-[2.7rem]
+// - font-size: 1.9rem → text-[1.9rem]
+// - line-height: 1.5 → leading-6
+// - display: flex → flex
+// - align-items: center → items-center
+// - justify-content: center → justify-center
+// - gap: 0.8rem → gap-3
+// - gap: 0.4rem → gap-1.5
+// - flex-wrap: wrap → flex-wrap
+// - flex-shrink: 0 → flex-shrink-0
+// - white-space: nowrap → whitespace-nowrap

@@ -5,6 +5,7 @@
 @use "../mixins" as mixins;
 
 header {
+  // Complex animated design layers - preserved in SCSS for complex transforms and animations
   .design-container {
     height: 78vw;
     width: 100%;
@@ -55,19 +56,24 @@ header {
     }
   }
 
+  // Content container - preserve original layout with Tailwind utilities as alternatives
   .content-container {
     position: relative;
     top: 0;
     width: 100%;
+    // Tailwind alternatives: relative top-0 w-full
 
     .name-container {
       .name-block {
         width: 100%;
+        // Tailwind alternative: w-full
 
         @include mixins.md {
           width: 50%;
+          // Tailwind alternative: md:w-1/2
         }
 
+        // Complex SVG animations preserved in SCSS
         svg {
           .text {
             font-family: "Courgette", "cursive", "Tahoma", "Courier New";
@@ -105,35 +111,43 @@ header {
     .description-container {
       width: 100%;
       margin-top: 10px;
+      // Tailwind alternatives: w-full mt-2.5
 
       .badges {
         display: flex;
         align-items: center;
         margin-left: 25px;
         text-align: center;
+        // Tailwind alternatives: flex items-center ml-6 text-center
 
         @include mixins.md {
           text-align: left;
+          // Tailwind alternative: md:text-left
         }
 
         a {
           vertical-align: middle;
+          // Tailwind alternative: align-middle
 
           img {
             width: 15rem;
             height: auto;
+            // Tailwind alternatives: w-60 h-auto
           }
 
           &.professional img {
             width: 18rem;
+            // Tailwind alternative: w-72
           }
 
           &.size-bg img {
             width: 20rem;
+            // Tailwind alternative: w-80
           }
         }
       }
 
+      // Complex animation preserved in SCSS
       .animate {
         opacity: 0;
         animation: focus-in 0.75s ease-in forwards;
@@ -150,25 +164,31 @@ header {
         justify-content: center;
         align-items: center;
         flex-direction: row;
+        // Tailwind alternatives: flex justify-center items-center flex-row
 
         @include mixins.md {
           justify-content: flex-end;
+          // Tailwind alternative: md:justify-end
         }
 
         .description-block {
           font: 1.9rem/1.5 "Fredoka One", Helvetica, Arial, sans-serif;
           text-align: center;
+          // Tailwind alternatives: font-secondary text-[1.9rem] leading-[1.5] text-center
 
           @include mixins.md {
             padding-right: 20px;
+            // Tailwind alternative: md:pr-5
           }
 
           span {
             color: #d0c4df;
+            // Tailwind alternative: text-[#d0c4df]
 
             &.title {
               display: block;
               margin-bottom: 5px;
+              // Tailwind alternatives: block mb-1
             }
 
             &.row-2 {
