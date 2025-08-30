@@ -1,5 +1,22 @@
 // =======================================================
 // Typography Styles
+//
+// This file contains complex responsive typography styles that are preserved
+// alongside Tailwind CSS. For simple typography needs, Tailwind alternatives
+// are available in src/styles/utilities/tailwind-typography.css:
+//
+// SCSS Class          | Tailwind Alternative
+// -------------------|---------------------
+// .text              | .tw-text
+// .text--small       | .tw-text-small
+// .text--tiny        | .tw-text-tiny
+// .text-strong       | .tw-text-strong
+// .text-uppercase    | .tw-text-uppercase
+// .text-capital      | .tw-text-capital
+// .text-justify      | .tw-text-justify
+// .text-disabled     | .tw-text-disabled
+// .text-hidden       | .tw-text-hidden
+// .muted-font        | .tw-muted-font
 
 @use "sass:math";
 @use "../variables" as vars;

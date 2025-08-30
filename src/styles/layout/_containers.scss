@@ -1,5 +1,29 @@
 // =======================================================
 // Container Styles
+//
+// Tailwind CSS Alternatives:
+//
+// .content-container (default) →
+//   flex flex-col mx-auto px-2.5 w-full max-w-3xl
+//   sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-3xl
+//
+// .content-container--narrow →
+//   flex flex-col mx-auto px-2.5 w-full max-w-3xl
+//   sm:max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-2xl
+//
+// .content-container--wide →
+//   flex flex-col mx-auto px-2.5 w-full max-w-3xl
+//   sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl
+//
+// .content-container--full →
+//   flex flex-col mx-auto px-2.5 w-full max-w-full
+//
+// .post-list-container →
+//   flex flex-col mx-auto px-2.5 w-full max-w-full
+//   sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl
+//
+// .body-container →
+//   w-full (use as wrapper, content-container handles the responsive sizing)
 
 @use "../variables" as vars;
 @use "../mixins" as mixins;
@@ -21,6 +45,41 @@
     }
     @media (min-width: 1200px) {
       max-width: 800px;
+    }
+
+    // Content container variants
+    &--narrow {
+      @media (min-width: 576px) {
+        max-width: 400px;
+      }
+      @media (min-width: 768px) {
+        max-width: 500px;
+      }
+      @media (min-width: 992px) {
+        max-width: 600px;
+      }
+      @media (min-width: 1200px) {
+        max-width: 650px;
+      }
+    }
+
+    &--wide {
+      @media (min-width: 576px) {
+        max-width: 720px;
+      }
+      @media (min-width: 768px) {
+        max-width: 960px;
+      }
+      @media (min-width: 992px) {
+        max-width: 1140px;
+      }
+      @media (min-width: 1200px) {
+        max-width: 1320px;
+      }
+    }
+
+    &--full {
+      max-width: 100%;
     }
 
     a {

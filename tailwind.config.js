@@ -33,6 +33,57 @@ module.exports = {
         md: "768px",
         lg: "992px",
         xl: "1200px",
+        "2xl": "1400px",
+      },
+      maxWidth: {
+        // Container system max-widths matching SCSS breakpoints
+        "container-sm": "540px", // sm breakpoint content-container
+        "container-md": "680px", // md breakpoint content-container
+        "container-lg": "760px", // lg breakpoint content-container
+        "container-xl": "800px", // xl breakpoint content-container
+
+        // Narrow variant max-widths
+        "container-narrow-sm": "400px",
+        "container-narrow-md": "500px",
+        "container-narrow-lg": "600px",
+        "container-narrow-xl": "650px",
+
+        // Wide variant max-widths (matching post-list-container)
+        "container-wide-sm": "720px",
+        "container-wide-md": "960px",
+        "container-wide-lg": "1140px",
+        "container-wide-xl": "1320px",
+
+        // Post list container max-widths
+        "post-list-sm": "540px",
+        "post-list-md": "720px",
+        "post-list-lg": "960px",
+        "post-list-xl": "1140px",
+        "post-list-2xl": "1320px",
+      },
+      spacing: {
+        2.5: "10px", // matches padding: 0 10px in SCSS
+      },
+      animation: {
+        // Simple animations that can be used as Tailwind alternatives
+        "fade-in": "fade-in 0.75s ease-in forwards",
+        "focus-in": "focus-in 0.75s ease-in forwards",
+      },
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "focus-in": {
+          "0%": {
+            filter: "blur(12px)",
+            opacity: "0",
+          },
+          "100%": {
+            filter: "blur(0px)",
+            opacity: "1",
+          },
+        },
       },
     },
   },

@@ -6,22 +6,27 @@ import Icon from "../common/Icon";
 /**
  * Main header component for the homepage
  * Features animated design layers and personal branding
+ * Uses Tailwind utilities for simple layout alongside SCSS for complex animations
  */
 const Header = () => (
-  <header>
+  <header className="relative">
+    {/* Complex animated design layers - preserved in SCSS */}
     <div className="design-container">
       <div className="layer-1"></div>
       <div className="layer-2 --layer-2"></div>
       <div className="layer-3 --layer-3"></div>
     </div>
 
+    {/* Content container - preserve original positioning with Tailwind alternatives */}
     <div className="content-container">
+      {/* Name container with Tailwind layout utilities as alternatives */}
       <div className="name-container">
         <div className="name-block">
           <Icon name="headerName" />
         </div>
       </div>
 
+      {/* Description container with Tailwind flexbox utilities as alternatives */}
       <div className="description-container">
         <div className="row">
           <div className="description-block">
@@ -31,6 +36,7 @@ const Header = () => (
           </div>
         </div>
 
+        {/* Badges with Tailwind flexbox utilities as alternatives */}
         <div className="badges">
           <OutboundLink
             href="https://www.credly.com/badges/3b0f1aaa-7afd-4fb5-bb83-a1601f642bb2/public_url"

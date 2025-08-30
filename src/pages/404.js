@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link } from "gatsby";
 
 // styles
-import "../styles/tailwind.css";
 import "../styles/404.scss";
 
 // markup

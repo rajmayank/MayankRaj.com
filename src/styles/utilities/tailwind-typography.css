@@ -1,0 +1,83 @@
+/* Tailwind Typography Utilities - Alternatives to SCSS .text classes */
+
+/* 
+ * These classes provide Tailwind-based alternatives to the existing SCSS typography classes.
+ * The original SCSS classes in src/styles/base/_typography.scss are preserved for complex
+ * responsive font sizing and existing usage.
+ */
+
+/* Alternative to .text class */
+.tw-text {
+  font-family: Overpass, Helvetica, Arial, sans-serif;
+  font-size: 1.9rem;
+  line-height: 1.5;
+}
+
+/* Alternative to .text--small class */
+.tw-text-small {
+  font-family: Overpass, Helvetica, Arial, sans-serif;
+  font-size: 1.65rem;
+  line-height: 1.5;
+}
+
+/* Alternative to .text--tiny class */
+.tw-text-tiny {
+  font-family: Overpass, Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Tailwind alternatives for existing utility classes */
+.tw-text-strong {
+  font-weight: bold;
+}
+
+.tw-text-uppercase {
+  text-transform: uppercase;
+}
+
+.tw-text-capital {
+  text-transform: capitalize;
+}
+
+.tw-text-justify {
+  text-align: justify;
+}
+
+.tw-text-disabled {
+  opacity: 0.5;
+}
+
+.tw-text-hidden {
+  display: none;
+}
+
+.tw-muted-font {
+  color: #434343;
+}
+
+/* Additional Tailwind typography utilities for common use cases */
+.tw-text-primary {
+  color: #111;
+}
+
+.tw-text-accent {
+  color: #b15757;
+}
+
+.tw-text-subtle {
+  color: #444444;
+}
+
+/* Font family utilities */
+.tw-font-primary {
+  font-family: Overpass, Helvetica, Arial, sans-serif;
+}
+
+.tw-font-secondary {
+  font-family: "Fredoka One", Helvetica, Arial, sans-serif;
+}
+
+.tw-font-code {
+  font-family: "Fredoka One", Helvetica, Arial, sans-serif;
+}

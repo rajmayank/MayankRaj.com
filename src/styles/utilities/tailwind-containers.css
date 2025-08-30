@@ -1,0 +1,58 @@
+/* =======================================================
+ * Tailwind Container Utilities
+ * 
+ * These utility classes provide Tailwind alternatives to SCSS container classes
+ * while preserving the original SCSS classes for backward compatibility.
+ */
+
+/* Content Container Alternatives */
+.tw-content-container {
+  @apply flex flex-col mx-auto px-2.5 w-full max-w-3xl;
+  @apply sm:max-w-container-sm md:max-w-container-md lg:max-w-container-lg xl:max-w-container-xl;
+}
+
+.tw-content-container-narrow {
+  @apply flex flex-col mx-auto px-2.5 w-full max-w-3xl;
+  @apply sm:max-w-container-narrow-sm md:max-w-container-narrow-md lg:max-w-container-narrow-lg xl:max-w-container-narrow-xl;
+}
+
+.tw-content-container-wide {
+  @apply flex flex-col mx-auto px-2.5 w-full max-w-3xl;
+  @apply sm:max-w-container-wide-sm md:max-w-container-wide-md lg:max-w-container-wide-lg xl:max-w-container-wide-xl;
+}
+
+.tw-content-container-full {
+  @apply flex flex-col mx-auto px-2.5 w-full max-w-full;
+}
+
+/* Post List Container Alternative */
+.tw-post-list-container {
+  @apply flex flex-col mx-auto px-2.5 w-full max-w-full;
+  @apply sm:max-w-post-list-sm md:max-w-post-list-md lg:max-w-post-list-lg xl:max-w-post-list-xl 2xl:max-w-post-list-2xl;
+}
+
+/* Body Container Alternative */
+.tw-body-container {
+  @apply w-full;
+}
+
+/* Individual utility classes for flexible composition */
+.tw-container-base {
+  @apply flex flex-col mx-auto px-2.5 w-full;
+}
+
+.tw-container-default-widths {
+  @apply max-w-3xl sm:max-w-container-sm md:max-w-container-md lg:max-w-container-lg xl:max-w-container-xl;
+}
+
+.tw-container-narrow-widths {
+  @apply max-w-3xl sm:max-w-container-narrow-sm md:max-w-container-narrow-md lg:max-w-container-narrow-lg xl:max-w-container-narrow-xl;
+}
+
+.tw-container-wide-widths {
+  @apply max-w-3xl sm:max-w-container-wide-sm md:max-w-container-wide-md lg:max-w-container-wide-lg xl:max-w-container-wide-xl;
+}
+
+.tw-post-list-widths {
+  @apply max-w-full sm:max-w-post-list-sm md:max-w-post-list-md lg:max-w-post-list-lg xl:max-w-post-list-xl 2xl:max-w-post-list-2xl;
+}

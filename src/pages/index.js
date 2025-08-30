@@ -8,9 +8,6 @@ import { graphql, Link } from "gatsby";
 import { BlogPostListing, Footer, Showcase, Seo } from "../components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
-import "../styles/tailwind.css";
-import "../styles/main.scss";
-
 import { Icon } from "../components";
 
 // Interesting Ideas:
