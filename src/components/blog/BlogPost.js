@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import CompactHeader from "../layout/CompactHeader";
 import Footer from "../layout/Footer";
+import Seo from "../common/Seo";
 
 /**
  * Blog post template component
@@ -55,7 +56,6 @@ const BlogPost = ({ data }) => {
 export default BlogPost;
 
 export const Head = ({ data }) => {
-  const Seo = require("../common/Seo").default;
   const post = data.markdownRemark;
   return (
     <Seo

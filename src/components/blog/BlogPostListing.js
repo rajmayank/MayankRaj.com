@@ -17,7 +17,7 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
     <div className="section-top-margin">
       {is_compact && (
         <h3 className="--reduced-margin-bottom">
-          Recent articles from <Link to="/blog">blog</Link>
+          Recent articles from <Link to="/blog" className="call-to-action-link">blog</Link>
         </h3>
       )}
 
@@ -83,7 +83,7 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
 
       {is_compact && (
         <h4 className="--reduced-margin-bottom">
-          ...read {postsCount} more posts in <Link to="/blog">blog</Link>
+          ...read {postsCount} more posts in <Link to="/blog" className="call-to-action-link">blog</Link>
         </h4>
       )}
     </div>

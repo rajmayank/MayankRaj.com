@@ -37,12 +37,14 @@ const IndexBody = ({ posts }) => (
       <div className="content-container">
         <div className="text text-justify text-spacers">
           <div className="content-resume section-top-margin --tight">
-            <div className="icon">
-              <Icon name="resume" />
+            <div className="flex items-center justify-center gap-3">
+              <div className="icon">
+                <Icon name="resume" />
+              </div>
+              <Link to="/resume" target="_blank" rel="noreferrer">
+                <span>Resume</span>
+              </Link>
             </div>
-            <Link to="/resume" target="_blank" rel="noreferrer">
-              <span>Resume</span>
-            </Link>
           </div>
 
           <div className="section-top-margin --tight">

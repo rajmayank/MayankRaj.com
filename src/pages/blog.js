@@ -4,7 +4,7 @@ import "../styles/main.scss";
 
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
 
-import { CompactHeader, BlogPostListing, Footer } from "../components";
+import { CompactHeader, BlogPostListing, Footer, Seo } from "../components";
 
 class BlogListPage extends React.Component {
   render() {
@@ -31,7 +31,6 @@ class BlogListPage extends React.Component {
 export default BlogListPage;
 
 export const Head = () => {
-  const { Seo } = require("../components");
   return (
     <Seo
       title="Blog"

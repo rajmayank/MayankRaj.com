@@ -76,27 +76,28 @@ const Seo = ({
 
   return (
     <>
-      <html lang={lang} />
+      <html lang={lang} key="html" />
       <title key="title">{seoTitle}</title>
-      <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title || defaultTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage} />
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta key="description" name="description" content={metaDescription} />
+      <meta key="og:title" property="og:title" content={title || defaultTitle} />
+      <meta key="og:description" property="og:description" content={metaDescription} />
+      <meta key="og:type" property="og:type" content="website" />
+      <meta key="og:url" property="og:url" content={canonicalUrl} />
+      <meta key="og:image" property="og:image" content={ogImage} />
+      <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
       <meta
+        key="twitter:creator"
         name="twitter:creator"
         content={site.siteMetadata.social?.twitter || ""}
       />
-      <meta name="twitter:title" content={title || defaultTitle} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:image" content={twitterImage} />
-      <link rel="canonical" href={canonicalUrl} />
+      <meta key="twitter:title" name="twitter:title" content={title || defaultTitle} />
+      <meta key="twitter:description" name="twitter:description" content={metaDescription} />
+      <meta key="twitter:image" name="twitter:image" content={twitterImage} />
+      <link key="canonical" rel="canonical" href={canonicalUrl} />
       {meta.map((item, index) => (
         <meta key={`meta-${index}`} {...item} />
       ))}
-      <script type="application/ld+json">
+      <script key="schema-json" type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
       {children}
