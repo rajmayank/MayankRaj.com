@@ -18,8 +18,7 @@
     "build": "NODE_ENV=production gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "project:structure": "find . -type d ( -path './node_modules' -o -path './public' -o -path './dist' -o -path './build' -o -path './.yarn' -o -path './.git' -o -path './.cache' ) -prune -o -print | sed -e 's|[^/]*/|- |g' -e 's|/| |g'",
-    "write-good": "write-good"
+    "project:structure": "find . -type d ( -path './node_modules' -o -path './public' -o -path './dist' -o -path './build' -o -path './.yarn' -o -path './.git' -o -path './.cache' ) -prune -o -print | sed -e 's|[^/]*/|- |g' -e 's|/| |g'"
   },
   "dependencies": {
     "@babel/core": "^7.28.3",

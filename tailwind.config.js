@@ -1,9 +1,69 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // Development mode configuration
+  mode: process.env.NODE_ENV === "production" ? "jit" : "jit",
   content: [
+    // Pages and components
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
-    "./src/templates/**/*.{js,jsx,ts,tsx}",
+    "./src/templaq/**/*.{js,jsx,ts,tsx}",
+
+    // Content files that might contain Tailwind classes in frontmatter or MDX
+    "./content/**/*.{md,mdx}",
+
+    // Any other JavaScript files that might contain Tailwind classes
+    "./src/**/*.{js,jsx,ts,tsx}",
+
+    // Gatsby-specific files
+    "./gatsby-browser.js",
+    "./gatsby-node.js",
+    "./gatsby-config.js",
+
+    // SCSS files that might contain @apply directives or Tailwind references
+    "./src/styles/**/*.{css,scss}",
+  ],
+
+  // Safelist important utility classes that might be used dynamically
+  safelist: [
+    // Animation classes that might be applied dynamically
+    "animate-fade-in",
+    "animate-focus-in",
+
+    // Container classes that might be used conditionally
+    "max-w-container-sm",
+    "max-w-container-md",
+    "max-w-container-lg",
+    "max-w-container-xl",
+    "max-w-container-narrow-sm",
+    "max-w-container-narrow-md",
+    "max-w-container-narrow-lg",
+    "max-w-container-narrow-xl",
+    "max-w-container-wide-sm",
+    "max-w-container-wide-md",
+    "max-w-container-wide-lg",
+    "max-w-container-wide-xl",
+    "max-w-post-list-sm",
+    "max-w-post-list-md",
+    "max-w-post-list-lg",
+    "max-w-post-list-xl",
+    "max-w-post-list-2xl",
+
+    // Typography classes that might be used dynamically
+    "text-footer",
+    "text-footer-icon",
+    "text-text",
+    "text-text-small",
+    "text-text-tiny",
+
+    // Color classes that might be applied conditionally
+    "text-header-layer-1",
+    "text-header-layer-2",
+    "text-header-layer-3",
+    "text-header-layer-4",
+    "bg-header-layer-1",
+    "bg-header-layer-2",
+    "bg-header-layer-3",
+    "bg-header-layer-4",
   ],
   theme: {
     extend: {
