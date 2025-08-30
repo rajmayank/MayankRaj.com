@@ -19,3 +19,5 @@ public/
 *.cache.v3
 *.chat*.md
 REFACTORING_SUMMARY.md
+
+performance-reports/
