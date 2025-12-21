@@ -182,21 +182,21 @@ const IndexBody = ({ posts }) => (
           <br />
 
           <div className="content-block">
-            <div className="icons-block">
+            <div className="icons-block flex items-center gap-4 flex-wrap">
               <div className="icon">
-                <Icon name="javascript" />
+                <Icon name="javascript" style={{width: '3.2rem', height: '3.2rem'}} />
               </div>
               <div className="icon">
-                <Icon name="python" />
+                <Icon name="python" style={{width: '3.2rem', height: '3.2rem'}} />
               </div>
               <div className="icon">
-                <Icon name="aws" />
+                <Icon name="aws" style={{width: '3.2rem', height: '3.2rem'}} />
               </div>
               <div className="icon">
-                <Icon name="docker" />
+                <Icon name="docker" style={{width: '3.2rem', height: '3.2rem'}} />
               </div>
               <div className="icon">
-                <Icon name="drone" />
+                <Icon name="drone" style={{width: '3.2rem', height: '3.2rem'}} />
               </div>
               <div className="icon" title="and a few more...">
                 <span>. . .</span>

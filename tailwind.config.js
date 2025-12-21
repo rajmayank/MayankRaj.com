@@ -26,6 +26,10 @@ module.exports = {
     "animate-fade-in",
     "animate-focus-in",
 
+    // Icon sizing classes - preserve in production builds
+    "w-12",
+    "h-12",
+
     // Container classes used in components with conditional logic
     {
       pattern: /max-w-(container|post-list)-(sm|md|lg|xl|2xl)/,
