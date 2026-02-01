@@ -10,6 +10,7 @@ page_slug: "/blog/insights-in-plaintext-hashing-out-hmac"
 description: "Dive deep into HMAC's role in modern cryptography. Everything from its mathematical foundations to practical implementations. Learn how this battle-tested authentication mechanism secures APIs, blockchain transactions, and also digital communications. With real-world Python examples and security insights, discover why HMAC remains the gold standard for message authentication in an increasingly hostile digital landscape."
 draft: false
 enablecomments: true
+aiDisclosure: true
 ---
 
 # Insights in Plaintext: Hashing out HMAC
@@ -124,7 +125,3 @@ Okay, we've covered the theoretical muscle and security properties of HMAC. But 
 Our deep dive into HMAC has revealed why this elegant cryptographic construction continues to dominate the authentication landscape. Its clever combination of nested hashing and key management provides robust security. It does so while remaining remarkably simple to implement. From its mathematical foundations to practical Python implementations, we saw how HMAC effectively addresses critical security challenges. This becomes crucial in domains like API authentication, blockchain transactions, and secure communications.
 
 Stay tuned for our next article, where we'll explore SHA-3 and its revolutionary sponge construction. We'll also see why it's a perfect complement to HMAC in building comprehensive cryptographic solutions. Until then, remember that HMAC's enduring success stems from its elegant simplicity: sometimes the most effective solutions are built with simple fundamentals rather than chasing complexity for complexity's sake.
-
----
-
-> **AI Disclosure:** Rumor has it that this article was crafted by a _real_ human named Mayank (mayankraj.com fame) — but who’s to say? The artwork took quite a few virtual brushstroke from Bing Image Generator. Anthorpic Claude 3.5 Sonnet kindly helped in hunting down typos and grammatical oopsies. But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? That’s (probably) all Mayank... if he even exists!

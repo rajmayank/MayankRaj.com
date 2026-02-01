@@ -1,26 +1,21 @@
 // =======================================================
-// Typography Styles
+// Typography System
 //
-// This file contains complex responsive typography styles that are preserved
-// alongside Tailwind CSS. For simple typography needs, Tailwind alternatives
-// are available in src/styles/utilities/tailwind-typography.css:
+// A comprehensive, scalable typography system with semantic naming.
+// Provides consistent font sizes, line heights, and spacing across the site.
 //
-// SCSS Class          | Tailwind Alternative
-// -------------------|---------------------
-// .text              | .tw-text
-// .text--small       | .tw-text-small
-// .text--tiny        | .tw-text-tiny
-// .text-strong       | .tw-text-strong
-// .text-uppercase    | .tw-text-uppercase
-// .text-capital      | .tw-text-capital
-// .text-justify      | .text-justify
-// .text-disabled     | .text-disabled
-// .text-hidden       | .text-hidden
-// .muted-font        | .tw-muted-font
+// Typography Scale:
+// - Display: Large, attention-grabbing text (hero sections)
+// - Heading: Section headings (h1-h4)
+// - Body: Paragraph and general content text
+// - Label: UI elements, captions, metadata
+//
+// =======================================================
 
 @use "sass:math";
 @use "../variables" as vars;
 
+// Base font size - scales responsively
 html {
   font-size: 10px; // Default font size for larger screens
 
@@ -33,12 +28,111 @@ html {
   }
 }
 
-// Text Styles
-// These SCSS classes are preserved for complex responsive typography
-// Tailwind alternatives available for simple cases - see utilities/README.md
+// =======================================================
+// Typography Scale
+// =======================================================
+
+// Display Text - Hero sections, major CTAs
+.display-lg {
+  font-family: vars.$font-primary;
+  font-size: 3.2rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.display-md {
+  font-family: vars.$font-primary;
+  font-size: 2.8rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.display-sm {
+  font-family: vars.$font-primary;
+  font-size: 2.4rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+// Headings - Section titles
+.heading-xl {
+  font-family: vars.$font-primary;
+  font-size: 2.8rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.heading-lg {
+  font-family: vars.$font-primary;
+  font-size: 2.4rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.heading-md {
+  font-family: vars.$font-primary;
+  font-size: 2.0rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.heading-sm {
+  font-family: vars.$font-primary;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+// Body Text - Paragraphs and general content
+.body-lg {
+  font-family: vars.$font-primary;
+  font-size: 1.9rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.body-base {
+  font-family: vars.$font-primary;
+  font-size: 1.7rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.body-sm {
+  font-family: vars.$font-primary;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+// Labels - UI elements, metadata, captions
+.label-lg {
+  font-family: vars.$font-primary;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.label-base {
+  font-family: vars.$font-primary;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.label-sm {
+  font-family: vars.$font-primary;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+// =======================================================
+// Legacy Classes (Backward Compatibility)
+// =======================================================
 
 .text {
-  font: 1.9rem / 1.5 vars.$font-primary;
+  font: 1.9rem / 1.6 vars.$font-primary;
 
   &--small {
     font-size: 1.65rem;
@@ -50,39 +144,34 @@ html {
   }
 }
 
+// =======================================================
+// Utility Classes
+// =======================================================
+
 .text-strong {
-  // font-weight: bold; → font-bold
+  font-weight: 600;
 }
 
 .text-uppercase {
-  // text-transform: uppercase; → uppercase
+  text-transform: uppercase;
 }
 
 .text-capital {
-  // text-transform: capitalize; → capitalize
+  text-transform: capitalize;
 }
 
 .text-justify {
-  // text-align: justify; → text-justify
+  text-align: justify;
 }
 
 .text-disabled {
-  // opacity: 0.5; → opacity-50
+  opacity: 0.5;
 }
 
 .text-hidden {
-  // display: none; → hidden
+  display: none;
 }
 
 .muted-font {
   color: vars.$color-front-muted;
 }
-
-// Tailwind alternatives for simple typography:
-// - font-weight: bold → font-bold
-// - text-transform: uppercase → uppercase
-// - text-transform: capitalize → capitalize
-// - text-align: justify → text-justify
-// - opacity: 0.5 → opacity-50
-// - display: none → hidden
-// - color: $color-front-muted → text-front-muted

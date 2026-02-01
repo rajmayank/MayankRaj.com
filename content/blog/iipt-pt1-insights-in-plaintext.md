@@ -10,6 +10,7 @@ page_slug: "/blog/insights-in-plaintext-introduction"
 description: Join in to explore the modern cryptography with this comprehensive guide to encryption algorithms. We'll explore everything from symmetric to asymmetric encryption, hashing mechanisms, and quantum-resistant cryptography. We'll get knee deep into these essential security tools that protect your data in an increasingly hostile digital landscape. All of this with practical insights into AES, RSA, SHA-3, and emerging technologies.
 draft: false
 enablecomments: true
+aiDisclosure: true
 ---
 
 # Insights in Plaintext: Deep Dives into Cryptographic Algorithms
@@ -53,7 +54,3 @@ Get ready to unlock the secrets of encryption!
 We've covered enough ground for today even if it's just the fundamental principles of encryption and the looming challenges of quantum computing. I hope that this foundation will serve as our launching pad for deep dives into specific algorithms in upcoming articles. Whether it's about securing sensitive data, building secure applications, or just being fascinated by cryptography - understanding these concepts is crucial in our increasingly digital world.
 
 Ready to continue this cryptographic journey? Do share your questions and thoughts. Let's decode these challenges together!
-
----
-
-> **AI Disclosure:** Rumor has it that this article was crafted by a _real_ human named Mayank (mayankraj.com fame) — but who’s to say? The artwork took quite a few virtual brushstroke from Bing Image Generator. Anthorpic Claude 3.5 Sonnet kindly helped in hunting down typos and grammatical oopsies. But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? That’s (probably) all Mayank... if he even exists!

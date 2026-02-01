@@ -62,6 +62,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type MarkdownRemarkFrontmatter {
+      aiDisclosure: Boolean
+    }
+  `;
+  createTypes(typeDefs);
+};
+
 exports.onCreateWebpackConfig = ({ actions, stage }) => {
   if (stage === "develop" || stage === "build-javascript") {
     actions.setWebpackConfig({

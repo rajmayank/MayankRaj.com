@@ -10,6 +10,7 @@ page_slug: "/blog/insights-in-plaintext-legacy-of-des-3des"
 description: "Get on the journey to witness the rise and fall of DES and 3DES encryption algorithms. We'll explore their architecture, vulnerabilities, and legacy impact on modern cryptography. Learn why these pioneering encryption standards shaped today's security landscape. cover it off by understanding the critical lessons they teach about evolving cyber threats."
 draft: false
 enablecomments: true
+aiDisclosure: true
 ---
 
 # DES/3DES: When 64 Bits Just Ain't Enough Anymore (A Cryptographic Trip Down Memory Lane)
@@ -144,7 +145,3 @@ Imagine trying to replace the engine of a car ...that's moving ...and has a leak
 If nothing else, our journey through DES and 3DES reveals a timeless lesson - one about cryptographic evolution. These algorithms demonstrate how even the most trusted security solutions become vulnerable over time. It does a great job at reinforcing the principles of key size importance and algorithm agility that we have discussed in Part 1. As we look ahead to our next deep dive into Blowfish, do remember that today's gold standard could be tomorrow's cautionary tale. If you're still running systems with DES or 3DES, consider this your wake-up call. You only have limited time to start planning that migration to modern algorithms. Your future self (and your security team) will thank you.
 
 Ready to explore more encryption algorithms? Join me in the next article where we'll dissect Blowfish and see how it addressed some of DES's shortcomings while introducing innovations of its own. Do share your thoughts and DES/3DES migration war stories!
-
----
-
-> **AI Disclosure:** Rumor has it that this article was crafted by a _real_ human named Mayank (mayankraj.com fame) — but who’s to say? The artwork took quite a few virtual brushstroke from Bing Image Generator. Anthorpic Claude 3.5 Sonnet kindly helped in hunting down typos and grammatical oopsies. But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? That’s (probably) all Mayank... if he even exists!

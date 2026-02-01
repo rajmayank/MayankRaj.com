@@ -1,71 +1,210 @@
 // =======================================================
-// Post List Styles
+// Blog Listing Styles - Clean, Structured Design
+// =======================================================
 
 @use "../variables" as vars;
 
-.post-list-wrapper {
-  .post-list {
-    // Convert simple spacing to Tailwind utilities
-    // margin-bottom: 50px; → mb-12.5 (defined in Tailwind config)
-    // margin-bottom: 25px; → mb-6
-    // margin-left: 20px; → ml-5 (defined in Tailwind config)
+// =======================================================
+// Blog Listing Section
+// =======================================================
 
-    > div {
-      // margin-bottom: 25px; → mb-6
-    }
+.blog-listing-section {
+  margin-top: 8rem;
+}
 
-    .space-left {
-      // margin-left: 20px; → ml-5 (defined in Tailwind config)
-    }
+// Section Header
+.blog-section-header {
+  margin-bottom: 4rem;
+}
 
-    .title {
-      display: block;
-      font-size: 3.5rem;
+.blog-section-title {
+  font-family: vars.$font-primary;
+  font-size: 2.8rem; // heading-xl
+  line-height: 1.3;
+  font-weight: 700;
+  color: vars.$color-front;
+  margin: 0;
 
-      .icon {
-        font-size: 1.5rem;
-        position: absolute;
-        margin: 10px;
-        color: vars.$color-accent;
-      }
-    }
+  .blog-link-accent {
+    color: vars.$color-accent;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
 
-    .category,
-    .date {
-      display: inline-block;
-    }
-
-    .external_site {
-      color: vars.$color-accent;
-      text-decoration: underline;
-    }
-  }
-
-  &.--compact {
-    .post-list {
-      // margin-bottom: 0; → mb-0
-
-      .title {
-        font-size: 3.5rem;
-
-        .icon {
-          font-size: 1.5rem;
-          margin: 1px 5px;
-        }
-      }
-
-      .external_site {
-        text-decoration: none;
-      }
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
 
-// Note: Most post-list styles have been migrated to Tailwind utilities in components
-// This file is kept for backward compatibility and complex icon positioning
-// Tailwind alternatives:
-// - margin-bottom: 50px → mb-12.5
-// - margin-bottom: 25px → mb-6  
-// - margin-left: 20px → ml-5
-// - display: block → block
-// - display: inline-block → inline-block
+// =======================================================
+// Blog Posts Container
+// =======================================================
+
+.blog-posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// =======================================================
+// Individual Blog Post Card
+// =======================================================
+
+.blog-post-card {
+  padding: 2.8rem 0;
+  border-bottom: 1px solid vars.$color-subtle;
+  transition: all 0.2s ease;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    .blog-card-link {
+      color: vars.$color-accent;
+    }
+  }
+}
+
+// Blog Post Title
+.blog-card-title {
+  font-family: vars.$font-primary;
+  font-size: 2.4rem; // heading-lg - prominent but not overwhelming
+  line-height: 1.35;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: vars.$color-front;
+}
+
+.blog-card-link {
+  color: vars.$color-front;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  &:hover {
+    color: vars.$color-accent;
+  }
+}
+
+.blog-external-icon {
+  font-size: 1.4rem;
+  color: vars.$color-accent;
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+// =======================================================
+// Blog Post Metadata
+// =======================================================
+
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: vars.$font-primary;
+  font-size: 1.3rem; // label-sm - small and consistent
+  line-height: 1.4;
+  color: vars.$color-front-muted;
+}
+
+.blog-meta-date {
+  color: vars.$color-front-muted;
+  font-weight: 400;
+}
+
+.blog-meta-category {
+  color: vars.$color-front-muted;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+}
+
+.blog-meta-external {
+  color: vars.$color-front-muted;
+  font-weight: 400;
+
+  a {
+    color: vars.$color-accent;
+    text-decoration: none;
+    font-weight: 500;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.blog-meta-separator {
+  color: vars.$color-subtle-dark;
+  opacity: 0.3;
+  margin: 0 0.2rem;
+}
+
+// =======================================================
+// View More Section
+// =======================================================
+
+.blog-view-more {
+  margin-top: 4rem;
+  text-align: center;
+  font-family: vars.$font-primary;
+  font-size: 1.8rem; // heading-sm
+  font-weight: 500;
+}
+
+// =======================================================
+// Responsive Design
+// =======================================================
+
+@media (max-width: vars.$breakpoint) {
+  .blog-section-title {
+    font-size: 2.4rem;
+  }
+
+  .blog-post-card {
+    padding: 2.4rem 0;
+  }
+
+  .blog-card-title {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .blog-card-meta {
+    font-size: 1.2rem;
+    gap: 0.8rem;
+  }
+
+  .blog-meta-category {
+    font-size: 1.1rem;
+  }
+
+  .blog-view-more {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: vars.$screen-sm-min) {
+  .blog-section-title {
+    font-size: 2.2rem;
+  }
+
+  .blog-card-title {
+    font-size: 1.8rem;
+  }
+
+  .blog-card-meta {
+    font-size: 1.1rem;
+  }
+}

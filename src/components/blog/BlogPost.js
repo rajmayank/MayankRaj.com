@@ -5,6 +5,12 @@ import CompactHeader from "../layout/CompactHeader";
 import Footer from "../layout/Footer";
 import Seo from "../common/Seo";
 
+// Centralized AI disclosure text (rendered in italic container, so no need for emphasis tags)
+const AI_DISCLOSURE_TEXT = `Rumor has it that this article was crafted by a real human named Mayank (mayankraj.com fame) — but who's to say? 
+The artwork, in some cases, took quite a few virtual brushstroke from Bing Image Generator. Claude and Gemini kindly helped in hunting down typos and grammatical oopsies. 
+But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? 
+That's (probably) all Mayank... if he even exists!`;
+
 /**
  * Blog post template component
  * Renders individual blog post pages with header, content, and footer
@@ -12,6 +18,7 @@ import Seo from "../common/Seo";
  */
 const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
+  const showAiDisclosure = post.frontmatter.aiDisclosure || false;
 
   return (
     <div>
@@ -28,6 +35,13 @@ const BlogPost = ({ data }) => {
             <article>
               <section dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
+            {showAiDisclosure && (
+              <div className="ai-disclosure mt-12 p-4 bg-gray-50 border-l-4 border-gray-400 rounded not-prose">
+                <p className="italic text-gray-700 m-0">
+                  <strong>AI Disclosure:</strong> {AI_DISCLOSURE_TEXT}
+                </p>
+              </div>
+            )}
             <div className="blogEndNav mt-20 pt-8 border-t border-gray-300">
               <div className="flex justify-between items-center flex-wrap gap-4">
                 <Link
@@ -95,6 +109,7 @@ export const pageQuery = graphql`
         external_site_name
         external_site_link
         page_slug
+        aiDisclosure
       }
     }
   }

@@ -14,59 +14,62 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
   const displayPosts = is_compact ? posts.slice(0, 4) : posts;
 
   return (
-    <div className="section-top-margin">
+    <div className="blog-listing-section">
       {is_compact && (
-        <div className="content-block">
-          <h3 className="text text-strong">
+        <div className="blog-section-header">
+          <h2 className="blog-section-title">
             Recent articles from{" "}
-            <Link to="/blog" className="call-to-action-link">
+            <Link to="/blog" className="blog-link-accent">
               blog
             </Link>
-          </h3>
+          </h2>
         </div>
       )}
 
-      {/* Post list using existing design system */}
-      <div className="post-list-wrapper">
-        <div className="post-list mb-12.5">
-          {displayPosts.map(({ node: post }, index) => (
-            <div key={index} className="content-block mb-6">
-              <div>
-                {post.frontmatter.external_link ? (
-                  <OutboundLink
-                    href={post.frontmatter.external_link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span className="title">
-                      <div className="space-left ml-5">
-                        {post.frontmatter.title}
-                        <div className="icon">
-                          <Icon name="outboundLink" />
-                        </div>
-                      </div>
-                    </span>
-                  </OutboundLink>
-                ) : (
-                  <Link to={post.frontmatter.page_slug}>
-                    <span className="title">
-                      {post.frontmatter.title}
-                    </span>
-                  </Link>
-                )}
-
-                {post.frontmatter.category && (
-                  <span className="category space-left ml-5">
-                    <span>posted in</span>{" "}
-                    <span className="text-strong text-uppercase font-bold uppercase">
-                      {post.frontmatter.category}
-                    </span>{" "}
+      <div className="blog-posts-container">
+        {displayPosts.map(({ node: post }, index) => (
+          <article key={index} className="blog-post-card">
+            {/* Title */}
+            <h3 className="blog-card-title">
+              {post.frontmatter.external_link ? (
+                <OutboundLink
+                  href={post.frontmatter.external_link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="blog-card-link"
+                >
+                  {post.frontmatter.title}
+                  <span className="blog-external-icon">
+                    <Icon name="outboundLink" />
                   </span>
-                )}
+                </OutboundLink>
+              ) : (
+                <Link to={post.frontmatter.page_slug} className="blog-card-link">
+                  {post.frontmatter.title}
+                </Link>
+              )}
+            </h3>
 
-                {post.frontmatter.external_site_name && (
-                  <span className="external_site space-left ml-5">
-                    at{" "}
+            {/* Metadata */}
+            <div className="blog-card-meta">
+              <time className="blog-meta-date">
+                {post.frontmatter.date}
+              </time>
+              
+              {post.frontmatter.category && (
+                <>
+                  <span className="blog-meta-separator">•</span>
+                  <span className="blog-meta-category">
+                    {post.frontmatter.category}
+                  </span>
+                </>
+              )}
+
+              {post.frontmatter.external_site_name && (
+                <>
+                  <span className="blog-meta-separator">•</span>
+                  <span className="blog-meta-external">
+                    Published at{" "}
                     <OutboundLink
                       href={post.frontmatter.external_site_link}
                       target="_blank"
@@ -75,27 +78,18 @@ const BlogPostListing = ({ posts, is_compact = false }) => {
                       {post.frontmatter.external_site_name}
                     </OutboundLink>
                   </span>
-                )}
-
-                <br />
-                <span className="date space-left ml-5">
-                  {post.frontmatter.date}
-                </span>
-              </div>
+                </>
+              )}
             </div>
-          ))}
-        </div>
+          </article>
+        ))}
       </div>
 
       {is_compact && postsCount > 4 && (
-        <div className="content-block">
-          <div className="call-to-action flex items-center justify-center gap-3 text-center my-12 text-[1.9rem] leading-6">
-            <span className="flex items-center flex-wrap gap-1.5 leading-6">
-              ...read {postsCount} more posts in<Link to="/blog" className="call-to-action-link">
-                blog
-              </Link>
-            </span>
-          </div>
+        <div className="blog-view-more">
+          <Link to="/blog">
+            View all {postsCount} articles →
+          </Link>
         </div>
       )}
     </div>
