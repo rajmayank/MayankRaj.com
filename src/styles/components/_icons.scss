@@ -13,22 +13,32 @@
   }
 }
 
-// Icons block for horizontal layout - migrated to Tailwind in components
-// Use: flex items-center gap-4 flex-wrap
+// Icons block for horizontal layout
 .icons-block {
-  // display: flex; → flex
-  // align-items: center; → items-center
-  // gap: 1rem; → gap-4
-  // flex-wrap: wrap; → flex-wrap
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 
-  .icon {
-    // display: flex; → flex
-    // align-items: center; → items-center
-    // gap: 0.5rem; → gap-2
+  .icon,
+  .icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+  }
+}
 
-    svg {
-      // margin-right: 0.5rem; → mr-2
-    }
+// Common icon wrapper for consistent sizing and alignment
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  svg {
+    height: 1.2em;
+    width: 1.2em;
+    overflow: visible;
   }
 }
 

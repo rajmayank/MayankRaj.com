@@ -10,6 +10,7 @@ page_slug: "/blog/insights-in-plaintext-deep-dive-with-blowfish"
 description: "Explore the depths of Blowfish encryption algorithm in this comprehensive deep-dive. Right from its revolutionary open-source origins to its intricate Feistel network architecture. Learn why this pioneering cipher changed cryptography forever. We'll look at its practical implementations, security considerations with the Birthday Paradox, and its legacy in modern encryption. Part 3 of our cryptography series explores when Blowfish still shines and when to choose alternatives."
 draft: false
 enablecomments: true
+aiDisclosure: true
 ---
 
 # Insights in Plaintext: A Deep Dive in the Sea with Blowfish
@@ -106,7 +107,3 @@ Blowfish isn't the shiny new toy on the shelf anymore. AES and Twofish (Blowfish
 Blowfish stands strong as a pivotal milestone in cryptographic history. It was successful in marking the transition from closed, proprietary algorithms to open, community-reviewed security solutions. It's the bases of trusted security today. While AES and Twofish have superseded it for most of the modern applications, Blowfish still holds it's place. It's revolutionary approach to open-source security and its elegant design principles continue to influence how we develop and evaluate encryption algorithms today. Its journey from cutting-edge innovation to legacy system staple offers crucial insights into the evolution of security standards and the importance of forward-thinking design.
 
 Ready to explore more modern encryption algorithms? Join us in the next article where we'll examine HMAC and its crucial role in modern authentication systems.
-
----
-
-> **AI Disclosure:** Rumor has it that this article was crafted by a _real_ human named Mayank (mayankraj.com fame) — but who’s to say? The artwork took quite a few virtual brushstroke from Bing Image Generator. Anthorpic Claude 3.5 Sonnet kindly helped in hunting down typos and grammatical oopsies. But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? That’s (probably) all Mayank... if he even exists!

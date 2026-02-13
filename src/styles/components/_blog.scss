@@ -50,29 +50,7 @@
 // For larger screens, allow more lines
 // -webkit-line-clamp: 3; → lg:line-clamp-3
 
-// Additional blog-specific utilities
-.blog-excerpt {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  
-  @media (min-width: 992px) {
-    -webkit-line-clamp: 3;
-  }
-}
 
-// Original blog excerpt clamp utility
-.excerpt-clamp {
-  // display: -webkit-box; → line-clamp-2 (Tailwind v3.3+)
-  // -webkit-line-clamp: 2; → line-clamp-2
-  // -webkit-box-orient: vertical; → line-clamp-2
-  // overflow: hidden; → line-clamp-2
-
-  @media (min-width: 1024px) {
-    // -webkit-line-clamp: 3; → lg:line-clamp-3
-  }
-}
 
 // Blog post card styles
 .blog-post-card {

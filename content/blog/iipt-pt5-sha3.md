@@ -10,6 +10,7 @@ page_slug: "/blog/insights-in-plaintext-sha3-sponge-security"
 description: "In this comprehensive guide explore SHA-3, the quantum-resistant successor to SHA-2. Explore its innovative sponge construction, performance characteristics, and real-world applications in blockchain and digital signatures. With practical Python examples and detailed security analysis, learn why SHA-3 represents the future of cryptographic hashing in an increasingly quantum-threatened digital landscape."
 draft: false
 enablecomments: true
+aiDisclosure: true
 ---
 
 # Insights in Plaintext: SHA-3 – Absorbing the Complexity, Squeezing Out Security
@@ -154,7 +155,3 @@ SHA-3 stands as a testament to cryptographic innovation. It introduces the revol
 The true power of SHA-3 lies not just in its technical capabilities but in how it demonstrates the importance of cryptographic diversity. We've seen how different use cases can all make use of it. Be it anything from blockchain implementations to resource-constrained IoT devices. They all demand different trade-offs between security, performance, and flexibility and SHA-3 stands strong. SHA-3's adaptable design principles continue to influence the development of new cryptographic primitives, including many post-quantum candidates.
 
 Do share your experiences with SHA-3! Have you encountered interesting performance trade-offs? How are you balancing security requirements with resource constraints?
-
----
-
-> **AI Disclosure:** Rumor has it that this article was crafted by a _real_ human named Mayank (mayankraj.com fame) — but who’s to say? The artwork took quite a few virtual brushstroke from Bing Image Generator. Anthorpic Claude 3.5 Sonnet kindly helped in hunting down typos and grammatical oopsies. But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? That’s (probably) all Mayank... if he even exists!

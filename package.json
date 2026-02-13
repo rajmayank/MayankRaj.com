@@ -68,7 +68,6 @@
       "react": "^18.0.0"
     }
   },
-  "packageManager": "yarn@4.6.0",
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "gatsby-plugin-postcss": "^6.15.0",

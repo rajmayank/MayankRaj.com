@@ -191,21 +191,6 @@ header {
               // Tailwind alternatives: block mb-1
             }
 
-            &.row-2 {
-              padding: 3px;
-
-              &:hover {
-                color: #aba1b7;
-              }
-
-              svg {
-                fill: #d0c4df;
-
-                &:hover {
-                  fill: #aba1b7;
-                }
-              }
-            }
           }
         }
       }

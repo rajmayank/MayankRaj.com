@@ -46,29 +46,38 @@ const Seo = ({
   const twitterImage = `${site.siteMetadata.siteUrl}${image || ImgWebsiteBase}`;
 
   // Create schema.org JSONLD
-  const schemaOrgJSONLD = [
-    {
-      "@context": "https://schema.org",
-      "@type": article ? "BlogPosting" : "Website",
-      headline: title || defaultTitle,
-      image: ogImage,
-      author: {
-        "@type": "Person",
-        name: site.siteMetadata.author,
-      },
-      publisher: {
-        "@type": "Organization",
-        name: site.siteMetadata.author,
-        logo: {
-          "@type": "ImageObject",
-          url: ogImage,
-        },
-      },
-      url: canonicalUrl,
-      description: metaDescription,
-      datePublished,
+  const schemaOrgWebsite = {
+    "@context": "https://schema.org",
+    "@type": "Website",
+    headline: title || defaultTitle,
+    image: ogImage,
+    url: canonicalUrl,
+    description: metaDescription,
+  };
+
+  const schemaOrgBlogPosting = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title || defaultTitle,
+    image: ogImage,
+    author: {
+      "@type": "Person",
+      name: site.siteMetadata.author,
     },
-  ];
+    publisher: {
+      "@type": "Organization",
+      name: site.siteMetadata.author,
+      logo: {
+        "@type": "ImageObject",
+        url: ogImage,
+      },
+    },
+    url: canonicalUrl,
+    description: metaDescription,
+    ...(datePublished && { datePublished }),
+  };
+
+  const schemaOrgJSONLD = article ? schemaOrgBlogPosting : schemaOrgWebsite;
 
   const seoTitle = title
     ? `${title} | ${site.siteMetadata.title}`
@@ -95,12 +104,14 @@ const Seo = ({
       <meta key="twitter:image" name="twitter:image" content={twitterImage} />
       <link key="canonical" rel="canonical" href={canonicalUrl} />
       {meta.map((item, index) => (
-        <meta key={`meta-${index}`} {...item} />
+        <meta key={`custom-meta-${index}`} {...item} />
       ))}
-      <script key="schema-json" type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
-      </script>
-      {children}
+      <script
+        key="schema-json"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJSONLD) }}
+      />
+      {children && <React.Fragment key="children">{children}</React.Fragment>}
     </>
   );
 };

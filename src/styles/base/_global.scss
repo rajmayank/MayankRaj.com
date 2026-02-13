@@ -51,24 +51,11 @@ a {
   }
 }
 
-// Specific styling for muted-font links
-a.muted-font {
-  color: vars.$color-front-muted;
-  text-decoration: none;
-  
-  &:hover {
-    text-decoration: underline;
-  }
-}
 
-// Paragraph and Content Block Styles
+
 p,
 .content-block {
   // margin-bottom: 1rem; → mb-4
-
-  &.--reduced-margin-bottom {
-    // margin-bottom: 1rem; → mb-4
-  }
 }
 
 // Section spacing
@@ -82,42 +69,6 @@ p,
 
 // Resume content
 
-// Call to action section
-.call-to-action {
-  // display: flex; → flex
-  // align-items: center; → items-center
-  // justify-content: center; → justify-center
-  // gap: 0.8rem; → gap-3
-  // text-align: center; → text-center
-  // margin: 3rem 0; → my-12
-  // font-size: 1.9rem; → text-[1.9rem]
-  // line-height: 1.5; → leading-6
-
-  .icon {
-    // display: flex; → flex
-    // align-items: center; → items-center
-    // flex-shrink: 0; → flex-shrink-0
-
-    svg {
-      height: 1.4em;
-      width: 1.4em;
-      overflow: visible;
-      vertical-align: baseline;
-    }
-  }
-
-  span {
-    // line-height: 1.5; → leading-6
-    // display: flex; → flex
-    // align-items: center; → items-center
-    // flex-wrap: wrap; → flex-wrap
-    // gap: 0.4rem; → gap-1.5
-  }
-
-  a {
-    // white-space: nowrap; → whitespace-nowrap
-  }
-}
 
 // Tailwind alternatives for simple styles:
 // - margin-bottom: 1rem → mb-4

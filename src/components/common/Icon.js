@@ -73,9 +73,8 @@ const customIcons = {
 };
 
 /**
- * Icon mapping using Font Awesome 6 and Phosphor Icons
- * - Font Awesome 6 for most icons
- * - Phosphor for drone (not available in FA6)
+ * Icon mapping using Font Awesome 6
+ * All icons from react-icons/fa6 for consistency and SSR compatibility
  */
 const iconMap = {
   resume: FaFileLines,
@@ -92,7 +91,7 @@ const iconMap = {
 };
 
 /**
- * Icon component for rendering Font Awesome, Phosphor, and custom SVG icons
+ * Icon component for rendering Font Awesome icons and custom SVG icons
  * Migrated from custom SVGs to react-icons for better tree-shaking and maintenance
  */
 const Icon = ({ name, className = "", style = {}, ...props }) => {
@@ -108,7 +107,7 @@ const Icon = ({ name, className = "", style = {}, ...props }) => {
     });
   }
 
-  // Handle icon library icons (Font Awesome + Phosphor)
+  // Handle Font Awesome icons
   const IconComponent = iconMap[name];
 
   if (!IconComponent) {
