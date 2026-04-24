@@ -1,71 +1,16 @@
-// =======================================================
-// Container Styles
-//
-// Tailwind CSS Alternatives:
-//
-// .content-container (default) →
-//   flex flex-col mx-auto px-2.5 w-full max-w-3xl
-//   sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-3xl
-//
-// .content-container--narrow →
-//   flex flex-col mx-auto px-2.5 w-full max-w-3xl
-//   sm:max-w-sm md:max-w-lg lg:max-w-2xl xl:max-w-2xl
-//
-// .content-container--wide →
-//   flex flex-col mx-auto px-2.5 w-full max-w-3xl
-//   sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl
-//
-// .content-container--full →
-//   flex flex-col mx-auto px-2.5 w-full max-w-full
-//
-// .post-list-container →
-//   flex flex-col mx-auto px-2.5 w-full max-w-full
-//   sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl
-//
-// .body-container →
-//   w-full (use as wrapper, content-container handles the responsive sizing)
-
-@use "../variables" as vars;
 @use "../mixins" as mixins;
 
-.body-container {
-  .content-container {
-    margin: 0 auto;
-    padding: 0 10px;
-    max-width: 800px;
+// Shared rich text body styles for page-level content sections.
+.content-body {
+  a:not([class*="gatsby"]):not(.icon) {
+    margin-left: 5px;
+    @include mixins.underline(#ffffff, #b15757);
+  }
 
-    @media (min-width: 576px) {
-      max-width: 540px;
-    }
-    @media (min-width: 768px) {
-      max-width: 680px;
-    }
-    @media (min-width: 992px) {
-      max-width: 760px;
-    }
-    @media (min-width: 1200px) {
-      max-width: 800px;
-    }
-
-    // Link styles - more specific to avoid conflicts with Gatsby Link
-    a:not([class*="gatsby"]) {
-      margin-left: 5px;
-      &:not(.icon) {
-        @include mixins.underline(#ffffff, #b15757);
-      }
-      
-      &.call-to-action-link {
-        @include mixins.underline(#ffffff, #b15757);
-        font-weight: bold;
-      }
-    }
-
-    blockquote {
-      padding: 0 15px;
-      margin: 0;
-      color: #819198;
-      border-left: 0.3rem solid #dce6f0;
-    }
+  blockquote {
+    padding: 0 15px;
+    margin: 0;
+    color: #819198;
+    border-left: 0.3rem solid #dce6f0;
   }
 }
-

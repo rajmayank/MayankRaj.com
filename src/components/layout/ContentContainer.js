@@ -4,38 +4,26 @@ import PropTypes from "prop-types";
 /**
  * Responsive flex container that adjusts width according to screen size
  * Houses primary content like bio section, blog listings, and blog content
- *
- * Supports both SCSS classes (default) and Tailwind utility alternatives
  */
 const ContentContainer = ({
   children,
   maxWidth = "default",
   className = "",
   as = "div",
-  useTailwind = false,
   ...props
 }) => {
   const Component = as;
+  const tailwindClasses = {
+    default:
+      "mx-auto w-full px-2.5 sm:max-w-container-sm md:max-w-container-md lg:max-w-container-lg xl:max-w-container-xl",
+    narrow:
+      "mx-auto w-full px-2.5 sm:max-w-container-narrow-sm md:max-w-container-narrow-md lg:max-w-container-narrow-lg xl:max-w-container-narrow-xl",
+    wide:
+      "mx-auto w-full px-2.5 sm:max-w-container-wide-sm md:max-w-container-wide-md lg:max-w-container-wide-lg xl:max-w-container-wide-xl",
+    full: "mx-auto w-full px-2.5 max-w-full",
+  };
 
-  let containerClass;
-
-  if (useTailwind) {
-    // Tailwind utility class alternatives
-    const tailwindClasses = {
-      default: "tw-content-container",
-      narrow: "tw-content-container-narrow",
-      wide: "tw-content-container-wide",
-      full: "tw-content-container-full",
-    };
-    containerClass = `${
-      tailwindClasses[maxWidth] || tailwindClasses.default
-    } ${className}`.trim();
-  } else {
-    // Original SCSS classes (preserved for backward compatibility)
-    containerClass = `content-container ${
-      maxWidth !== "default" ? `content-container--${maxWidth}` : ""
-    } ${className}`.trim();
-  }
+  const containerClass = `${tailwindClasses[maxWidth] || tailwindClasses.default} ${className}`.trim();
 
   return (
     <Component className={containerClass} {...props}>
@@ -49,7 +37,6 @@ ContentContainer.propTypes = {
   maxWidth: PropTypes.oneOf(["default", "narrow", "wide", "full"]),
   className: PropTypes.string,
   as: PropTypes.string,
-  useTailwind: PropTypes.bool,
 };
 
 export default ContentContainer;

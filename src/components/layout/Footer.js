@@ -10,61 +10,56 @@ import Icon from "../common/Icon";
 const Footer = () => {
   return (
     <footer className="relative font-primary text-footer overflow-hidden mt-40">
-      {/* Keep complex skewed design elements in SCSS */}
       <div className="design-block">
-        <div className="wrapper">
-          <div className="layer-1"></div>
-          <div className="layer-2 --layer-2"></div>
-          <div className="layer-3 --layer-3"></div>
-        </div>
+        <div className="layer-1"></div>
+        <div className="layer-2 --layer-2"></div>
+        <div className="layer-3 --layer-3"></div>
       </div>
 
-      {/* Container - restore original SCSS structure */}
-      <div className="container relative z-[250] mx-auto">
-        <div className="wrapper flex items-start justify-between flex-wrap pt-20 pb-12 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-30">
-          {/* Text block - restore original SCSS classes */}
-          <div className="text-block">
-            <div className="row block mb-3">
-              <span className="mr-4 sm:mr-8 inline-block">
-                Built with &nbsp;
+      <div className="relative z-[250] mx-auto">
+        <div className="flex flex-wrap items-start justify-between px-4 pb-12 pt-20 sm:px-8 md:px-12 lg:px-20">
+          <div>
+            <p className="mb-3 flex flex-wrap items-center">
+              <span className="mr-4 inline-block sm:mr-8">
+                Built with{" "}
                 <OutboundLink href="https://www.gatsbyjs.com/" name="gatsbyjs">
                   Gatsby
                 </OutboundLink>
-                ,
-                <div className="inline-flex items-center gap-2 flex-wrap">
-                  &nbsp;
-                  <div className="inline-flex items-center text-footer-icon">
-                    <div className="icon">
+                ,{" "}
+                <span className="inline-flex items-center gap-2 align-middle">
+                  <span className="inline-flex items-center text-footer-icon">
+                    <span className="icon">
                       <Icon name="react" />
-                    </div>
-                  </div>
-                  &nbsp; &amp; &nbsp;
-                  <div className="inline-flex items-center text-footer-icon">
-                    <div className="icon">
+                    </span>
+                  </span>
+                  <span>&amp;</span>
+                  <span className="inline-flex items-center text-footer-icon">
+                    <span className="icon">
                       <Icon name="heart" />
-                    </div>
-                  </div>
-                </div>
+                    </span>
+                  </span>
+                </span>
               </span>
-              <span className="mr-4 sm:mr-8 inline-block">
-                Hosted on Github
-              </span>
-            </div>
-            <div className="row block">
-              <span className="mr-4 sm:mr-8 inline-block">
+              <span className="mr-4 inline-block sm:mr-8">Hosted on Github</span>
+            </p>
+            <nav
+              aria-label="Footer navigation"
+              className="flex flex-wrap items-center"
+            >
+              <span className="mr-4 inline-block sm:mr-8">
                 © 2016 - {new Date().getFullYear()}
               </span>
-              <span className="mr-4 sm:mr-8 inline-block">
+              <span className="mr-4 inline-block sm:mr-8">
                 <Link to="/" aria-label="Home | MayankRaj.com">
                   Home
                 </Link>
               </span>
-              <span className="mr-4 sm:mr-8 inline-block">
+              <span className="mr-4 inline-block sm:mr-8">
                 <Link to="/blog" aria-label="Blog | MayankRaj.com">
                   Blog
                 </Link>
               </span>
-              <span className="mr-4 sm:mr-8 inline-block">
+              <span className="mr-4 inline-block sm:mr-8">
                 <OutboundLink
                   href="https://github.com/rajmayank/mayankraj.com"
                   aria-label="Source | MayankRaj.com"
@@ -74,23 +69,22 @@ const Footer = () => {
                   Source
                 </OutboundLink>
               </span>
-              <span className="mr-4 sm:mr-8 inline-block">
+              <span className="mr-4 inline-block sm:mr-8">
                 <OutboundLink
                   href="/rss.xml"
                   className="inline-block text-footer-icon"
                   aria-label="RSS Feed"
                 >
-                  <div className="icon">
+                  <span className="icon">
                     <Icon name="rss" />
-                  </div>
+                  </span>
                 </OutboundLink>
               </span>
-            </div>
+            </nav>
           </div>
 
-          {/* View Resume - restore original structure with minimal Tailwind */}
-          <div className="flex items-center gap-4 flex-wrap">
-            <div className="row footer-resume-block text-center">
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="text-center">
               <Link to="/resume" target="_blank" rel="noreferrer">
                 <span>View Resume</span>
               </Link>

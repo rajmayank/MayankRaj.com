@@ -1,21 +1,6 @@
-// =======================================================
-// Typography System
-//
-// A comprehensive, scalable typography system with semantic naming.
-// Provides consistent font sizes, line heights, and spacing across the site.
-//
-// Typography Scale:
-// - Display: Large, attention-grabbing text (hero sections)
-// - Heading: Section headings (h1-h4)
-// - Body: Paragraph and general content text
-// - Label: UI elements, captions, metadata
-//
-// =======================================================
-
 @use "sass:math";
 @use "../variables" as vars;
 
-// Base font size - scales responsively
 html {
   font-size: 10px; // Default font size for larger screens
 
@@ -28,72 +13,6 @@ html {
   }
 }
 
-// =======================================================
-// Typography Scale
-// =======================================================
-
-// Display Text - Hero sections, major CTAs
-
-
-.display-sm {
-  font-family: vars.$font-primary;
-  font-size: 2.4rem;
-  line-height: 1.3;
-  font-weight: 600;
-}
-
-// Headings - Section titles
-
-
-.heading-md {
-  font-family: vars.$font-primary;
-  font-size: 2.0rem;
-  line-height: 1.4;
-  font-weight: 600;
-}
-
-
-// Body Text - Paragraphs and general content
-.body-lg {
-  font-family: vars.$font-primary;
-  font-size: 1.9rem;
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-
-// Labels - UI elements, metadata, captions
-
-// =======================================================
-// Legacy Classes (Backward Compatibility)
-// =======================================================
-
-.text {
-  font: 1.9rem / 1.6 vars.$font-primary;
-
-  &--small {
-    font-size: 1.65rem;
-    line-height: 1.5;
-  }
-
-  &--tiny {
-    font-size: 1.1rem;
-  }
-}
-
-// =======================================================
-// Utility Classes
-// =======================================================
-
-
-
 .text-justify {
   text-align: justify;
 }
-
-
-
-.text-hidden {
-  display: none;
-}
-

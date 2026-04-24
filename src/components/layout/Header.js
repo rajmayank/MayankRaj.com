@@ -10,23 +10,19 @@ import Icon from "../common/Icon";
  */
 const Header = () => (
   <header className="relative">
-    {/* Complex animated design layers - preserved in SCSS */}
     <div className="design-container">
       <div className="layer-1"></div>
       <div className="layer-2 --layer-2"></div>
       <div className="layer-3 --layer-3"></div>
     </div>
 
-    {/* Content container - using existing SCSS for complex positioning */}
-    <div className="content-container">
-      {/* Name container - keeping SCSS for complex animations */}
+    <div className="header-content">
       <div className="name-container">
         <div className="name-block">
           <Icon name="headerName" />
         </div>
       </div>
 
-      {/* Description container - keeping SCSS for complex responsive behavior */}
       <div className="description-container">
         <div className="row">
           <div className="description-block">
@@ -36,7 +32,6 @@ const Header = () => (
           </div>
         </div>
 
-        {/* Badges - keeping original SCSS positioning with minimal Tailwind utilities */}
         <div className="badges">
           <OutboundLink
             href="https://www.credly.com/badges/3b0f1aaa-7afd-4fb5-bb83-a1601f642bb2/public_url"

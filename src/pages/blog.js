@@ -3,7 +3,13 @@ import { graphql } from "gatsby";
 
 import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
 
-import { CompactHeader, BlogPostListing, Footer, Seo } from "../components";
+import {
+  CompactHeader,
+  BlogPostListing,
+  ContentContainer,
+  Footer,
+  Seo,
+} from "../components";
 
 class BlogListPage extends React.Component {
   render() {
@@ -16,15 +22,12 @@ class BlogListPage extends React.Component {
           mood="#fdfdfd"
           bgUrl={BlogIndexCover}
         />
-        <main>
-          <div className="body-container">
-            <div className="content-container">
-              <div className="text text-justify text-spacers">
-                <BlogPostListing posts={posts} />
-              </div>
-            </div>
-          </div>
-        </main>
+        <ContentContainer
+          as="main"
+          className="content-body font-primary text-[1.9rem] leading-[1.6] text-justify"
+        >
+          <BlogPostListing posts={posts} />
+        </ContentContainer>
         <Footer />
       </div>
     );

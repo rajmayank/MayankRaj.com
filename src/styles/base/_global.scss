@@ -26,18 +26,22 @@ li {
 }
 
 // Additional specificity for content areas that don't use prose
-.text ul, .text ol,
-.content-container ul, .content-container ol {
+.text ul,
+.text ol,
+.content-body ul,
+.content-body ol {
   list-style: disc;
   padding-left: 2rem;
   margin-bottom: 1rem;
 }
 
-.text ol, .content-container ol {
+.text ol,
+.content-body ol {
   list-style: decimal;
 }
 
-.text li, .content-container li {
+.text li,
+.content-body li {
   margin-bottom: 0.5rem;
 }
 
@@ -50,41 +54,3 @@ a {
     text-decoration: none;
   }
 }
-
-
-
-p,
-.content-block {
-  // margin-bottom: 1rem; → mb-4
-}
-
-// Section spacing
-.section-top-margin {
-  // margin-top: 10rem; → mt-40
-
-  &.--tight {
-    // margin-top: 4rem; → mt-16
-  }
-}
-
-// Resume content
-
-
-// Tailwind alternatives for simple styles:
-// - margin-bottom: 1rem → mb-4
-// - margin-top: 10rem → mt-40
-// - margin-top: 4rem → mt-16
-// - margin-top: 3.5rem → mt-14
-// - margin: 3rem 0 → my-12
-// - text-align: center → text-center
-// - font-size: 2.7rem → text-[2.7rem]
-// - font-size: 1.9rem → text-[1.9rem]
-// - line-height: 1.5 → leading-6
-// - display: flex → flex
-// - align-items: center → items-center
-// - justify-content: center → justify-center
-// - gap: 0.8rem → gap-3
-// - gap: 0.4rem → gap-1.5
-// - flex-wrap: wrap → flex-wrap
-// - flex-shrink: 0 → flex-shrink-0
-// - white-space: nowrap → whitespace-nowrap

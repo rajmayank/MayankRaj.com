@@ -24,7 +24,7 @@ const customIcons = {
         textAnchor="start"
         x="10"
         y="30"
-        className="text text-stroke"
+        className="header-name-text header-name-stroke"
         clipPath="url(#text1)"
       >
         Mayank
@@ -33,7 +33,7 @@ const customIcons = {
         textAnchor="start"
         x="10"
         y="70"
-        className="text text-stroke"
+        className="header-name-text header-name-stroke"
         clipPath="url(#text2)"
       >
         Raj
@@ -42,7 +42,7 @@ const customIcons = {
         textAnchor="start"
         x="10"
         y="30"
-        className="text text-stroke --stroke-2"
+        className="header-name-text header-name-stroke --stroke-2"
         clipPath="url(#text1)"
       >
         Mayank
@@ -51,19 +51,29 @@ const customIcons = {
         textAnchor="start"
         x="10"
         y="70"
-        className="text text-stroke --stroke-2"
+        className="header-name-text header-name-stroke --stroke-2"
         clipPath="url(#text2)"
       >
         Raj
       </text>
       <defs>
         <clipPath id="text1">
-          <text textAnchor="start" x="10" y="30" className="text">
+          <text
+            textAnchor="start"
+            x="10"
+            y="30"
+            className="header-name-text"
+          >
             Mayank
           </text>
         </clipPath>
         <clipPath id="text2">
-          <text textAnchor="start" x="10" y="70" className="text">
+          <text
+            textAnchor="start"
+            x="10"
+            y="70"
+            className="header-name-text"
+          >
             Raj
           </text>
         </clipPath>
