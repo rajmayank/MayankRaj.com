@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // JIT mode for optimal performance
-  mode: "jit",
   content: [
     // Pages and components - more specific patterns for better purging
     "./src/pages/**/*.{js,jsx,ts,tsx}",
@@ -171,38 +169,4 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
   ],
-
-  // Production optimizations
-  ...(process.env.NODE_ENV === "production" && {
-    // Additional purge options for production
-    content: {
-      files: [
-        "./src/pages/**/*.{js,jsx,ts,tsx}",
-        "./src/components/**/*.{js,jsx,ts,tsx}",
-        "./src/templates/**/*.{js,jsx,ts,tsx}",
-        "./content/**/*.{md,mdx}",
-        "./gatsby-browser.js",
-        "./gatsby-node.js",
-        "./gatsby-config.js",
-        "./src/styles/**/*.{css,scss}",
-      ],
-      options: {
-        // More aggressive purging in production
-        defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
-        safelist: {
-          standard: [
-            // Keep essential utility classes
-            /^(animate|transition|transform|duration|ease)/,
-            /^(hover|focus|active|disabled):/,
-          ],
-          deep: [
-            // Keep classes that might be in nested components
-            /^max-w-/,
-            /^text-/,
-            /^bg-/,
-          ],
-        },
-      },
-    },
-  }),
 };

@@ -8,8 +8,14 @@
     "gatsby",
     "portfolio",
     "blog",
-    "solutions architect",
-    "aws"
+    "staff engineer",
+    "stripe",
+    "core infrastructure",
+    "reliability engineering",
+    "security",
+    "ai systems",
+    "cloud architecture",
+    "sudomeet"
   ],
   "scripts": {
     "preload-fonts": "gatsby-preload-fonts",

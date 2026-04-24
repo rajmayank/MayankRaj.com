@@ -10,7 +10,7 @@ const NotFoundPage = () => {
     <main>
       <section id="page-404">
         <div className="img"></div>
-        <div className="text">
+        <div className="overlay">
           <h1>Have you tried refreshing the page again?</h1>
           <p>
             Go <Link to="/">Home</Link>

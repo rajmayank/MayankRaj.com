@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import CompactHeader from "../layout/CompactHeader";
+import ContentContainer from "../layout/ContentContainer";
 import Footer from "../layout/Footer";
 import Seo from "../common/Seo";
 
@@ -29,38 +30,40 @@ const BlogPost = ({ data }) => {
         category={post.frontmatter.category}
         date={post.frontmatter.date}
       />
-      <div className="body-container">
-        <div className="content-container">
-          <div className="text text-justify text-spacers prose prose-lg max-w-none">
-            <article>
-              <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            </article>
-            {showAiDisclosure && (
-              <div className="ai-disclosure mt-12 p-4 bg-gray-50 border-l-4 border-gray-400 rounded not-prose">
-                <p className="italic text-gray-700 m-0">
-                  <strong>AI Disclosure:</strong> {AI_DISCLOSURE_TEXT}
-                </p>
-              </div>
-            )}
-            <div className="blogEndNav mt-20 pt-8 border-t border-gray-300">
-              <div className="flex justify-between items-center flex-wrap gap-4">
-                <Link
-                  to="/blog"
-                  className="text-accent underline hover:no-underline font-medium"
-                >
-                  Back to Blogs
-                </Link>
-                <Link
-                  to="/"
-                  className="text-accent underline hover:no-underline font-medium"
-                >
-                  Home
-                </Link>
-              </div>
-            </div>
+      <ContentContainer
+        as="main"
+        className="content-body prose prose-lg max-w-none font-primary text-[1.9rem] leading-[1.6] text-justify"
+      >
+        <article>
+          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        </article>
+        {showAiDisclosure && (
+          <div className="ai-disclosure mt-12 rounded border-l-4 border-gray-400 bg-gray-50 p-4 not-prose">
+            <p className="m-0 italic text-gray-700">
+              <strong>AI Disclosure:</strong> {AI_DISCLOSURE_TEXT}
+            </p>
           </div>
-        </div>
-      </div>
+        )}
+        <nav
+          aria-label="Blog post navigation"
+          className="blogEndNav mt-20 border-t border-gray-300 pt-8"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <Link
+              to="/blog"
+              className="font-medium text-accent underline hover:no-underline"
+            >
+              Back to Blogs
+            </Link>
+            <Link
+              to="/"
+              className="font-medium text-accent underline hover:no-underline"
+            >
+              Home
+            </Link>
+          </div>
+        </nav>
+      </ContentContainer>
       <Footer />
     </div>
   );

@@ -7,7 +7,7 @@ module.exports = {
     siteUrl: "https://mayankraj.com",
     title: "Mayank Raj",
     description:
-      "Solutions Architect with experience in building at scale in applied AI/ML, Big Data, Serverless and more. AWS Certified Solutions Architect Professional.",
+      "Mayank Raj is a Staff Engineer on Stripe's Core Infra team, writing about infrastructure, reliability, security, AI systems, cloud architecture, and builder communities.",
     author: "Mayank Raj",
     social: {
       twitter: "@mayank9856",

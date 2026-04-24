@@ -4,224 +4,232 @@ import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import { graphql, Link } from "gatsby";
-
-import { BlogPostListing, Footer, Showcase, Seo } from "../components";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 
-import { Icon } from "../components";
+import {
+  BlogPostListing,
+  ContentContainer,
+  Footer,
+  Header,
+  Icon,
+  Seo,
+  Showcase,
+} from "../components";
 
-// Interesting Ideas:
-//  - https://ui.aceternity.com/components/floating-navbar
-//  -  - Floating Navbar
-//  -  - Glowing Stars
-//  -  - Card stack
-//  -  - Layout Grid
-//  -  - Link Preview
-//  -  - Sticky scroll reveal
-//  -  - Tracing Bean
-//  -  -
-
-import { Header } from "../components";
-
-const IndexHeader = () => <Header />;
+const SKILL_ICONS = ["javascript", "python", "aws", "docker", "drone"];
+const HOME_DESCRIPTION =
+  "Mayank Raj is a Staff Engineer on Stripe's Core Infra team, writing about infrastructure, reliability, security, AI systems, cloud architecture, and builder communities.";
+const HOME_KEYWORDS =
+  "Mayank Raj, Staff Engineer, Stripe Core Infra, infrastructure, reliability engineering, security, AI systems, cloud architecture, Sudomeet, OpenAI Codex meetups";
+const PERSON_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Mayank Raj",
+  url: "https://mayankraj.com",
+  jobTitle: "Staff Engineer, Core Infra",
+  worksFor: {
+    "@type": "Organization",
+    name: "Stripe",
+    url: "https://stripe.com",
+  },
+  founder: {
+    "@type": "Organization",
+    name: "Sudomeet",
+    url: "https://sudomeet.com",
+  },
+  sameAs: [
+    "https://www.linkedin.com/in/mayank9856/",
+    "https://github.com/rajmayank",
+    "https://x.com/mayank9856",
+  ],
+  knowsAbout: [
+    "Core infrastructure",
+    "Reliability engineering",
+    "Security",
+    "AI systems",
+    "Cloud architecture",
+    "Developer communities",
+  ],
+};
 
 const IndexBody = ({ posts }) => (
-  <div>
-    <div>
-      <Showcase />
-    </div>
+  <>
+    <Showcase />
 
-    <div className="body-container">
-      <div className="content-container">
-        <div className="text-justify text-spacers">
-          <div className="content-resume section-top-margin --tight">
-            <div className="flex items-center justify-center gap-3 heading-md">
-              <div className="icon-wrapper">
-                <Icon name="resume" />
-              </div>
-              <Link to="/resume" target="_blank" rel="noreferrer">
-                <span>Resume</span>
-              </Link>
-            </div>
-          </div>
+    <ContentContainer as="main" className="content-body text-justify">
+      <section aria-labelledby="home-resume-link" className="mt-16 text-center">
+        <div className="flex items-center justify-center gap-3 font-primary text-[2rem] font-semibold leading-[1.4]">
+          <span className="icon-wrapper" aria-hidden="true">
+            <Icon name="resume" />
+          </span>
+          <Link id="home-resume-link" to="/resume" target="_blank" rel="noreferrer">
+            <span>Resume</span>
+          </Link>
+        </div>
+      </section>
 
-          <div className="mt-16 body-lg">
+      <section className="mt-16 font-primary text-[1.9rem] font-normal leading-[1.6]">
+        <p>
+          Hello, I'm Mayank Raj. I build infrastructure, security, and data
+          systems that are expected to keep their composure when production
+          starts throwing furniture. I also play the violin, trek whenever the
+          mountains allow it, and occasionally convince drones to behave. Mostly.
+        </p>
+        <p>
+          By day, I'm a Staff Engineer at{" "}
+          <OutboundLink href="https://stripe.com/">Stripe</OutboundLink> on the
+          Core Infra team. That means I spend a lot of time thinking about the
+          boring-looking foundations that quietly decide whether everything
+          above them feels fast, safe, and reliable. The glamorous part is
+          architecture. The honest part is making sure the floor does not wobble.
+        </p>
+        <p>
+          Before Stripe, my work moved across security, cryptography, big data,
+          AI systems, and cloud platforms. Different rooms, same obsession:
+          make the complex thing understandable enough that teams can operate it
+          without needing a campfire story and three tribal elders.
+        </p>
+        <ul>
+          <li>
+            At{" "}
+            <OutboundLink href="https://www.salesforce.com/">Salesforce</OutboundLink>
+            , I worked on security and cryptography for large-scale enterprise
+            systems, including benchmarking, caching, and reliability work that
+            improved throughput while cutting cost. Very glamorous if your idea
+            of glamour includes threat models and suspicious latency graphs.
+          </li>
+          <li>
+            At{" "}
+            <OutboundLink href="https://cactusglobal.com/brands/cactus-labs/">
+              Cactus Labs
+            </OutboundLink>
+            , I led a 15+ engineer team building big data and machine learning
+            systems. We built a data platform that handled 1.5TB of data per
+            week and turned it into decisions people could actually use, which
+            is the part the architecture diagrams often forget.
+          </li>
+          <li>
+            As the founder of{" "}
+            <OutboundLink href="https://Apptale.io/">Apptale.io</OutboundLink>,
+            I created a monitoring service that watched systems across all 51
+            AWS availability zones at roughly 1/15th the cost of comparable
+            tools. Infrastructure tends to whisper before it screams. Apptale
+            was built to hear the whisper.
+          </li>
+          <li>
+            I've also contributed to open-source projects like{" "}
+            <OutboundLink href="https://www.mozilla.org/en-US/firefox/">
+              FireFox
+            </OutboundLink>
+            . Yes, that browser you might be using right now. Tiny fingerprints,
+            but fingerprints nonetheless.
+          </li>
+        </ul>
+        <p>
+          When I'm not deep in the machinery, you might find me scaling
+          mountains, coaxing melodies from my violin, or tinkering with drones.
+          The through-line is the same: systems are easier to understand when
+          you respect both the theory and the messy physical world they live in.
+        </p>
+
+        <Accordion id="IndexAccordianReadMore">
+          <AccordionDetails id="IndexAccordianReadMoreDetails">
             <p>
-              Hello, I'm Mayank Raj. Picture this: a violinist who codes, a
-              trekker who builds AI systems, and a drone enthusiast who secures
-              the digital world. That's me in a nutshell, but let's dive a bit
-              deeper, shall we?
+              The work I enjoy most sits at the uncomfortable boundary between
+              architecture and operations. The diagram says one thing.
+              Production, with its charming lack of respect for diagrams, says
+              another.
             </p>
             <p>
-              By day, I'm a Lead Engineer at
-              {""}<OutboundLink href="https://www.salesforce.com/">Salesforce</OutboundLink>{""}
-              , where I wear the cape of a digital locksmith. My mission? To
-              fortify the Salesforce ecosystem with unbreakable cryptography.
-              It's like being a secret agent, but instead of shaken martinis, I
-              deal with stirred algorithms.
+              That is where I like to work: reliability problems, security
+              boundaries, data systems, cost cliffs, and the small design choices
+              that quietly decide whether a system is pleasant to operate or a
+              permanent group project with incident management.
             </p>
-            <p>
-              But my journey hasn't always been about digital fortresses. I've
-              worn many hats in my tech odyssey:
-            </p>
+            <p>A few representative scars:</p>
             <ul>
               <li>
-                At <OutboundLink href="https://cactusglobal.com/brands/cactus-labs/">Cactus Labs</OutboundLink>, I was the ringmaster of a 15+ engineer circus, juggling big
-                data and machine learning acts. We built a data platform that
-                could swallow 1.5TB of data per week and spit out insights
-                faster than you can say "algorithm."
+                I've architected a graph database engine that can query ~8TB of
+                raw data for under $30 per query, with an average query time of
+                8 minutes. That is less "needle in a haystack" and more "the
+                haystack is on fire, the needle is invisible, and finance still
+                wants the query to be cheap."
               </li>
               <li>
-                As the founder of{" "}
-                <OutboundLink href="https://Apptale.io/">
-                  Apptale.io
-                </OutboundLink>
-                , I created a monitoring service that keeps an eagle eye on
-                systems across all 51 AWS availability zones. It's like having a
-                digital guardian angel for your apps, but at 1/15th the cost of
-                its competitors.
+                I've spoken at conferences, hosted OpenAI Codex community meetups,
+                judged and organized hackathons, and built an AR bot assisted by LLMs
+                for Salesforce conferences, used by over 450 unique users across
+                4 conferences. Systems are fun. Rooms full of curious builders
+                are better.
               </li>
               <li>
-                I've also contributed to open-source projects like{" "}
-                <OutboundLink href="https://www.mozilla.org/en-US/firefox/">
-                  FireFox
-                </OutboundLink>
-                . Yes, that browser you might be using right now – I've left my
-                fingerprints on its code!
+                I also run{" "}
+                <OutboundLink href="https://sudomeet.com/">Sudomeet</OutboundLink>,
+                a place for builders to meet, share what they are learning, and
+                make the lonely parts of technical growth a little less lonely.
+                Community work is still infrastructure. The packets are just
+                people.
               </li>
             </ul>
             <p>
-              When I'm not immersed in the digital realm, you might find me
-              scaling mountains, coaxing melodies from my violin, or tinkering
-              with drones. I believe in the power of diverse experiences to fuel
-              creativity and innovation in tech.
+              If you want to talk about infrastructure, reliability, security,
+              cloud architecture, AI systems, trekking routes, or why the violin
+              is basically distributed systems with nicer failure modes, drop me
+              a line!
             </p>
+          </AccordionDetails>
+          <AccordionSummary
+            id="IndexAccordianReadMoreSumary"
+            sx={{
+              borderTop: "1px solid #ccc",
+              "& .read-less": {
+                display: "none",
+              },
+              "&.Mui-expanded .read-more": {
+                display: "none",
+              },
+              "&.Mui-expanded .read-less": {
+                display: "inline",
+              },
+            }}
+          >
+            <span className="read-more">Read More</span>
+            <span className="read-less">Read Less</span>
+          </AccordionSummary>
+        </Accordion>
+      </section>
 
-            <Accordion id="IndexAccordianReadMore">
-              <AccordionDetails id="IndexAccordianReadMoreDetails">
-                <p>
-                  Remember, in the world of tech, as in music, it's not just
-                  about playing the right notes – it's about making them dance
-                  together in perfect harmony. And sometimes, it's about knowing
-                  when to improvise a killer solo.
-                </p>
-                <p>
-                  I'm passionate about bridging the gap between complex
-                  technology and real-world applications. Whether it's designing
-                  systems that process terabytes of data or crafting APIs that
-                  handle thousands of requests with sub-second latency, I love
-                  making tech work smarter, not harder.
-                </p>
-                <p>But here's where it gets really interesting:</p>
-                <ul>
-                  <li className="text-hidden">
-                    I've been known to pull rabbits out of hats – or rather,
-                    pull 42% performance improvements out of existing systems.
-                    At Salesforce, I engineered benchmarking tools and caching
-                    layers that not only boosted system throughput but also
-                    slashed costs by 71%. Who says you can't have your cake and
-                    eat it too?
-                  </li>
-                  <li className="text-hidden">
-                    I'm a firm believer in the "five nines" philosophy. I led
-                    efforts to improve service availability from 99.99% to
-                    99.999% at Salesforce. It's like turning a reliable watch
-                    into an atomic clock.
-                  </li>
-                  <li>
-                    I've got a knack for turning complex data into actionable
-                    insights. I architected a graph database engine that can
-                    query ~8Tb of raw data for under $30 per query, with an
-                    average query time of just 8 minutes. It's like finding a
-                    needle in a haystack, if the haystack were the size of Texas
-                    and the needle were invisible.
-                  </li>
-                  <li>
-                    I'm not just about the tech – I'm about the people too. I've
-                    mentored teams, judged hackathons, and even built an AR bot
-                    assisted by LLMs for Salesforce conferences, used by over
-                    450 unique users across 4 conferences. It's my way of giving
-                    back to the tech community that's given me so much.
-                  </li>
-                </ul>
-                <p className="text-hidden">
-                  Currently, I'm on the lookout for senior technology leadership
-                  roles and speaking opportunities at conferences. I'm
-                  particularly interested in discussing emerging trends like
-                  edge computing, quantum-resistant cryptography, and the
-                  intersection of AI and cybersecurity.
-                </p>
-                <p>
-                  If you're interested in discussing how we can push the
-                  boundaries of technology together, or if you just want to chat
-                  about the best trekking routes or the future of serverless
-                  architecture, drop me a line!
-                </p>
-              </AccordionDetails>
-              <AccordionSummary
-                id="IndexAccordianReadMoreSumary"
-                sx={{
-                  borderTop: "1px solid #ccc",
-                  "& .read-less": {
-                    display: "none",
-                  },
-                  "&.Mui-expanded .read-more": {
-                    display: "none",
-                  },
-                  "&.Mui-expanded .read-less": {
-                    display: "inline", // or "block" depending on your desired display
-                  },
-                }}
-              >
-                <span className="read-more">Read More</span>
-                <span className="read-less">Read Less</span>
-              </AccordionSummary>
-            </Accordion>
-          </div>
-
-          <br />
-
-          <div className="content-block">
-            <div className="icons-block display-sm">
-              <div className="icon-wrapper">
-                <Icon name="javascript" />
-              </div>
-              <div className="icon-wrapper">
-                <Icon name="python" />
-              </div>
-              <div className="icon-wrapper">
-                <Icon name="aws" />
-              </div>
-              <div className="icon-wrapper">
-                <Icon name="docker" />
-              </div>
-              <div className="icon-wrapper">
-                <Icon name="drone" />
-              </div>
-              <div className="icon" title="and a few more...">
-                <span>. . .</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-3 text-center my-12 heading-md">
-            <div className="icon-wrapper">
-              <Icon name="videocall" />
-            </div>
-            <span className="">
-              Sounds Interesting?{" "}
-              <OutboundLink href="https://calendly.com/mayank-raj/catch-up" className="whitespace-nowrap call-to-action-link">
-                Hop on a call with me
-              </OutboundLink>
+      <section className="mt-16">
+        <div className="icons-block font-primary text-[2.4rem] font-semibold leading-[1.3]">
+          {SKILL_ICONS.map((iconName) => (
+            <span key={iconName} className="icon-wrapper" aria-hidden="true">
+              <Icon name={iconName} />
             </span>
+          ))}
+          <div className="icon" title="and a few more...">
+            <span>. . .</span>
           </div>
-
-          <BlogPostListing posts={posts} is_compact={true} />
-
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
+
+      <section className="my-12 flex items-center justify-center gap-3 text-center font-primary text-[2rem] font-semibold leading-[1.4]">
+        <span className="icon-wrapper" aria-hidden="true">
+          <Icon name="videocall" />
+        </span>
+        <span>
+          Sounds Interesting?{" "}
+          <OutboundLink
+            href="https://calendly.com/mayank-raj/catch-up"
+            className="whitespace-nowrap font-bold text-accent underline hover:no-underline"
+          >
+            Hop on a call with me
+          </OutboundLink>
+        </span>
+      </section>
+
+      <BlogPostListing posts={posts} is_compact={true} />
+    </ContentContainer>
+  </>
 );
 
 class IndexPage extends React.Component {
@@ -231,7 +239,7 @@ class IndexPage extends React.Component {
 
     return (
       <section>
-        <IndexHeader />
+        <Header />
         <IndexBody posts={posts} />
         <Footer />
       </section>
@@ -241,7 +249,24 @@ class IndexPage extends React.Component {
 
 export default IndexPage;
 
-export const Head = () => <Seo title="Home" />;
+export const Head = () => (
+  <Seo
+    title="Staff Engineer, Core Infra at Stripe"
+    description={HOME_DESCRIPTION}
+    pathname="/"
+    meta={[
+      {
+        name: "keywords",
+        content: HOME_KEYWORDS,
+      },
+    ]}
+  >
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }}
+    />
+  </Seo>
+);
 
 export const pageQuery = graphql`
   query {

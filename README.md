@@ -1,151 +1,79 @@
-# Mayank Raj's Personal Website
+# Mayank Raj's Website
 
-This repository contains the source code for [mayankraj.com](https://mayankraj.com), the personal website and blog of Mayank Raj, a multifaceted technologist with a passion for innovation and problem-solving.
+[![Build and release](https://github.com/rajmayank/MayankRaj.com/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/rajmayank/MayankRaj.com/actions/workflows/build-and-deploy.yml)
 
-[![Build and release](https://github.com/rajmayank/mayankraj.com/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/rajmayank/mayankraj.com/actions/workflows/build-and-deploy.yml)
+This repo powers [mayankraj.com](https://mayankraj.com).
 
-## 👨‍💻 About Mayank Raj
+It is my personal website, blog, and a public place to think out loud about systems, security, cloud architecture, AI, and the occasional engineering scar tissue that only shows up after production has had its say.
 
-Hello, I'm Mayank Raj - a violinist who codes, a trekker who builds AI systems, and a drone enthusiast who secures the digital world. My tech odyssey has taken me through various roles and exciting challenges:
+If you are looking for a heavily abstracted starter kit, this is probably not that. This is a working personal site. It has opinions. It has history. It has a bunch of writing, custom components, and just enough structure to keep things moving without pretending a personal website needs a 14-layer platform strategy.
 
-- 🔐 Currently, I'm a Lead Engineer at Salesforce, where I'm the digital locksmith fortifying the Salesforce ecosystem with unbreakable cryptography.
+## What lives here
 
-- 🎪 At Cactus Communications, I led a team of 15+ engineers, orchestrating big data and machine learning projects. We built a data platform processing 1.5TB of data weekly, generating insights at lightning speed.
+- A homepage that doubles as a professional snapshot
+- A long-form blog under [`content/blog/`](/Users/mayank/_p/projects/MayankRaj.com/content/blog)
+- A resume page and downloadable PDF
+- Custom Gatsby pages, shared React components, and hand-tuned styling
+- RSS, sitemap, SEO metadata, analytics, and the usual website plumbing that nobody notices when it works
 
-- 🚀 As the founder of Apptale.io, I created a cost-effective monitoring service covering all 51 AWS availability zones, providing a digital guardian angel for apps at 1/15th the cost of competitors.
+## The stack
 
-- 🦊 I'm proud to have contributed to open-source projects like Firefox, leaving my mark on widely-used software.
+This site is built with:
 
-- 📊 I've architected a graph database engine querying ~8Tb of raw data for under $30 per query, with an average query time of just 8 minutes.
+- [Gatsby](https://www.gatsbyjs.com/) for the static site framework
+- [React](https://react.dev/) for UI
+- [Sass](https://sass-lang.com/) and a bit of [Tailwind CSS](https://tailwindcss.com/) for styling
+- [MUI Joy UI](https://mui.com/joy-ui/getting-started/) in a few places where it made sense
+- Markdown for blog content
 
-- 🤖 I built an AR bot assisted by LLMs for Salesforce conferences, used by over 450+ unique users across 4 conferences.
+Content lives mostly in [`content/blog/`](/Users/mayank/_p/projects/MayankRaj.com/content/blog), while the site code is under [`src/`](/Users/mayank/_p/projects/MayankRaj.com/src).
 
-When I'm not immersed in code, you might find me scaling mountains, coaxing melodies from my violin, or tinkering with drones. I believe in the power of diverse experiences to fuel creativity and innovation in tech.
+## Running it locally
 
-I'm passionate about bridging the gap between complex technology and real-world applications, always striving to make tech work smarter, not harder. Whether it's designing systems that process terabytes of data or crafting APIs that handle thousands of requests with sub-second latency, I'm all about pushing the boundaries of what's possible.
-
-## 🚀 Key Features of This Website
-
-- 📝 Blog with RSS feed
-- 📊 Project showcase
-- 📄 Resume/CV
-- 🎨 Custom design with responsive layout
-- 🚀 Performance optimized (91/100 lighthouse score)
-- 🔍 SEO friendly
-
-## 🛠️ Technologies
-
-- [Gatsby](https://www.gatsbyjs.com/) - React-based static site generator
-- [React](https://reactjs.org/) - JavaScript library for building user interfaces
-- [Sass](https://sass-lang.com/) - CSS extension language
-- [GraphQL](https://graphql.org/) - Query language for APIs
-- [Material-UI (Joy)](https://mui.com/joy-ui/getting-started/) - React component library
-
-## 📦 Notable Packages
-
-- `gatsby-plugin-image` and `gatsby-plugin-sharp` for optimized image loading
-- `gatsby-plugin-feed` for RSS feed generation
-- `gatsby-plugin-google-analytics` for website analytics
-- `react-player` for media playback
-- `react-fast-marquee` for dynamic content display
-
-## 🧶 Yarn 2 with Plug'n'Play
-
-This project uses Yarn 2 with Plug'n'Play (PnP) for dependency management. PnP offers faster installation times, improved security, and better offline support. The `.pnp.cjs` file in the root directory manages dependencies without the need for a `node_modules` folder.
-
-## 🏗️ Project Structure
-
+```bash
+npm install
+npm run dev
 ```
+
+Then open [http://localhost:8000](http://localhost:8000).
+
+If you prefer another package manager, the scripts are all in [`package.json`](/Users/mayank/_p/projects/MayankRaj.com/package.json). The important bit is simple: install dependencies, start Gatsby, iterate.
+
+## Useful scripts
+
+- `npm run dev` starts the local Gatsby dev server
+- `npm run devm` starts the dev server on your local network
+- `npm run build` creates a production build
+- `npm run serve` serves the built site locally
+- `npm run clean` clears Gatsby's cache
+- `npm run preload-fonts` preloads fonts
+
+## Project shape
+
+```text
 .
-├── content/
-│   └── blog/         # Markdown files for blog posts
-├── src/
-│   ├── assets/       # Static assets (images, fonts, etc.)
-│   ├── components/   # React components
-│   ├── pages/        # Page components
-│   └── styles/       # SCSS stylesheets
-├── static/           # Static files (copied to public as-is)
-├── gatsby-config.js  # Gatsby configuration
-├── .pnp.cjs          # Yarn 2 PnP runtime
-└── package.json      # Project dependencies and scripts
+├── content/blog/        # Markdown posts
+├── src/assets/          # Images, video, icons, and other static assets used by the app
+├── src/components/      # Shared UI building blocks
+├── src/pages/           # Gatsby pages
+├── src/styles/          # Sass, Tailwind, and styling primitives
+├── static/              # Files copied through as-is
+├── gatsby-config.js     # Site metadata and plugin configuration
+└── package.json         # Scripts and dependencies
 ```
 
-## 🚀 Getting Started
+## Writing and publishing
 
-1. Clone the repository:
+Most new writing starts as a markdown file in [`content/blog/`](/Users/mayank/_p/projects/MayankRaj.com/content/blog). The site picks it up through Gatsby's filesystem source plugin, runs it through the markdown pipeline, and publishes it into the blog index and RSS feed.
 
-   ```
-   git clone https://github.com/yourusername/mayankraj.com.git
-   cd mayankraj.com
-   ```
+In practice, this repo is less "CMS" and more "well-organized notebook with deployment attached." That is intentional. Fewer moving parts. Less magic. Better odds that future-me still understands what past-me was thinking.
 
-2. Install dependencies:
+## Deployment
 
-   ```
-   yarn install
-   ```
+Deployments run through GitHub Actions and publish the built site to GitHub Pages. A push to `master` kicks off the build pipeline defined in [`.github/workflows/build-and-deploy.yml`](/Users/mayank/_p/projects/MayankRaj.com/.github/workflows/build-and-deploy.yml).
 
-3. Start the development server:
+## Borrow what helps
 
-   ```
-   yarn dev
-   ```
+If something in here is useful, feel free to learn from it, adapt it, and build on top of it. Attribution is appreciated.
 
-4. Open `http://localhost:8000` in your browser
-
-## 📜 Available Commands
-
-- `yarn preload-fonts`: Preload fonts for improved performance
-- `yarn dev`: Start the development server
-- `yarn devm`: Start the development server on local network
-- `yarn build`: Create a production-ready build
-- `yarn serve`: Serve the production build locally
-- `yarn clean`: Clear the Gatsby cache
-
-## 🏗️ Building for Production
-
-To create a production-ready build:
-
-```
-yarn build
-```
-
-The output will be in the `public/` directory.
-
-## 🚢 Deployment
-
-This project is set up for continuous deployment using GitHub Actions. Any push to the main branch will trigger a build and deploy process.
-
-## 📄 License and Attribution
-
-This project is open source and available under the [MIT License](LICENSE).
-
-When using or building upon this project, please provide attribution to Mayank Raj and link back to the original repository. For example:
-
-```
-This project is based on the personal website of Mayank Raj (https://github.com/yourusername/mayankraj.com).
-```
-
-Mayank appreciates acknowledgment of his work and encourages sharing and building upon it in the spirit of open source collaboration.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/mayankraj.com/issues).
-
-When contributing:
-
-1. Fork the repository
-2. Create a new branch for your feature or bug fix
-3. Make your changes and commit them with clear, descriptive messages
-4. Push your changes to your fork
-5. Create a pull request with a clear description of your changes
-
-Please ensure your code follows the existing style and structure of the project.
-
-## 📞 Contact
-
-Mayank Raj - [@mayank9856](https://twitter.com/mayank9856)
-
----
-
-Remember, in the world of tech, as in music, it's not just about playing the right notes – it's about making them dance together in perfect harmony. And sometimes, it's about knowing when to improvise a killer solo.
+The only request: if you fork ideas from the writing or structure, make them yours. Personal websites are better when they feel personal.
