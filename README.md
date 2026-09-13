@@ -22,22 +22,23 @@ This site is built with:
 
 - [Gatsby](https://www.gatsbyjs.com/) for the static site framework
 - [React](https://react.dev/) for UI
-- [Sass](https://sass-lang.com/) and a bit of [Tailwind CSS](https://tailwindcss.com/) for styling
-- [MUI Joy UI](https://mui.com/joy-ui/getting-started/) in a few places where it made sense
+- [Tailwind CSS](https://tailwindcss.com/) for layout and typography, with custom CSS for the signature artwork
 - Markdown for blog content
 
 Content lives mostly in [`content/blog/`](/Users/mayank/_p/projects/MayankRaj.com/content/blog), while the site code is under [`src/`](/Users/mayank/_p/projects/MayankRaj.com/src).
 
 ## Running it locally
 
+Use Node.js 22 (`.nvmrc`) and the committed npm lockfile.
+
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
 Then open [http://localhost:8000](http://localhost:8000).
 
-If you prefer another package manager, the scripts are all in [`package.json`](/Users/mayank/_p/projects/MayankRaj.com/package.json). The important bit is simple: install dependencies, start Gatsby, iterate.
+After changing Gatsby configuration or GraphQL types, stop the server, run `npm run clean`, and restart `npm run dev`.
 
 ## Useful scripts
 
@@ -46,7 +47,8 @@ If you prefer another package manager, the scripts are all in [`package.json`](/
 - `npm run build` creates a production build
 - `npm run serve` serves the built site locally
 - `npm run clean` clears Gatsby's cache
-- `npm run preload-fonts` preloads fonts
+- `npm test` checks article heading handling and cover validation
+- `npm run check:build` checks generated articles, images, metadata and redirects after a build
 
 ## Project shape
 
@@ -56,7 +58,7 @@ If you prefer another package manager, the scripts are all in [`package.json`](/
 ├── src/assets/          # Images, video, icons, and other static assets used by the app
 ├── src/components/      # Shared UI building blocks
 ├── src/pages/           # Gatsby pages
-├── src/styles/          # Sass, Tailwind, and styling primitives
+├── src/styles/          # Tailwind entry point and custom brand CSS
 ├── static/              # Files copied through as-is
 ├── gatsby-config.js     # Site metadata and plugin configuration
 └── package.json         # Scripts and dependencies
@@ -67,6 +69,8 @@ If you prefer another package manager, the scripts are all in [`package.json`](/
 Most new writing starts as a markdown file in [`content/blog/`](/Users/mayank/_p/projects/MayankRaj.com/content/blog). The site picks it up through Gatsby's filesystem source plugin, runs it through the markdown pipeline, and publishes it into the blog index and RSS feed.
 
 In practice, this repo is less "CMS" and more "well-organized notebook with deployment attached." That is intentional. Fewer moving parts. Less magic. Better odds that future-me still understands what past-me was thinking.
+
+Article covers use the filename stem in `bgimage`; the build reports references to missing artwork. The page header owns the H1, so a leading Markdown H1 is omitted from the article body.
 
 ## Deployment
 

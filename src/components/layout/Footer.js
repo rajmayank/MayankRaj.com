@@ -1,99 +1,69 @@
 import React from "react";
 import { Link } from "gatsby";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
 import Icon from "../common/Icon";
+import OutboundLink from "../common/OutboundLink";
+import ContentContainer from "./ContentContainer";
 
-/**
- * Page footer component with design layers and navigation links
- * Features social links, copyright info, and decorative background layers
- */
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="relative font-primary text-footer overflow-hidden mt-40">
-      <div className="design-block">
-        <div className="layer-1"></div>
-        <div className="layer-2 --layer-2"></div>
-        <div className="layer-3 --layer-3"></div>
+    <footer className="site-footer relative mt-24 overflow-hidden pb-8 pt-20 text-meta text-front-muted">
+      <div className="design-block" aria-hidden="true">
+        <div className="layer-1" />
+        <div className="layer-2" />
+        <div className="layer-3" />
       </div>
-
-      <div className="relative z-[250] mx-auto">
-        <div className="flex flex-wrap items-start justify-between px-4 pb-12 pt-20 sm:px-8 md:px-12 lg:px-20">
-          <div>
-            <p className="mb-3 flex flex-wrap items-center">
-              <span className="mr-4 inline-block sm:mr-8">
-                Built with{" "}
-                <OutboundLink href="https://www.gatsbyjs.com/" name="gatsbyjs">
-                  Gatsby
-                </OutboundLink>
-                ,{" "}
-                <span className="inline-flex items-center gap-2 align-middle">
-                  <span className="inline-flex items-center text-footer-icon">
-                    <span className="icon">
-                      <Icon name="react" />
-                    </span>
-                  </span>
-                  <span>&amp;</span>
-                  <span className="inline-flex items-center text-footer-icon">
-                    <span className="icon">
-                      <Icon name="heart" />
-                    </span>
-                  </span>
-                </span>
-              </span>
-              <span className="mr-4 inline-block sm:mr-8">Hosted on Github</span>
-            </p>
-            <nav
-              aria-label="Footer navigation"
-              className="flex flex-wrap items-center"
+      <ContentContainer
+        width="wide"
+        className="relative flex flex-wrap items-center justify-between gap-x-8 gap-y-4"
+      >
+        <div>
+          <p className="mb-2 flex flex-wrap items-center gap-2">
+            Built with{" "}
+            <OutboundLink
+              href="https://www.gatsbyjs.com/"
+              className="brand-link"
             >
-              <span className="mr-4 inline-block sm:mr-8">
-                © 2016 - {new Date().getFullYear()}
-              </span>
-              <span className="mr-4 inline-block sm:mr-8">
-                <Link to="/" aria-label="Home | MayankRaj.com">
-                  Home
-                </Link>
-              </span>
-              <span className="mr-4 inline-block sm:mr-8">
-                <Link to="/blog" aria-label="Blog | MayankRaj.com">
-                  Blog
-                </Link>
-              </span>
-              <span className="mr-4 inline-block sm:mr-8">
-                <OutboundLink
-                  href="https://github.com/rajmayank/mayankraj.com"
-                  aria-label="Source | MayankRaj.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Source
-                </OutboundLink>
-              </span>
-              <span className="mr-4 inline-block sm:mr-8">
-                <OutboundLink
-                  href="/rss.xml"
-                  className="inline-block text-footer-icon"
-                  aria-label="RSS Feed"
-                >
-                  <span className="icon">
-                    <Icon name="rss" />
-                  </span>
-                </OutboundLink>
-              </span>
-            </nav>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="text-center">
-              <Link to="/resume" target="_blank" rel="noreferrer">
-                <span>View Resume</span>
-              </Link>
-            </div>
-          </div>
+              Gatsby
+            </OutboundLink>
+            , <Icon name="react" aria-label="React" /> &amp;{" "}
+            <Icon name="heart" aria-label="love" />{" "}
+            <span>Hosted on GitHub</span>
+          </p>
+          <nav
+            aria-label="Footer navigation"
+            className="flex flex-wrap items-center gap-x-5"
+          >
+            <span>© 2016 - {new Date().getFullYear()}</span>
+            <Link className="brand-link py-3" to="/">
+              Home
+            </Link>
+            <Link className="brand-link py-3" to="/blog/">
+              Blog
+            </Link>
+            <OutboundLink
+              className="brand-link py-3"
+              href="https://github.com/rajmayank/mayankraj.com"
+            >
+              Source
+            </OutboundLink>
+            <a
+              href="/rss.xml"
+              aria-label="RSS feed"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center"
+            >
+              <Icon name="rss" aria-hidden="true" />
+            </a>
+          </nav>
         </div>
-      </div>
+        <Link
+          to="/resume/"
+          className="brand-link py-3"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View resume
+        </Link>
+      </ContentContainer>
     </footer>
   );
-};
-
-export default Footer;
+}

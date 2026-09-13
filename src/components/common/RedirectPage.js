@@ -5,7 +5,6 @@ import Seo from "./Seo";
 
 const RedirectPage = ({
   to,
-  title,
   description,
   delayMs = 150,
   linkLabel = "Continue",
@@ -19,14 +18,14 @@ const RedirectPage = ({
   }, [delayMs, to]);
 
   return (
-    <main className="mx-auto flex min-h-[40vh] w-full max-w-container-md flex-col items-center justify-center px-6 text-center font-primary">
-      <h1 className="text-[2.4rem] font-semibold leading-tight text-front">
+    <main className="mx-auto flex min-h-[40vh] w-full max-w-reading flex-col items-center justify-center px-6 text-center font-primary">
+      <h1 className="text-section font-semibold leading-tight text-front">
         Redirecting...
       </h1>
-      <p className="mt-4 max-w-[42rem] text-[1.7rem] leading-[1.6] text-front-muted">
+      <p className="mt-4 max-w-[42rem] text-body text-front-muted">
         {description}
       </p>
-      <p className="mt-8 text-[1.6rem]">
+      <p className="mt-8 text-body">
         <a
           href={to}
           className="font-medium text-accent underline hover:no-underline"
@@ -40,17 +39,15 @@ const RedirectPage = ({
 
 RedirectPage.propTypes = {
   to: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   delayMs: PropTypes.number,
   linkLabel: PropTypes.string,
 };
 
 export const buildRedirectHead = ({ title, description, to }) => (
-  <Seo title={title} description={description}>
+  <Seo title={title} description={description} pathname={to}>
     <meta httpEquiv="refresh" content={`0;url=${to}`} />
     <meta name="robots" content="noindex" />
-    <link rel="canonical" href={to} />
   </Seo>
 );
 

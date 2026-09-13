@@ -6,7 +6,7 @@ author: Mayank Raj
 enablecomments: true
 category: Cloud Architecture
 keywords: [jevons-paradox, cloud-optimization, serverless, cloud-costs, efficiency-paradox, aws, finops]
-bgimage: serverless-arch
+bgimage: default-blog-cover
 page_slug: "/blog/jevons-paradox-cloud-efficiency-trap"
 description: "Why optimizing your cloud infrastructure often increases costs, not reduces them. Explore the Jevons Paradox in modern cloud computing and why your growing AWS bill might actually be a success metric."
 draft: false

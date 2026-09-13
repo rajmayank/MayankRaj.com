@@ -4,7 +4,7 @@ date: 2026-02-13T00:00:00+05:30
 basecolor: "#E67E22"
 author: Mayank Raj
 category: System Design
-bgimage: serverless-arch
+bgimage: default-blog-cover
 page_slug: "/blog/idempotency-keys-exactly-once-payments"
 abstract: Idempotency keys keep payment retries from turning network timeouts into double charges. Learn how exactly-once processing, request hashing, and TTLs make financial APIs safe.
 keywords: idempotency keys, exactly-once processing, payment APIs, distributed systems, request retries, double charges, API reliability

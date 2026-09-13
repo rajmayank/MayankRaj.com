@@ -4,7 +4,7 @@ date: 2025-12-14T00:00:00+05:30
 basecolor: "#EF6262"
 author: Mayank Raj
 category: Serverless Architecture
-bgimage: serverless-arch
+bgimage: default-blog-cover
 page_slug: "/blog/lambda-durable-vs-step-functions"
 abstract: AWS now offers two powerful workflow orchestration tools - Lambda Durable Functions and Step Functions. This guide explores when to use each, revealing why having both tools is actually a feature, not redundancy. Learn the decision framework for macro vs micro-orchestration in modern serverless architectures.
 keywords: AWS Lambda, Durable Functions, Step Functions, serverless, workflow orchestration, state machines, cloud architecture, AWS, microservices

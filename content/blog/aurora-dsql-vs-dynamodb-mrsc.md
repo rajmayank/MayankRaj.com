@@ -4,7 +4,7 @@ date: 2025-02-05T00:00:00+05:30
 basecolor: "#EF6262"
 author: Mayank Raj
 category: Database Architecture
-bgimage: serverless-arch
+bgimage: default-blog-cover
 page_slug: "/blog/aurora-dsql-vs-dynamodb-mrsc"
 abstract: AWS Aurora DSQL and DynamoDB Multi-Region Strong Consistency both deliver globally distributed databases with strong consistency - a feat once deemed impossible. This deep dive compares their architectures, performance characteristics, and use cases to help you choose between relational rigor and NoSQL agility for your global data needs.
 keywords: Aurora DSQL, DynamoDB, Multi-Region Strong Consistency, distributed databases, global consistency, CAP theorem, AWS, database architecture, serverless databases, NoSQL

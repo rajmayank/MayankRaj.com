@@ -7,7 +7,7 @@ module.exports = {
     siteUrl: "https://mayankraj.com",
     title: "Mayank Raj",
     description:
-      "Mayank Raj is a Staff Engineer on Stripe's Core Infra team, writing about infrastructure, reliability, security, AI systems, cloud architecture, and builder communities.",
+      "Mayank Raj is a Staff Engineer on Stripe's Infrastructure team, writing about infrastructure, reliability, security, AI systems, cloud architecture, and builder communities.",
     author: "Mayank Raj",
     social: {
       twitter: "@mayank9856",
@@ -16,14 +16,7 @@ module.exports = {
     },
   },
   plugins: [
-    // "gatsby-plugin-preact",
     "gatsby-plugin-postcss",
-    {
-      resolve: "gatsby-plugin-sass",
-      options: {
-        implementation: require("sass"),
-      },
-    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -50,7 +43,6 @@ module.exports = {
       options: {
         trackingIds: ["G-ZXMKM6TST3"],
         gtagConfig: {
-          optimize_id: "OPT_CONTAINER_ID",
           anonymize_ip: true,
           cookie_expires: 0,
         },
@@ -138,7 +130,7 @@ module.exports = {
             },
             query: `
               {
-                allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+                allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}, sort: {frontmatter: {date: DESC}}) {
                   edges {
                     node {
                       excerpt
@@ -161,13 +153,14 @@ module.exports = {
     },
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-schema-snapshot",
-    // "gatsby-plugin-preload-fonts",
-    // "gatsby-plugin-perf-budgets",
-    "gatsby-plugin-webpack-bundle-analyser-v2",
+    ...(process.env.ANALYZE
+      ? ["gatsby-plugin-webpack-bundle-analyser-v2"]
+      : []),
     {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
+          { resolve: require.resolve("./plugins/remark-article-headings") },
           {
             resolve: "gatsby-remark-images",
             options: {

@@ -1,211 +1,104 @@
-import React, { memo, useMemo } from "react";
-import Marquee from "react-fast-marquee";
+import React, { useEffect, useRef, useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
+import { showcaseData } from "../../data/showcase";
+import useMotion from "../../hooks/useMotion";
+import ContentContainer from "../layout/ContentContainer";
+import ShowcaseCard from "./ShowcaseCard";
 
-import Card from "@mui/joy/Card";
-import CardCover from "@mui/joy/CardCover";
-import CardContent from "@mui/joy/CardContent";
-import CardOverflow from "@mui/joy/CardOverflow";
-import Typography from "@mui/joy/Typography";
-
-// Import video posters
-import OSI_2023_Timelapse_Poster from "../../assets/showcase/360p/OSI_2023_Timelapse.png";
-import GIDS_2024_Timelapse_Poster from "../../assets/showcase/360p/GIDS_2024_Timelapse.png";
-
-import OSI_2023_Timelapse from "../../assets/showcase/360p/OSI_2023_Timelapse.webm";
-import GIDS_2024_Timelapse from "../../assets/showcase/360p/GIDS_2024_Timelapse.webm";
-
-const showcaseData = [
-  {
-    type: "image",
-    link: "CactusTech_Interview2",
-    heading: "Interview @ CactusTech",
-    subheading: "An Associate Director talks opportunities",
-    banner: "Media Publication",
-  },
-  {
-    type: "video",
-    link: "OSI_2023_Timelapse",
-    heading: "Open Source India",
-    subheading: "GitOps Mastery",
-    banner: "Conference",
-    video: OSI_2023_Timelapse,
-    poster: OSI_2023_Timelapse_Poster,
-  },
-  {
-    type: "video",
-    link: "GIDS_2024_Timelapse",
-    heading: "Developers Summit",
-    subheading: "Resilient Cybersecurity Strategies",
-    banner: "Summit",
-    video: GIDS_2024_Timelapse,
-    poster: GIDS_2024_Timelapse_Poster,
-  },
-  {
-    type: "image",
-    link: "AuthO_Jenkins",
-    heading: "AuthO by Okta",
-    subheading: "CI pipelines",
-    banner: "Guest post",
-  },
-  {
-    type: "image",
-    link: "DigitalOcean_RXJS",
-    heading: "DigitalOcean",
-    subheading: "Search Bar with RxJS",
-    banner: "Guest post",
-  },
-  {
-    type: "image",
-    link: "OSFY_Interview",
-    heading: "Open Source For You",
-    subheading: "Open Source Ecosystem",
-    banner: "Media Publications",
-  },
-];
-
-/**
- * Showcase component displaying portfolio items in a scrolling marquee
- * Features both image and video content with overlay text
- * Uses Tailwind utilities for simple layout alongside SCSS for complex styling
- */
-const Showcase = memo(() => {
+export default function Showcase() {
   const data = useStaticQuery(graphql`
-    query {
+    query ShowcaseImages {
       allFile(filter: { relativePath: { regex: "/showcase/360p/.*.png$/" } }) {
         nodes {
+          name
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED, width: 500)
           }
-          name
         }
       }
     }
   `);
-
-  const images = useMemo(
-    () =>
-      data.allFile.nodes.reduce((acc, node) => {
-        acc[node.name] = getImage(node.childImageSharp.gatsbyImageData);
-        return acc;
-      }, {}),
-    [data.allFile.nodes]
+  const images = Object.fromEntries(
+    data.allFile.nodes.map((node) => [node.name, getImage(node)]),
   );
+  const section = useRef(null);
+  const [exploring, setExploring] = useState(false);
+  const [inView, setInView] = useState(false);
+  const { reduced, visible } = useMotion();
+  const playing = !exploring && !reduced && visible && inView;
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) =>
+      setInView(entry.isIntersecting),
+    );
+    observer.observe(section.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="mt-40 min-h-[300px] transition-all duration-300">
-      <Marquee
-        autoFill={true}
-        speed={275}
-        pauseOnHover={true}
-        gradient={true}
-        gradientWidth={50}
-        style={{
-          transform: "skewY(3deg)",
-          minHeight: "150px",
-          transition: "height 0.3s ease-in-out",
-        }}
-      >
-        {showcaseData.map((item, index) => (
-          <Card
-            key={index}
-            sx={{
-              minWidth: { xs: "250px", md: "450px" },
-              width: { xs: "250px", md: "450px" },
-              minHeight: { xs: "150px", md: "250px" },
-              height: { xs: "150px", md: "250px" },
-              flexGrow: 1,
-              mx: 1,
-              transform: `skewX(-3deg)`,
-            }}
-            orientation="horizontal"
-            style={{ transform: "skewX(-3deg)" }}
-          >
-            <CardCover>
-              {item.type === "image" ? (
-                images[item.link] ? (
-                  <GatsbyImage
-                    image={images[item.link]}
-                    alt={item.heading}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      verticalAlign: "unset",
-                      position: "unset",
-                    }}
-                    imgStyle={{
-                      objectFit: "cover",
-                      objectPosition: "bottom",
-                    }}
-                    loading="eager"
-                  />
-                ) : (
-                  <div>{item.heading}</div>
-                )
-              ) : (
-                <video autoPlay loop muted poster={item.poster}>
-                  <source src={item.video} type="video/webm" />
-                </video>
-              )}
-            </CardCover>
-
-            <CardCover
-              sx={{
-                background:
-                  "linear-gradient(to top right, #ff999926, rgba(0,0,0,0) 200px), linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)",
-              }}
+    <section
+      ref={section}
+      aria-labelledby="showcase-heading"
+      className="mt-16 sm:mt-20"
+      onPointerEnter={(event) => {
+        if (event.pointerType === "mouse") setExploring(true);
+      }}
+      onPointerLeave={() => setExploring(false)}
+      onPointerDown={(event) => {
+        if (event.pointerType !== "mouse") setExploring(true);
+      }}
+      onPointerUp={(event) => {
+        if (event.pointerType !== "mouse") setExploring(false);
+      }}
+      onPointerCancel={() => setExploring(false)}
+    >
+      <h2 id="showcase-heading" className="sr-only">
+        Speaking and media appearances
+      </h2>
+      <div className="showcase-slant motion-reduce:hidden" aria-hidden="true">
+        <div
+          className="showcase-track"
+          style={{
+            animationPlayState: playing ? "running" : "paused",
+            "--showcase-duration": `${(showcaseData.length * 266) / 160}s`,
+            "--showcase-duration-wide": `${(showcaseData.length * 466) / 160}s`,
+          }}
+        >
+          {[...showcaseData, ...showcaseData].map((item, index) => (
+            <ShowcaseCard
+              key={`${item.link}-${index}`}
+              item={item}
+              image={images[item.link]}
+              playing={playing}
             />
-
-            <CardContent
-              sx={{
-                justifyContent: "flex-end",
-                transform: "rotate(-3deg)",
-                marginBottom: "10px",
-              }}
-            >
-              <Typography
-                level="h3"
-                component="h4"
-                sx={{ opacity: "70%" }}
-                textColor="#fff"
-              >
-                {item.subheading}
-              </Typography>
-
-              <Typography
-                level="h1"
-                component="h4"
-                fontWeight="lg"
-                textColor="#fff"
-              >
-                {item.heading}
-              </Typography>
-            </CardContent>
-            <CardOverflow
-              variant="soft"
-              color="danger"
-              level="h1"
-              sx={{
-                px: 0.4,
-                writingMode: "vertical-rl",
-                justifyContent: "center",
-                letterSpacing: "1px",
-                textTransform: "uppercase",
-                borderLeft: "1px solid",
-                borderColor: "divider",
-                marginRight: "-12px",
-              }}
-            >
-              <Typography color="danger" level="h3" component="h4">
-                {item.banner}
-              </Typography>
-            </CardOverflow>
-          </Card>
+          ))}
+        </div>
+      </div>
+      <ul className="sr-only motion-reduce:hidden">
+        {showcaseData.map((item) => (
+          <li key={item.link}>
+            <h3>{item.heading}</h3>
+            <p>
+              {item.subheading}. {item.banner}.
+            </p>
+          </li>
         ))}
-      </Marquee>
-    </div>
+      </ul>
+      <ContentContainer
+        width="wide"
+        className="hidden grid-cols-1 gap-5 motion-reduce:grid sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {showcaseData.map((item) => (
+          <ShowcaseCard
+            key={item.link}
+            item={item}
+            image={images[item.link]}
+            playing={false}
+            staticCard
+          />
+        ))}
+      </ContentContainer>
+    </section>
   );
-});
-
-export default Showcase;
+}

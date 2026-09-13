@@ -10,7 +10,7 @@
     "blog",
     "staff engineer",
     "stripe",
-    "core infrastructure",
+    "infrastructure",
     "reliability engineering",
     "security",
     "ai systems",
@@ -18,36 +18,26 @@
     "sudomeet"
   ],
   "scripts": {
-    "preload-fonts": "gatsby-preload-fonts",
-    "dev": "GATSBY_GTAG_DEBUG=true gatsby develop",
-    "devm": "gatsby develop --host $(ifconfig | awk '/inet 192.168.[0-9]+.[0-9]+/{print $2}') --port 8000",
+    "dev": "gatsby develop",
     "build": "NODE_ENV=production gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "project:structure": "find . -type d ( -path './node_modules' -o -path './public' -o -path './dist' -o -path './build' -o -path './.yarn' -o -path './.git' -o -path './.cache' ) -prune -o -print | sed -e 's|[^/]*/|- |g' -e 's|/| |g'"
+    "test": "node --test tests/*.test.js",
+    "devm": "gatsby develop --host 0.0.0.0",
+    "check:build": "node scripts/check-built-site.js"
   },
   "dependencies": {
     "@babel/core": "^7.28.3",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
     "@gatsbyjs/webpack-hot-middleware": "^2.25.3",
-    "@mui/joy": "5.0.0-dev.240424162023-9968b4889d",
-    "@prefresh/babel-plugin": "^0.5.2",
-    "@prefresh/core": "^1.5.7",
     "@tailwindcss/typography": "^0.5.16",
     "core-js": "^3.45.1",
     "gatsby": "^5.14.6",
     "gatsby-plugin-feed": "^5.14.0",
-    "gatsby-plugin-google-analytics": "^5.14.0",
     "gatsby-plugin-google-fonts-with-attributes": "^1.0.8",
     "gatsby-plugin-google-gtag": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
-    "gatsby-plugin-perf-budgets": "^0.0.18",
-    "gatsby-plugin-preact": "^7.14.0",
-    "gatsby-plugin-preload-fonts": "^4.14.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
-    "gatsby-plugin-sass": "^6.14.0",
     "gatsby-plugin-schema-snapshot": "^4.14.0",
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-plugin-sitemap": "^6.14.0",
@@ -56,18 +46,10 @@
     "gatsby-source-filesystem": "^5.14.0",
     "gatsby-transformer-remark": "^6.14.0",
     "gatsby-transformer-sharp": "^5.14.0",
-    "hugeicons-react": "^0.3.0",
-    "preact": "^10.27.1",
-    "preact-render-to-string": "^5.2.6",
     "prop-types": "^15.8.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-fast-marquee": "^1.6.5",
-    "react-icons": "^5.5.0",
-    "react-player": "^2.16.1",
-    "sass": "1.77.8",
-    "styled-components": "^6.1.19",
-    "write-good": "^1.0.8"
+    "react-icons": "^5.5.0"
   },
   "overrides": {
     "react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825": {
@@ -80,5 +62,8 @@
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.32",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.0"
+  },
+  "engines": {
+    "node": ">=22 <23"
   }
 }

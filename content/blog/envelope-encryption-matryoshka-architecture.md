@@ -4,7 +4,7 @@ date: 2025-06-07T00:00:00+05:30
 basecolor: "#8B5CF6"
 author: Mayank Raj
 category: Security & Cryptography
-bgimage: serverless-arch
+bgimage: default-blog-cover
 page_slug: "/blog/envelope-encryption-matryoshka-architecture"
 abstract: Envelope encryption seems unnecessarily complex until you're processing millions of transactions per second and your KMS bill hits $1M/month. Discover how the two-tiered key hierarchy—DEKs wrapped by KEKs—reduces costs by 400x, enables cryptographic shredding for GDPR compliance, and provides the agility needed for post-quantum cryptography transitions, all while keeping your infrastructure from melting.
 keywords: envelope encryption, KMS, AWS Key Management Service, cryptography, data encryption key, key encryption key, HSM, hardware security module, GDPR, PCI DSS, cryptographic shredding, key rotation, post-quantum cryptography, cloud security

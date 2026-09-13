@@ -5,7 +5,7 @@ basecolor: "#EF6262"
 author: "Mayank Raj"
 enablecomments: false
 category: "Serverless Architecture"
-bgimage: "serverless-arch"
+bgimage: default-blog-cover
 page_slug: "/blog/serverless-architecture-101"
 ---
 

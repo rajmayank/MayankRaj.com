@@ -1,16 +1,16 @@
 import React from "react";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import OutboundLink from "../common/OutboundLink";
 import { StaticImage } from "gatsby-plugin-image";
 import Icon from "../common/Icon";
 
 /**
  * Main header component for the homepage
  * Features animated design layers and personal branding
- * Uses Tailwind utilities for simple layout alongside SCSS for complex animations
+ * Uses Tailwind utilities with custom CSS for the signature choreography
  */
 const Header = () => (
-  <header className="relative">
-    <div className="design-container">
+  <header className="signature-header relative">
+    <div className="design-container" aria-hidden="true">
       <div className="layer-1"></div>
       <div className="layer-2 --layer-2"></div>
       <div className="layer-3 --layer-3"></div>
@@ -18,16 +18,17 @@ const Header = () => (
 
     <div className="header-content">
       <div className="name-container">
-        <div className="name-block">
-          <Icon name="headerName" />
-        </div>
+        <h1 className="name-block">
+          <span className="sr-only">Mayank Raj</span>
+          <Icon name="headerName" aria-hidden="true" className="block w-full" />
+        </h1>
       </div>
 
       <div className="description-container">
         <div className="row">
           <div className="description-block">
             <span className="row-1 title animate">
-              Staff Engineer, Core Infra @ Stripe
+              Staff Engineer, Infrastructure @ Stripe
             </span>
           </div>
         </div>
@@ -54,7 +55,7 @@ const Header = () => (
             <StaticImage
               src="../../assets/images/badges/aws-certified-solutions-architect-professional.png"
               alt="AWS Certified Solutions Architect – Professional"
-              className="animate professional"
+              className="animate"
               width={150}
               placeholder="blurred"
             />
@@ -67,7 +68,7 @@ const Header = () => (
             <StaticImage
               src="../../assets/images/badges/cka-certified-kubernetes-administrator.png"
               alt="CKA - Certified Kubernetes Administrator"
-              className="animate size-bg"
+              className="animate"
               width={150}
               placeholder="blurred"
             />

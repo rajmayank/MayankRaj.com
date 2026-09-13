@@ -4,7 +4,7 @@ date: 2025-12-27T00:00:00+05:30
 basecolor: "#EF6262"
 author: Mayank Raj
 category: Serverless Architecture
-bgimage: serverless-arch
+bgimage: default-blog-cover
 page_slug: "/blog/lambda-durable-functions-stateless-lie"
 abstract: For over a decade, AWS Lambda's 15-minute execution limit forced developers to fragment continuous workflows across complex state machines. Lambda Durable Functions changes everything - enabling functions to run for up to one year while preserving state. Discover how checkpoint-replay architecture, deterministic execution, and AI-driven use cases are reshaping serverless computing.
 keywords: AWS Lambda, Durable Functions, serverless, stateful computing, long-running workflows, AI workflows, checkpoint architecture, AWS, cloud computing

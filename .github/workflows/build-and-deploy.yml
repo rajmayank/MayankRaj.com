@@ -29,10 +29,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-
-      - name: Enable Corepack
-        run: corepack enable
+          node-version: "22"
+          cache: "npm"
 
       - name: Setup Pages
         id: pages
@@ -41,13 +39,10 @@ jobs:
           static_site_generator: gatsby
 
       - name: Install Dependencies
-        run: yarn install
-
-      - name: Install Gatsby CLI
-        run: npm install -g gatsby-cli@2.12.34
+        run: npm ci
 
       - name: Build Site
-        run: yarn build
+        run: npm test && npm run build && npm run check:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

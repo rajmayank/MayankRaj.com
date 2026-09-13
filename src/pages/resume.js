@@ -10,7 +10,6 @@ export default function ResumePage() {
   return (
     <RedirectPage
       to={TARGET_URL}
-      title={TITLE}
       description={DESCRIPTION}
       linkLabel="Open Resume PDF"
     />
