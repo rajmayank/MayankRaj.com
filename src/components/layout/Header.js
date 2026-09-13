@@ -28,7 +28,7 @@ const Header = () => (
         <div className="row">
           <div className="description-block">
             <span className="row-1 title animate">
-              Staff Engineer, Core Infra @ Stripe
+              Staff Engineer, Infrastructure @ Stripe
             </span>
           </div>
         </div>

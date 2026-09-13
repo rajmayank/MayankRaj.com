@@ -17,15 +17,15 @@ import {
 
 const SKILL_ICONS = ["javascript", "python", "aws", "docker", "drone"];
 const HOME_DESCRIPTION =
-  "Mayank Raj is a Staff Engineer on Stripe's Core Infra team, writing about infrastructure, reliability, security, AI systems, cloud architecture, and builder communities.";
+  "Mayank Raj is a Staff Engineer on Stripe's Infrastructure team, writing about infrastructure, reliability, security, AI systems, cloud architecture, and builder communities.";
 const HOME_KEYWORDS =
-  "Mayank Raj, Staff Engineer, Stripe Core Infra, infrastructure, reliability engineering, security, AI systems, cloud architecture, Sudomeet, OpenAI Codex meetups";
+  "Mayank Raj, Staff Engineer, Stripe Infrastructure, infrastructure, reliability engineering, security, AI systems, cloud architecture, Sudomeet, OpenAI Codex meetups";
 const PERSON_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Mayank Raj",
   url: "https://mayankraj.com",
-  jobTitle: "Staff Engineer, Core Infra",
+  jobTitle: "Staff Engineer, Infrastructure",
   worksFor: {
     "@type": "Organization",
     name: "Stripe",
@@ -83,7 +83,7 @@ const IndexBody = ({ posts, totalCount }) => (
         <p>
           By day, I'm a Staff Engineer at{" "}
           <OutboundLink href="https://stripe.com/">Stripe</OutboundLink> on the
-          Core Infra team. That means I spend a lot of time thinking about the
+          Infrastructure team. That means I spend a lot of time thinking about the
           boring-looking foundations that quietly decide whether everything
           above them feels fast, safe, and reliable. The glamorous part is
           architecture. The honest part is making sure the floor does not
@@ -238,7 +238,7 @@ export default IndexPage;
 
 export const Head = () => (
   <Seo
-    title="Staff Engineer, Core Infra at Stripe"
+    title="Staff Engineer, Infrastructure at Stripe"
     description={HOME_DESCRIPTION}
     pathname="/"
     meta={[
