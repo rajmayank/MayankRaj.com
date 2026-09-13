@@ -58,22 +58,12 @@ const customIcons = {
       </text>
       <defs>
         <clipPath id="text1">
-          <text
-            textAnchor="start"
-            x="10"
-            y="30"
-            className="header-name-text"
-          >
+          <text textAnchor="start" x="10" y="30" className="header-name-text">
             Mayank
           </text>
         </clipPath>
         <clipPath id="text2">
-          <text
-            textAnchor="start"
-            x="10"
-            y="70"
-            className="header-name-text"
-          >
+          <text textAnchor="start" x="10" y="70" className="header-name-text">
             Raj
           </text>
         </clipPath>
@@ -125,7 +115,13 @@ const Icon = ({ name, className = "", style = {}, ...props }) => {
     return null;
   }
 
-  return <IconComponent className={className} style={style} {...props} />;
+  return (
+    <IconComponent
+      className={`inline-block size-[1.2em] shrink-0 align-middle ${className}`}
+      style={style}
+      {...props}
+    />
+  );
 };
 
 Icon.propTypes = {

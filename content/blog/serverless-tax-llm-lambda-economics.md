@@ -4,7 +4,7 @@ date: 2025-07-08T00:00:00+05:30
 basecolor: "#F59E0B"
 author: Mayank Raj
 category: Serverless Architecture
-bgimage: serverless-arch
+bgimage: default-blog-cover
 page_slug: "/blog/serverless-tax-llm-lambda-economics"
 abstract: Your AI feature shipped and users love it, but your AWS Lambda bill tripled overnight. While your function does 55ms of actual work, you're paying for 4,855ms of waiting for LLM responses. Discover why serverless pricing—designed for compute-heavy workloads—becomes economically upside-down for I/O-heavy LLM applications, and learn the architectural patterns that fix the 88x cost multiplier without sacrificing user experience.
 keywords: AWS Lambda, serverless, LLM, large language models, cloud costs, API Gateway, WebSockets, RAG, retrieval augmented generation, GPT-4, Claude, AI infrastructure, Lambda pricing, serverless economics

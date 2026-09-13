@@ -1,107 +1,96 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "gatsby";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { graphql, Link } from "gatsby";
+import OutboundLink from "../common/OutboundLink";
 import Icon from "../common/Icon";
+import ArticleMeta from "./ArticleMeta";
 
-/**
- * Blog post listing component
- * Displays a list of blog posts with external link support
- * Uses the existing website's design system and typography
- */
-const BlogPostListing = ({ posts, is_compact = false }) => {
-  const postsCount = posts.length;
-  const displayPosts = is_compact ? posts.slice(0, 4) : posts;
-
+export default function BlogPostListing({
+  posts,
+  compact = false,
+  totalCount = posts.length,
+}) {
+  const Heading = compact ? "h3" : "h2";
   return (
-    <div className="mt-32">
-      {is_compact && (
-        <div className="mb-16">
-          <h2 className="m-0 font-primary text-[2.2rem] font-bold leading-[1.3] text-front md:text-[2.4rem] lg:text-[2.8rem]">
-            Recent articles from{" "}
-            <Link to="/blog" className="text-accent transition-opacity duration-200 hover:opacity-80">
-              blog
-            </Link>
-          </h2>
-        </div>
+    <section
+      className={compact ? "mt-16" : ""}
+      aria-label={compact ? "Recent articles" : "All articles"}
+    >
+      {compact && (
+        <h2 className="mb-8 text-section">
+          Recent articles from{" "}
+          <Link to="/blog/" className="brand-link text-accent">
+            the blog
+          </Link>
+        </h2>
       )}
-
-      <div className="flex flex-col">
-        {displayPosts.map(({ node: post }, index) => (
-          <article
-            key={index}
-            className="border-b border-subtle py-10 first:pt-0 last:border-b-0 transition-all duration-200"
-          >
-            <h3 className="m-0 mb-4 font-primary text-[1.8rem] font-bold leading-[1.35] text-front sm:text-[2rem] lg:text-[2.4rem]">
-              {post.frontmatter.external_link ? (
+      <div className="divide-y divide-subtle">
+        {posts.map(({ id, frontmatter: post }) => (
+          <article key={id} className="py-7 first:pt-0">
+            <Heading className="mb-3 text-xl font-semibold leading-snug sm:text-2xl">
+              {post.external_link ? (
                 <OutboundLink
-                  href={post.frontmatter.external_link}
+                  href={post.external_link}
                   target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-3 text-front transition-colors duration-200 hover:text-accent"
+                  className="hover:text-accent"
                 >
-                  {post.frontmatter.title}
-                  <span className="inline-flex flex-shrink-0 items-center text-[1.4rem] text-accent opacity-70">
-                    <Icon name="outboundLink" />
-                  </span>
+                  {post.title}{" "}
+                  <Icon
+                    name="outboundLink"
+                    aria-label="External article"
+                    className="ml-1 text-sm text-accent"
+                  />
                 </OutboundLink>
               ) : (
-                <Link
-                  to={post.frontmatter.page_slug}
-                  className="inline-flex items-center gap-3 text-front transition-colors duration-200 hover:text-accent"
-                >
-                  {post.frontmatter.title}
+                <Link to={post.page_slug} className="hover:text-accent">
+                  {post.title}
                 </Link>
               )}
-            </h3>
-
-            <div className="flex flex-wrap items-center gap-3 font-primary text-[1.1rem] leading-[1.4] text-front-muted sm:text-[1.2rem] lg:text-[1.3rem]">
-              <time>{post.frontmatter.date}</time>
-              
-              {post.frontmatter.category && (
-                <>
-                  <span className="mx-[0.2rem] opacity-30 text-subtle-dark">•</span>
-                  <span className="text-[1.1rem] font-semibold uppercase tracking-[0.05em] text-front-muted lg:text-[1.2rem]">
-                    {post.frontmatter.category}
-                  </span>
-                </>
-              )}
-
-              {post.frontmatter.external_site_name && (
-                <>
-                  <span className="mx-[0.2rem] opacity-30 text-subtle-dark">•</span>
-                  <span>
-                    Published at{" "}
-                    <OutboundLink
-                      href={post.frontmatter.external_site_link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="font-medium text-accent hover:underline"
-                    >
-                      {post.frontmatter.external_site_name}
-                    </OutboundLink>
-                  </span>
-                </>
+            </Heading>
+            <div className="space-y-1 text-meta text-front-muted">
+              <ArticleMeta
+                date={post.date}
+                dateISO={post.dateISO}
+                category={post.category}
+              />
+              {post.external_site_name && (
+                <p>
+                  Published at{" "}
+                  <OutboundLink
+                    href={post.external_site_link}
+                    className="brand-link"
+                  >
+                    {post.external_site_name}
+                  </OutboundLink>
+                </p>
               )}
             </div>
           </article>
         ))}
       </div>
-
-      {is_compact && postsCount > 4 && (
-        <div className="mt-16 text-center font-primary text-[1.6rem] font-medium lg:text-[1.8rem]">
-          <Link to="/blog" className="text-accent underline hover:no-underline">
-            View all {postsCount} articles →
-          </Link>
-        </div>
+      {compact && totalCount > posts.length && (
+        <Link
+          to="/blog/"
+          className="brand-link mt-6 inline-block py-3 text-body font-semibold text-accent"
+        >
+          View all {totalCount} articles →
+        </Link>
       )}
-    </div>
+    </section>
   );
-};
+}
 
-BlogPostListing.propTypes = {
-  posts: PropTypes.array.isRequired,
-  is_compact: PropTypes.bool,
-};
-
-export default BlogPostListing;
+export const articleListItem = graphql`
+  fragment ArticleListItem on MarkdownRemark {
+    id
+    frontmatter {
+      title
+      date(formatString: "MMMM D, YYYY")
+      dateISO: date(formatString: "YYYY-MM-DD")
+      category
+      page_slug
+      external_link
+      external_site_name
+      external_site_link
+    }
+  }
+`;

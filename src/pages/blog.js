@@ -1,80 +1,42 @@
 import React from "react";
 import { graphql } from "gatsby";
-
-import BlogIndexCover from "../assets/images/blog_covers/blog_index_cover.jpeg";
-
 import {
   CompactHeader,
   BlogPostListing,
   ContentContainer,
-  Footer,
   Seo,
 } from "../components";
+import PageLayout from "../components/layout/PageLayout";
 
-class BlogListPage extends React.Component {
-  render() {
-    const posts = this.props.data.allMarkdownRemark.edges;
-
-    return (
-      <div>
-        <CompactHeader
-          title="Blog Articles"
-          mood="#fdfdfd"
-          bgUrl={BlogIndexCover}
-        />
-        <ContentContainer
-          as="main"
-          className="content-body font-primary text-[1.9rem] leading-[1.6] text-justify"
-        >
-          <BlogPostListing posts={posts} />
-        </ContentContainer>
-        <Footer />
-      </div>
-    );
-  }
-}
-
-export default BlogListPage;
-
-export const Head = () => {
+export default function BlogListPage({ data }) {
   return (
-    <Seo
-      title="Blog"
-      description="Insights on technology, security, and software development"
-      pathname="/blog"
-    />
+    <PageLayout
+      header={<CompactHeader title="Blog articles" image={data.file} />}
+    >
+      <ContentContainer className="mt-12 sm:mt-16">
+        <BlogPostListing posts={data.allMarkdownRemark.nodes} />
+      </ContentContainer>
+    </PageLayout>
   );
-};
-
+}
+export const Head = () => (
+  <Seo
+    title="Blog"
+    description="Insights on technology, security, and software development"
+    pathname="/blog/"
+  />
+);
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
+  query BlogArticles {
+    file(name: { eq: "blog_index_cover" }) {
+      ...ArticleCover
     }
     allMarkdownRemark(
       filter: { frontmatter: { draft: { ne: true } } }
       sort: { frontmatter: { date: DESC } }
-      limit: 200
     ) {
-      edges {
-        node {
-          excerpt
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            basecolor
-            author
-            enablecomments
-            category
-            bgimage
-            external_link
-            external_site_name
-            external_site_link
-            page_slug
-          }
-        }
+      nodes {
+        ...ArticleListItem
       }
     }
   }

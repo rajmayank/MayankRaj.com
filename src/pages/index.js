@@ -1,15 +1,14 @@
 import React from "react";
 
-import Accordion from "@mui/joy/Accordion";
-import AccordionDetails from "@mui/joy/AccordionDetails";
-import AccordionSummary from "@mui/joy/AccordionSummary";
+import Disclosure from "../components/ui/Disclosure";
+import Prose from "../components/common/Prose";
+import PageLayout from "../components/layout/PageLayout";
 import { graphql, Link } from "gatsby";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import OutboundLink from "../components/common/OutboundLink";
 
 import {
   BlogPostListing,
   ContentContainer,
-  Footer,
   Header,
   Icon,
   Seo,
@@ -52,28 +51,34 @@ const PERSON_SCHEMA = {
   ],
 };
 
-const IndexBody = ({ posts }) => (
+const IndexBody = ({ posts, totalCount }) => (
   <>
     <Showcase />
 
-    <ContentContainer as="main" className="content-body text-justify">
-      <section aria-labelledby="home-resume-link" className="mt-16 text-center">
-        <div className="flex items-center justify-center gap-3 font-primary text-[2rem] font-semibold leading-[1.4]">
-          <span className="icon-wrapper" aria-hidden="true">
+    <ContentContainer>
+      <section aria-labelledby="home-resume-link" className="mt-12 text-center">
+        <div className="flex items-center justify-center gap-3 text-body font-semibold">
+          <span className="inline-flex items-center" aria-hidden="true">
             <Icon name="resume" />
           </span>
-          <Link id="home-resume-link" to="/resume" target="_blank" rel="noreferrer">
+          <Link
+            id="home-resume-link"
+            to="/resume"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>Resume</span>
           </Link>
         </div>
       </section>
 
-      <section className="mt-16 font-primary text-[1.9rem] font-normal leading-[1.6]">
+      <Prose as="section" className="mt-10">
         <p>
           Hello, I'm Mayank Raj. I build infrastructure, security, and data
           systems that are expected to keep their composure when production
           starts throwing furniture. I also play the violin, trek whenever the
-          mountains allow it, and occasionally convince drones to behave. Mostly.
+          mountains allow it, and occasionally convince drones to behave.
+          Mostly.
         </p>
         <p>
           By day, I'm a Staff Engineer at{" "}
@@ -81,18 +86,21 @@ const IndexBody = ({ posts }) => (
           Core Infra team. That means I spend a lot of time thinking about the
           boring-looking foundations that quietly decide whether everything
           above them feels fast, safe, and reliable. The glamorous part is
-          architecture. The honest part is making sure the floor does not wobble.
+          architecture. The honest part is making sure the floor does not
+          wobble.
         </p>
         <p>
           Before Stripe, my work moved across security, cryptography, big data,
-          AI systems, and cloud platforms. Different rooms, same obsession:
-          make the complex thing understandable enough that teams can operate it
+          AI systems, and cloud platforms. Different rooms, same obsession: make
+          the complex thing understandable enough that teams can operate it
           without needing a campfire story and three tribal elders.
         </p>
         <ul>
           <li>
             At{" "}
-            <OutboundLink href="https://www.salesforce.com/">Salesforce</OutboundLink>
+            <OutboundLink href="https://www.salesforce.com/">
+              Salesforce
+            </OutboundLink>
             , I worked on security and cryptography for large-scale enterprise
             systems, including benchmarking, caching, and reliability work that
             improved throughput while cutting cost. Very glamorous if your idea
@@ -132,77 +140,60 @@ const IndexBody = ({ posts }) => (
           you respect both the theory and the messy physical world they live in.
         </p>
 
-        <Accordion id="IndexAccordianReadMore">
-          <AccordionDetails id="IndexAccordianReadMoreDetails">
-            <p>
-              The work I enjoy most sits at the uncomfortable boundary between
-              architecture and operations. The diagram says one thing.
-              Production, with its charming lack of respect for diagrams, says
-              another.
-            </p>
-            <p>
-              That is where I like to work: reliability problems, security
-              boundaries, data systems, cost cliffs, and the small design choices
-              that quietly decide whether a system is pleasant to operate or a
-              permanent group project with incident management.
-            </p>
-            <p>A few representative scars:</p>
-            <ul>
-              <li>
-                I've architected a graph database engine that can query ~8TB of
-                raw data for under $30 per query, with an average query time of
-                8 minutes. That is less "needle in a haystack" and more "the
-                haystack is on fire, the needle is invisible, and finance still
-                wants the query to be cheap."
-              </li>
-              <li>
-                I've spoken at conferences, hosted OpenAI Codex community meetups,
-                judged and organized hackathons, and built an AR bot assisted by LLMs
-                for Salesforce conferences, used by over 450 unique users across
-                4 conferences. Systems are fun. Rooms full of curious builders
-                are better.
-              </li>
-              <li>
-                I also run{" "}
-                <OutboundLink href="https://sudomeet.com/">Sudomeet</OutboundLink>,
-                a place for builders to meet, share what they are learning, and
-                make the lonely parts of technical growth a little less lonely.
-                Community work is still infrastructure. The packets are just
-                people.
-              </li>
-            </ul>
-            <p>
-              If you want to talk about infrastructure, reliability, security,
-              cloud architecture, AI systems, trekking routes, or why the violin
-              is basically distributed systems with nicer failure modes, drop me
-              a line!
-            </p>
-          </AccordionDetails>
-          <AccordionSummary
-            id="IndexAccordianReadMoreSumary"
-            sx={{
-              borderTop: "1px solid #ccc",
-              "& .read-less": {
-                display: "none",
-              },
-              "&.Mui-expanded .read-more": {
-                display: "none",
-              },
-              "&.Mui-expanded .read-less": {
-                display: "inline",
-              },
-            }}
-          >
-            <span className="read-more">Read More</span>
-            <span className="read-less">Read Less</span>
-          </AccordionSummary>
-        </Accordion>
-      </section>
+        <Disclosure>
+          <p>
+            The work I enjoy most sits at the uncomfortable boundary between
+            architecture and operations. The diagram says one thing. Production,
+            with its charming lack of respect for diagrams, says another.
+          </p>
+          <p>
+            That is where I like to work: reliability problems, security
+            boundaries, data systems, cost cliffs, and the small design choices
+            that quietly decide whether a system is pleasant to operate or a
+            permanent group project with incident management.
+          </p>
+          <p>A few representative scars:</p>
+          <ul>
+            <li>
+              I've architected a graph database engine that can query ~8TB of
+              raw data for under $30 per query, with an average query time of 8
+              minutes. That is less "needle in a haystack" and more "the
+              haystack is on fire, the needle is invisible, and finance still
+              wants the query to be cheap."
+            </li>
+            <li>
+              I've spoken at conferences, hosted OpenAI Codex community meetups,
+              judged and organized hackathons, and built an AR bot assisted by
+              LLMs for Salesforce conferences, used by over 450 unique users
+              across 4 conferences. Systems are fun. Rooms full of curious
+              builders are better.
+            </li>
+            <li>
+              I also run{" "}
+              <OutboundLink href="https://sudomeet.com/">Sudomeet</OutboundLink>
+              , a place for builders to meet, share what they are learning, and
+              make the lonely parts of technical growth a little less lonely.
+              Community work is still infrastructure. The packets are just
+              people.
+            </li>
+          </ul>
+          <p>
+            If you want to talk about infrastructure, reliability, security,
+            cloud architecture, AI systems, trekking routes, or why the violin
+            is basically distributed systems with nicer failure modes, drop me a
+            line!
+          </p>
+        </Disclosure>
+      </Prose>
 
       <section className="mt-16">
-        <div className="icons-block font-primary text-[2.4rem] font-semibold leading-[1.3]">
+        <div className="flex flex-wrap items-center justify-center gap-4 text-2xl">
           {SKILL_ICONS.map((iconName) => (
-            <span key={iconName} className="icon-wrapper" aria-hidden="true">
+            <span
+              key={iconName}
+              className="inline-flex items-center"
+              aria-hidden="true"
+            >
               <Icon name={iconName} />
             </span>
           ))}
@@ -212,39 +203,35 @@ const IndexBody = ({ posts }) => (
         </div>
       </section>
 
-      <section className="my-12 flex items-center justify-center gap-3 text-center font-primary text-[2rem] font-semibold leading-[1.4]">
-        <span className="icon-wrapper" aria-hidden="true">
+      <section className="my-12 flex items-center justify-center gap-3 text-center text-body font-semibold">
+        <span className="inline-flex items-center" aria-hidden="true">
           <Icon name="videocall" />
         </span>
         <span>
           Sounds Interesting?{" "}
           <OutboundLink
             href="https://calendly.com/mayank-raj/catch-up"
-            className="whitespace-nowrap font-bold text-accent underline hover:no-underline"
+            className="brand-link font-semibold text-accent"
           >
             Hop on a call with me
           </OutboundLink>
         </span>
       </section>
 
-      <BlogPostListing posts={posts} is_compact={true} />
+      <BlogPostListing posts={posts} compact totalCount={totalCount} />
     </ContentContainer>
   </>
 );
 
-class IndexPage extends React.Component {
-  render() {
-    const { data } = this.props;
-    const posts = data.allMarkdownRemark.edges;
-
-    return (
-      <section>
-        <Header />
-        <IndexBody posts={posts} />
-        <Footer />
-      </section>
-    );
-  }
+function IndexPage({ data }) {
+  return (
+    <PageLayout header={<Header />}>
+      <IndexBody
+        posts={data.allMarkdownRemark.nodes}
+        totalCount={data.allMarkdownRemark.totalCount}
+      />
+    </PageLayout>
+  );
 }
 
 export default IndexPage;
@@ -269,34 +256,15 @@ export const Head = () => (
 );
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query HomeArticles {
     allMarkdownRemark(
       filter: { frontmatter: { draft: { ne: true } } }
       sort: { frontmatter: { date: DESC } }
-      limit: 20
+      limit: 4
     ) {
-      edges {
-        node {
-          excerpt
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            basecolor
-            author
-            enablecomments
-            category
-            bgimage
-            external_link
-            external_site_name
-            external_site_link
-            page_slug
-          }
-        }
+      totalCount
+      nodes {
+        ...ArticleListItem
       }
     }
   }

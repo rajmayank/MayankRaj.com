@@ -4,7 +4,7 @@ date: 2025-09-11T00:00:00+05:30
 basecolor: "#2C3E50"
 author: Mayank Raj
 category: System Design
-bgimage: serverless-arch
+bgimage: default-blog-cover
 page_slug: "/blog/cell-based-architecture-blast-radius-containment"
 abstract: Cell-based architecture transforms reliability from preventing failure to containing it. Learn how Slack, Salesforce, and AWS use cellular isolation to achieve mathematical predictability in blast radius containment.
 keywords: cell-based-architecture, blast-radius-containment, distributed-systems, microservices-isolation, availability-zones, fault-tolerance, shuffle-sharding

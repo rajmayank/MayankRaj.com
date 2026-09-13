@@ -1,116 +1,85 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import CompactHeader from "../layout/CompactHeader";
 import ContentContainer from "../layout/ContentContainer";
-import Footer from "../layout/Footer";
+import PageLayout from "../layout/PageLayout";
+import Prose from "../common/Prose";
 import Seo from "../common/Seo";
 
-// Centralized AI disclosure text (rendered in italic container, so no need for emphasis tags)
 const AI_DISCLOSURE_TEXT = `Rumor has it that this article was crafted by a real human named Mayank (mayankraj.com fame) — but who's to say? 
 The artwork, in some cases, took quite a few virtual brushstroke from Bing Image Generator. Claude and Gemini kindly helped in hunting down typos and grammatical oopsies. 
 But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? 
 That's (probably) all Mayank... if he even exists!`;
 
-/**
- * Blog post template component
- * Renders individual blog post pages with header, content, and footer
- * Uses Tailwind utilities for simple layout alongside SCSS for complex styling
- */
-const BlogPost = ({ data }) => {
-  const post = data.markdownRemark;
-  const showAiDisclosure = post.frontmatter.aiDisclosure || false;
-
+export default function BlogPost({ data }) {
+  const { html, frontmatter: post } = data.markdownRemark;
   return (
-    <div>
-      <CompactHeader
-        title={post.frontmatter.title}
-        mood={post.frontmatter.mood}
-        bgImageName={post.frontmatter.bgimage}
-        category={post.frontmatter.category}
-        date={post.frontmatter.date}
-      />
-      <ContentContainer
-        as="main"
-        className="content-body prose prose-lg max-w-none font-primary text-[1.9rem] leading-[1.6] text-justify"
-      >
-        <article>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        </article>
-        {showAiDisclosure && (
-          <div className="ai-disclosure mt-12 rounded border-l-4 border-gray-400 bg-gray-50 p-4 not-prose">
-            <p className="m-0 italic text-gray-700">
+    <PageLayout
+      header={
+        <CompactHeader
+          title={post.title}
+          image={post.cover || data.fallbackCover}
+          color={post.basecolor}
+          category={post.category}
+          date={post.date}
+          dateISO={post.dateISO}
+        />
+      }
+    >
+      <ContentContainer className="mt-12 sm:mt-16">
+        <Prose as="article" dangerouslySetInnerHTML={{ __html: html }} />
+        {post.aiDisclosure && (
+          <aside className="mt-12 rounded-lg border-l-4 border-subtle bg-zinc-50 p-5 text-meta text-front-muted">
+            <p>
               <strong>AI Disclosure:</strong> {AI_DISCLOSURE_TEXT}
             </p>
-          </div>
+          </aside>
         )}
         <nav
           aria-label="Blog post navigation"
-          className="blogEndNav mt-20 border-t border-gray-300 pt-8"
+          className="mt-12 flex flex-wrap justify-between gap-4 border-t border-subtle pt-6 text-body"
         >
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <Link
-              to="/blog"
-              className="font-medium text-accent underline hover:no-underline"
-            >
-              Back to Blogs
-            </Link>
-            <Link
-              to="/"
-              className="font-medium text-accent underline hover:no-underline"
-            >
-              Home
-            </Link>
-          </div>
+          <Link to="/blog/" className="brand-link py-3 text-accent">
+            Back to blogs
+          </Link>
+          <Link to="/" className="brand-link py-3 text-accent">
+            Home
+          </Link>
         </nav>
       </ContentContainer>
-      <Footer />
-    </div>
+    </PageLayout>
   );
-};
-
-BlogPost.propTypes = {
-  data: PropTypes.object.isRequired,
-};
-
-export default BlogPost;
-
+}
 export const Head = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Seo
       title={post.frontmatter.title}
-      description={post.frontmatter.excerpt || post.excerpt}
+      description={post.excerpt}
       pathname={post.frontmatter.page_slug}
-      image={post.frontmatter.bgimage}
-      article={true}
-      datePublished={post.frontmatter.date}
+      image={(post.frontmatter.cover || data.fallbackCover)?.publicURL}
+      article
+      datePublished={post.frontmatter.dateISO}
     />
   );
 };
-
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
+    fallbackCover: file(name: { eq: "default-blog-cover" }) {
+      ...ArticleCover
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
       excerpt(pruneLength: 160)
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM D, YYYY")
+        dateISO: date(formatString: "YYYY-MM-DD")
         basecolor
-        author
-        enablecomments
         category
-        bgimage
-        external_link
-        external_site_name
-        external_site_link
+        cover {
+          ...ArticleCover
+        }
         page_slug
         aiDisclosure
       }

@@ -11,7 +11,6 @@ export default function ScheduleCallPage() {
   return (
     <RedirectPage
       to={TARGET_URL}
-      title={TITLE}
       description={DESCRIPTION}
       linkLabel="Open Calendly"
     />

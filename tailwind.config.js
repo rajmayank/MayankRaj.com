@@ -1,172 +1,88 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    // Pages and components - more specific patterns for better purging
-    "./src/pages/**/*.{js,jsx,ts,tsx}",
-    "./src/components/**/*.{js,jsx,ts,tsx}",
-    "./src/templates/**/*.{js,jsx,ts,tsx}",
-
-    // Content files that might contain Tailwind classes in frontmatter or MDX
-    "./content/**/*.{md,mdx}",
-
-    // Gatsby-specific files
-    "./gatsby-browser.js",
-    "./gatsby-node.js",
-    "./gatsby-config.js",
-
-    // SCSS files that might contain @apply directives or Tailwind references
-    "./src/styles/**/*.{css,scss}",
-  ],
-
-  // Optimized safelist - only include classes that are actually used dynamically
-  safelist: [
-    // Animation classes that are applied dynamically via JavaScript
-    "animate-fade-in",
-    "animate-focus-in",
-
-    // Container classes used in components with conditional logic
-    {
-      pattern: /max-w-(container|post-list)-(sm|md|lg|xl|2xl)/,
-      variants: ["sm", "md", "lg", "xl", "2xl"],
-    },
-    {
-      pattern: /max-w-container-(narrow|wide)-(sm|md|lg|xl)/,
-      variants: ["sm", "md", "lg", "xl"],
-    },
-
-    // Typography classes used in dynamic content
-    {
-      pattern: /text-(footer|text)(-icon|-small|-tiny)?/,
-    },
-
-    // Color classes that might be applied conditionally
-    {
-      pattern: /(text|bg)-header-layer-[1-4]/,
-      variants: ["hover", "focus"],
-    },
-  ],
+  content: ["./src/**/*.{js,jsx}", "./content/**/*.md"],
   theme: {
     extend: {
       colors: {
-        // Body and background colors
-        body: "#fff",
-        back: "#fff",
+        surface: "#fff",
         front: "#111",
-        "front-muted": "#434343",
-        subtle: "#eee",
-        "subtle-dark": "#444444",
-        accent: "#b15757",
-
-        // Header layer colors
+        "front-muted": "#52525b",
+        subtle: "#e4e4e7",
+        accent: "#984848",
         "header-layer-1": "#a74482",
         "header-layer-2": "#693668",
         "header-layer-3": "#ff3562",
-        "header-layer-4": "#693668",
       },
       fontFamily: {
         primary: ["Overpass", "Helvetica", "Arial", "sans-serif"],
-        secondary: ["Fredoka One", "Helvetica", "Arial", "sans-serif"],
-        code: ["Fredoka One", "Helvetica", "Arial", "sans-serif"],
+        display: ["Fredoka One", "Helvetica", "Arial", "sans-serif"],
+        signature: ["Courgette", "cursive"],
+        mono: ["ui-monospace", "SFMono-Regular", "Consolas", "monospace"],
       },
       fontSize: {
-        // Custom font sizes to match SCSS typography system
-        footer: ["1.6rem", "1.35"], // Original footer font size with line-height
-        "footer-icon": ["1.3rem", "1.35"], // Original footer icon size with line-height
-        text: "1.9rem", // Base text size from SCSS
-        "text-small": "1.65rem", // Small text size from SCSS
-        "text-tiny": "1.1rem", // Tiny text size from SCSS
+        body: ["1.125rem", { lineHeight: "1.7" }],
+        meta: ["0.875rem", { lineHeight: "1.5" }],
+        section: [
+          "clamp(1.5rem, 2.5vw, 1.875rem)",
+          { lineHeight: "1.25", fontWeight: "700" },
+        ],
+        "article-title": [
+          "clamp(1.875rem, 4.2vw, 3.375rem)",
+          { lineHeight: "1.4" },
+        ],
       },
-      screens: {
-        sm: "576px",
-        md: "768px",
-        lg: "992px",
-        xl: "1200px",
-        "2xl": "1400px",
-      },
-      maxWidth: {
-        // Container system max-widths matching SCSS breakpoints
-        "container-sm": "540px", // sm breakpoint content-container
-        "container-md": "680px", // md breakpoint content-container
-        "container-lg": "760px", // lg breakpoint content-container
-        "container-xl": "800px", // xl breakpoint content-container
-
-        // Narrow variant max-widths
-        "container-narrow-sm": "400px",
-        "container-narrow-md": "500px",
-        "container-narrow-lg": "600px",
-        "container-narrow-xl": "650px",
-
-        // Wide variant max-widths (matching post-list-container)
-        "container-wide-sm": "720px",
-        "container-wide-md": "960px",
-        "container-wide-lg": "1140px",
-        "container-wide-xl": "1320px",
-
-        // Post list container max-widths
-        "post-list-sm": "540px",
-        "post-list-md": "720px",
-        "post-list-lg": "960px",
-        "post-list-xl": "1140px",
-        "post-list-2xl": "1320px",
-      },
-      spacing: {
-        2.5: "10px", // matches padding: 0 10px in SCSS
-        5: "20px", // matches margin-left: 20px in post-list
-        12.5: "50px", // matches margin-bottom: 50px in post-list
-      },
-      animation: {
-        // Simple animations that can be used as Tailwind alternatives
-        "fade-in": "fade-in 0.6s ease-in forwards", // matches body animation
-        "focus-in": "focus-in 0.75s ease-in forwards",
-        // Complex animations (design-container, header-layer-*, header-svg-stroke) remain in SCSS
-      },
-      keyframes: {
-        "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        "focus-in": {
-          "0%": {
-            filter: "blur(12px)",
-            opacity: "0",
-          },
-          "100%": {
-            filter: "blur(0px)",
-            opacity: "1",
-          },
-        },
-      },
-      typography: {
+      maxWidth: { reading: "48rem", wide: "75rem" },
+      typography: ({ theme }) => ({
         DEFAULT: {
           css: {
-            // Customize typography to match your design system
-            color: '#111',
-            fontFamily: 'Overpass, Helvetica, Arial, sans-serif',
-            fontSize: '1.9rem',
-            lineHeight: '1.5',
-            
-            // Ensure lists have proper styling
-            'ul > li': {
-              listStyleType: 'disc',
-              paddingLeft: '0.5rem',
+            "--tw-prose-body": theme("colors.front"),
+            "--tw-prose-headings": theme("colors.front"),
+            "--tw-prose-links": theme("colors.accent"),
+            "--tw-prose-bold": theme("colors.front"),
+            "--tw-prose-quotes": theme("colors.front-muted"),
+            "--tw-prose-code": theme("colors.front"),
+            maxWidth: "none",
+            fontSize: theme("fontSize.body")[0],
+            lineHeight: "1.7",
+            h2: {
+              fontSize: "1.6em",
+              lineHeight: "1.25",
+              marginTop: "2em",
+              marginBottom: ".75em",
             },
-            'ol > li': {
-              listStyleType: 'decimal',
-              paddingLeft: '0.5rem',
+            h3: { fontSize: "1.25em", lineHeight: "1.35" },
+            "h2, h3, h4": { scrollMarginTop: "1.5rem" },
+            p: { marginTop: "0", marginBottom: "1.25em" },
+            a: {
+              fontWeight: "inherit",
+              textDecorationThickness: "1px",
+              textUnderlineOffset: ".2em",
+              textDecorationSkipInk: "auto",
             },
-            'ul, ol': {
-              paddingLeft: '2rem',
-              marginBottom: '1rem',
+            "a:hover": { textDecorationThickness: "2px" },
+            "code, pre": { fontFamily: theme("fontFamily.mono").join(",") },
+            code: { fontWeight: "400", overflowWrap: "anywhere" },
+            "code::before, code::after": { content: "none" },
+            pre: {
+              fontSize: ".875em",
+              lineHeight: "1.7",
+              borderRadius: ".5rem",
+              overflowX: "auto",
             },
-            'li': {
-              marginBottom: '0.5rem',
+            "pre code": { overflowWrap: "normal" },
+            blockquote: { fontStyle: "normal", fontWeight: "400" },
+            table: {
+              display: "block",
+              width: "100%",
+              overflowX: "auto",
+              fontSize: ".875em",
             },
+            "th, td": { minWidth: "8rem" },
+            img: { borderRadius: ".375rem" },
           },
         },
-      },
+      }),
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };

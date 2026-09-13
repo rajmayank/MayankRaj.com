@@ -19,36 +19,32 @@ const Seo = ({
   datePublished,
   children,
 }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-            siteUrl
-            social {
-              twitter
-            }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          siteUrl
+          social {
+            twitter
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata.title;
-  const canonicalUrl = pathname
-    ? `${site.siteMetadata.siteUrl}${pathname}`
-    : site.siteMetadata.siteUrl;
-  const ogImage = `${site.siteMetadata.siteUrl}${image || ImgWebsiteBase}`;
-  const twitterImage = `${site.siteMetadata.siteUrl}${image || ImgWebsiteBase}`;
+  const canonicalUrl = new URL(pathname || "/", site.siteMetadata.siteUrl).href;
+  const ogImage = new URL(image || ImgWebsiteBase, site.siteMetadata.siteUrl)
+    .href;
 
   // Create schema.org JSONLD
   const schemaOrgWebsite = {
     "@context": "https://schema.org",
-    "@type": "Website",
+    "@type": "WebSite",
     headline: title || defaultTitle,
     image: ogImage,
     url: canonicalUrl,
@@ -88,20 +84,44 @@ const Seo = ({
       <html lang={lang} key="html" />
       <title key="title">{seoTitle}</title>
       <meta key="description" name="description" content={metaDescription} />
-      <meta key="og:title" property="og:title" content={title || defaultTitle} />
-      <meta key="og:description" property="og:description" content={metaDescription} />
-      <meta key="og:type" property="og:type" content="website" />
+      <meta
+        key="og:title"
+        property="og:title"
+        content={title || defaultTitle}
+      />
+      <meta
+        key="og:description"
+        property="og:description"
+        content={metaDescription}
+      />
+      <meta
+        key="og:type"
+        property="og:type"
+        content={article ? "article" : "website"}
+      />
       <meta key="og:url" property="og:url" content={canonicalUrl} />
       <meta key="og:image" property="og:image" content={ogImage} />
-      <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
+      <meta
+        key="twitter:card"
+        name="twitter:card"
+        content="summary_large_image"
+      />
       <meta
         key="twitter:creator"
         name="twitter:creator"
         content={site.siteMetadata.social?.twitter || ""}
       />
-      <meta key="twitter:title" name="twitter:title" content={title || defaultTitle} />
-      <meta key="twitter:description" name="twitter:description" content={metaDescription} />
-      <meta key="twitter:image" name="twitter:image" content={twitterImage} />
+      <meta
+        key="twitter:title"
+        name="twitter:title"
+        content={title || defaultTitle}
+      />
+      <meta
+        key="twitter:description"
+        name="twitter:description"
+        content={metaDescription}
+      />
+      <meta key="twitter:image" name="twitter:image" content={ogImage} />
       <link key="canonical" rel="canonical" href={canonicalUrl} />
       {meta.map((item, index) => (
         <meta key={`custom-meta-${index}`} {...item} />

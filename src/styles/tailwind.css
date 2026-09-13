@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 100%;
+    scroll-padding-top: 1.5rem;
+  }
+  body {
+    @apply bg-surface font-primary text-front antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.accent");
+    outline-offset: 4px;
+  }
+  ::selection {
+    background: #f6bdfa;
+    color: #111;
+  }
+}
+
+@layer components {
+  .brand-link {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-skip-ink: auto;
+  }
+  .brand-link:hover {
+    text-decoration-thickness: 2px;
+  }
+  .control {
+    @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-subtle bg-white px-4 text-meta font-semibold text-front transition-colors hover:border-accent hover:text-accent;
+  }
+}
