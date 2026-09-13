@@ -113,10 +113,12 @@
   isolation: isolate;
   overflow: hidden;
   padding: clamp(3rem, 8vw, 7rem) 0;
+  /* Cover the 3.49vw rise from the skew without moving the title or lower edge. */
+  padding-top: calc(clamp(3rem, 8vw, 7rem) + 1.5vw);
   background: theme("colors.header-layer-2");
   transform: skewY(2deg);
   transform-origin: bottom left;
-  margin-top: -2.5vw;
+  margin-top: -4vw;
   border-bottom: 0.375rem solid var(--article-color, theme("colors.accent"));
 }
 .article-header > .max-w-wide {
