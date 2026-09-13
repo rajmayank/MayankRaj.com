@@ -23,13 +23,10 @@ export default function Showcase() {
     data.allFile.nodes.map((node) => [node.name, getImage(node)]),
   );
   const section = useRef(null);
-  const [paused, setPaused] = useState(false);
   const [exploring, setExploring] = useState(false);
-  const [focused, setFocused] = useState(false);
   const [inView, setInView] = useState(false);
   const { reduced, visible } = useMotion();
-  const playing =
-    !paused && !exploring && !focused && !reduced && visible && inView;
+  const playing = !exploring && !reduced && visible && inView;
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) =>
@@ -48,12 +45,13 @@ export default function Showcase() {
         if (event.pointerType === "mouse") setExploring(true);
       }}
       onPointerLeave={() => setExploring(false)}
-      onTouchStart={() => setPaused(true)}
-      onFocusCapture={() => setFocused(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget))
-          setFocused(false);
+      onPointerDown={(event) => {
+        if (event.pointerType !== "mouse") setExploring(true);
       }}
+      onPointerUp={(event) => {
+        if (event.pointerType !== "mouse") setExploring(false);
+      }}
+      onPointerCancel={() => setExploring(false)}
     >
       <h2 id="showcase-heading" className="sr-only">
         Speaking and media appearances
@@ -63,8 +61,8 @@ export default function Showcase() {
           className="showcase-track"
           style={{
             animationPlayState: playing ? "running" : "paused",
-            "--showcase-duration": `${(showcaseData.length * 266) / 275}s`,
-            "--showcase-duration-wide": `${(showcaseData.length * 466) / 275}s`,
+            "--showcase-duration": `${(showcaseData.length * 266) / 160}s`,
+            "--showcase-duration-wide": `${(showcaseData.length * 466) / 160}s`,
           }}
         >
           {[...showcaseData, ...showcaseData].map((item, index) => (
@@ -100,25 +98,6 @@ export default function Showcase() {
             staticCard
           />
         ))}
-      </ContentContainer>
-      <ContentContainer
-        width="wide"
-        className="mt-5 flex justify-end motion-reduce:hidden"
-      >
-        <button
-          type="button"
-          className="control"
-          aria-pressed={paused}
-          onClick={() => {
-            if (paused) {
-              setFocused(false);
-              setExploring(false);
-            }
-            setPaused((value) => !value);
-          }}
-        >
-          {paused ? "Play showcase" : "Pause showcase"}
-        </button>
       </ContentContainer>
     </section>
   );

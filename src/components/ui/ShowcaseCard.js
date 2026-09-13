@@ -10,14 +10,19 @@ export default function ShowcaseCard({
   const ref = useRef(null);
   const video = useRef(null);
   const [inView, setInView] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
+    if (staticCard || item.type !== "video") return;
     const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.25 },
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) setLoaded(true);
+      },
+      { rootMargin: "0px 500px", threshold: 0 },
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
-  }, []);
+  }, [staticCard, item.type]);
   useEffect(() => {
     if (!video.current) return;
     if (playing && inView) video.current.play().catch(() => {});
@@ -36,7 +41,7 @@ export default function ShowcaseCard({
           muted
           playsInline
           preload="none"
-          src={inView ? item.video : undefined}
+          src={loaded ? item.video : undefined}
           poster={item.poster}
           aria-hidden="true"
         ></video>

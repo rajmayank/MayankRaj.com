@@ -250,7 +250,7 @@
   }
 }
 
-/* A seamless, slanted ribbon preserves the original showcase density and pace. */
+/* Keep the dense slanted ribbon on its own animation layer. */
 .showcase-slant {
   overflow: hidden;
   transform: skewY(3deg);
@@ -266,6 +266,7 @@
 .showcase-track {
   display: flex;
   width: max-content;
+  will-change: transform;
   animation: showcase-scroll var(--showcase-duration) linear infinite;
 }
 .showcase-card {
@@ -275,8 +276,11 @@
   transform: rotate(-3deg);
 }
 @keyframes showcase-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 @media (min-width: 768px) {
@@ -287,5 +291,6 @@
 @media (prefers-reduced-motion: reduce) {
   .showcase-track {
     animation: none;
+    will-change: auto;
   }
 }

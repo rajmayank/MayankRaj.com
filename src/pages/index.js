@@ -203,19 +203,19 @@ const IndexBody = ({ posts, totalCount }) => (
         </div>
       </section>
 
-      <section className="my-12 flex items-center justify-center gap-3 text-center text-body font-semibold">
-        <span className="inline-flex items-center" aria-hidden="true">
-          <Icon name="videocall" />
-        </span>
-        <span>
-          Sounds Interesting?{" "}
-          <OutboundLink
-            href="https://calendly.com/mayank-raj/catch-up"
-            className="brand-link font-semibold text-accent"
-          >
-            Hop on a call with me
-          </OutboundLink>
-        </span>
+      <section className="my-12 flex flex-col items-center gap-2 text-center text-body font-semibold">
+        <p className="flex items-center justify-center gap-3">
+          <span className="inline-flex items-center" aria-hidden="true">
+            <Icon name="videocall" />
+          </span>
+          Sounds Interesting?
+        </p>
+        <OutboundLink
+          href="https://calendly.com/mayank-raj/catch-up"
+          className="brand-link font-semibold text-accent"
+        >
+          Hop on a call with me
+        </OutboundLink>
       </section>
 
       <BlogPostListing posts={posts} compact totalCount={totalCount} />
