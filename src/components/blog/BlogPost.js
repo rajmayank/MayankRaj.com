@@ -6,10 +6,7 @@ import PageLayout from "../layout/PageLayout";
 import Prose from "../common/Prose";
 import Seo from "../common/Seo";
 
-const AI_DISCLOSURE_TEXT = `Rumor has it that this article was crafted by a real human named Mayank (mayankraj.com fame) — but who's to say? 
-The artwork, in some cases, took quite a few virtual brushstroke from Bing Image Generator. Claude and Gemini kindly helped in hunting down typos and grammatical oopsies. 
-But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? 
-That's (probably) all Mayank... if he even exists!`;
+const AI_DISCLOSURE_TEXT = `Rumor has it that this article was crafted by a real human named Mayank (mayankraj.com fame)! But who's to say? The artwork, in some cases, took quite a few virtual brushstroke from Bing Image Generator. Claude and Gemini kindly helped in hunting down typos and grammatical oopsies. But all the sentences (including this very one), the bad puns, quirky ideas, and alleged human charm? That's (probably) all Mayank... if he even exists!`;
 
 export default function BlogPost({ data }) {
   const { html, frontmatter: post } = data.markdownRemark;
