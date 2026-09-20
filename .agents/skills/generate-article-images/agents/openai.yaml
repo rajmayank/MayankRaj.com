@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate Article Images"
+  short_description: "Create matched blog covers and social artwork"
+  default_prompt: "Use $generate-article-images to create a matched cover and OG image for this article."
