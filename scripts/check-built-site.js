@@ -27,6 +27,11 @@ for (const page of pages) {
   const data = page.result.data;
   const post = data.markdownRemark;
   const cover = post.frontmatter.cover || data.fallbackCover;
+  const social = post.frontmatter.socialImage || cover;
+  assert.ok(
+    social?.publicURL && fs.existsSync(path.join(output, social.publicURL)),
+    `Missing social artwork: ${page.path}`,
+  );
   assert.ok(
     cover?.childImageSharp?.gatsbyImageData,
     `Missing artwork: ${page.path}`,
@@ -57,8 +62,13 @@ for (const page of pages) {
   );
   const meta = html.match(/<meta\b[^>]*property="og:image"[^>]*>/)?.[0];
   assert.ok(
-    meta?.includes(`https://mayankraj.com${cover.publicURL}`),
+    meta?.includes(`https://mayankraj.com${social.publicURL}`),
     `Invalid social image: ${page.path}`,
+  );
+  const twitter = html.match(/<meta\b[^>]*name="twitter:image"[^>]*>/)?.[0];
+  assert.ok(
+    twitter?.includes(`https://mayankraj.com${social.publicURL}`),
+    `Invalid Twitter image: ${page.path}`,
   );
   assert.ok(
     new RegExp(`datetime="${post.frontmatter.dateISO}"`, "i").test(html),
