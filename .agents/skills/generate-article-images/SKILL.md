@@ -7,9 +7,8 @@ description: Generate matched abstract blog covers and social sharing images for
 
 ## Establish the article and contract
 
-Read the full requested article in `content/blog`, applicable repository instructions,
-and [the image contract](../../../docs/article-images.md) before generating anything.
-Treat that contract as authoritative for fields, paths, supported formats and fallback.
+Read the full requested article in `content/blog` and applicable repository instructions
+before generating anything. Follow the image contract below.
 Resolve the article by its title or `page_slug`; do not assume the URL slug matches
 its Markdown filename. If ambiguous, locate candidate articles before asking.
 
@@ -17,6 +16,34 @@ Read the current `bgimage`, `ogimage` and `basecolor`, and inspect any existing
 artwork being preserved. Derive a concrete visual metaphor from the article's
 mechanism or central argument, not merely its title or a generic technology icon.
 Briefly explain the metaphor and intended dominant accent colour.
+
+## Image contract
+
+Use the Markdown filename stem for asset names, which can differ from `page_slug`.
+Store covers in `src/assets/images/blog_covers/<article-stem>-cover.jpg` and social
+artwork in `src/assets/images/blog_og/<article-stem>-og.jpg`. Use flat folders and
+one image per stem in each folder. Gatsby already sources both through `src/assets`.
+PNG, JPG/JPEG and WebP are supported; prefer JPG or PNG for social images.
+
+Set frontmatter to filename stems without extensions, paths or URLs:
+
+```yaml
+bgimage: example-article-cover
+ogimage: example-article-og
+basecolor: "#1458DD"
+```
+
+Target 2400 × 800 px (3:1) for covers and 1600 × 1200 px (4:3) for social artwork.
+These are authoring targets, not schema constraints. Social platforms may crop 4:3;
+keep the concept readable in centred square and wider crops as well.
+
+Headers use `cover`, resolved from `bgimage`. Open Graph, Twitter and article
+structured data use `socialImage`, resolved from optional `ogimage`, then fall back
+to the article cover, `default-blog-cover`, and finally the SEO site image. Missing,
+blank or unresolved OG references fall back at build time, including unsupported
+file extensions. This does not detect later HTTP failures. Existing `bgimage`
+names remain valid without migration. An explicitly missing cover remains a build
+error; omit `bgimage` to use the default cover.
 
 ## Art direction: bold editorial abstraction
 
@@ -75,7 +102,7 @@ Check centred square/wide social crops and the responsive article header, where
 `object-fit: cover` and title wrapping can crop either axis. Do not promise every
 pixel will survive every crop. Revise a composition if its core idea is lost.
 
-Store final assets following `docs/article-images.md`:
+Store final assets following the image contract above:
 
 - `src/assets/images/blog_covers/<article-stem>-cover.jpg`
 - `src/assets/images/blog_og/<article-stem>-og.jpg`
@@ -90,7 +117,7 @@ Set `bgimage` to the cover stem, `ogimage` to the social stem and `basecolor` to
 dominant accent hex. Preserve article prose and unrelated metadata. Existing posts
 without social artwork remain valid because the website handles fallback.
 
-Run the contract's validation commands. Inspect generated `og:image` and
+Run `npm test`, `npm run build` and `npm run check:build` with Node 22. Inspect generated `og:image` and
 `twitter:image` URLs and confirm that the header still uses the horizontal cover.
 Report the article, asset paths, actual dimensions, accent, validation results and
 any limits. Finish with the repository's normal review workflow; generation does
