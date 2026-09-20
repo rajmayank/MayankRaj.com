@@ -1,5 +1,6 @@
 const path = require(`path`);
 const validateCovers = require("./lib/validate-covers");
+const { resolveArtwork } = require("./lib/article-images");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({
@@ -79,7 +80,10 @@ exports.createSchemaCustomization = ({ actions }) => {
   const typeDefs = `
     type MarkdownRemarkFrontmatter {
       aiDisclosure: Boolean
+      bgimage: String
+      ogimage: String
       cover: File
+      socialImage: File
     }
   `;
   createTypes(typeDefs);
@@ -106,24 +110,19 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
   }
 };
 
-// Cover names also occur as Markdown filenames; limit resolution to the artwork directory.
+// Scope both references to their artwork folders, never Markdown filenames.
 exports.createResolvers = ({ createResolvers }) => {
   createResolvers({
     MarkdownRemarkFrontmatter: {
       cover: {
         type: "File",
         resolve: (source, args, context) =>
-          source.bgimage
-            ? context.nodeModel.findOne({
-                type: "File",
-                query: {
-                  filter: {
-                    name: { eq: source.bgimage },
-                    relativeDirectory: { eq: "images/blog_covers" },
-                  },
-                },
-              })
-            : null,
+          resolveArtwork(context, source.bgimage, "images/blog_covers"),
+      },
+      socialImage: {
+        type: "File",
+        resolve: (source, args, context) =>
+          resolveArtwork(context, source.ogimage, "images/blog_og"),
       },
     },
   });
