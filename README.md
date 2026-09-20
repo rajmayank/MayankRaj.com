@@ -81,3 +81,7 @@ Deployments run through GitHub Actions and publish the built site to GitHub Page
 If something in here is useful, feel free to learn from it, adapt it, and build on top of it. Attribution is appreciated.
 
 The only request: if you fork ideas from the writing or structure, make them yours. Personal websites are better when they feel personal.
+
+Paired cover and social artwork follow the [article image contract](docs/article-images.md). Optional `ogimage` selects social artwork; missing social artwork falls back to the cover.
+
+Use the repository skill [generate-article-images](.agents/skills/generate-article-images/SKILL.md) to create matched artwork and update article metadata under that contract.
